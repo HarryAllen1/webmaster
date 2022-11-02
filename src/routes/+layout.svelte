@@ -1,7 +1,5 @@
 <script lang="ts">
-	import 'uno.css';
+	import '../app.scss';
 </script>
 
-<div class="prose">
-	<slot />
-</div>
+<slot />
