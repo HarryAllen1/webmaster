@@ -1,0 +1,23 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  Checking:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: node
+      - name: Install Deps
+        run: npx pnpm i
+      - name: Run svelte-check
+        run: npx pnpm check
