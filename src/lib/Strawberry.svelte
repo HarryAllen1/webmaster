@@ -10,9 +10,7 @@
 		const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js').then(
 			(m) => m.default || m
 		);
-		const { FBXLoader } = await import('three/examples/jsm/loaders/FBXLoader.js').then(
-			(m) => m.default || m
-		);
+
 		const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js').then(
 			(m) => m.default || m
 		);
@@ -22,8 +20,6 @@
 
 		// Models
 		let strawberry: Object3D<Event>;
-		let gem: Object3D<Event>;
-		let light;
 
 		const gltfLoader = new GLTFLoader();
 		gltfLoader.load('/Strawberry_gltf.gltf', (gltf) => {
@@ -89,9 +85,6 @@
 		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 		renderer.setSize(sizes.width, sizes.height);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-		// Animations
-		const clock = new THREE.Clock();
 
 		const tick = () => {
 			// Update controls

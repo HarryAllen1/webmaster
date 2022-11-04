@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Object3D, Event } from 'three';
-	import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
 	let ready = false;
 	let canvas: HTMLCanvasElement;
@@ -91,12 +90,7 @@
 		renderer.setSize(sizes.width, sizes.height);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-		// Animations
-		const clock = new THREE.Clock();
-
 		const tick = () => {
-			const elapsedTime = clock.getElapsedTime();
-
 			// Update controls
 			controls.update();
 
