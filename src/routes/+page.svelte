@@ -6,7 +6,10 @@
 
 <h1 class="text-blue">Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<HoverCard /> 
+<HoverCard />
 <Gem />
+<<<<<<< HEAD
 <Ship />
 <Gem />
+=======
+>>>>>>> 3c7bde7e71fec9d72496ddf9bacb7c2171c26049
