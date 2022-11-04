@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Object3D, Event } from 'three';
-	import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+	import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
 	let ready = false;
 	let canvas: HTMLCanvasElement;
@@ -45,8 +45,6 @@
 			scene.add(light);
 			ready = true;
 		});
-		
-		
 
 		// Lights
 		const ambientLight = new THREE.AmbientLight(0xffffff, 2);

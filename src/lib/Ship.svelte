@@ -13,7 +13,7 @@
 		const { FBXLoader } = await import('three/examples/jsm/loaders/FBXLoader.js').then(
 			(m) => m.default || m
 		);
-        const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js').then(
+		const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js').then(
 			(m) => m.default || m
 		);
 
@@ -22,7 +22,7 @@
 
 		// Models
 		let strawberry: Object3D<Event>;
-        let gem: Object3D<Event>;
+		let gem: Object3D<Event>;
 		let light;
 
 		const gltfLoader = new GLTFLoader();
@@ -44,8 +44,6 @@
 			scene.add(strawberry);
 			ready = true;
 		});
-		
-		
 
 		// Lights
 		const ambientLight = new THREE.AmbientLight(0xffffff, 2);
@@ -92,15 +90,10 @@
 		renderer.setSize(sizes.width, sizes.height);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        
-
 		// Animations
 		const clock = new THREE.Clock();
 
 		const tick = () => {
-
-            
-
 			// Update controls
 			controls.update();
 
@@ -120,4 +113,3 @@
 	class="outline-0 w-48 h-48 opacity-0 transition-opacity duration-1000 ease-in-out"
 	style="opacity: {ready ? 1 : 0}"
 />
-
