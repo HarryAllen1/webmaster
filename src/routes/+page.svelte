@@ -1,7 +1,7 @@
 <script>
-	import Gem from '../lib/Gem.svelte';
-	import Ship from '../lib/Ship.svelte';
-	import HoverCard from '../lib/HoverCard.svelte';
+	import Gem from '$lib/Gem.svelte';
+	import Ship from '$lib/Ship.svelte';
+	import HoverCard from '$lib/HoverCard.svelte';
 </script>
 
 <h1 class="text-blue">Welcome to SvelteKit</h1>
