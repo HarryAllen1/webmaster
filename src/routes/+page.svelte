@@ -1,8 +1,8 @@
 <script>
-	import Gem from '../lib/Gem.svelte';
-	import Strawberry from '../lib/Strawberry.svelte';
-	import Footer from '../lib/Footer.svelte';
-	import HoverCard from '../lib/HoverCard.svelte';
+	import Gem from '$lib/Gem.svelte';
+	import HoverCard from '$lib/HoverCard.svelte';
+	import Strawberry from '$lib/Strawberry.svelte';
+	import Footer from '$lib/Footer.svelte';
 </script>
 
 <h1 class="text-blue">Welcome to SvelteKit</h1>
