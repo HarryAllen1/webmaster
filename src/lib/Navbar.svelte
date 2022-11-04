@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { pages } from '$lib/pages';
-	import { sidebarOpen } from './MobileSidebar.svelte';
 	import { page } from '$app/stores';
 
 	$: pageStore = $page;
@@ -9,35 +8,11 @@
 <div class="sticky top-0 px-8 text-xl mb-4 text-white z-20">
 	<div class="py-4 pr-4 max-w-6xl grid grid-cols-3 items-center mx-auto xl:px-8">
 		<div class="flex items-center space-x-4 md:space-x-0">
-			<button
-				type="button"
-				class="pr-4 text-white lg:hidden"
-				on:click={() => {
-					$sidebarOpen = true;
-				}}
-			>
-				<span class="sr-only">Open sidebar</span>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-6 w-6"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					aria-hidden="true"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M4 6h16M4 12h16M4 18h7"
-					/>
-				</svg>
-			</button>
-			<div class="hidden lg:flex">
+			<div class="flex">
 				{#each pages as page}
 					{#if page.visibleInNavAndSidebar !== false}
 						<a
-							class="mr-6 navbar-link border-b-2 border-white border-opacity-0 hover:border-opacity-100"
+							class="mr-6 navbar-link"
 							href={page.link}
 							class:border-opacity-100={pageStore.url.pathname === page.link}
 						>
@@ -54,9 +29,27 @@
 
 <style lang="scss">
 	.navbar-link {
-		@apply transition-all no-underline;
+		@apply transition-opacity duration-700 mr-6 no-underline relative leading-6 block;
 		&:hover {
 			@apply text-white;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: #fff;
+			transform: scaleX(0);
+			transform-origin: right center;
+			transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+				-webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+		}
+		&::after:hover {
+			transition-duration: 0.4s;
+			transform: scaleX(1);
+			transform-origin: left center;
 		}
 	}
 </style>
