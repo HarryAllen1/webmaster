@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Object3D, Event } from 'three';
+	import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 
 	let ready = false;
 	let canvas: HTMLCanvasElement;
@@ -44,6 +45,27 @@
 			scene.add(light);
 			ready = true;
 		});
+		
+		const material = new THREE.MeshNormalMaterial()
+		const fbxLoader = new FBXLoader();
+		fbxLoader.load('/SpaceShip1.fbx', (object) => {
+			object.traverse(function (child) {
+				if ((child as THREE.Mesh).isMesh){
+					(child as THREE.Mesh).material = material
+        	         if ((child as THREE.Mesh).material) {
+                    	((child as THREE.Mesh).material as THREE.MeshBasicMaterial).transparent = false
+                 	}
+				}
+			})
+			object.scale.set(.01, .01, .01)
+        	scene.add(object)
+		},
+		(xhr) =>{
+			console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+		},
+		(error) => {
+			console.log(error)
+		})
 
 		// Lights
 		const ambientLight = new THREE.AmbientLight(0xffffff, 2);
