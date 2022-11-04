@@ -6,8 +6,8 @@
 	$: pageStore = $page;
 </script>
 
-<div class="sticky top-0 px-6 text-xl mb-4 text-white backdrop-blur bg-purple-800 z-20">
-	<div class="py-4 pr-4 grid grid-cols-3 items-center mx-auto xl:px-8">
+<div class="sticky top-0 px-8 text-xl mb-4 text-white z-20">
+	<div class="py-4 pr-4 max-w-6xl grid grid-cols-3 items-center mx-auto xl:px-8">
 		<div class="flex items-center space-x-4 md:space-x-0">
 			<button
 				type="button"
