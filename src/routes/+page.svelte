@@ -1,6 +1,7 @@
 <script>
 	import Gem from '../lib/Gem.svelte';
-	import Ship from '../lib/Ship.svelte';
+	import Strawberry from '../lib/Strawberry.svelte';
+	import Footer from '../lib/Footer.svelte';
 	import HoverCard from '../lib/HoverCard.svelte';
 </script>
 
@@ -8,5 +9,5 @@
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <HoverCard />
 <Gem />
-<Ship />
-
+<Strawberry />
+<Footer />

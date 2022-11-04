@@ -16,15 +16,15 @@
 <style lang="scss">
 	.card {
 		@apply bg-slate-900;
-		aspect-ratio: 1 / 1.6;
+		aspect-ratio: 1 / 1;
 		cursor: pointer;
 		position: relative;
-		width: 56vmin;
+		width: 50vmin;
 	}
 
 	.card:hover:before {
 		background-position: 100% 100%;
-		transform: scale(1.08, 1.03);
+		transform: scale(1, 1);
 	}
 
 	.card:hover > .card-content {
@@ -41,9 +41,9 @@
 		background: linear-gradient(
 			130deg,
 			transparent 0% 33%,
-			rgb(50, 0, 130) 66%,
-			rgb(180, 64, 240) 83.5%,
-			rgb(255, 200, 255) 100%
+			rgb(36, 0, 94) 66%,
+			rgb(95, 0, 143) 83.5%,
+			rgb(126, 0, 126) 100%
 		);
 		background-position: 0% 0%;
 		background-size: 300% 300%;
@@ -62,11 +62,11 @@
 		background-image: radial-gradient(rgba(255, 255, 255, 0.2) 8%, transparent 8%);
 		background-position: 0% 0%;
 		background-size: 5vmin 5vmin;
-		height: calc(100% - 10vmin);
+		height: calc(100%);
 		padding: 5vmin;
 		position: relative;
 		transition: background-position 350ms ease;
-		width: calc(100% - 10vmin);
+		width: calc(100%);
 		z-index: 2;
 	}
 
