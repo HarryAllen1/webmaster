@@ -8,8 +8,5 @@
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <HoverCard />
 <Gem />
-<<<<<<< HEAD
 <Ship />
 <Gem />
-=======
->>>>>>> 3c7bde7e71fec9d72496ddf9bacb7c2171c26049
