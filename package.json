@@ -12,12 +12,14 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
-		"@rgossiaux/svelte-headlessui": "^1.0.2"
+		"@rgossiaux/svelte-headlessui": "^1.0.2",
+		"three": "^0.146.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
 		"@tailwindcss/typography": "^0.5.7",
+		"@types/three": "^0.144.0",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
 		"autoprefixer": "^10.4.13",
