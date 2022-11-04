@@ -92,12 +92,9 @@
 
 		// Animations
 		const clock = new THREE.Clock();
-		let previousTime = 0;
 
 		const tick = () => {
 			const elapsedTime = clock.getElapsedTime();
-			const _deltaTime = elapsedTime - previousTime;
-			previousTime = elapsedTime;
 			if (gem) {
 				gem.rotation.y = 1.1 * elapsedTime;
 			}
