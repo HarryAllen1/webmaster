@@ -59,8 +59,8 @@
 
 		// Settings
 		const sizes = {
-			width: 200,
-			height: 200,
+			width: 500,
+			height: 500,
 		};
 
 		// Base camera
@@ -70,13 +70,13 @@
 
 		// Controls
 		const controls = new OrbitControls(camera, canvas);
-		controls.enableZoom = false;
+		controls.enableZoom = true;
 		controls.target.set(0, 0.75, 0);
 		controls.enableDamping = true;
 		controls.enablePan = false;
-		// Lock Y Axis
-		controls.minPolarAngle = Math.PI / 2;
-		controls.maxPolarAngle = Math.PI / 2;
+		controls.minDistance = 5;
+		controls.maxDistance = 13;
+		controls.rotateSpeed = 2;
 
 		// Render
 		const renderer = new THREE.WebGLRenderer({
@@ -95,9 +95,6 @@
 
 		const tick = () => {
 			const elapsedTime = clock.getElapsedTime();
-			if (gem) {
-				gem.rotation.y = 1.1 * elapsedTime;
-			}
 
 			// Update controls
 			controls.update();

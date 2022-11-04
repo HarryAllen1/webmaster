@@ -41,9 +41,9 @@
 		background: linear-gradient(
 			130deg,
 			transparent 0% 33%,
-			rgb(98, 0, 234) 66%,
-			rgb(236, 64, 122) 83.5%,
-			rgb(253, 216, 53) 100%
+			rgb(50, 0, 130) 66%,
+			rgb(180, 64, 240) 83.5%,
+			rgb(255, 200, 255) 100%
 		);
 		background-position: 0% 0%;
 		background-size: 300% 300%;
