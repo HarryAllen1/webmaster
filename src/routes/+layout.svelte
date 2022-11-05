@@ -5,7 +5,7 @@
 </script>
 
 <Navbar />
-<main class="prose">
+<main class="prose w-full mx-auto">
 	<slot />
 </main>
 <Footer />
