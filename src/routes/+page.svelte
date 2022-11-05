@@ -8,19 +8,20 @@
 <h1 class="text-blue">Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <div class="ships">
-	<HoverCard name = {"Pelican"} images = "3"/>
-	<HoverCard name = {"Autumn"} images = "2"/>
-	<HoverCard name = {"Falcon"}/>
+	<HoverCard name={'Pelican'} images="3" />
+	<HoverCard name={'Autumn'} images="2" />
+	<HoverCard name={'Falcon'} />
 </div>
 <Gem />
 <Strawberry />
 <Footer />
+
 <style lang="scss">
 	.ships {
-		display :flex;
-		min-width : 100%;
+		display: flex;
+		min-width: 100%;
 	}
-	.ship{
+	.ship {
 		padding: 2%;
 	}
 </style>
