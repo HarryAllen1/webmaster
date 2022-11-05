@@ -5,9 +5,14 @@
 	import Strawberry from '$lib/Strawberry.svelte';
 </script>
 
-<h1 class="text-blue">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<HoverCard />
-<Gem />
-<Strawberry />
-<Footer />
+<svelte:head>
+	<title>Become an Astronaut</title>
+</svelte:head>
+
+<div class="flex flex-col items-center max-w-xl">
+	<h1>Become an Astronaut</h1>
+	<HoverCard />
+	<Gem />
+	<Strawberry />
+	<Footer />
+</div>

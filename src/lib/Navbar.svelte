@@ -23,7 +23,9 @@
 			</div>
 		</div>
 
-		<div class="flex items-center justify-center space-x-4 md:space-x-0 max-h-4">something</div>
+		<div class="flex items-center justify-center space-x-4 md:space-x-0 max-h-4">
+			Become an Astronaut
+		</div>
 	</div>
 </div>
 
