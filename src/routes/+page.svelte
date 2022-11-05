@@ -18,13 +18,3 @@
 	<Strawberry />
 	<Footer />
 </div>
-
-<style lang="scss">
-	.ships {
-		display: flex;
-		min-width: 100%;
-	}
-	.ship {
-		padding: 2%;
-	}
-</style>
