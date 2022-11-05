@@ -11,9 +11,11 @@
 
 <div class="flex flex-col items-center max-w-xl">
 	<h1>Become an Astronaut</h1>
-	<HoverCard name="Pelican" images="3" />
-	<HoverCard name="Autumn" images="2" />
-	<HoverCard name="Falcon" />
+	<div class="flex flex-row gap-4">
+		<HoverCard name="Pelican" images="3" />
+		<HoverCard name="Autumn" images="2" />
+		<HoverCard name="Falcon" />
+	</div>
 	<Gem />
 	<Strawberry />
 	<Footer />
