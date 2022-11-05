@@ -1,25 +1,60 @@
 <script lang="ts">
-	const cardSubtitle = 'Really long subtitle so that the text wraps';
-</script>
+	import { fade } from 'svelte/transition';
+	import { onDestroy} from 'svelte';
 
-<div class="card">
-	<div class="card-content">
-		<h3 class="card-title">Card Title</h3>
-		<h4 class="card-subtitle">
-			{#each cardSubtitle.split(' ') as word, i}
-				<span class="card-subtitle-word z-30" style="transition-delay: {i}ms">{word}</span>
-			{/each}
-		</h4>
+	const cardSubtitle = 'Really long subtitle so that the text wraps';
+	export let name = "";
+	export let images = "1";
+	let hover = false;
+	let num = 1;
+	let ticks = 0;
+	let imgUpdateDelay = 5;
+	let interval = setInterval(() => ticks = ticks, 1000);
+
+	onDestroy(() => clearInterval(interval));
+	async function updateImageTick() {
+		clearInterval(interval);
+		interval = setInterval(() => {
+			ticks++;
+			num = (Math.round(ticks/imgUpdateDelay)%(+images))+1
+  		},1000);			
+	}
+	async function stopImageTick(){
+		clearInterval(interval)
+	}
+</script>
+<div class = "main">
+	<div class="card" 
+	on:mouseenter={() => {
+		hover = true;
+		updateImageTick();
+	}}
+		on:mouseleave={() => {
+			hover = false
+			stopImageTick();
+			}} >
+		<div class="card-content">
+			<h3 class="card-title">{name}</h3>
+			{#if hover}
+			{#key num}
+			<img transition:fade class = "card-subtitle" src="/{name}/{num}.png" alt={name} />
+			{/key}
+			{/if}
+
+		</div>
 	</div>
 </div>
 
 <style lang="scss">
+	.main{
+		min-width: 75%;
+		padding: 5%;
+	}
 	.card {
 		@apply bg-slate-900;
 		aspect-ratio: 1 / 1;
 		cursor: pointer;
 		position: relative;
-		width: 50vmin;
 	}
 
 	.card:hover:before {
@@ -83,6 +118,9 @@
 	}
 
 	.card-subtitle {
+		position : absolute;
+		left:5%;
+		width : 90%;
 		font-size: 3vmin;
 		margin-top: 2vmin;
 	}
