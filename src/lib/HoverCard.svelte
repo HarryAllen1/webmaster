@@ -40,7 +40,12 @@
 			<h3 class="card-title">{name}</h3>
 			{#if hover}
 				{#key num}
-					<img transition:fade class="card-subtitle" src="/{name}/{num}.png" alt={name} />
+					<img
+						transition:fade={{ duration: 300 }}
+						class="card-subtitle"
+						src="/{name}/{num}.png"
+						alt={name + ' img ' + num}
+					/>
 				{/key}
 			{/if}
 		</div>
@@ -104,13 +109,11 @@
 	}
 
 	.card-title {
+		position: relative;
 		color: white;
 		font-family: 'Anek Latin', sans-serif;
 		font-weight: 100%;
 		margin: 0px;
-	}
-
-	.card-title {
 		font-size: 6vmin;
 	}
 
