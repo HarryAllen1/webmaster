@@ -18,6 +18,7 @@
 	<Strawberry />
 	<Footer />
 </div>
+
 <style lang="scss">
 	.ships {
 		display: flex;
