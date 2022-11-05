@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { onDestroy } from 'svelte';
+	import '../app.scss';
 
-	const cardSubtitle = 'Really long subtitle so that the text wraps';
 	export let name = '';
 	export let images = '1';
 	let hover = false;
@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="main">
+<div class="container mx-auto">
 	<div
 		class="card"
 		on:mouseenter={() => {
@@ -48,10 +48,6 @@
 </div>
 
 <style lang="scss">
-	.main {
-		min-width: 100%;
-		padding: 5%;
-	}
 	.card {
 		@apply bg-slate-900;
 		aspect-ratio: 1 / 1;
@@ -107,12 +103,12 @@
 		z-index: 2;
 	}
 
-	.card-title,
-	.card-subtitle {
+	.card-title {
 		color: white;
 		font-family: 'Anek Latin', sans-serif;
-		font-weight: 400;
+		font-weight: 100%;
 		margin: 0px;
+		
 	}
 
 	.card-title {
@@ -122,17 +118,8 @@
 	.card-subtitle {
 		position: absolute;
 		left: 5%;
-		width: 90%;
-		font-size: 3vmin;
-		margin-top: 2vmin;
-	}
+		top: 30%;
+		width: 80%;
 
-	.card-subtitle-word {
-		display: inline-block;
-		margin: 0vmin 0.3vmin;
-		opacity: 0;
-		position: relative;
-		transform: translateY(40%);
-		transition: none;
 	}
 </style>
