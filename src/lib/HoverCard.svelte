@@ -49,7 +49,7 @@
 
 <style lang="scss">
 	.main {
-		min-width: 75%;
+		min-width: 100%;
 		padding: 5%;
 	}
 	.card {
