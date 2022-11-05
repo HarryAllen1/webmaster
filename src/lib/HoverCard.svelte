@@ -108,7 +108,6 @@
 		font-family: 'Anek Latin', sans-serif;
 		font-weight: 100%;
 		margin: 0px;
-		
 	}
 
 	.card-title {
@@ -120,6 +119,5 @@
 		left: 5%;
 		top: 30%;
 		width: 80%;
-
 	}
 </style>
