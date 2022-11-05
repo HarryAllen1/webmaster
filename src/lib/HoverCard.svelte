@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="container mx-auto">
+<div class="container mx-auto h-96 w-96">
 	<div
 		class="card"
 		on:mouseenter={() => {
