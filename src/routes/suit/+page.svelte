@@ -1,7 +1,3 @@
-<script>
-	import Suit from '$lib/Suit.svelte';
-</script>
-
 <svelte:head>
 	<title>Suit</title>
 </svelte:head>
