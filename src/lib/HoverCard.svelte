@@ -22,7 +22,16 @@
 	async function stopImageTick() {
 		clearInterval(interval);
 	}
+
+	$: preloadImageUrls = [...Array(num).keys()].map((key) => `/${name}/${key+1}.png`);
 </script>
+
+<svelte:head>
+    {#each preloadImageUrls as image}
+      <link rel="preload" as="image" href={image} />
+    {/each}
+</svelte:head>
+
 
 <div class="container mx-auto h-96 w-96">
 	<div
