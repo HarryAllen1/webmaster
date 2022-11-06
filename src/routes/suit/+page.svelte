@@ -6,11 +6,14 @@
 	<title>Suit</title>
 </svelte:head>
 
-<h1>The Suit</h1>
+<div>
+	<h1>The Suit</h1>
 
-<h2>MK V Gen 3</h2>
-<img
-	in:fade={{ duration: 1000 }}
-	src="/armor.gif"
-	alt="Mark 5 Gen 3 spartan armor from Halo Infinite"
-/>
+	<h2>MK V Gen 3</h2>
+</div>
+
+<div>
+	<video autoplay loop muted playsinline src="/armor.mp4" in:fade={{ duration: 1000 }}>
+		<track kind="captions" />
+	</video>
+</div>
