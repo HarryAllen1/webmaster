@@ -1,55 +1,106 @@
 <script lang="ts">
-	import { pages } from '$lib/pages';
-	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import MobileSidebar from './MobileSidebar.svelte';
+	import { pages } from './pages';
 
-	$: pageStore = $page;
+	let sidebarOpen = false;
+	let isScrolling = false;
+	let open = false;
+	let timeout: NodeJS.Timeout;
+	let header: HTMLDivElement;
+	let hasBackground: boolean;
+	let cy = 0;
+	let ly = 0;
+	let isHidden = false;
+
+	onMount(async () => {
+		hasBackground = document.body.id === 'updates';
+
+		hasBackground && header.classList.add;
+		// disappear on scroll
+		window.addEventListener('scroll', async (e) => {
+			clearTimeout(timeout);
+
+			if (!isScrolling) isScrolling = true;
+			cy = window.scrollY;
+			if (!hasBackground) {
+				const direction = cy > ly ? 'down' : 'up';
+				if (cy >= innerHeight * 0.45 && direction === 'down') {
+					header.classList.add('is-hidden');
+				} else {
+					header.classList.remove('is-hidden');
+				}
+				if (cy >= innerHeight && innerHeight !== 0 && direction === 'up') {
+					header.classList.add('has-background');
+				} else {
+					header.classList.remove('has-background');
+				}
+				ly = cy;
+			}
+
+			timeout = setTimeout(() => (isScrolling = false), 150);
+		});
+	});
 </script>
 
-<div class="sticky top-0 px-8 text-xl mb-4 text-white z-20">
-	<div class="py-4 pr-4 max-w-6xl grid grid-cols-3 items-center mx-auto xl:px-8">
+<MobileSidebar bind:sidebarOpen />
+
+<div class="is-hidden" />
+
+<div
+	bind:this={header}
+	class="fixed bg-black top-0 px-6 text-xl text-white w-full z-20 transition-opacity duration-150 opacity-100 {hasBackground
+		? 'has-background'
+		: ''}"
+>
+	<div class="py-4 pr-4 flex justify-between items-center">
 		<div class="flex items-center space-x-4 md:space-x-0">
-			<div class="flex">
+			<button
+				type="button"
+				class="pr-4  text-white md:hidden"
+				on:click={() => (sidebarOpen = true)}
+			>
+				<span class="sr-only">Open sidebar</span>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+					/>
+				</svg>
+			</button>
+			<div class="flex flex-row gap-4">
+				<a href="/">
+					<h2>(placeholder)</h2>
+				</a>
 				{#each pages as page}
-					{#if page.visibleInNavAndSidebar !== false}
-						<a
-							class="mr-6 navbar-link"
-							href={page.link}
-							class:border-opacity-100={pageStore.url.pathname === page.link}
-						>
-							{page.name}
-						</a>
-					{/if}
+					<a href={page.link} class="hidden md:block">
+						{page.name}
+					</a>
 				{/each}
 			</div>
 		</div>
-
-		<div class="flex items-center justify-center space-x-4 md:space-x-0 max-h-4">something</div>
+		<a href="https://github.com/MajesticString/webmaster" class="hover:text-white">
+			<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-white"
+				><path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z"
+				/></svg
+			>
+		</a>
 	</div>
 </div>
 
 <style lang="scss">
-	.navbar-link {
-		@apply transition-opacity duration-700 mr-6 no-underline relative leading-6 block;
-		&:hover {
-			@apply text-white;
-		}
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 1px;
-			background: #fff;
-			transform: scaleX(0);
-			transform-origin: right center;
-			transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-				-webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-		}
-		&::after:hover {
-			transition-duration: 0.4s;
-			transform: scaleX(1);
-			transform-origin: left center;
-		}
+	.is-hidden {
+		opacity: 0;
 	}
 </style>
