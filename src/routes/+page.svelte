@@ -16,7 +16,5 @@
 		<HoverCard name="Autumn" images="2" />
 		<HoverCard name="Falcon" />
 	</div>
-	<Gem />
-	<Strawberry />
 	<Footer />
 </div>
