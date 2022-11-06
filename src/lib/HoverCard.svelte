@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="container mx-auto">
+<div class="container mx-auto h-96 w-96">
 	<div
 		class="card"
 		on:mouseenter={() => {
@@ -67,12 +67,6 @@
 
 	.card:hover > .card-content {
 		background-position: -10% 0%;
-	}
-
-	.card:hover > .card-content > .card-subtitle > .card-subtitle-word {
-		opacity: 1;
-		transform: translateY(0%);
-		transition: opacity 0ms, transform 200ms cubic-bezier(0.9, 0.06, 0.15, 0.9);
 	}
 
 	.card:before {
