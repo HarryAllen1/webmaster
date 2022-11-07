@@ -151,7 +151,7 @@
 		text-indent: -9999px;
 		background-position: calc(var(--side-nav) - 1rem) 50%;
 		background-repeat: no-repeat;
-		background-size: auto 70%;
+		background-size: auto 100%;
 	}
 
 	button {
