@@ -74,7 +74,7 @@
 	<button
 		aria-label="Toggle menu"
 		aria-expanded={open.toString() === 'true'}
-		class="menu-toggle"
+		class="menu-toggle flex justify-end"
 		class:open
 		on:click={() => (open = !open)}
 	>
