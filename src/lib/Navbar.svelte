@@ -1,24 +1,22 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import MobileSidebar from './MobileSidebar.svelte';
+	// import MobileSidebar from './MobileSidebar.svelte';
 	import { pages } from './pages';
 
-	let sidebarOpen = false;
+	// let sidebarOpen = false;
 	let isScrolling = false;
-	let open = false;
-	let timeout: NodeJS.Timeout;
+	let timeout: number;
 	let header: HTMLDivElement;
 	let hasBackground: boolean;
 	let cy = 0;
 	let ly = 0;
-	let isHidden = false;
 
 	onMount(async () => {
 		hasBackground = document.body.id === 'updates';
 
 		hasBackground && header.classList.add;
 		// disappear on scroll
-		window.addEventListener('scroll', async (e) => {
+		window.addEventListener('scroll', async () => {
 			clearTimeout(timeout);
 
 			if (!isScrolling) isScrolling = true;
@@ -38,12 +36,12 @@
 				ly = cy;
 			}
 
-			timeout = setTimeout(() => (isScrolling = false), 150);
+			timeout = setTimeout(() => (isScrolling = false), 150) as unknown as number;
 		});
 	});
 </script>
 
-<MobileSidebar bind:sidebarOpen />
+<!-- <MobileSidebar bind:sidebarOpen /> -->
 
 <div class="is-hidden" />
 
@@ -55,11 +53,7 @@
 >
 	<div class="py-4 pr-4 flex justify-between items-center">
 		<div class="flex items-center space-x-4 md:space-x-0">
-			<button
-				type="button"
-				class="pr-4  text-white md:hidden"
-				on:click={() => (sidebarOpen = true)}
-			>
+			<button type="button" class="pr-4  text-white md:hidden">
 				<span class="sr-only">Open sidebar</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
