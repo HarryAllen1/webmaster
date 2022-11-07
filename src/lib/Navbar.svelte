@@ -54,18 +54,18 @@
 <nav
 	class:visible={visible || open}
 	class:open
-	class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 fixed shadow-md select-none transition-transform duration-200 px-4"
+	class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 fixed shadow-md select-none transition-transform duration-200 px-4 grid grid-cols-3 items-center justify-between"
 	bind:this={nav}
 >
 	<a href="/" class="nav-spot home" title={home_title} style="background-image: url({logo})">
 		{home}
 	</a>
 
-	<ul class="center">
+	<ul class="justify-center relative p-0 m-0 w-full list-none">
 		<slot name="nav-center" />
 	</ul>
 
-	<ul class="external">
+	<ul class="external relative p-0 m-0 w-full list-none">
 		<slot name="nav-right" />
 	</ul>
 
@@ -134,14 +134,6 @@
 		transform: translate(0, calc(-100% - 1rem));
 	}
 
-	ul {
-		position: relative;
-		width: 100%;
-		padding: 0;
-		margin: 0;
-		list-style: none;
-	}
-
 	ul :global(a) {
 		color: var(--text);
 	}
@@ -153,17 +145,6 @@
 		background-position: calc(var(--side-nav) - 1rem) 50%;
 		background-repeat: no-repeat;
 		background-size: auto 100%;
-	}
-
-	nav {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.center {
-		justify-content: center;
 	}
 
 	@media (max-width: 799px) {
