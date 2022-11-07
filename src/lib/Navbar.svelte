@@ -61,6 +61,16 @@
 		{home}
 	</a>
 
+	<ul class="center">
+		<slot name="nav-center" />
+	</ul>
+
+	<ul class="external">
+		<slot name="nav-right" />
+	</ul>
+
+	<div class="placeholder" />
+
 	<button
 		aria-label="Toggle menu"
 		aria-expanded={open.toString() === 'true'}
@@ -96,14 +106,6 @@
 			</svg>
 		{/if}
 	</button>
-
-	<ul>
-		<slot name="nav-center" />
-	</ul>
-
-	<ul class="external">
-		<slot name="nav-right" />
-	</ul>
 </nav>
 
 <style>
@@ -145,7 +147,6 @@
 	}
 
 	.home {
-		width: 30rem;
 		height: var(--nav-h);
 		display: flex;
 		text-indent: -9999px;
@@ -154,14 +155,22 @@
 		background-size: auto 100%;
 	}
 
-	button {
-		position: absolute;
-		top: calc(var(--nav-h) / 2 - 1rem);
-		right: var(--side-nav);
-		line-height: 1;
+	nav {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.center {
+		justify-content: center;
 	}
 
 	@media (max-width: 799px) {
+		.placeholder {
+			display: block;
+		}
+
 		ul {
 			position: relative;
 			display: none;
@@ -204,12 +213,6 @@
 			display: none;
 		}
 
-		nav {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
-
 		ul {
 			display: flex;
 			width: auto;
@@ -228,12 +231,15 @@
 		}
 
 		ul.external {
-			width: 30rem;
 			padding: 0 var(--side-nav) 0 0;
 			justify-content: end;
 		}
 
 		button {
+			display: none;
+		}
+
+		.placeholder {
 			display: none;
 		}
 	}
