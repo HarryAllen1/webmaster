@@ -1,13 +1,12 @@
-<script lang="ts" context="module">
+<script lang="ts">
 	import { Dialog, DialogOverlay, Transition, TransitionChild } from '@rgossiaux/svelte-headlessui';
-	import { writable } from 'svelte/store';
 	import Sidebar from './Sidebar.svelte';
 
-	export let sidebarOpen = writable(false);
+	export let sidebarOpen = false;
 </script>
 
-<Transition show={$sidebarOpen}>
-	<Dialog class="fixed inset-0 flex z-40 md:hidden" on:close={() => sidebarOpen.set(false)}>
+<Transition show={sidebarOpen}>
+	<Dialog class="fixed inset-0 flex z-40 md:hidden" on:close={() => (sidebarOpen = false)}>
 		<TransitionChild
 			enter="transition-opacity ease-linear duration-300"
 			enterFrom="opacity-0"
@@ -39,22 +38,18 @@
 						<button
 							type="button"
 							class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-							on:click={() => ($sidebarOpen = false)}
+							on:click={() => (sidebarOpen = false)}
 						>
 							<span class="sr-only">Close sidebar</span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
 								viewBox="0 0 24 24"
+								stroke-width="1.5"
 								stroke="currentColor"
-								aria-hidden="true"
+								class="w-6 h-6 text-white"
 							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M6 18L18 6M6 6l12 12"
-								/>
+								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 							</svg>
 						</button>
 					</div>

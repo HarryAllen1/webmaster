@@ -1,100 +1,240 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	// import MobileSidebar from './MobileSidebar.svelte';
-	import { pages } from './pages';
+	import type { Readable } from 'svelte/store';
+	import type { Page } from '@sveltejs/kit';
 
-	// let sidebarOpen = false;
-	let isScrolling = false;
-	let timeout: number;
-	let header: HTMLDivElement;
-	let hasBackground: boolean;
-	let cy = 0;
-	let ly = 0;
+	export let page: Readable<Page<Record<string, string>, string | null>>;
+	export let logo: string;
+	export let home = 'Home';
+	export let home_title = 'Homepage';
 
-	onMount(async () => {
-		hasBackground = document.body.id === 'updates';
+	let open = false;
+	let visible = true;
+	let nav: HTMLElement;
 
-		hasBackground && header.classList.add;
-		// disappear on scroll
-		window.addEventListener('scroll', async () => {
-			clearTimeout(timeout);
-
-			if (!isScrolling) isScrolling = true;
-			cy = window.scrollY;
-			if (!hasBackground) {
-				const direction = cy > ly ? 'down' : 'up';
-				if (cy >= innerHeight * 0.45 && direction === 'down') {
-					header.classList.add('is-hidden');
-				} else {
-					header.classList.remove('is-hidden');
-				}
-				if (cy >= innerHeight && innerHeight !== 0 && direction === 'up') {
-					header.classList.add('has-background');
-				} else {
-					header.classList.remove('has-background');
-				}
-				ly = cy;
-			}
-
-			timeout = setTimeout(() => (isScrolling = false), 150) as unknown as number;
-		});
+	// hide nav whenever we navigate
+	page.subscribe(() => {
+		open = false;
 	});
+
+	// Prevents navbar to show/hide when clicking in docs sidebar
+	let hash_changed = false;
+	function handle_hashchange() {
+		hash_changed = true;
+	}
+
+	let last_scroll = 0;
+	function handle_scroll() {
+		const scroll = window.pageYOffset;
+		if (!hash_changed) {
+			visible = scroll < 50 || scroll < last_scroll;
+		}
+
+		last_scroll = scroll;
+		hash_changed = false;
+	}
+
+	function handle_focus() {
+		if (open && !nav.contains(document.activeElement)) {
+			open = false;
+		}
+	}
 </script>
 
-<!-- <MobileSidebar bind:sidebarOpen /> -->
+<svelte:window
+	on:hashchange={handle_hashchange}
+	on:scroll={handle_scroll}
+	on:focusin={handle_focus}
+/>
 
-<div class="is-hidden" />
+{#if open}
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<div class="modal-background hide-if-desktop" on:click={() => (open = false)} />
+{/if}
 
-<div
-	bind:this={header}
-	class="fixed bg-black top-0 px-6 text-xl text-white w-full z-20 transition-opacity duration-150 opacity-100 {hasBackground
-		? 'has-background'
-		: ''}"
+<nav
+	class:visible={visible || open}
+	class:open
+	class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 fixed shadow-md select-none transition-transform duration-200 px-4"
+	bind:this={nav}
 >
-	<div class="py-4 pr-4 flex justify-between items-center">
-		<div class="flex items-center space-x-4 md:space-x-0">
-			<button type="button" class="pr-4  text-white md:hidden">
-				<span class="sr-only">Open sidebar</span>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="w-6 h-6"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-					/>
-				</svg>
-			</button>
-			<div class="flex flex-row gap-4">
-				<a href="/">
-					<h2>(placeholder)</h2>
-				</a>
-				{#each pages as page}
-					<a href={page.link} class="hidden md:block">
-						{page.name}
-					</a>
-				{/each}
-			</div>
-		</div>
-		<a href="https://github.com/MajesticString/webmaster" class="hover:text-white">
-			<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-white"
-				><path
-					fill-rule="evenodd"
-					clip-rule="evenodd"
-					d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z"
-				/></svg
-			>
-		</a>
-	</div>
-</div>
+	<a href="/" class="nav-spot home" title={home_title} style="background-image: url({logo})">
+		{home}
+	</a>
 
-<style lang="scss">
-	.is-hidden {
-		opacity: 0;
+	<button
+		aria-label="Toggle menu"
+		aria-expanded={open.toString() === 'true'}
+		class="menu-toggle"
+		class:open
+		on:click={() => (open = !open)}
+	>
+		{#if open}
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="w-6 h-6"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		{:else}
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="w-6 h-6"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+				/>
+			</svg>
+		{/if}
+	</button>
+
+	<ul>
+		<slot name="nav-center" />
+	</ul>
+
+	<ul class="external">
+		<slot name="nav-right" />
+	</ul>
+</nav>
+
+<style>
+	.modal-background {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(255, 255, 255, 0.8);
+		z-index: 2;
+		backdrop-filter: grayscale(0.5) blur(2px);
+	}
+
+	nav::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: var(--shadow-height);
+		left: 0;
+		bottom: calc(-1 * var(--shadow-height));
+		background: var(--shadow-gradient);
+	}
+
+	nav:not(.visible):not(:focus-within) {
+		transform: translate(0, calc(-100% - 1rem));
+	}
+
+	ul {
+		position: relative;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	ul :global(a) {
+		color: var(--text);
+	}
+
+	.home {
+		width: 30rem;
+		height: var(--nav-h);
+		display: flex;
+		text-indent: -9999px;
+		background-position: calc(var(--side-nav) - 1rem) 50%;
+		background-repeat: no-repeat;
+		background-size: auto 70%;
+	}
+
+	button {
+		position: absolute;
+		top: calc(var(--nav-h) / 2 - 1rem);
+		right: var(--side-nav);
+		line-height: 1;
+	}
+
+	@media (max-width: 799px) {
+		ul {
+			position: relative;
+			display: none;
+			width: 100%;
+			background: white;
+			padding: 1rem var(--side-nav);
+		}
+
+		.open ul {
+			display: block;
+		}
+
+		ul.external {
+			padding: 1rem var(--side-nav) 1rem;
+		}
+
+		ul.external::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: var(--side-nav);
+			width: calc(100% - 2 * var(--side-nav));
+			height: 1px;
+			background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+		}
+
+		ul.external::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: var(--shadow-height);
+			left: 0;
+			bottom: calc(-1 * var(--shadow-height));
+			background: var(--shadow-gradient);
+		}
+	}
+
+	@media (min-width: 800px) {
+		.modal-background {
+			display: none;
+		}
+
+		nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		ul {
+			display: flex;
+			width: auto;
+			height: 100%;
+		}
+
+		ul :global(li) {
+			margin: 0 0.5rem;
+			padding: 0;
+		}
+
+		ul :global(a) {
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
+
+		ul.external {
+			width: 30rem;
+			padding: 0 var(--side-nav) 0 0;
+			justify-content: end;
+		}
+
+		button {
+			display: none;
+		}
 	}
 </style>

@@ -2,10 +2,20 @@
 	import '../app.scss';
 	import Footer from '$lib/Footer.svelte';
 	import Navbar from '$lib/Navbar.svelte';
+	import { page } from '$app/stores';
+	import { pages } from '../lib/pages';
 </script>
 
-<Navbar />
-<main class="prose pt-16 min-w-full flex flex-col items-center p-4 mx-auto">
+<Navbar {page} logo="/favicon.png">
+	<svelte:fragment slot="nav-center">
+		{#each pages as page}
+			<li>
+				<a href={page.link}>{page.name}</a>
+			</li>
+		{/each}
+	</svelte:fragment>
+</Navbar>
+<main class="prose pt-20 min-w-full flex flex-col items-center p-4 mx-auto">
 	<slot />
 </main>
 <Footer />

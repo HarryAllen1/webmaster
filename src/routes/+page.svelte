@@ -18,5 +18,4 @@
 	</div>
 	<Gem />
 	<Strawberry />
-	<Footer />
 </div>
