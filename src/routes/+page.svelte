@@ -8,7 +8,7 @@
 	<title>Become an Astronaut</title>
 </svelte:head>
 
-<div class="flex flex-col items-center max-w-xl">
+<div class="flex flex-col items-center max-w-lg md:max-w-xl">
 	<h1>Become an Astronaut</h1>
 	<div class="flex flex-row gap-4">
 		<HoverCard name="Pelican" images="3" />

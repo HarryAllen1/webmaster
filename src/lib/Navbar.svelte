@@ -46,11 +46,6 @@
 	on:focusin={handle_focus}
 />
 
-{#if open}
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="modal-background hide-if-desktop" on:click={() => (open = false)} />
-{/if}
-
 <nav
 	class:visible={visible || open}
 	class:open
@@ -73,7 +68,6 @@
 
 	<button
 		aria-label="Toggle menu"
-		aria-expanded={open.toString() === 'true'}
 		class="menu-toggle flex justify-end"
 		class:open
 		on:click={() => (open = !open)}
@@ -109,17 +103,6 @@
 </nav>
 
 <style>
-	.modal-background {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background: rgba(255, 255, 255, 0.8);
-		z-index: 2;
-		backdrop-filter: grayscale(0.5) blur(2px);
-	}
-
 	nav::after {
 		content: '';
 		position: absolute;
@@ -153,47 +136,11 @@
 		}
 
 		ul {
-			position: relative;
 			display: none;
-			width: 100%;
-			background: white;
-			padding: 1rem var(--side-nav);
-		}
-
-		.open ul {
-			display: block;
-		}
-
-		ul.external {
-			padding: 1rem var(--side-nav) 1rem;
-		}
-
-		ul.external::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: var(--side-nav);
-			width: calc(100% - 2 * var(--side-nav));
-			height: 1px;
-			background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
-		}
-
-		ul.external::after {
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: var(--shadow-height);
-			left: 0;
-			bottom: calc(-1 * var(--shadow-height));
-			background: var(--shadow-gradient);
 		}
 	}
 
 	@media (min-width: 800px) {
-		.modal-background {
-			display: none;
-		}
-
 		ul {
 			display: flex;
 			width: auto;
