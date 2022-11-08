@@ -4,10 +4,17 @@ specifiers:
   '@rgossiaux/svelte-headlessui': ^1.0.2
   '@sveltejs/adapter-vercel': next
   '@sveltejs/kit': next
+<<<<<<< HEAD
   '@tailwindcss/typography': ^0.5.8
   '@types/three': ^0.146.0
   '@typescript-eslint/eslint-plugin': ^5.42.1
   '@typescript-eslint/parser': ^5.42.1
+=======
+  '@tailwindcss/typography': ^0.5.7
+  '@types/three': ^0.146.0
+  '@typescript-eslint/eslint-plugin': ^5.27.0
+  '@typescript-eslint/parser': ^5.27.0
+>>>>>>> 73e3725 (Update dependency @types/three to ^0.146.0)
   autoprefixer: ^10.4.13
   eslint: ^8.27.0
   eslint-config-prettier: ^8.3.0
@@ -31,11 +38,19 @@ dependencies:
 
 devDependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.81
+<<<<<<< HEAD
   '@sveltejs/kit': 1.0.0-next.538_svelte@3.52.0+vite@3.2.3
   '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.2
   '@types/three': 0.146.0
   '@typescript-eslint/eslint-plugin': 5.42.1_2udltptbznfmezdozpdoa2aemq
   '@typescript-eslint/parser': 5.42.1_rmayb2veg2btbq6mbmnyivgasy
+=======
+  '@sveltejs/kit': 1.0.0-next.538_svelte@3.52.0+vite@3.2.2
+  '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.2
+  '@types/three': 0.146.0
+  '@typescript-eslint/eslint-plugin': 5.42.0_6xw5wg2354iw4zujk2f3vyfrzu
+  '@typescript-eslint/parser': 5.42.0_wyqvi574yv7oiwfeinomdzmc3m
+>>>>>>> 73e3725 (Update dependency @types/three to ^0.146.0)
   autoprefixer: 10.4.13_postcss@8.4.18
   eslint: 8.27.0
   eslint-config-prettier: 8.5.0_eslint@8.27.0
@@ -186,7 +201,11 @@ packages:
       - supports-color
     dev: true
 
+<<<<<<< HEAD
   /@sveltejs/kit/1.0.0-next.538_svelte@3.52.0+vite@3.2.3:
+=======
+  /@sveltejs/kit/1.0.0-next.538_svelte@3.52.0+vite@3.2.2:
+>>>>>>> 73e3725 (Update dependency @types/three to ^0.146.0)
     resolution: {integrity: sha512-NRu6+j1Lc0daE2OirlbDCbT/yMf5l5nFln2o1asMA3HL7A244SG+uGGFea4DZ1bdetZ3IhO5xa1MWIGY5Ybb3g==}
     engines: {node: '>=16.14'}
     hasBin: true
