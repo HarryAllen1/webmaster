@@ -1,5 +1,4 @@
 <script>
-	import Footer from '$lib/Footer.svelte';
 	import Gem from '$lib/Gem.svelte';
 	import HoverCard from '$lib/HoverCard.svelte';
 	import Strawberry from '$lib/Strawberry.svelte';
