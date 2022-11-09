@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Readable } from 'svelte/store';
 	import type { Page } from '@sveltejs/kit';
+	import { pages } from './pages';
 
 	export let page: Readable<Page<Record<string, string>, string | null>>;
 	export let logo: string;
@@ -16,23 +17,6 @@
 		open = false;
 	});
 
-	// Prevents navbar to show/hide when clicking in docs sidebar
-	let hash_changed = false;
-	function handle_hashchange() {
-		hash_changed = true;
-	}
-
-	let last_scroll = 0;
-	function handle_scroll() {
-		const scroll = window.pageYOffset;
-		if (!hash_changed) {
-			visible = scroll < 50 || scroll < last_scroll;
-		}
-
-		last_scroll = scroll;
-		hash_changed = false;
-	}
-
 	function handle_focus() {
 		if (open && !nav.contains(document.activeElement)) {
 			open = false;
@@ -41,34 +25,39 @@
 </script>
 
 <svelte:window
-	on:hashchange={handle_hashchange}
-	on:scroll={handle_scroll}
 	on:focusin={handle_focus}
+	on:resize={() => {
+		if (window.innerWidth > 799) open = false;
+	}}
 />
 
 <nav
 	class:visible={visible || open}
 	class:open
-	class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 fixed shadow-md select-none transition-transform duration-200 px-4 grid grid-cols-3 items-center justify-between"
+	class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 shadow-md select-none duration-200 px-4 grid grid-cols-3 items-center justify-between"
 	bind:this={nav}
 >
 	<a href="/" class="nav-spot home" title={home_title} style="background-image: url({logo})">
 		{home}
 	</a>
 
-	<ul class="justify-center relative p-0 m-0 w-full list-none">
+	<ul
+		class="justify-center relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:gap-4"
+	>
 		<slot name="nav-center" />
 	</ul>
 
-	<ul class="external relative p-0 m-0 w-full list-none">
+	<ul
+		class="relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:justify-end"
+	>
 		<slot name="nav-right" />
 	</ul>
 
-	<div class="placeholder" />
+	<div class="block md:hidden" />
 
 	<button
 		aria-label="Toggle menu"
-		class="menu-toggle flex justify-end"
+		class="menu-toggle flex justify-end md:hidden"
 		class:open
 		on:click={() => (open = !open)}
 	>
@@ -102,25 +91,15 @@
 	</button>
 </nav>
 
+{#if open}
+	<div class="flex flex-col bg-black p-4 w-full text-white">
+		{#each pages as page}
+			<a class="h-8 text-end" href={page.link}>{page.name}</a>
+		{/each}
+	</div>
+{/if}
+
 <style>
-	nav::after {
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: var(--shadow-height);
-		left: 0;
-		bottom: calc(-1 * var(--shadow-height));
-		background: var(--shadow-gradient);
-	}
-
-	nav:not(.visible):not(:focus-within) {
-		transform: translate(0, calc(-100% - 1rem));
-	}
-
-	ul :global(a) {
-		color: var(--text);
-	}
-
 	.home {
 		height: var(--nav-h);
 		display: flex;
@@ -128,47 +107,5 @@
 		background-position: calc(var(--side-nav) - 1rem) 50%;
 		background-repeat: no-repeat;
 		background-size: auto 100%;
-	}
-
-	@media (max-width: 799px) {
-		.placeholder {
-			display: block;
-		}
-
-		ul {
-			display: none;
-		}
-	}
-
-	@media (min-width: 800px) {
-		ul {
-			display: flex;
-			width: auto;
-			height: 100%;
-		}
-
-		ul :global(li) {
-			margin: 0 0.5rem;
-			padding: 0;
-		}
-
-		ul :global(a) {
-			display: flex;
-			align-items: center;
-			height: 100%;
-		}
-
-		ul.external {
-			padding: 0 var(--side-nav) 0 0;
-			justify-content: end;
-		}
-
-		button {
-			display: none;
-		}
-
-		.placeholder {
-			display: none;
-		}
 	}
 </style>

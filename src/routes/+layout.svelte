@@ -27,7 +27,8 @@
 		</li>
 	</svelte:fragment>
 </Navbar>
-<main class="prose pt-20 min-w-full flex flex-col items-center p-4 mx-auto">
+
+<main class="prose min-w-full flex flex-col items-center p-4 mx-auto">
 	<slot />
 </main>
 <Footer />
