@@ -24,15 +24,15 @@
 		const gltfLoader = new GLTFLoader();
 		gltfLoader.load('/JohnHalo.glb', (gltf) => {
 			// Gem
-            gltf.scene.children.forEach(child => {
-                scene.add(child);
-            });
-			
+			gltf.scene.children.forEach((child) => {
+				scene.add(child);
+			});
+
 			ready = true;
 		});
 
-        // let strawberry: Object3D<Event>;
-        // gltfLoader.load('/Strawberry_gltf.gltf', (gltf) => {
+		// let strawberry: Object3D<Event>;
+		// gltfLoader.load('/Strawberry_gltf.gltf', (gltf) => {
 		// 	// Gem
 		// 	strawberry = gltf.scene.children[0];
 
@@ -71,7 +71,7 @@
 		controls.maxDistance = 9;
 		controls.rotateSpeed = 2;
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+		const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
 		directionalLight.position.set(1, 1, 1);
 		scene.add(directionalLight);
 
