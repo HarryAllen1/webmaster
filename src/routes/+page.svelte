@@ -18,7 +18,7 @@
 	</div>
 	<Gem />
 	<Strawberry />
-	<ScrollFade textSide="left">
+	<ScrollFade textSide="left" fadeInFrom="left">
 		<svelte:fragment slot="text">eeeee eeee ee e e eee ee e ee eee e ee e</svelte:fragment>
 		<svelte:fragment slot="hero">eeee e e eeeeeeeeee e eeeeeee ee eeeee eeee</svelte:fragment>
 	</ScrollFade>

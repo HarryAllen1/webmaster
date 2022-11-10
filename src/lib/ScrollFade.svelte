@@ -4,7 +4,8 @@
 	/**
 	 * Which side the text is on inside of the box
 	 */
-	export const textSide: 'left' | 'right' = 'left';
+	export let textSide: 'left' | 'right' = 'left';
+	export let fadeInFrom: 'top' | 'bottom' | 'left' | 'right' = 'left';
 
 	let containerEl: HTMLElement;
 	let animate = false;
@@ -24,7 +25,15 @@
 	});
 </script>
 
-<div class:animate class="flex flex-row fade-card" bind:this={containerEl}>
+<div
+	class:animate
+	class="flex flex-row fade-card"
+	class:translate-x-5={fadeInFrom === 'right'}
+	class:-translate-x-5={fadeInFrom === 'left'}
+	class:translate-y-5={fadeInFrom === 'bottom'}
+	class:-translate-y-5={fadeInFrom === 'top'}
+	bind:this={containerEl}
+>
 	{#if textSide === 'left'}
 		<slot name="text" />
 		<slot name="hero" />
@@ -38,12 +47,11 @@
 	.fade-card {
 		opacity: 0;
 		filter: blur(5px);
-		transform: translateX(-20px);
 		transition: all 0.3s ease-in-out;
 		&.animate {
 			opacity: 1;
+			transform: none !important;
 			filter: blur(0);
-			transform: translateX(0);
 		}
 	}
 
