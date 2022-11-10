@@ -1,8 +1,5 @@
 <script>
-	import Gem from '$lib/Gem.svelte';
-	import HoverCard from '$lib/HoverCard.svelte';
-	import Strawberry from '$lib/Strawberry.svelte';
-	import ScrollFade from '../lib/ScrollFade.svelte';
+	import { Gem, HoverCard, Strawberry, ScrollFade } from '$lib';
 </script>
 
 <svelte:head>
