@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Object3D, Event } from 'three';
 
 	let ready = false;
 	let canvas: HTMLCanvasElement;
@@ -17,9 +16,6 @@
 
 		// Scene
 		const scene = new THREE.Scene();
-
-		// Models
-		let suit: Object3D<Event>;
 
 		const gltfLoader = new GLTFLoader();
 		gltfLoader.load('/JohnHalo.glb', (gltf) => {

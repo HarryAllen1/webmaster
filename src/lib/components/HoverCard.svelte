@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { onDestroy } from 'svelte';
-	import '../app.scss';
 
 	export let name = '';
 	export let images = '1';

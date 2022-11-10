@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Readable } from 'svelte/store';
 	import type { Page } from '@sveltejs/kit';
-	import { pages } from './pages';
+	import { pages } from '$lib';
 
 	export let page: Readable<Page<Record<string, string>, string | null>>;
 	export let logo: string;
@@ -98,9 +98,9 @@
 {#if open}
 	<div class="flex flex-col bg-black p-4 w-full text-white">
 		{#each pages as page}
-			<a class="h-8 text-end hover:opacity-80" on:click={() => (open = false)} href={page.link}
-				>{page.name}</a
-			>
+			<a class="h-8 text-end hover:opacity-80" on:click={() => (open = false)} href={page.link}>
+				{page.name}
+			</a>
 		{/each}
 	</div>
 {/if}
