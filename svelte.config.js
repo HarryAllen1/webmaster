@@ -14,6 +14,10 @@ const config = {
 			edge: true,
 		}),
 	},
+
+	compilerOptions: {
+		enableSourcemap: true,
+	},
 };
 
 export default config;
