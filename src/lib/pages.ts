@@ -16,4 +16,8 @@ export const pages: Pages = [
 		name: 'Sources',
 		link: '/sources',
 	},
+	{
+		name: 'Suit',
+		link: '/suit',
+	},
 ];
