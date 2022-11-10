@@ -37,7 +37,7 @@
 	>
 		{#each pages as page}
 			<li>
-				<a class="prose-lg hover:opacity-80" href="/{page.link}">{page.name}</a>
+				<a class="prose-lg hover:opacity-80" href={page.link}>{page.name}</a>
 			</li>
 		{/each}
 	</ul>
