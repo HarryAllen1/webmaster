@@ -2,6 +2,7 @@
 	import Gem from '$lib/Gem.svelte';
 	import HoverCard from '$lib/HoverCard.svelte';
 	import Strawberry from '$lib/Strawberry.svelte';
+	import ScrollFade from '../lib/ScrollFade.svelte';
 </script>
 
 <svelte:head>
@@ -17,4 +18,8 @@
 	</div>
 	<Gem />
 	<Strawberry />
+	<ScrollFade textSide="left">
+		<svelte:fragment slot="text">eeeee eeee ee e e eee ee e ee eee e ee e</svelte:fragment>
+		<svelte:fragment slot="hero">eeee e e eeeeeeeeee e eeeeeee ee eeeee eeee</svelte:fragment>
+	</ScrollFade>
 </div>
