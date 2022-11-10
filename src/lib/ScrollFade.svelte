@@ -35,11 +35,29 @@
 	bind:this={containerEl}
 >
 	{#if textSide === 'left'}
-		<slot name="text" />
-		<slot name="hero" />
+		<div>
+			<slot name="text" />
+		</div>
+		{#if $$slots.center}
+			<div>
+				<slot name="center" />
+			</div>
+		{/if}
+		<div>
+			<slot name="hero" />
+		</div>
 	{:else}
-		<slot name="hero" />
-		<slot name="text" />
+		<div>
+			<slot name="hero" />
+		</div>
+		{#if $$slots.center}
+			<div>
+				<slot name="center" />
+			</div>
+		{/if}
+		<div>
+			<slot name="text" />
+		</div>
 	{/if}
 </div>
 
