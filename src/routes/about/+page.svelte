@@ -14,4 +14,13 @@
 		<a href="https://tailwindcss.com/">TailwindCSS</a> and <a href="https://sass-lang.com">SCSS</a> was
 		used to allow CSS to be written in HTML, and to allow a better DX
 	</li>
+	<li>
+		<a href="https://threejs.org/">three.js was used for the 3d models and 3d animation.</a>
+	</li>
 </ul>
+
+<p>
+	A list of all the open-source licenses can be found in the <a href="/licenses.txt">
+		licenses.txt file
+	</a>
+</p>
