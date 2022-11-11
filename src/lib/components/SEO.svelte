@@ -3,7 +3,7 @@
 
 	export let title: string;
 	export let description: string = title;
-	export let image: string = '/favicon.png';
+	export let image = '/favicon.png';
 </script>
 
 <svelte:head>
