@@ -1,6 +1,8 @@
-<svelte:head>
-	<title>Sources</title>
-</svelte:head>
+<script lang="ts">
+	import { SEO } from '$lib';
+</script>
+
+<SEO title="Sources" />
 
 we defeinetly didnt copoy spacewsxx
 
