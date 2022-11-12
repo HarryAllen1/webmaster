@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	/**
-	 * Which side the text is on inside of the box
-	 */
-	export let textSide: 'left' | 'right' = 'left';
 	export let fadeInFrom: 'top' | 'bottom' | 'left' | 'right' = 'left';
+	export let style = '';
 
 	let containerEl: HTMLElement;
 	let animate = false;
@@ -26,6 +23,7 @@
 </script>
 
 <div
+	{style}
 	class:animate
 	class="flex flex-row fade-card"
 	class:translate-x-5={fadeInFrom === 'right'}
@@ -34,31 +32,7 @@
 	class:-translate-y-5={fadeInFrom === 'top'}
 	bind:this={containerEl}
 >
-	{#if textSide === 'left'}
-		<div>
-			<slot name="text" />
-		</div>
-		{#if $$slots.center}
-			<div>
-				<slot name="center" />
-			</div>
-		{/if}
-		<div>
-			<slot name="hero" />
-		</div>
-	{:else}
-		<div>
-			<slot name="hero" />
-		</div>
-		{#if $$slots.center}
-			<div>
-				<slot name="center" />
-			</div>
-		{/if}
-		<div>
-			<slot name="text" />
-		</div>
-	{/if}
+	<slot />
 </div>
 
 <style lang="scss">
