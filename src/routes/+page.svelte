@@ -1,5 +1,22 @@
 <script lang="ts">
-	import { Gem, HoverCard, Strawberry, ScrollFade, SEO } from '$lib';
+	import { Gem, HoverCard, ScrollFade, type Strawberry as StrawberryComponent } from '$lib';
+	import { onMount } from 'svelte';
+
+	let strawberryContainer: HTMLElement;
+
+	let Strawberry: typeof StrawberryComponent;
+
+	onMount(() => {
+		const strawberryObserver = new IntersectionObserver((entries) => {
+			entries.forEach(async (entry) => {
+				if (entry.isIntersecting) {
+					Strawberry = (await import('$lib')).Strawberry;
+				}
+			});
+		});
+
+		strawberryObserver.observe(strawberryContainer);
+	});
 </script>
 
 <SEO title="Home" />
@@ -7,14 +24,19 @@
 <div class="flex flex-col items-center max-w-lg md:max-w-xl">
 	<h1>Become an Astronaut</h1>
 	<div class="flex flex-row gap-4">
-		<HoverCard name="Pelican" images="3" />
-		<HoverCard name="Autumn" images="2" />
-		<HoverCard name="Falcon" />
+		<ScrollFade style="transition-delay: 0;">
+			<HoverCard name="Pelican" images="3" />
+		</ScrollFade>
+		<ScrollFade style="transition-delay: 200ms">
+			<HoverCard name="Autumn" images="2" />
+		</ScrollFade>
+		<ScrollFade style="transition-delay: 400ms;">
+			<HoverCard name="Falcon" />
+		</ScrollFade>
 	</div>
 	<Gem />
-	<Strawberry />
-	<ScrollFade textSide="left" fadeInFrom="left">
-		<svelte:fragment slot="text">eeeee eeee ee e e eee ee e ee eee e ee e</svelte:fragment>
-		<svelte:fragment slot="hero">eeee e e eeeeeeeeee e eeeeeee ee eeeee eeee</svelte:fragment>
-	</ScrollFade>
+	<div bind:this={strawberryContainer}>
+		<svelte:component this={Strawberry} />
+	</div>
+	<ScrollFade fadeInFrom="left">eeeeeeeeeeeeeeee</ScrollFade>
 </div>
