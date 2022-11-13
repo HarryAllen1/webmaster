@@ -1,6 +1,8 @@
-<svelte:head>
-	<title>About</title>
-</svelte:head>
+<script lang="ts">
+	import { SEO } from '$lib';
+</script>
+
+<SEO title="About" />
 
 <h1>About</h1>
 

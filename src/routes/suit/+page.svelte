@@ -1,10 +1,8 @@
-<script>
-	import { Suit } from '$lib';
+<script lang="ts">
+	import { SEO, Suit } from '$lib';
 </script>
 
-<svelte:head>
-	<title>Suit</title>
-</svelte:head>
+<SEO title="The Suit" />
 
 <h1>The Suit</h1>
 <Suit />

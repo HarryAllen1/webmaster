@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Gem, HoverCard, ScrollFade, type Strawberry as StrawberryComponent } from '$lib';
+	import { Gem, HoverCard, ScrollFade, SEO, type Strawberry as StrawberryComponent } from '$lib';
 	import { onMount } from 'svelte';
 
 	let strawberryContainer: HTMLElement;
@@ -19,9 +19,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Become an Astronaut</title>
-</svelte:head>
+<SEO title="Home" />
 
 <div class="flex flex-col items-center max-w-lg md:max-w-xl">
 	<h1>Become an Astronaut</h1>
