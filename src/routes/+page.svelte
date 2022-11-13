@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Gem, HoverCard, ScrollFade, type Strawberry as StrawberryComponent } from '$lib';
+	import { Gem, HoverCard, ScrollFade, SEO, type Strawberry as StrawberryComponent } from '$lib';
 	import { onMount } from 'svelte';
 
 	let strawberryContainer: HTMLElement;
