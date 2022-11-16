@@ -7,8 +7,8 @@ specifiers:
   '@tailwindcss/typography': ^0.5.8
   '@types/node': ^18.11.9
   '@types/three': ^0.146.0
-  '@typescript-eslint/eslint-plugin': ^5.42.1
-  '@typescript-eslint/parser': ^5.42.1
+  '@typescript-eslint/eslint-plugin': ^5.43.0
+  '@typescript-eslint/parser': ^5.43.0
   autoprefixer: ^10.4.13
   eslint: ^8.27.0
   eslint-config-prettier: ^8.5.0
@@ -24,8 +24,8 @@ specifiers:
   tailwindcss: ^3.2.4
   three: ^0.146.0
   tslib: ^2.4.1
-  typescript: ^4.8.4
-  vite: ^3.2.3
+  typescript: ^4.9.3
+  vite: ^3.2.4
 
 dependencies:
   '@rgossiaux/svelte-headlessui': 1.0.2_svelte@3.53.1
