@@ -4,6 +4,11 @@
 	let ready = false;
 	let canvas: HTMLCanvasElement;
 
+	const sizes = {
+		width: 900,
+		height: 900,
+	};
+
 	onMount(async () => {
 		const THREE = await import('three').then((m) => m.default || m);
 		const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js').then(
@@ -47,10 +52,6 @@
 		// 	ready = true;
 		// });
 		// Settings
-		const sizes = {
-			width: 900,
-			height: 900,
-		};
 
 		// Base camera
 		const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
@@ -98,8 +99,12 @@
 	});
 </script>
 
-<canvas
-	bind:this={canvas}
-	class="outline-0 w-48 h-48 opacity-0 transition-opacity duration-1000 ease-in-out"
-	style="opacity: {ready ? 1 : 0}"
-/>
+<div class="relative w-[{sizes.width}px] h-[{sizes.height}px] ">
+	<canvas
+		width={sizes.width}
+		height={sizes.height}
+		bind:this={canvas}
+		class="absolute outline-0 w-full opacity-0 transition-opacity duration-1000 ease-in-out"
+		style="opacity: {ready ? 1 : 0}"
+	/>
+</div>
