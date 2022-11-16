@@ -16,7 +16,14 @@ const config = {
 	},
 
 	compilerOptions: {
+		// win/command + shift
 		enableSourcemap: true,
+	},
+
+	vitePlugin: {
+		experimental: {
+			inspector: true,
+		},
 	},
 };
 

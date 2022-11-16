@@ -3,15 +3,23 @@
 
 	export let fadeInFrom: 'top' | 'bottom' | 'left' | 'right' = 'left';
 	export let style = '';
+	/**
+	 * Whether to animate every time the element is scrolled into view, or just once.
+	 */
+	export let once = true;
 
 	let containerEl: HTMLElement;
 	let animate = false;
+	let animated = false;
 
 	onMount(async () => {
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
+				if (once && animated) return observer.disconnect();
+
 				if (entry.isIntersecting) {
 					animate = true;
+					animated = true;
 				} else {
 					animate = false;
 				}
