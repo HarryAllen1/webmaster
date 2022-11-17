@@ -4,7 +4,7 @@
 
 <SEO title="Sources" />
 
-we defeinetly didnt copoy spacewsxx
+we defeinetly didnt cosxx
 
 <p>
 	A list of all the open-source licenses can be found in the <a href="/licenses.txt">
