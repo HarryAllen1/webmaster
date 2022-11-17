@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Object3D, Event } from 'three';
+	import type { Event, Object3D } from 'three';
 
 	let ready = false;
 	let canvas: HTMLCanvasElement;
@@ -11,16 +11,19 @@
 	};
 
 	onMount(async () => {
-		const THREE = await import('three').then((m) => m.default || m);
-		const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js').then(
-			(m) => m.default || m
-		);
-		const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js').then(
-			(m) => m.default || m
-		);
+		const {
+			Scene,
+			TextureLoader,
+			AmbientLight,
+			DirectionalLight,
+			PerspectiveCamera,
+			WebGLRenderer,
+			PCFSoftShadowMap,
+		} = await import('three');
+		const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js');
+		const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
 
-		// Scene
-		const scene = new THREE.Scene();
+		const scene = new Scene();
 
 		// Models
 		let gem: Object3D<Event>;
@@ -32,7 +35,7 @@
 			gem = gltf.scene.children[6];
 
 			// Material setup
-			const textureLoader = new THREE.TextureLoader();
+			const textureLoader = new TextureLoader();
 			const roughnessTexture = textureLoader.load('/roughness.webp');
 			// @ts-ignore
 			gem.material.roughnessMap = roughnessTexture;
@@ -51,19 +54,19 @@
 		});
 
 		// Lights
-		const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+		const ambientLight = new AmbientLight(0xffffff, 2);
 		scene.add(ambientLight);
 
-		const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+		const directionalLight = new DirectionalLight(0xffffff, 3);
 		directionalLight.position.set(1, 1, 1);
 		scene.add(directionalLight);
 
-		const directionalLight2 = new THREE.DirectionalLight(0xffffff, 3);
+		const directionalLight2 = new DirectionalLight(0xffffff, 3);
 		directionalLight2.position.set(-1, -1, -1);
 		scene.add(directionalLight2);
 
 		// Base camera
-		const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+		const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 		camera.position.set(2, 2, 6);
 		scene.add(camera);
 
@@ -78,14 +81,14 @@
 		controls.rotateSpeed = 2;
 
 		// Render
-		const renderer = new THREE.WebGLRenderer({
+		const renderer = new WebGLRenderer({
 			antialias: true,
 			canvas,
 			alpha: true,
 		});
 		renderer.setClearColor(0x000000, 0);
 		renderer.shadowMap.enabled = true;
-		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+		renderer.shadowMap.type = PCFSoftShadowMap;
 		renderer.setSize(sizes.width, sizes.height);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 

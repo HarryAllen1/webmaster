@@ -7,11 +7,13 @@ specifiers:
   '@sveltejs/adapter-vercel': next
   '@sveltejs/kit': next
   '@tailwindcss/typography': ^0.5.8
+  '@types/cookie': ^0.5.1
   '@types/node': ^18.11.9
   '@types/three': ^0.146.0
   '@typescript-eslint/eslint-plugin': ^5.43.0
   '@typescript-eslint/parser': ^5.43.0
   autoprefixer: ^10.4.13
+  cookie: ^0.5.0
   eslint: ^8.27.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
@@ -29,10 +31,13 @@ specifiers:
   tslib: ^2.4.1
   typescript: ^4.9.3
   vite: ^3.2.4
+  web-vitals: ^3.1.0
 
 dependencies:
   '@rgossiaux/svelte-headlessui': 1.0.2_svelte@3.53.1
+  cookie: 0.5.0
   three: 0.146.0
+  web-vitals: 3.1.0
 
 devDependencies:
   '@commitlint/cli': 17.2.0
@@ -40,6 +45,7 @@ devDependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.81
   '@sveltejs/kit': 1.0.0-next.551_svelte@3.53.1+vite@3.2.4
   '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
+  '@types/cookie': 0.5.1
   '@types/node': 18.11.9
   '@types/three': 0.146.0
   '@typescript-eslint/eslint-plugin': 5.43.0_wze2rj5tow7zwqpgbdx2buoy3m
@@ -1034,7 +1040,6 @@ packages:
   /cookie/0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
-    dev: true
 
   /cosmiconfig-typescript-loader/4.2.0_qoh33be55smklb2oyrgdyddh4a:
     resolution: {integrity: sha512-NkANeMnaHrlaSSlpKGyvn2R4rqUDeE/9E5YHx+b4nwo0R8dZyAqcih8/gxpCZvqWP9Vf6xuLpMSzSgdVEIM78g==}
@@ -3268,6 +3273,10 @@ packages:
     dependencies:
       vite: 3.2.4_ajklay5k626t46b6fyghkbup3i
     dev: true
+
+  /web-vitals/3.1.0:
+    resolution: {integrity: sha512-zCeQ+bOjWjJbXv5ZL0r8Py3XP2doCQMZXNKlBGfUjPAVZWokApdeF/kFlK1peuKlCt8sL9TFkKzyXE9/cmNJQA==}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

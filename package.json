@@ -16,7 +16,9 @@
 	},
 	"dependencies": {
 		"@rgossiaux/svelte-headlessui": "^1.0.2",
-		"three": "^0.146.0"
+		"cookie": "^0.5.0",
+		"three": "^0.146.0",
+		"web-vitals": "^3.1.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.2.0",
@@ -24,6 +26,7 @@
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
 		"@tailwindcss/typography": "^0.5.8",
+		"@types/cookie": "^0.5.1",
 		"@types/node": "^18.11.9",
 		"@types/three": "^0.146.0",
 		"@typescript-eslint/eslint-plugin": "^5.43.0",
