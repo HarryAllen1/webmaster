@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { onDestroy } from 'svelte';
-	import '../app.scss';
 
 	export let name = '';
 	export let images = '1';
@@ -26,7 +25,7 @@
 
 <div class="container mx-auto h-96 w-96">
 	<div
-		class="card"
+		class="card bg-slate-900 aspect-square cursor-pointer relative"
 		on:mouseenter={() => {
 			hover = true;
 			updateImageTick();
@@ -48,14 +47,7 @@
 </div>
 
 <style lang="scss">
-	.card {
-		@apply bg-slate-900;
-		aspect-ratio: 1 / 1;
-		cursor: pointer;
-		position: relative;
-	}
-
-	.card:hover:before {
+	.card:hover::before {
 		background-position: 100% 100%;
 		transform: scale(1, 1);
 	}
@@ -64,7 +56,7 @@
 		background-position: -10% 0%;
 	}
 
-	.card:before {
+	.card::before {
 		background: linear-gradient(
 			130deg,
 			transparent 0% 33%,

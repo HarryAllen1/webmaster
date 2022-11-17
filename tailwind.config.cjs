@@ -5,4 +5,5 @@ module.exports = {
 		extend: {},
 	},
 	plugins: [require('@tailwindcss/typography')],
+	safelist: ['w-[900px]', 'h-[900px]', 'w-[500px]', 'h-[500px]'],
 };
