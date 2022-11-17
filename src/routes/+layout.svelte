@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
+	import { webVitals } from '$lib';
 	import { Footer, Navbar } from '$lib/components';
 	import '../app.scss';
-	import { webVitals } from '$lib';
 
 	const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
