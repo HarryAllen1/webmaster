@@ -1,8 +1,7 @@
 <script lang="ts">
-	import '../app.scss';
-	import { Footer } from '$lib';
-	import { Navbar } from '$lib';
 	import { page } from '$app/stores';
+	import { Footer, Navbar } from '$lib/components';
+	import '../app.scss';
 </script>
 
 <Navbar {page} logo="/favicon.png" />

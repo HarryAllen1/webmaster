@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { SEO, Suit } from '$lib';
+	import { SEO } from '$lib/components';
+	import { Suit } from '$lib/models';
 </script>
 
 <SEO title="The Suit" />
