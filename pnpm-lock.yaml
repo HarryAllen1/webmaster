@@ -12,6 +12,7 @@ specifiers:
   '@types/three': ^0.146.0
   '@typescript-eslint/eslint-plugin': ^5.43.0
   '@typescript-eslint/parser': ^5.43.0
+  '@vercel/analytics': ^0.1.5
   autoprefixer: ^10.4.13
   cookie: ^0.5.0
   eslint: ^8.27.0
@@ -35,6 +36,7 @@ specifiers:
 
 dependencies:
   '@rgossiaux/svelte-headlessui': 1.0.2_svelte@3.53.1
+  '@vercel/analytics': 0.1.5
   cookie: 0.5.0
   three: 0.146.0
   web-vitals: 3.1.0
@@ -658,6 +660,15 @@ packages:
       '@typescript-eslint/types': 5.43.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.5:
+    resolution: {integrity: sha512-/k9N8Ea3Yc5A52GlkjzUEbi2vE/izClrOf++ryBkxEfrZM/OZwtHkdNw/QExZ1h/B67RCZLK7bCOnKKrhG7gTg==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dev: false
 
   /@vercel/nft/0.22.1:
     resolution: {integrity: sha512-lYYZIoxRurqDOSoVIdBicGnpUIpfyaS5qVjdPq+EfI285WqtZK3NK/dyCkiyBul+X2U2OEhRyeMdXPCHGJbohw==}

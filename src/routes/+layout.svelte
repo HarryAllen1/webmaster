@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { webVitals } from '$lib';
 	import { Footer, Navbar } from '$lib/components';
+	import { onMount } from 'svelte';
 	import '../app.scss';
 
 	const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
@@ -15,6 +16,12 @@
 			path: $page.url.pathname,
 		});
 	}
+
+	onMount(async () => {
+		const { inject } = await import('@vercel/analytics');
+
+		inject();
+	});
 </script>
 
 <Navbar {page} logo="/favicon.png" />
