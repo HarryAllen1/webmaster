@@ -1,0 +1,17 @@
+{
+	"name": "Node.js & TypeScript",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:18-bullseye",
+	"postCreateCommand": "npm i -g pnpm && pnpm i",
+	"postAttachCommand": "pnpm dev",
+	"forwardPorts": [5173],
+	"portsAttributes": {
+		"5173": {
+			"label": "Application",
+			"onAutoForward": "notify"
+		}
+	},
+	"remoteUser": "node",
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	}
+}
