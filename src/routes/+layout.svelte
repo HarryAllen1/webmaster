@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser, dev } from '$app/environment';
 	import { page } from '$app/stores';
 	import { webVitals } from '$lib';
 	import { Footer, Navbar } from '$lib/components';
@@ -18,9 +18,11 @@
 	}
 
 	onMount(async () => {
-		const { inject } = await import('@vercel/analytics');
+		if (!dev) {
+			const { inject } = await import('@vercel/analytics');
 
-		inject();
+			inject();
+		}
 	});
 </script>
 
