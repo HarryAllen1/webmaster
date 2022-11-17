@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Gem, HoverCard, ScrollFade, SEO, type Strawberry as StrawberryComponent } from '$lib';
+	import { HoverCard, ScrollFade, SEO } from '$lib/components';
+	import { Gem, type Strawberry as StrawberryComponent } from '$lib/models';
 	import { onMount } from 'svelte';
 
 	let strawberryContainer: HTMLElement;
@@ -10,7 +11,7 @@
 		const strawberryObserver = new IntersectionObserver((entries) => {
 			entries.forEach(async (entry) => {
 				if (entry.isIntersecting) {
-					Strawberry = (await import('$lib')).Strawberry;
+					Strawberry = (await import('$lib/models')).Strawberry;
 				}
 			});
 		});

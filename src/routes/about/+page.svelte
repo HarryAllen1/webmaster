@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SEO } from '$lib';
+	import { SEO } from '$lib/components';
 </script>
 
 <SEO title="About" />
@@ -17,7 +17,7 @@
 		used to allow CSS to be written in HTML, and to allow a better DX
 	</li>
 	<li>
-		<a href="https://threejs.org/">three.js was used for the 3d models and 3d animation.</a>
+		<a href="https://threejs.org/">three.js</a> was used for the 3d models and 3d animation.
 	</li>
 </ul>
 
