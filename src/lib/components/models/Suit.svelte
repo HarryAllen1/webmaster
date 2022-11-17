@@ -10,17 +10,12 @@
 	};
 
 	onMount(async () => {
-		const THREE = await import('three').then((m) => m.default || m);
-		const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js').then(
-			(m) => m.default || m
-		);
+		const { Scene, DirectionalLight, PerspectiveCamera, WebGLRenderer, PCFSoftShadowMap } =
+			await import('three');
+		const { OrbitControls } = await import('three/examples/jsm/controls/OrbitControls.js');
+		const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
 
-		const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js').then(
-			(m) => m.default || m
-		);
-
-		// Scene
-		const scene = new THREE.Scene();
+		const scene = new Scene();
 
 		const gltfLoader = new GLTFLoader();
 		gltfLoader.load('/JohnHalo.glb', (gltf) => {
@@ -38,7 +33,7 @@
 		// 	strawberry = gltf.scene.children[0];
 
 		// 	//Material setup
-		// 	const textureLoader = new THREE.TextureLoader();
+		// 	const textureLoader = new TextureLoader();
 		// 	const roughnessTexture = textureLoader.load('/roughness.webp');
 		// 	// @ts-ignore
 		// 	strawberry.material.roughnessMap = roughnessTexture;
@@ -54,7 +49,7 @@
 		// Settings
 
 		// Base camera
-		const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+		const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 		camera.position.set(0, 1, 0);
 		scene.add(camera);
 
@@ -68,19 +63,19 @@
 		controls.maxDistance = 9;
 		controls.rotateSpeed = 2;
 
-		const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+		const directionalLight = new DirectionalLight(0xffffff, 5);
 		directionalLight.position.set(1, 1, 1);
 		scene.add(directionalLight);
 
 		// Render
-		const renderer = new THREE.WebGLRenderer({
+		const renderer = new WebGLRenderer({
 			antialias: true,
 			canvas,
 			alpha: true,
 		});
 		renderer.setClearColor(0x000000, 0);
 		renderer.shadowMap.enabled = true;
-		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+		renderer.shadowMap.type = PCFSoftShadowMap;
 		renderer.setSize(sizes.width, sizes.height);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
