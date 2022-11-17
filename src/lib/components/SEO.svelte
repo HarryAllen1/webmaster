@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<title>{title} - Become an Astronaut</title>
+	<meta name="description" content={description} />
 	<meta property="og:title" content="{title} - Become an Astronaut" />
 	<meta property="og:description" content={description} />
 	<meta property="og:image" content="{$page.url.origin}{image}" />
