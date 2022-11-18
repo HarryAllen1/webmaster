@@ -11,16 +11,15 @@
 	let interval = setInterval(() => (ticks = ticks), 1000);
 
 	onDestroy(() => clearInterval(interval));
-	async function updateImageTick() {
+
+	const updateImageTick = async () => {
 		clearInterval(interval);
 		interval = setInterval(() => {
 			ticks++;
 			num = (Math.round(ticks / imgUpdateDelay) % +images) + 1;
 		}, 1000);
-	}
-	async function stopImageTick() {
-		clearInterval(interval);
-	}
+	};
+	const stopImageTick = async () => clearInterval(interval);
 </script>
 
 <div class="container mx-auto h-96 w-96">
