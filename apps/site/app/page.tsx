@@ -1,12 +1,17 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import { tw } from 'twind';
+import styles from './page.module.css';
+import { version } from 'next/package.json';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className={tw`m-auto`}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js 13!</a>
+          Welcome to{' '}
+          <a href="https://nextjs.org">
+            Next.js {version.substring(0, version.indexOf('.'))}!
+          </a>
         </h1>
 
         <p className={styles.description}>
@@ -53,5 +58,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }

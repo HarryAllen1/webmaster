@@ -1,6 +1,8 @@
 {
-	"css.lint.unknownAtRules": "ignore",
-	"scss.lint.unknownAtRules": "ignore",
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode"
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.3/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
