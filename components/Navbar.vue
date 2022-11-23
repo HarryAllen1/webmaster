@@ -3,7 +3,7 @@ import startCase from 'lodash.startcase';
 
 let menuOpen = false;
 const visible = true;
-const routes = useRouter().options.routes;
+const pages = usePages();
 
 useRouter().afterEach(() => (menuOpen = false));
 
@@ -28,7 +28,7 @@ onMounted(() => {
 		<ul
 			class="justify-center relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:gap-4"
 		>
-			<li v-for="page in routes" :key="page.path">
+			<li v-for="page in pages" :key="page.path">
 				<NuxtLink
 					v-if="page.name"
 					class="prose-lg hover:opacity-80"
@@ -105,7 +105,7 @@ onMounted(() => {
 
 	<div v-if="menuOpen" class="flex flex-col bg-black p-4 w-full text-white">
 		<NuxtLink
-			v-for="page in routes"
+			v-for="page in pages"
 			:key="page.path"
 			class="h-8 text-end hover:opacity-80"
 			:to="page.path"
