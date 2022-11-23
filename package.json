@@ -1,13 +1,26 @@
 {
-  "name": "webmaster-monorepo",
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "test": "turbo run test --parallel",
-    "lint": "turbo run lint --parallel",
-    "format": "turbo run format --parallel"
-  },
-  "devDependencies": {
-    "turbo": "^1.6.3"
-  }
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"devDependencies": {
+		"@nuxt/image-edge": "1.0.0-27809804.194d2d6",
+		"@nuxtjs/web-vitals": "^0.1.10",
+		"@unocss/nuxt": "^0.46.5",
+		"@unocss/preset-typography": "^0.46.5",
+		"@unocss/reset": "^0.46.5",
+		"nuxt": "3.0.0"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"vite",
+				"webpack"
+			]
+		}
+	}
 }
