@@ -7,7 +7,7 @@
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
-		"postinstall": "pnpm un @nuxtjs/web-vitals && cat vercel.json && nuxt prepare"
+		"postinstall": "nuxt prepare"
 	},
 	"devDependencies": {
 		"@nuxt/image-edge": "1.0.0-27809804.194d2d6",
@@ -22,6 +22,9 @@
 				"vite",
 				"webpack"
 			]
+		},
+		"patchedDependencies": {
+			"@nuxtjs/web-vitals@0.1.10": "patches/@nuxtjs__web-vitals@0.1.10.patch"
 		}
 	},
 	"dependencies": {

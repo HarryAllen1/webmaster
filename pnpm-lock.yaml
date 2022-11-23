@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  '@nuxtjs/web-vitals@0.1.10':
+    hash: qq7hmkozd5mosydr36jpemouua
+    path: patches/@nuxtjs__web-vitals@0.1.10.patch
+
 specifiers:
   '@nuxt/image-edge': 1.0.0-27809804.194d2d6
   '@nuxtjs/web-vitals': ^0.1.10
@@ -9,7 +14,7 @@ specifiers:
   nuxt: 3.0.0
 
 dependencies:
-  '@nuxtjs/web-vitals': 0.1.10
+  '@nuxtjs/web-vitals': 0.1.10_qq7hmkozd5mosydr36jpemouua
 
 devDependencies:
   '@nuxt/image-edge': 1.0.0-27809804.194d2d6
@@ -671,13 +676,14 @@ packages:
       - vti
     dev: true
 
-  /@nuxtjs/web-vitals/0.1.10:
+  /@nuxtjs/web-vitals/0.1.10_qq7hmkozd5mosydr36jpemouua:
     resolution: {integrity: sha512-Sf8v7BUB+Bfmao6AioPRmSpyq/MMvq0tFwFiXVe2oL9HgdDgu+6sfcSBDnvzmgcEQPfPZp1KCxc5N2vNERem0w==}
     dependencies:
       defu: 6.1.1
       ufo: 0.8.6
       web-vitals: 2.1.4
     dev: false
+    patched: true
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
