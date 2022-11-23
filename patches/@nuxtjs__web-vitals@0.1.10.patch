@@ -1,5 +1,5 @@
 diff --git a/dist/index.js b/dist/index.js
-index d801823c2af4e0bfc3a131d84449c0f5a20b3e0d..967d371b9eace8443e2e2c16dcbaabf4a8a6cf20 100644
+index d801823c2af4e0bfc3a131d84449c0f5a20b3e0d..2d1ec238274a0b2c8ef0e3d63ac2fdb96190c537 100644
 --- a/dist/index.js
 +++ b/dist/index.js
 @@ -1,106 +1 @@
@@ -109,4 +109,4 @@ index d801823c2af4e0bfc3a131d84449c0f5a20b3e0d..967d371b9eace8443e2e2c16dcbaabf4
 -webVitalsModule.meta = require("../package.json");
 -
 -module.exports = webVitalsModule;
-+console.log('literally broken');
++export default () => {};
