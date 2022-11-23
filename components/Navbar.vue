@@ -23,7 +23,7 @@ onMounted(() => {
 		}"
 		class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 shadow-md select-none duration-200 px-4 grid grid-cols-3 items-center justify-between"
 	>
-		<a href="/" class="nav-spot home" title="Home"> Home </a>
+		<NuxtLink to="/" class="nav-spot home" title="Home"> Home </NuxtLink>
 		<NuxtLink to="/" class="nav-spot home" />
 		<ul
 			class="justify-center relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:gap-4"
@@ -108,7 +108,7 @@ onMounted(() => {
 			v-for="page in routes"
 			:key="page.path"
 			class="h-8 text-end hover:opacity-80"
-			to="{{page.link}}"
+			:to="page.path"
 			@click="menuOpen = false"
 		>
 			{{ startCase(page.name?.toString().replace('index', 'home')) }}

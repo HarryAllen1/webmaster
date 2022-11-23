@@ -10,7 +10,7 @@ const routes = useRouter().options.routes;
 			<NuxtLink
 				v-for="page in routes"
 				:key="page.path"
-				href="{{page.link}}"
+				:to="page.path"
 				class="text-white hover:underline"
 			>
 				{{ startCase(page.name?.toString().replace('index', 'home')) }}
