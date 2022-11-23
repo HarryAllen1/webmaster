@@ -7,14 +7,14 @@ const routes = useRouter().options.routes;
 <template>
 	<footer class="py-8 flex flex-row px-16 bg-black">
 		<div class="flex flex-col">
-			<a
+			<NuxtLink
 				v-for="page in routes"
 				:key="page.path"
 				href="{{page.link}}"
 				class="text-white hover:underline"
 			>
 				{{ startCase(page.name?.toString().replace('index', 'home')) }}
-			</a>
+			</NuxtLink>
 		</div>
 	</footer>
 </template>
