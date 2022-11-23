@@ -21,5 +21,8 @@
 				"webpack"
 			]
 		}
+	},
+	"dependencies": {
+		"@nuxtjs/web-vitals": "^0.1.10"
 	}
 }
