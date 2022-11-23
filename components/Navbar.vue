@@ -1,13 +1,17 @@
 <script setup lang="ts">
+import startCase from 'lodash.startcase';
+
 let menuOpen = false;
-let visible = true;
-let routes = useRouter().options.routes;
+const visible = true;
+const routes = useRouter().options.routes;
 
 useRouter().afterEach(() => (menuOpen = false));
 
 onMounted(() => {
 	window.addEventListener('resize', () => {
-		if (window.innerWidth > 799) menuOpen = false;
+		if (window.innerWidth > 799) {
+			menuOpen = false;
+		}
 	});
 });
 </script>
@@ -20,22 +24,18 @@ onMounted(() => {
 		class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 shadow-md select-none duration-200 px-4 grid grid-cols-3 items-center justify-between"
 	>
 		<a href="/" class="nav-spot home" title="Home"> Home </a>
-		<NuxtLink to="/" class="nav-spot home"></NuxtLink>
+		<NuxtLink to="/" class="nav-spot home" />
 		<ul
 			class="justify-center relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:gap-4"
 		>
-			<li v-for="page in routes">
+			<li v-for="page in routes" :key="page.path">
 				<a
 					v-if="page.name"
 					class="prose-lg hover:opacity-80"
 					href="{{page.link}}"
-					>{{
-						page.name === 'index'
-							? 'Home'
-							: page.name.toString()?.substring(0, 1).toUpperCase() +
-							  page.name.toString()?.substring(1)
-					}}</a
 				>
+					{{ startCase(page.name.toString().replace('index', 'home')) }}
+				</a>
 			</li>
 		</ul>
 
@@ -106,11 +106,12 @@ onMounted(() => {
 	<div v-if="menuOpen" class="flex flex-col bg-black p-4 w-full text-white">
 		<a
 			v-for="page in routes"
+			:key="page.path"
 			class="h-8 text-end hover:opacity-80"
-			@click="menuOpen = false"
 			href="{{page.link}}"
+			@click="menuOpen = false"
 		>
-			{{ page.name }}
+			{{ startCase(page.name?.toString().replace('index', 'home')) }}
 		</a>
 	</div>
 </template>
