@@ -2,7 +2,7 @@ import { join } from 'node:path';
 import { globby } from 'globby';
 import { readFile, writeFile } from 'node:fs/promises';
 
-const outFile = join('static', 'licenses.txt');
+const outFile = join(__dirname, 'public', 'licenses.txt');
 const allLicenses = await globby('node_modules/**/LICENSE*');
 
 const licenses = await Promise.all(
