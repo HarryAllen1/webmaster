@@ -8,10 +8,12 @@ const pages = usePages();
 
 useRouter().afterEach(() => (menuOpen = false));
 
-useResizeObserver(document.body, () => {
-	if (window.innerWidth > 768) {
-		menuOpen = false;
-	}
+onMounted(() => {
+	useResizeObserver(document.body, () => {
+		if (window.innerWidth > 768) {
+			menuOpen = false;
+		}
+	});
 });
 </script>
 <template>
