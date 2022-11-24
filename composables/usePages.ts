@@ -8,4 +8,8 @@ export const usePages: () => Page[] = () => [
 		name: 'Home',
 		path: '/',
 	},
+	{
+		name: 'About',
+		path: '/about',
+	},
 ];

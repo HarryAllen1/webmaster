@@ -15,6 +15,7 @@ onMounted(() => {
 	};
 });
 </script>
+
 <template>
 	<nav
 		:class="{
