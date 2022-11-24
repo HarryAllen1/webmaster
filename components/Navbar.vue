@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import startCase from 'lodash.startcase';
 
-let menuOpen = false;
+let menuOpen = $ref(false);
 const visible = true;
 const pages = usePages();
 
@@ -14,6 +14,8 @@ onMounted(() => {
 		}
 	};
 });
+
+const toggleMenu = () => (menuOpen = !menuOpen);
 </script>
 
 <template>
@@ -59,7 +61,7 @@ onMounted(() => {
 			aria-label="Toggle menu"
 			class="menu-toggle flex justify-end md:hidden"
 			class:menuOpen
-			@click="menuOpen = !menuOpen"
+			@click="toggleMenu"
 		>
 			<svg
 				v-if="menuOpen"
