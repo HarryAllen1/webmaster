@@ -6,36 +6,48 @@ patchedDependencies:
     path: patches/@nuxtjs__web-vitals@0.1.10.patch
 
 specifiers:
+  '@iconify/json': ^2.1.142
   '@nuxt/image-edge': 1.0.0-27809804.194d2d6
   '@nuxtjs/eslint-config-typescript': ^12.0.0
   '@nuxtjs/web-vitals': ^0.1.10
   '@types/lodash.startcase': ^4.4.7
   '@unocss/nuxt': ^0.46.5
+  '@unocss/preset-icons': ^0.46.5
   '@unocss/preset-typography': ^0.46.5
   '@unocss/reset': ^0.46.5
   '@unocss/transformer-directives': ^0.46.5
+  '@vueuse/core': ^9.6.0
+  '@vueuse/nuxt': ^9.6.0
   eslint: ^8.28.0
   lodash.startcase: ^4.4.0
   nuxt: 3.0.0
   sass: ^1.56.1
   typescript: ^4.9.3
+  unocss: ^0.46.5
+  vue: ^3.2.45
 
 dependencies:
   '@nuxtjs/web-vitals': 0.1.10_u6vzbk65gz3rvsrn37c6swvnli
   lodash.startcase: 4.4.0
 
 devDependencies:
+  '@iconify/json': 2.1.142
   '@nuxt/image-edge': 1.0.0-27809804.194d2d6
   '@nuxtjs/eslint-config-typescript': 12.0.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@types/lodash.startcase': 4.4.7
   '@unocss/nuxt': 0.46.5
+  '@unocss/preset-icons': 0.46.5
   '@unocss/preset-typography': 0.46.5
   '@unocss/reset': 0.46.5
   '@unocss/transformer-directives': 0.46.5
+  '@vueuse/core': 9.6.0_vue@3.2.45
+  '@vueuse/nuxt': 9.6.0_nuxt@3.0.0+vue@3.2.45
   eslint: 8.28.0
   nuxt: 3.0.0_il4nynbegyshnpve3y3r4aihba
   sass: 1.56.1
   typescript: 4.9.3
+  unocss: 0.46.5
+  vue: 3.2.45
 
 packages:
 
@@ -406,6 +418,13 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify/json/2.1.142:
+    resolution: {integrity: sha512-wTVti6wSp5ofWk7g7vWF+WDmC9ymI4PoNAGHQ0p4cGpNd04bMSS1DB+ptU8n6OqBg2T03kKEqRvG9PqjUiZSGA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 0.3.9
     dev: true
 
   /@iconify/types/2.0.0:
@@ -966,6 +985,10 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
 
+  /@types/web-bluetooth/0.0.16:
+    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: true
+
   /@typescript-eslint/eslint-plugin/5.44.0_fnsv2sbzcckq65bwfk7a5xwslu:
     resolution: {integrity: sha512-j5ULd7FmmekcyWeArx+i8x7sdRHzAtXTkmDPthE4amxZOWKFK7bomoJ4r7PJ8K7PoMzD16U8MmuZFAonr1ERvw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1488,6 +1511,18 @@ packages:
     resolution: {integrity: sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg==}
     dev: true
 
+  /@vueuse/core/9.6.0_vue@3.2.45:
+    resolution: {integrity: sha512-qGUcjKQXHgN+jqXEgpeZGoxdCbIDCdVPz3QiF1uyecVGbMuM63o96I1GjYx5zskKgRI0FKSNsVWM7rwrRMTf6A==}
+    dependencies:
+      '@types/web-bluetooth': 0.0.16
+      '@vueuse/metadata': 9.6.0
+      '@vueuse/shared': 9.6.0_vue@3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: true
+
   /@vueuse/head/1.0.18_vue@3.2.45:
     resolution: {integrity: sha512-V3EuLoZFrMgvCQYSE0pJupYglZ0ID3rr/8ATIgnZNn+fjRrIEn8oAwAe8FRFAUKgBb0rZt+QY94PaDF6/HOLOQ==}
     peerDependencies:
@@ -1498,6 +1533,37 @@ packages:
       '@unhead/ssr': 1.0.4
       '@unhead/vue': 1.0.4_vue@3.2.45
       vue: 3.2.45
+    dev: true
+
+  /@vueuse/metadata/9.6.0:
+    resolution: {integrity: sha512-sIC8R+kWkIdpi5X2z2Gk8TRYzmczDwHRhEFfCu2P+XW2JdPoXrziqsGpDDsN7ykBx4ilwieS7JUIweVGhvZ93w==}
+    dev: true
+
+  /@vueuse/nuxt/9.6.0_nuxt@3.0.0+vue@3.2.45:
+    resolution: {integrity: sha512-r+ngzHijvrfn89KnwlFCSe/xzFCiuskwmxbDdzFtpcZ57RHqLPdUS34YYrDxt7XasM0vlD3dmLIKEH//btf7sw==}
+    peerDependencies:
+      nuxt: ^3.0.0-rc.9
+    dependencies:
+      '@nuxt/kit': 3.0.0
+      '@vueuse/core': 9.6.0_vue@3.2.45
+      '@vueuse/metadata': 9.6.0
+      local-pkg: 0.4.2
+      nuxt: 3.0.0_il4nynbegyshnpve3y3r4aihba
+      vue-demi: 0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - rollup
+      - supports-color
+      - vue
+    dev: true
+
+  /@vueuse/shared/9.6.0_vue@3.2.45:
+    resolution: {integrity: sha512-/eDchxYYhkHnFyrb00t90UfjCx94kRHxc7J1GtBCqCG4HyPMX+krV9XJgVtWIsAMaxKVU4fC8NSUviG1JkwhUQ==}
+    dependencies:
+      vue-demi: 0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: true
 
   /@zhead/schema/1.0.4:
@@ -6274,6 +6340,38 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
+  /unocss/0.46.5:
+    resolution: {integrity: sha512-AMURkxzvhHgjxD9KcEyo1y+zTJvjHG9O+vYWTyyMEQeCspFmGONoEtnBC9p8MGPsiW4afSEJCrIROOEl186zKQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@unocss/webpack': 0.46.5
+    peerDependenciesMeta:
+      '@unocss/webpack':
+        optional: true
+    dependencies:
+      '@unocss/astro': 0.46.5
+      '@unocss/cli': 0.46.5
+      '@unocss/core': 0.46.5
+      '@unocss/preset-attributify': 0.46.5
+      '@unocss/preset-icons': 0.46.5
+      '@unocss/preset-mini': 0.46.5
+      '@unocss/preset-tagify': 0.46.5
+      '@unocss/preset-typography': 0.46.5
+      '@unocss/preset-uno': 0.46.5
+      '@unocss/preset-web-fonts': 0.46.5
+      '@unocss/preset-wind': 0.46.5
+      '@unocss/reset': 0.46.5
+      '@unocss/transformer-attributify-jsx': 0.46.5
+      '@unocss/transformer-compile-class': 0.46.5
+      '@unocss/transformer-directives': 0.46.5
+      '@unocss/transformer-variant-group': 0.46.5
+      '@unocss/vite': 0.46.5
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - vite
+    dev: true
+
   /unocss/0.46.5_@unocss+webpack@0.46.5:
     resolution: {integrity: sha512-AMURkxzvhHgjxD9KcEyo1y+zTJvjHG9O+vYWTyyMEQeCspFmGONoEtnBC9p8MGPsiW4afSEJCrIROOEl186zKQ==}
     engines: {node: '>=14'}
@@ -6524,6 +6622,21 @@ packages:
     resolution: {integrity: sha512-43vCqTgaMXfHhtR8/VcxxWD1DgtzyvNc4wNyG5NKCIH19O1z5G9ZCRXTGEA2wifVec5PU82CkRLD2sTK9NkTdA==}
     dependencies:
       ufo: 1.0.0
+    dev: true
+
+  /vue-demi/0.13.11_vue@3.2.45:
+    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.45
     dev: true
 
   /vue-devtools-stub/0.1.0:

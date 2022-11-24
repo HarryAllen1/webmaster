@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import '@unocss/reset/tailwind.css';
-</script>
-
 <template>
 	<div class="prose max-w-full">
 		<Navbar />
