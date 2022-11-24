@@ -8,7 +8,7 @@
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
 		"lint": "eslint .",
-		"postinstall": "nuxt prepare"
+		"postinstall": "nuxt prepare && node ./scripts/makeLicenses.js"
 	},
 	"devDependencies": {
 		"@iconify/json": "^2.1.143",
@@ -25,6 +25,7 @@
 		"eslint": "^8.28.0",
 		"nuxt": "3.0.0",
 		"sass": "^1.56.1",
+		"tiny-glob": "^0.2.9",
 		"typescript": "^4.9.3",
 		"unocss": "^0.46.5",
 		"vue": "^3.2.45"
