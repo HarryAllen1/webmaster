@@ -5,6 +5,7 @@ declare module '@vue/runtime-dom' {
 		[key: string]: any;
 	}
 }
+
 declare module '@vue/runtime-core' {
 	interface AllowedComponentProps {
 		[key: string]: any;

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import startCase from 'lodash.startcase';
+import { useResizeObserver } from '@vueuse/core';
 
 let menuOpen = false;
 const visible = true;
@@ -7,12 +8,10 @@ const pages = usePages();
 
 useRouter().afterEach(() => (menuOpen = false));
 
-onMounted(() => {
-	window.addEventListener('resize', () => {
-		if (window.innerWidth > 799) {
-			menuOpen = false;
-		}
-	});
+useResizeObserver(document.body, () => {
+	if (window.innerWidth > 768) {
+		menuOpen = false;
+	}
 });
 </script>
 <template>
