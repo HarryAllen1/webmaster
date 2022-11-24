@@ -24,8 +24,7 @@ onMounted(() => {
 		}"
 		class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 shadow-md select-none duration-200 px-4 grid grid-cols-3 items-center justify-between"
 	>
-		<NuxtLink to="/" class="nav-spot home" title="Home"> Home </NuxtLink>
-		<NuxtLink to="/" class="nav-spot home" />
+		<NuxtLink to="/" class="nav-spot home flex" title="Home"> Home </NuxtLink>
 		<ul
 			class="justify-center relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:gap-4"
 		>
@@ -111,5 +110,9 @@ onMounted(() => {
 <style scoped>
 .nav-spot {
 	background-image: url('/favicon.png');
+	text-indent: -9999px;
+	background-position: calc(var(--side-nav) - 1rem) 50%;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
 }
 </style>
