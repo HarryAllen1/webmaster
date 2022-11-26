@@ -1,9 +1,9 @@
 import { join } from 'node:path';
 import { readFile, writeFile } from 'node:fs/promises';
-import { globby } from 'globby';
+import glob from 'tiny-glob';
 
 const outFile = join('public', 'licenses.txt');
-const allLicenses = await globby('node_modules/**/LICENSE*');
+const allLicenses = await glob('node_modules/**/LICENSE*');
 
 const licenses = await Promise.all(
 	allLicenses.map(async (license) => {

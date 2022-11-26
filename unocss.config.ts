@@ -6,6 +6,7 @@ import {
 	presetUno,
 	transformerDirectives,
 } from 'unocss';
+import { usePages } from './composables/usePages';
 
 export default defineConfig({
 	presets: [
@@ -22,4 +23,8 @@ export default defineConfig({
 		presetTypography(),
 	],
 	transformers: [transformerDirectives()],
+	safelist: [
+		`mb-[${usePages().length * 2 + 2}rem]`,
+		`-top-[${usePages().length * 2 + 2 + 4}rem]`,
+	],
 });
