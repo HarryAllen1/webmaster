@@ -19,10 +19,29 @@ const toggleMenu = () => (menuOpen = !menuOpen);
 </script>
 
 <template>
+	<div
+		:class="{
+			'top-16': menuOpen,
+			[`-top-[${pages.length * 2 + 2 + 4}rem]`]: true,
+		}"
+		class="flex flex-col absolute bg-black p-4 w-full text-white duration-200 transition-all"
+	>
+		<NuxtLink
+			v-for="page in pages"
+			:key="page.path"
+			class="h-8 text-end hover:opacity-80 no-underline"
+			:to="page.path"
+			@click="menuOpen = false"
+		>
+			{{ startCase(page.name.replace('index', 'home')) }}
+		</NuxtLink>
+	</div>
+
 	<nav
 		:class="{
 			visible: visible || menuOpen,
 			menuOpen: menuOpen,
+			[`mb-[${2 + pages.length * 2}rem]`]: menuOpen,
 		}"
 		class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 shadow-md select-none duration-200 px-4 grid grid-cols-3 items-center justify-between"
 	>
@@ -33,10 +52,10 @@ const toggleMenu = () => (menuOpen = !menuOpen);
 			<li v-for="page in pages" :key="page.path">
 				<NuxtLink
 					v-if="page.name"
-					class="prose-lg hover:opacity-80"
+					class="prose-lg hover:opacity-80 no-underline"
 					:to="page.path"
 				>
-					{{ startCase(page.name.toString().replace('index', 'home')) }}
+					{{ startCase(page.name.replace('index', 'home')) }}
 				</NuxtLink>
 			</li>
 		</ul>
@@ -50,7 +69,7 @@ const toggleMenu = () => (menuOpen = !menuOpen);
 					target="_blank"
 					rel="noreferrer"
 				>
-					<div class="text-white bg-white" i-uil-github-alt />
+					<div class="text-white hover:opacity-80" i-uil-github-alt />
 				</a>
 			</li>
 		</ul>
@@ -95,18 +114,6 @@ const toggleMenu = () => (menuOpen = !menuOpen);
 			</svg>
 		</button>
 	</nav>
-
-	<div v-if="menuOpen" class="flex flex-col bg-black p-4 w-full text-white">
-		<NuxtLink
-			v-for="page in pages"
-			:key="page.path"
-			class="h-8 text-end hover:opacity-80"
-			:to="page.path"
-			@click="menuOpen = false"
-		>
-			{{ startCase(page.name?.toString().replace('index', 'home')) }}
-		</NuxtLink>
-	</div>
 </template>
 
 <style scoped>

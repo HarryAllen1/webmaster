@@ -13,7 +13,7 @@ const pages = usePages();
 				:to="page.path"
 				class="text-white hover:underline"
 			>
-				{{ startCase(page.name?.toString().replace('index', 'home')) }}
+				{{ startCase(page.name.replace('index', 'home')) }}
 			</NuxtLink>
 		</div>
 	</footer>
