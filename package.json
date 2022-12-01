@@ -1,48 +1,42 @@
 {
-	"name": "tsa-webmaster",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev",
-		"generate": "nuxt generate",
-		"preview": "nuxt preview",
-		"lint": "eslint .",
-		"postinstall": "nuxt prepare && node ./scripts/makeLicenses.js"
-	},
-	"devDependencies": {
-		"@iconify/json": "^2.1.143",
-		"@nuxt/image-edge": "1.0.0-27827328.bc9ddc0",
-		"@nuxtjs/eslint-config-typescript": "^12.0.0",
-		"@types/lodash.startcase": "^4.4.7",
-		"@unocss/nuxt": "^0.46.5",
-		"@unocss/preset-icons": "^0.46.5",
-		"@unocss/preset-typography": "^0.46.5",
-		"@unocss/reset": "^0.46.5",
-		"@unocss/transformer-directives": "^0.46.5",
-		"@vueuse/core": "^9.6.0",
-		"@vueuse/nuxt": "^9.6.0",
-		"eslint": "^8.28.0",
-		"nuxt": "3.0.0",
-		"sass": "^1.56.1",
-		"tiny-glob": "^0.2.9",
-		"typescript": "^4.9.3",
-		"unocss": "^0.46.5",
-		"vue": "^3.2.45"
-	},
-	"pnpm": {
-		"peerDependencyRules": {
-			"ignoreMissing": [
-				"vite",
-				"webpack"
-			]
-		},
-		"patchedDependencies": {
-			"@nuxtjs/web-vitals@0.1.10": "patches/@nuxtjs__web-vitals@0.1.10.patch"
-		}
-	},
-	"dependencies": {
-		"@nuxtjs/web-vitals": "^0.1.10",
-		"lodash.startcase": "^4.4.0"
-	}
+  "name": "tsa-webmaster",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint": "eslint .",
+    "postinstall": "nuxt prepare && node ./scripts/makeLicenses.js"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.1.143",
+    "@nuxt/image-edge": "1.0.0-27827328.bc9ddc0",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@types/lodash.startcase": "^4.4.7",
+    "@unocss/nuxt": "^0.46.5",
+    "@unocss/preset-icons": "^0.46.5",
+    "@unocss/preset-typography": "^0.46.5",
+    "@unocss/reset": "^0.46.5",
+    "@unocss/transformer-directives": "^0.46.5",
+    "@vueuse/core": "^9.6.0",
+    "@vueuse/nuxt": "^9.6.0",
+    "eslint": "^8.28.0",
+    "nuxt": "3.0.0",
+    "sass": "^1.56.1",
+    "tiny-glob": "^0.2.9",
+    "typescript": "^4.9.3",
+    "unocss": "^0.46.5",
+    "vue": "^3.2.45"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": ["vite", "webpack"]
+    }
+  },
+  "dependencies": {
+    "@nuxtjs/web-vitals": "^0.1.10",
+    "lodash.startcase": "^4.4.0"
+  }
 }
