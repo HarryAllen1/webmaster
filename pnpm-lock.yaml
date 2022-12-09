@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@iconify/json': ^2.1.146
-  '@nuxt/image-edge': 1.0.0-27827328.bc9ddc0
+  '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/eslint-config-typescript': ^12.0.0
   '@nuxtjs/web-vitals': ^0.2.2
   '@types/lodash.startcase': ^4.4.7
@@ -28,7 +28,7 @@ dependencies:
 
 devDependencies:
   '@iconify/json': 2.1.146
-  '@nuxt/image-edge': 1.0.0-27827328.bc9ddc0
+  '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/eslint-config-typescript': 12.0.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@types/lodash.startcase': 4.4.7
   '@unocss/nuxt': 0.47.4
@@ -508,8 +508,8 @@ packages:
     resolution: {integrity: sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==}
     dev: true
 
-  /@nuxt/image-edge/1.0.0-27827328.bc9ddc0:
-    resolution: {integrity: sha512-8fy6dSJaH9I5FKPK4EA6ddgUWNkxz2Y1AGIKVbAaRKftyK4y66gHmA+pbPPjb1cgYw6pWoWrnA4JxsHKelD8+A==}
+  /@nuxt/image-edge/1.0.0-27840416.dc1ed65:
+    resolution: {integrity: sha512-r+lRkdAeB49wCpYmZAHWrhXNtjTSt3kz8MuPoVPpZB40FOVEpPCIQF8dBI5tXM19YOg76yFCdvpt1TFq3irA7g==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     dependencies:
       '@nuxt/kit': 3.0.0
