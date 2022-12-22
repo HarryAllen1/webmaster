@@ -7,7 +7,7 @@ specifiers:
   '@nuxtjs/web-vitals': ^0.2.2
   '@types/lodash.startcase': ^4.4.7
   '@unocss/nuxt': ^0.48.0
-  '@unocss/preset-icons': ^0.47.4
+  '@unocss/preset-icons': ^0.48.0
   '@unocss/preset-typography': ^0.47.4
   '@unocss/reset': ^0.47.4
   '@unocss/transformer-directives': ^0.47.4
@@ -32,7 +32,7 @@ devDependencies:
   '@nuxtjs/eslint-config-typescript': 12.0.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@types/lodash.startcase': 4.4.7
   '@unocss/nuxt': 0.48.0
-  '@unocss/preset-icons': 0.47.4
+  '@unocss/preset-icons': 0.48.0
   '@unocss/preset-typography': 0.47.4
   '@unocss/reset': 0.47.4
   '@unocss/transformer-directives': 0.47.4
@@ -403,19 +403,6 @@ packages:
 
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: true
-
-  /@iconify/utils/2.0.2:
-    resolution: {integrity: sha512-13B3wJxDLmSNBEIEpKleKSkJVQgdAy9ra3Xsu233i/5qD5yXBGhpOFxTB/k8cqme0xVsMKBPV5vbvq9MgQlX+w==}
-    dependencies:
-      '@antfu/install-pkg': 0.1.1
-      '@antfu/utils': 0.5.2
-      '@iconify/types': 2.0.0
-      debug: 4.3.4
-      kolorist: 1.6.0
-      local-pkg: 0.4.2
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@iconify/utils/2.0.4:
@@ -1268,7 +1255,7 @@ packages:
   /@unocss/preset-icons/0.47.4:
     resolution: {integrity: sha512-TbAmBSAqVIr6I6dald0urtrevwQSPXRMIwqzE1odavked35Q61haUbl9lC2p/HQm8ilO6o6tOlqt/RYRSgXJ/w==}
     dependencies:
-      '@iconify/utils': 2.0.2
+      '@iconify/utils': 2.0.4
       '@unocss/core': 0.47.4
       ohmyfetch: 0.4.21
     transitivePeerDependencies:
