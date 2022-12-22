@@ -15,7 +15,7 @@
     "@nuxt/image-edge": "1.0.0-27840416.dc1ed65",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/lodash.startcase": "^4.4.7",
-    "@unocss/nuxt": "^0.47.4",
+    "@unocss/nuxt": "^0.48.0",
     "@unocss/preset-icons": "^0.47.4",
     "@unocss/preset-typography": "^0.47.4",
     "@unocss/reset": "^0.47.4",
