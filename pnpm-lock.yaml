@@ -9,7 +9,7 @@ specifiers:
   '@unocss/nuxt': ^0.48.0
   '@unocss/preset-icons': ^0.48.0
   '@unocss/preset-typography': ^0.48.0
-  '@unocss/reset': ^0.47.4
+  '@unocss/reset': ^0.48.0
   '@unocss/transformer-directives': ^0.47.4
   '@vueuse/core': ^9.6.0
   '@vueuse/nuxt': ^9.6.0
@@ -34,7 +34,7 @@ devDependencies:
   '@unocss/nuxt': 0.48.0
   '@unocss/preset-icons': 0.48.0
   '@unocss/preset-typography': 0.48.0
-  '@unocss/reset': 0.47.4
+  '@unocss/reset': 0.48.0
   '@unocss/transformer-directives': 0.47.4
   '@vueuse/core': 9.6.0_vue@3.2.45
   '@vueuse/nuxt': 9.6.0_nuxt@3.0.0+vue@3.2.45
