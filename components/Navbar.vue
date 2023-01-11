@@ -1,127 +1,66 @@
 <script setup lang="ts">
-import startCase from 'lodash.startcase';
-
-let menuOpen = $ref(false);
-const visible = true;
-const pages = usePages();
-
-useRouter().afterEach(() => (menuOpen = false));
-
-onMounted(() => {
-	window.onresize = () => {
-		if (window.innerWidth > 768) {
-			menuOpen = false;
-		}
-	};
-});
-
-const toggleMenu = () => (menuOpen = !menuOpen);
+import { provide } from 'vue';
+import { useNav } from '../composables/nav.js';
+import { useSidebar } from '../composables/sidebar.js';
+import VPNavBar from './VPNavBar.vue';
+import VPNavScreen from './VPNavScreen.vue';
+const { isScreenOpen, closeScreen, toggleScreen } = useNav();
+const { hasSidebar } = useSidebar();
+provide('close-screen', closeScreen);
 </script>
 
 <template>
-	<div
-		:class="{
-			'top-16': menuOpen,
-			[`-top-[${pages.length * 2 + 2 + 4}rem]`]: true,
-		}"
-		class="flex flex-col absolute bg-black p-4 w-full text-white duration-200 transition-all"
-	>
-		<NuxtLink
-			v-for="page in pages"
-			:key="page.path"
-			class="h-8 text-end hover:opacity-80 no-underline"
-			:to="page.path"
-			@click="menuOpen = false"
-		>
-			{{ startCase(page.name.replace('index', 'home')) }}
-		</NuxtLink>
-	</div>
-
-	<nav
-		:class="{
-			visible: visible || menuOpen,
-			menuOpen: menuOpen,
-			[`mb-[${2 + pages.length * 2}rem]`]: menuOpen,
-		}"
-		class="bg-black text-white my-0 mx-auto z-[100] w-full h-16 shadow-md select-none duration-200 px-4 grid grid-cols-3 items-center justify-between"
-	>
-		<NuxtLink to="/" class="nav-spot home flex" title="Home"> Home </NuxtLink>
-		<ul
-			class="justify-center relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:gap-4"
-		>
-			<li v-for="page in pages" :key="page.path">
-				<NuxtLink
-					v-if="page.name"
-					class="prose-lg hover:opacity-80 no-underline"
-					:to="page.path"
-				>
-					{{ startCase(page.name.replace('index', 'home')) }}
-				</NuxtLink>
-			</li>
-		</ul>
-
-		<ul
-			class="relative p-0 m-0 w-full list-none hidden md:flex md:h-full md:w-auto md:items-center md:p-0 md:mx-1 md:justify-end"
-		>
-			<li>
-				<a
-					href="https://github.com/MajesticString/webmaster"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<div class="text-white hover:opacity-80" i-uil-github-alt />
-				</a>
-			</li>
-		</ul>
-
-		<div class="block md:hidden" />
-
-		<button
-			aria-label="Toggle menu"
-			class="menu-toggle flex justify-end md:hidden"
-			class:menuOpen
-			@click="toggleMenu"
-		>
-			<svg
-				v-if="menuOpen"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				stroke="currentColor"
-				class="w-6 h-6"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="M6 18L18 6M6 6l12 12"
-				/>
-			</svg>
-			<svg
-				v-else
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				stroke="currentColor"
-				class="w-6 h-6"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-				/>
-			</svg>
-		</button>
-	</nav>
+	<header class="VPNav" :class="{ 'no-sidebar': !hasSidebar }">
+		<VPNavBar :is-screen-open="isScreenOpen" @toggle-screen="toggleScreen">
+			<template #nav-bar-title-before
+				><slot name="nav-bar-title-before"
+			/></template>
+			<template #nav-bar-title-after
+				><slot name="nav-bar-title-after"
+			/></template>
+			<template #nav-bar-content-before
+				><slot name="nav-bar-content-before"
+			/></template>
+			<template #nav-bar-content-after
+				><slot name="nav-bar-content-after"
+			/></template>
+		</VPNavBar>
+		<VPNavScreen :open="isScreenOpen">
+			<template #nav-screen-content-before
+				><slot name="nav-screen-content-before"
+			/></template>
+			<template #nav-screen-content-after
+				><slot name="nav-screen-content-after"
+			/></template>
+		</VPNavScreen>
+	</header>
 </template>
 
 <style scoped>
-.nav-spot {
-	background-image: url('/favicon.png');
-	text-indent: -9999px;
-	background-position: calc(var(--side-nav) - 1rem) 50%;
-	background-repeat: no-repeat;
-	background-size: auto 100%;
+.VPNav {
+	position: relative;
+	top: var(--vp-layout-top-height, 0px);
+	left: 0;
+	z-index: var(--vp-z-index-nav);
+	width: 100%;
+	pointer-events: none;
+}
+@media (min-width: 960px) {
+	.VPNav {
+		position: fixed;
+	}
+	.VPNav.no-sidebar {
+		background: var(--vp-c-bg-alpha-without-backdrop);
+	}
+	@supports (
+		(backdrop-filter: saturate(50%) blur(8px)) or
+			(-webkit-backdrop-filter: saturate(50%) blur(8px))
+	) {
+		.VPNav.no-sidebar {
+			-webkit-backdrop-filter: saturate(50%) blur(8px);
+			backdrop-filter: saturate(50%) blur(8px);
+			background: var(--vp-c-bg-alpha-with-backdrop);
+		}
+	}
 }
 </style>
