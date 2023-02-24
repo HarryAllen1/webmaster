@@ -27,4 +27,12 @@ const NAVBAR_TEMPLATE = `
 </nav>
 `;
 
-document.body.innerHTML = NAVBAR_TEMPLATE + document.body.innerHTML;
+customElements.define(
+  'wm-navbar',
+  class extends HTMLElement {
+    constructor() {
+      super();
+      this.innerHTML = NAVBAR_TEMPLATE;
+    }
+  }
+);
