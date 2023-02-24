@@ -1,7 +1,7 @@
 const NAVBAR_TEMPLATE = `
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
-    <a href="/" class="navbar-brand">Webmaster</a>
+    <a href="/" class="navbar-brand text-bold">Webmaster</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,7 +16,7 @@ const NAVBAR_TEMPLATE = `
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
