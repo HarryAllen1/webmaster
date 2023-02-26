@@ -1,6 +1,7 @@
+<!-- https://getbootstrap.com/docs/5.3/components/navbar/ -->
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
-    <a href="/" class="navbar-brand text-bold">Webmaster</a>
+    <a href="/" class="navbar-brand text-bold">Astro Adventures</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -19,7 +20,12 @@
       >
         <template x-for="link in links">
           <li class="nav-item">
-            <a x-text="link[0]" x-bind:href="link[1]" class="nav-link"></a>
+            <a
+              :class="window.location.pathname.replaceAll('/', '') === link[1].replaceAll('/', '') ? 'active' : ''"
+              x-text="link[0]"
+              x-bind:href="link[1]"
+              class="nav-link"
+            ></a>
           </li>
         </template>
       </ul>
