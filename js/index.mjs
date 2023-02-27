@@ -30,9 +30,12 @@ const cachedPages = new Map();
  * @param {Document} newPage
  */
 const updatePage = (newPage) => {
-  /** @type {HTMLDivElement} */
+  /** @type {HTMLDivElement | null} */
   const main = document.querySelector('#main');
-  main.innerHTML = newPage.querySelector('#main').innerHTML;
+  if (main)
+    main.innerHTML =
+      newPage.querySelector('#main')?.innerHTML ??
+      'No page found! Try refreshing the page.';
   document.title = newPage.title;
 };
 
@@ -52,7 +55,10 @@ document.querySelectorAll('a').forEach((el) => {
     el.addEventListener('click', async (e) => {
       e.preventDefault();
       if (cachedPages.has(el.href)) {
-        updatePage(cachedPages.get(el.href));
+        updatePage(
+          // @ts-ignore
+          cachedPages.get(el.href)
+        );
         return pageStore.updatePage(new URL(el.href).pathname);
       }
       const res = await fetch(el.href);
