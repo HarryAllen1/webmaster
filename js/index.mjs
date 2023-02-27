@@ -1,5 +1,11 @@
 import { createApp, reactive } from 'https://unpkg.com/petite-vue?module';
 
+const pages = [
+  ['Home', '/'],
+  ['About', '/about'],
+  ['Models', '/models'],
+];
+
 const pageStore = reactive({
   current: location.pathname.replaceAll('/', ''),
   /**
@@ -81,10 +87,7 @@ customElements.define(
       const html = await res.text();
       this.innerHTML = html;
       createApp({
-        pages: [
-          ['Home', '/'],
-          ['About', '/about'],
-        ],
+        pages,
         pageStore,
       }).mount(this);
       initRouter();
