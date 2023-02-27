@@ -19,6 +19,9 @@ createApp({
   pageStore,
 }).mount();
 
+/**
+ * @type {Map<string, Document>}
+ */
 const cachedPages = new Map();
 
 /**
