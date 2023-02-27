@@ -1,17 +1,64 @@
-const navbarTemplate = await (await fetch('/templates/navbar.html')).text();
+import { createApp, reactive } from 'https://unpkg.com/petite-vue?module';
 
-document.body.innerHTML = navbarTemplate + document.body.innerHTML;
+const pageStore = reactive({
+  current: location.pathname.replaceAll('/', ''),
+  /**
+   * @param {string} pathname
+   */
+  updatePage(pathname) {
+    this.current =
+      pathname.replaceAll('/', '') ?? location.pathname.replaceAll('/', '');
+  },
+});
 
-/** @type {HTMLDivElement} */
-const loader = document.querySelector('#loader');
+createApp({
+  pages: [
+    ['Home', '/'],
+    ['About', '/about'],
+  ],
+  pageStore,
+}).mount();
 
-const fadeOut = () => {
-  if (loader.style.opacity <= 0) {
-    loader.remove();
-  } else {
-    loader.style.opacity -= 0.1;
-    requestAnimationFrame(fadeOut);
-  }
+const cachedPages = new Map();
+
+/**
+ * Replaces the current page with the new page
+ *
+ * @param {Document} newPage
+ */
+const updatePage = (newPage) => {
+  /** @type {HTMLDivElement} */
+  const main = document.querySelector('#main');
+  main.innerHTML = newPage.querySelector('#main').innerHTML;
 };
 
-fadeOut();
+document.querySelectorAll('a').forEach((el) => {
+  if (el.href.startsWith(location.origin)) {
+    el.addEventListener('pointerover', async (e) => {
+      e.preventDefault();
+      if (cachedPages.has(el.href)) {
+        return;
+      }
+      const res = await fetch(el.href);
+      const html = await res.text();
+      const parser = new DOMParser();
+      const newPage = parser.parseFromString(html, 'text/html');
+      cachedPages.set(el.href, newPage);
+    });
+    el.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (cachedPages.has(el.href)) {
+        updatePage(cachedPages.get(el.href));
+        return pageStore.updatePage(new URL(el.href).pathname);
+      }
+      const res = await fetch(el.href);
+      const html = await res.text();
+      const parser = new DOMParser();
+      const newPage = parser.parseFromString(html, 'text/html');
+      cachedPages.set(el.href, newPage);
+      history.pushState({}, '', el.href);
+      updatePage(newPage);
+      pageStore.updatePage(new URL(el.href).pathname);
+    });
+  }
+});
