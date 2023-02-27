@@ -30,6 +30,7 @@ const updatePage = (newPage) => {
   /** @type {HTMLDivElement} */
   const main = document.querySelector('#main');
   main.innerHTML = newPage.querySelector('#main').innerHTML;
+  document.title = newPage.title;
 };
 
 document.querySelectorAll('a').forEach((el) => {
