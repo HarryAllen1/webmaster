@@ -1,4 +1,4 @@
-import { createApp, reactive } from 'https://unpkg.com/petite-vue?module';
+import { createApp, reactive } from 'petite-vue';
 
 const pages = [
   ['Home', '/'],
@@ -60,6 +60,7 @@ const initRouter = () => {
             // @ts-ignore
             cachedPages.get(el.href)
           );
+          history.pushState({}, '', el.href);
           return pageStore.updatePage(new URL(el.href).pathname);
         }
         const res = await fetch(el.href);

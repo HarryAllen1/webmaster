@@ -1,1 +1,1 @@
-declare module 'https://unpkg.com/petite-vue?module';
+declare module 'petite-vue';
