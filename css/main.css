@@ -39,3 +39,20 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background: linear-gradient(
+    to bottom,
+    #6c5b7b,
+    #552a36,
+    #58272c,
+    #5c2b18,
+    #504a49,
+    #484c77,
+    #493d53,
+    #000000
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 650px;
+  min-height: 650px;
+}
