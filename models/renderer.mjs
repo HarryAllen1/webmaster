@@ -5,6 +5,9 @@ customElements.define(
   class extends HTMLElement {
     constructor() {
       super();
+      this.attachShadow({
+        mode: 'open',
+      });
       // Scene
       const scene = new THREE.Scene();
 
@@ -43,7 +46,7 @@ customElements.define(
       renderer.setSize(window.innerWidth * 0.5, window.innerHeight);
       renderer.render(scene, camera);
 
-      this.appendChild(renderer.domElement);
+      this.shadowRoot?.appendChild(renderer.domElement);
     }
   }
 );
