@@ -39,6 +39,4 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.render(scene, camera);
 
 // Add it to the inside of a div labeled model
-if(document.body.querySelector('#model')){
-    document.body.querySelector('#model').appendChild(renderer.domElement);
-}
+document.body.querySelector('#model')?.appendChild(renderer.domElement);
