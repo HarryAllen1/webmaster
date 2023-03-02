@@ -25,7 +25,7 @@ customElements.define(
 
       // Camera
       const width = 10;
-      const height = width * (window.innerHeight / window.innerWidth);
+      const height = width * (window.innerHeight / (window.innerWidth * 0.5));
       const camera = new THREE.OrthographicCamera(
         width / -2, // left
         width / 2, // right
