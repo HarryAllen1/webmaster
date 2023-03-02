@@ -19,6 +19,10 @@ const pageStore = reactive({
 
 createApp({}).mount('#main');
 
+if (location.href.includes('models')) {
+  await import('../models/renderer.mjs');
+}
+
 /**
  * @type {Map<string, Document>}
  */
@@ -55,6 +59,9 @@ const initRouter = () => {
       });
       el.addEventListener('click', async (e) => {
         e.preventDefault();
+        if (el.href.includes('models')) {
+          await import('../models/renderer.mjs');
+        }
         if (cachedPages.has(el.href)) {
           updatePage(
             // @ts-ignore
