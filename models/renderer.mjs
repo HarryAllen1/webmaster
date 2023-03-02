@@ -44,7 +44,7 @@ customElements.define(
       renderer.render(scene, camera);
       console.log('tset');
 
-      document.body.querySelector('#model')?.appendChild(renderer.domElement);
+      this.appendChild(renderer.domElement);
     }
   }
 );
