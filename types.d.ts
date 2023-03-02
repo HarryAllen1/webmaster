@@ -1,2 +1,2 @@
-declare module "petite-vue";
-declare module "three";
+declare module 'petite-vue';
+declare module 'three';

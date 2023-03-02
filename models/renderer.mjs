@@ -42,7 +42,6 @@ customElements.define(
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth * 0.5, window.innerHeight);
       renderer.render(scene, camera);
-      console.log('tset');
 
       this.appendChild(renderer.domElement);
     }
