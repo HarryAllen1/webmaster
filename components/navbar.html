@@ -21,7 +21,7 @@
           <a
             :class="{ active: pageStore.current.replaceAll('index.html', '') === link[1].replaceAll('/', '') }"
             :href="link[1]"
-            class="nav-link"
+            class="nav-link relative after:absolute after:content-['.'] after:bottom-1 after:left-0 after:right-0 after:opacity-0 after:text-transparent after:bg-white after:m-auto after:h-[2px] after:w-[calc(100%-12px)] hover:after:opacity-100 after:transition-opacity after:duration-250"
           >
             {{ link[0] }}
           </a>
