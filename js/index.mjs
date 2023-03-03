@@ -59,6 +59,12 @@ const initRouter = () => {
       });
       el.addEventListener('click', async (e) => {
         e.preventDefault();
+        if (
+          new URL(el.href).pathname.replaceAll('/', '') ===
+          new URL(location.href).pathname.replaceAll('/', '')
+        )
+          return;
+
         if (el.href.includes('models')) {
           await import('../models/renderer.mjs');
         }

@@ -30,14 +30,15 @@
     ></script>
     <link rel="stylesheet" href="/css/main.css" />
   </head>
-  <body class="bg-black">
+  <body
+    class="bg-black animate-fade-in animate-duration-500 min-h-[calc(100vh-4rem)]"
+  >
     <wm-navbar></wm-navbar>
     <div
       id="main"
-      class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center opacity-100 transition-opacity duration-250 ease-in-out"
-      un-cloak
+      class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
     >
-      <wm-models-page class="max-w-6xl"></wm-models-page>
+      <wm-models-page class="max-w-6xl z-10"></wm-models-page>
     </div>
   </body>
 </html>

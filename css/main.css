@@ -1,58 +1,50 @@
 :root {
-  --bs-primary: #084298;
-  --bs-primary-rgb: 8, 66, 152;
+  --primary: #1f1f4c;
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: 31, 31, 76;
+  --bs-body-font-family: Inter var, Roboto, Calibri, sans-serif;
 }
-.w-16 {
-  width: 4rem;
+
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: block;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('./Inter-roman-latin.var.woff2') format('woff2');
 }
-.h-16 {
-  height: 4rem;
+
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: block;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url('./Inter-italic-latin.var.woff2') format('woff2');
 }
 
 [un-cloak] {
   display: none;
 }
 
-#loader {
-  position: fixed;
-  z-index: 500;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  transition: opacity 0.5s ease;
+body {
+  font-family: Inter var, Roboto, Calibri, sans-serif;
+  background-size: 100% 650px;
+  background-repeat: no-repeat;
+  background-image: url('/images/stars.svg'),
+    linear-gradient(to bottom, var(--primary), #000);
 }
 
-#loader > div {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
+@keyframes fade-in-up {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translate3d(0, 5%, 0);
+  }
+  50% {
+    opacity: 0.2;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
-}
-
-body {
-  background: linear-gradient(
-    to bottom,
-    #6c5b7b,
-    #552a36,
-    #58272c,
-    #5c2b18,
-    #504a49,
-    #484c77,
-    #493d53,
-    #000000
-  );
-  background-repeat: no-repeat;
-  background-size: 100% 650px;
-  min-height: 650px;
 }
