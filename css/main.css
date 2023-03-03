@@ -1,6 +1,7 @@
 :root {
-  --bs-primary: #084298;
-  --bs-primary-rgb: 8, 66, 152;
+  --primary: #1f1f4c;
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: 31, 31, 76;
 }
 .w-16 {
   width: 4rem;
@@ -41,17 +42,7 @@
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    #6c5b7b,
-    #552a36,
-    #58272c,
-    #5c2b18,
-    #504a49,
-    #484c77,
-    #493d53,
-    #000000
-  );
+  background: linear-gradient(to bottom, var(--primary), #000000);
   background-repeat: no-repeat;
   background-size: 100% 650px;
   min-height: 650px;
