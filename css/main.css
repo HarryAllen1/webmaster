@@ -31,8 +31,15 @@ body {
   font-family: Inter var, Roboto, Calibri, sans-serif;
   background-size: 100% 650px;
   background-repeat: no-repeat;
-  background-image: url('/images/stars.svg'),
-    linear-gradient(to bottom, var(--primary), #000);
+  background-image: linear-gradient(to bottom, var(--primary), #000);
+}
+#stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 650px;
+  background-image: url('/images/stars.svg');
 }
 
 @keyframes fade-in-up {
