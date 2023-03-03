@@ -40,6 +40,8 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 650px;
   background-image: url('/images/stars.svg');
+  z-index: 0;
+  pointer-events: none;
 }
 
 @keyframes fade-in-up {
