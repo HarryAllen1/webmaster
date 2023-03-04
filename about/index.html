@@ -66,7 +66,9 @@
 			<h2>Work Log</h2>
 			<ul>
 				<li v-for="commit in commits">
-					<a :href="commit.link">{{ commit.author }}: {{ commit.message }}</a>
+					<a target="_blank" :href="commit.link">
+						{{ commit.author }}: {{ commit.message }}
+					</a>
 				</li>
 			</ul>
 		</div>
