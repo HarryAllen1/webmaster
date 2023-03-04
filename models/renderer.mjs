@@ -39,18 +39,15 @@ customElements.define(
       // Camera
       const width = 10;
       const height = width * (window.innerHeight / (window.innerWidth * 0.5));
+      //create perspective camera
       const camera = new OrthographicCamera(
-        width / -2, // left
-        width / 2, // right
-        height / 2, // top
-        height / -2, // bottom
-        1, // near
-        100 // far
+        width / -2,
+        width / 2,
+        height / 2,
+        height / -2,
+        1,
+        1000
       );
-
-      camera.position.set(4, 4, 4);
-      camera.lookAt(0, 0, 0);
-
       // Renderer
       const renderer = new WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth * 0.5, window.innerHeight);
