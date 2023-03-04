@@ -1,3 +1,4 @@
+// @deno-types="npm:@types/three"
 import {
   AmbientLight,
   BoxGeometry,
@@ -7,7 +8,7 @@ import {
   OrthographicCamera,
   Scene,
   WebGLRenderer,
-} from 'three';
+} from 'https://unpkg.com/three@0.150.1/build/three.module.js';
 
 customElements.define(
   'wm-models-page',

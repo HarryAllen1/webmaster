@@ -1,4 +1,7 @@
-import { createApp, reactive } from 'petite-vue';
+import {
+  createApp,
+  reactive,
+} from 'https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js?module';
 
 const pages = [
   ['Home', '/'],
@@ -70,7 +73,7 @@ const initRouter = () => {
         }
         if (cachedPages.has(el.href)) {
           updatePage(
-            // @ts-ignore
+            // @ts-ignore: we checked it exists
             cachedPages.get(el.href)
           );
           history.pushState({}, '', el.href);
