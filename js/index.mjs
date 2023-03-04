@@ -20,9 +20,11 @@ const pageStore = reactive({
 	},
 });
 
-createApp({
-	commits: (await import("../about/work-log.mjs")).default,
-}).mount("#main");
+const initPetiteVue = async () =>
+	createApp({
+		commits: (await import("../about/work-log.mjs")).default,
+	}).mount("#main");
+initPetiteVue();
 
 if (location.href.includes("models")) {
 	await import("../models/renderer.mjs");
@@ -46,6 +48,7 @@ const updatePage = (newPage) => {
 			newPage.querySelector("#main")?.innerHTML ??
 			"No page found! Try refreshing the page.";
 	document.title = newPage.title;
+	initPetiteVue();
 };
 
 const initRouter = () => {
