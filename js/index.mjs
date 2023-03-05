@@ -1,3 +1,4 @@
+import 'https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js,npm/@unocss/runtime/attributify.global.js';
 import {
 	createApp,
 	reactive,
