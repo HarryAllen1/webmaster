@@ -36,6 +36,18 @@ if (location.href.includes('models')) {
  */
 const cachedPages = new Map();
 
+setTimeout(() => {
+	document.querySelectorAll('a').forEach((el) => {
+		if (el.href.startsWith(location.origin) && !cachedPages.has(el.href)) {
+			const res = fetch(el.href);
+			const html = res.text();
+			const parser = new DOMParser();
+			const newPage = parser.parseFromString(html, 'text/html');
+			cachedPages.set(el.href, newPage);
+		}
+	});
+}, 500);
+
 /**
  * Replaces the current page with the new page
  *
