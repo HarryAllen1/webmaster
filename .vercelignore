@@ -1,11 +1,6 @@
 .vscode
 .env
 .gitignore
-.prettierrc
-create-work-log.ts
-deno.json
 LICENSE
 README.md
-tsconfig.json
-types.d.ts
 unocss.config.ts
