@@ -4,7 +4,7 @@ import {
   DirectionalLight,
   Mesh,
   MeshLambertMaterial,
-  OrthographicCamera,
+  PerspectiveCamera,
   Scene,
   WebGLRenderer,
 } from 'three';
@@ -38,15 +38,15 @@ customElements.define(
       // Camera
       const width = 10;
       const height = width * (window.innerHeight / (window.innerWidth * 0.5));
-      //create perspective camera
-      const camera = new OrthographicCamera(
-        width / -2,
-        width / 2,
-        height / 2,
-        height / -2,
-        1,
-        1000
-      );
+      const camera = new PerspectiveCamera( 45, width / height, 1, 1000 );
+
+      camera.position.set(4, 4, 4);
+      camera.lookAt(0, 0, 0);
+
+      
+
+      camera.updateProjectionMatrix();
+
       // Renderer
       const renderer = new WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth * 0.5, window.innerHeight);
