@@ -3,6 +3,7 @@ import {
 	createApp,
 	reactive,
 } from 'https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js?module';
+import { sleep } from './utils.mjs';
 
 const pages = [
 	['Home', '/'],
@@ -137,3 +138,14 @@ customElements.define(
 		}
 	}
 );
+
+globalThis.addEventListener('load', async () => {
+	await sleep(50);
+	/** @type {HTMLDivElement} */
+	const loader = document.querySelector('#loader');
+	loader.style.animationDuration = '0.2s';
+	loader.classList.add('animate-fade-in', 'animate-reverse');
+	await sleep(200);
+	document.body.style.overflow = 'auto';
+	loader.remove();
+});
