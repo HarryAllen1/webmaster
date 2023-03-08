@@ -7,8 +7,9 @@ import { sleep } from './utils.mjs';
 
 const pages = [
 	['Home', '/'],
-	['About', '/about'],
+	['Book', '/book'],
 	['Models', '/models'],
+	['About', '/about'],
 ];
 
 const pageStore = reactive({
