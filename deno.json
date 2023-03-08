@@ -1,4 +1,7 @@
 {
+	"tasks": {
+		"build-log": "deno run --allow-net --allow-env --allow-read --allow-write ./create-work-log.ts"
+	},
 	"compilerOptions": {
 		"lib": ["esnext", "dom", "dom.iterable", "deno.window"]
 	}

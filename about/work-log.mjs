@@ -1,6 +1,11 @@
 export default [
 	{
 		author: 'HarryAllen1',
+		message: 'Remove merging messages from work log',
+		link: 'https://github.com/HarryAllen1/webmaster/commit/d9f8840504d1ebdd87e1dce951c2ebc04bc2183b',
+	},
+	{
+		author: 'HarryAllen1',
 		message: 'Larger call-to-action margin',
 		link: 'https://github.com/HarryAllen1/webmaster/commit/032febe421afc03aa3651c7ffc88c948435d1606',
 	},
