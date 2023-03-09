@@ -79,10 +79,14 @@ const updatePage = (newPage) => {
 	}
 	document.title = newPage.title;
 	initPetiteVue();
+	initRouter(document.querySelector('#main') ?? newPage);
 };
 
-const initRouter = () => {
-	document.querySelectorAll('a').forEach((el) => {
+/**
+ * @param {Document | Element} scope
+ */
+const initRouter = (scope) => {
+	scope.querySelectorAll('a').forEach((el) => {
 		if (el.href.startsWith(location.origin)) {
 			el.addEventListener('pointerover', async (e) => {
 				e.preventDefault();
@@ -145,7 +149,7 @@ customElements.define(
 				pages,
 				pageStore,
 			}).mount(this);
-			if (loaded == 1) initRouter();
+			if (loaded == 1) initRouter(document);
 			else loaded++;
 		}
 	}
@@ -165,7 +169,7 @@ customElements.define(
 			createApp({
 				pages,
 			}).mount(this);
-			if (loaded == 1) initRouter();
+			if (loaded == 1) initRouter(document);
 			else loaded++;
 		}
 	}
