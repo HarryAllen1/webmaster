@@ -1,9 +1,15 @@
-import 'https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js,npm/@unocss/runtime/attributify.global.js';
-import {
-	createApp,
-	reactive,
-} from 'https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.es.js?module';
+window.__unocss = {
+	theme: {
+		primary: 'var(--primary)',
+	},
+};
+
+import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1';
 import { sleep } from './utils.mjs';
+// @deno-types="npm:@unocss/runtime"
+import 'https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js';
+// @deno-types="npm:@types/bootstrap"
+import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
 
 const pages = [
 	['Home', '/'],
@@ -26,6 +32,26 @@ const pageStore = reactive({
 const initPetiteVue = async () =>
 	createApp({
 		commits: (await import('../about/work-log.mjs')).default,
+		toastMessage: '',
+		/**
+		 * @param {PointerEvent} e
+		 */
+		addToCart(e) {
+			const currentCart = JSON.parse(localStorage.getItem('cart') ?? '[]');
+			// currentCart.push(e.target);
+			/**
+			 * @type {HTMLButtonElement}
+			 */
+			// @ts-ignore: we know what it is
+			const target = e.target;
+			this.toastMessage = `Added 1 ${
+				target.parentElement?.querySelector('#name')?.textContent
+			} flight to cart for ${
+				target.parentElement?.querySelector('#price')?.textContent
+			}`;
+			localStorage.setItem('cart', JSON.stringify(currentCart));
+			new globalThis.bootstrap.Toast('#addToCartToast').show();
+		},
 	}).mount('#main');
 initPetiteVue();
 
@@ -142,8 +168,9 @@ customElements.define(
 
 globalThis.addEventListener('load', async () => {
 	await sleep(50);
-	/** @type {HTMLDivElement} */
+	/** @type {HTMLDivElement | null} */
 	const loader = document.querySelector('#loader');
+	if (!loader) return;
 	loader.style.animationDuration = '0.2s';
 	loader.classList.add('animate-fade-in', 'animate-reverse');
 	await sleep(200);

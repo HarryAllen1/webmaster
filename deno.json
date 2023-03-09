@@ -3,6 +3,7 @@
 		"build-log": "deno run --allow-net --allow-env --allow-read --allow-write ./create-work-log.ts"
 	},
 	"compilerOptions": {
+		"checkJs": true,
 		"lib": ["esnext", "dom", "dom.iterable", "deno.window"]
 	}
 }

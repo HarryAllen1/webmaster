@@ -1,5 +1,3 @@
-import 'npm:@unocss/runtime';
-
 export interface Author {
 	name: string;
 	email: string;

@@ -1,5 +1,3 @@
-<!-- template file for new pages -->
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark" class="bg-black">
 	<head>
@@ -24,7 +22,67 @@
 			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
 			un-cloak
 		>
-			<h1 class="font-bold">Book a Flight</h1>
+			<h1 class="font-bold mb-10">Book a Flight</h1>
+			<!-- a row of 3 cards offering the different plans -->
+			<div
+				class="flex flex-col md:flex-row md:space-x-8 justify-center items-center"
+			>
+				<div class="card bg-gray-800 rounded-md">
+					<div class="card-body">
+						<h3 id="name" class="font-bold text-xl">Basic</h3>
+						<p class="text-gray-400">Includes a flight to the moon and back.</p>
+						<p class="text-gray-400">
+							We also include a free gift of a moon rock!
+						</p>
+						<h3 id="price" class="font-bold text-xl">$500</h3>
+						<button class="btn btn-primary" @click="addToCart">Purchase</button>
+					</div>
+				</div>
+				<div
+					class="card bg-gradient-to-br scale-110 from-[var(--primary)] to-[#44c] rounded-md"
+				>
+					<div class="card-body">
+						<h3 id="name" class="font-bold text-xl">Premium</h3>
+						<p class="text-gray-400">Includes a flight to the moon and back.</p>
+						<p class="text-gray-400">
+							We also include a free gift of a moon rock!
+						</p>
+						<h3 id="price" class="font-bold text-xl">$1000</h3>
+						<button class="btn btn-primary" @click="addToCart">Purchase</button>
+					</div>
+				</div>
+				<div class="card bg-gray-800 rounded-md">
+					<div class="card-body">
+						<h3 id="name" class="font-bold text-xl">Ultimate</h3>
+						<p class="text-gray-400">Includes a flight to the moon and back.</p>
+						<p class="text-gray-400">
+							We also include a free gift of a moon rock!
+						</p>
+						<h3 id="price" class="font-bold text-xl">$2000</h3>
+						<button class="btn btn-primary" @click="addToCart">Purchase</button>
+					</div>
+				</div>
+				<div class="toast-container fixed bottom-0 right-0 p-3">
+					<div
+						id="addToCartToast"
+						class="toast"
+						role="alert"
+						aria-live="assertive"
+						aria-atomic="true"
+					>
+						<div class="toast-header">
+							<strong>Added to cart</strong>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="toast"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="toast-body">{{ toastMessage }}</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<wm-footer></wm-footer>
 	</body>
