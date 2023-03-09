@@ -128,6 +128,8 @@ const initRouter = () => {
 	});
 };
 
+let loaded = 0;
+
 customElements.define(
 	'wm-navbar',
 	class extends HTMLElement {
@@ -143,7 +145,8 @@ customElements.define(
 				pages,
 				pageStore,
 			}).mount(this);
-			initRouter();
+			if (loaded == 1) initRouter();
+			else loaded++;
 		}
 	}
 );
@@ -162,6 +165,8 @@ customElements.define(
 			createApp({
 				pages,
 			}).mount(this);
+			if (loaded == 1) initRouter();
+			else loaded++;
 		}
 	}
 );
