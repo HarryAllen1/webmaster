@@ -10,6 +10,7 @@ import { sleep } from './utils.mjs';
 import 'https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js';
 // @deno-types="npm:@types/bootstrap"
 import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
+import './scroll-animation.mjs';
 
 const pages = [
 	['Home', '/'],
@@ -29,36 +30,6 @@ const pageStore = reactive({
 	},
 });
 
-const initPetiteVue = async () =>
-	createApp({
-		commits: (await import('../about/work-log.mjs')).default,
-		toastMessage: '',
-		/**
-		 * @param {PointerEvent} e
-		 */
-		addToCart(e) {
-			const currentCart = JSON.parse(localStorage.getItem('cart') ?? '[]');
-			// currentCart.push(e.target);
-			/**
-			 * @type {HTMLButtonElement}
-			 */
-			// @ts-ignore: we know what it is
-			const target = e.target;
-			this.toastMessage = `Added 1 ${
-				target.parentElement?.querySelector('#name')?.textContent
-			} flight to cart for ${
-				target.parentElement?.querySelector('#price')?.textContent
-			}`;
-			localStorage.setItem('cart', JSON.stringify(currentCart));
-			new globalThis.bootstrap.Toast('#addToCartToast').show();
-		},
-	}).mount('#main');
-initPetiteVue();
-
-if (location.href.includes('models')) {
-	await import('../models/renderer.mjs');
-}
-
 /**
  * @type {Map<string, Document>}
  */
@@ -69,7 +40,7 @@ const cachedPages = new Map();
  *
  * @param {Document} newPage
  */
-const updatePage = async (newPage) => {
+const updatePage = (newPage) => {
 	/** @type {HTMLDivElement | null} */
 	const main = document.querySelector('#main');
 	if (main) {
@@ -78,7 +49,7 @@ const updatePage = async (newPage) => {
 			'No page found! Try refreshing the page.';
 	}
 	document.title = newPage.title;
-	await initPetiteVue();
+
 	initRouter(document.querySelector('#main') ?? newPage);
 };
 
@@ -108,25 +79,22 @@ const initRouter = (scope) => {
 					return;
 				}
 
-				if (el.href.includes('models')) {
-					await import('../models/renderer.mjs');
-				}
 				if (cachedPages.has(el.href)) {
 					updatePage(
 						// @ts-ignore: we checked it exists
 						cachedPages.get(el.href)
 					);
-					history.pushState({}, '', el.href);
-					return pageStore.updatePage(new URL(el.href).pathname);
+				} else {
+					const res = await fetch(el.href);
+					const html = await res.text();
+					const parser = new DOMParser();
+					const newPage = parser.parseFromString(html, 'text/html');
+					cachedPages.set(el.href, newPage);
+					updatePage(newPage);
 				}
-				const res = await fetch(el.href);
-				const html = await res.text();
-				const parser = new DOMParser();
-				const newPage = parser.parseFromString(html, 'text/html');
-				cachedPages.set(el.href, newPage);
+				const path = new URL(el.href).pathname;
 				history.pushState({}, '', el.href);
-				updatePage(newPage);
-				pageStore.updatePage(new URL(el.href).pathname);
+				pageStore.updatePage(path);
 			});
 		}
 	});

@@ -5,6 +5,10 @@
 	--bs-body-font-family: Inter var, Roboto, Calibri, sans-serif;
 }
 
+[data-aos]:not(.animating) {
+	opacity: 0;
+}
+
 @font-face {
 	font-family: 'Inter var';
 	font-weight: 100 900;
