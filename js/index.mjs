@@ -185,4 +185,5 @@ globalThis.addEventListener('load', async () => {
 	await sleep(200);
 	document.body.style.overflow = 'auto';
 	loader.remove();
+	scrollTo(0, 0);
 });
