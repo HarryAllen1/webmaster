@@ -2,6 +2,7 @@
 import 'https://deno.land/std@0.178.0/dotenv/load.ts';
 import { format } from 'npm:prettier';
 import { CommitData } from './types.d.ts';
+import { AUTHOR_MAP, COMMIT_MAP } from './commit-map.ts';
 
 const ghToken = Deno.env.get('GITHUB_TOKEN');
 const outFile = './about/work-log.mjs';
@@ -42,7 +43,18 @@ Deno.writeTextFile(
 					author: c.author.login,
 					message: c.commit.message,
 					link: c.html_url,
+					date: c.commit.author.date,
+					hash: c.sha,
 				}))
+				.map((c) => {
+					if (COMMIT_MAP[c.hash]) {
+						c.message = COMMIT_MAP[c.hash];
+					}
+					if (AUTHOR_MAP[c.author]) {
+						c.author = AUTHOR_MAP[c.author];
+					}
+					return c;
+				})
 		)}`,
 		{
 			...JSON.parse(await Deno.readTextFile('./.prettierrc')),
