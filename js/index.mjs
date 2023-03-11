@@ -69,7 +69,7 @@ const cachedPages = new Map();
  *
  * @param {Document} newPage
  */
-const updatePage = (newPage) => {
+const updatePage = async (newPage) => {
 	/** @type {HTMLDivElement | null} */
 	const main = document.querySelector('#main');
 	if (main) {
@@ -78,7 +78,7 @@ const updatePage = (newPage) => {
 			'No page found! Try refreshing the page.';
 	}
 	document.title = newPage.title;
-	initPetiteVue();
+	await initPetiteVue();
 	initRouter(document.querySelector('#main') ?? newPage);
 };
 
@@ -149,7 +149,7 @@ customElements.define(
 				pages,
 				pageStore,
 			}).mount(this);
-			if (loaded == 1) initRouter(document);
+			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
 	}
@@ -169,7 +169,7 @@ customElements.define(
 			createApp({
 				pages,
 			}).mount(this);
-			if (loaded == 1) initRouter(document);
+			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
 	}
