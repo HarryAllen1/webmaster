@@ -26,7 +26,7 @@
 					<a
 						:class="{ active: pageStore.current.replaceAll('index.html', '') === link[1].replaceAll('/', '') }"
 						:href="link[1]"
-						class="nav-link hover:!text-white relative after:absolute after:content-['.'] after:bottom-1 after:left-0 after:right-0 after:opacity-0 after:text-transparent after:bg-white after:m-auto after:h-[2px] after:w-[calc(100%-12px)] hover:after:opacity-100 after:transition-opacity after:duration-250"
+						class="nav-link hover:!text-white relative after:absolute after:content-['.'] after:bottom-1 after:left-0 after:right-0 after:opacity-0 after:text-transparent after:bg-white after:m-auto after:h-[2px] after:w-[calc(100%-12px)] lg:hover:after:opacity-100 after:transition-opacity after:duration-250"
 					>
 						{{ link[0] }}
 					</a>
@@ -34,7 +34,7 @@
 			</ul>
 		</div>
 		<div class="flex grow-1"></div>
-		<ul class="navbar-nav mb-2 space-x-4">
+		<ul class="navbar-nav mb-2 space-x-4 flex flex-row">
 			<li class="nav-item">
 				<a href="/cart" class="nav-link py-2 px-0 lg:px-2">
 					<svg
@@ -54,6 +54,12 @@
 						/></svg
 				></a>
 			</li>
+			<span
+				v-if="itemsCount.count"
+				class="nav-item bg-danger text-white rounded-pill px-2 h-6 -ml-8 absolute"
+			>
+				{{ itemsCount.count }}
+			</span>
 			<li class="nav-item">
 				<a
 					class="nav-link py-2 px-0 lg:px-2"

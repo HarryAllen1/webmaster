@@ -110,9 +110,24 @@ customElements.define(
 			const res = await fetch('/components/navbar.html');
 			const html = await res.text();
 			this.innerHTML = html;
+			const itemsCount = reactive({
+				count: JSON.parse(localStorage.getItem('cart') ?? '[]').length,
+				/**
+				 * @param {number} count
+				 */
+				setCount(count) {
+					this.count = count;
+				},
+			});
+			document.addEventListener('add-to-cart', (e) => {
+				/** @type {any} */
+				const event = e;
+				itemsCount.setCount(event.detail.count);
+			});
 			createApp({
 				pages,
 				pageStore,
+				itemsCount,
 			}).mount(this);
 			if (loaded === 1) initRouter(document);
 			else loaded++;

@@ -8,17 +8,19 @@ createApp({
 	 */
 	addToCart(e) {
 		const currentCart = JSON.parse(localStorage.getItem('cart') ?? '[]');
-		// currentCart.push(e.target);
 		/**
 		 * @type {HTMLButtonElement}
 		 */
 		// @ts-ignore: we know what it is
 		const target = e.target;
 		this.toastMessage = `Added 1 ${
-			target.parentElement?.querySelector('#name')?.textContent
+			target.parentElement?.parentElement?.querySelector('#name')?.textContent
 		} flight to cart for ${
-			target.parentElement?.querySelector('#price')?.textContent
+			target.parentElement?.parentElement?.querySelector('#price')?.textContent
 		}`;
+		currentCart.push(
+			target.parentElement?.parentElement?.querySelector('#name')?.textContent
+		);
 		localStorage.setItem('cart', JSON.stringify(currentCart));
 		new globalThis.bootstrap.Toast('#addToCartToast').show();
 		// emit add-to-cart event
