@@ -1,3 +1,4 @@
+// deno-lint-ignore-file camelcase
 export interface Author {
 	name: string;
 	email: string;
