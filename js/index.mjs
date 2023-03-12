@@ -49,6 +49,14 @@ const updatePage = (newPage) => {
 
 import(`../${location.pathname.replaceAll('/', '')}/index.mjs`);
 
+document.body.setAttribute(
+	'current-page',
+	location.pathname.replaceAll('/', '')
+);
+globalThis.addEventListener('popstate', () => {
+	location.reload();
+});
+
 /**
  * @param {Document | Element} scope
  */
@@ -89,6 +97,8 @@ const initRouter = (scope) => {
 					updatePage(newPage);
 				}
 				const path = new URL(el.href).pathname;
+				console.log('route');
+				document.body.setAttribute('current-page', path.replaceAll('/', ''));
 				history.pushState({}, '', el.href);
 				import(`../${location.pathname.replaceAll('/', '')}/index.mjs`);
 				pageStore.updatePage(path);

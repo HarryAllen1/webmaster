@@ -115,3 +115,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: #717171;
 }
+
+#main {
+	z-index: 1;
+}
