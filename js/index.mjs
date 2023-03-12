@@ -5,19 +5,13 @@ window.__unocss = {
 };
 
 import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1';
+import { pages } from './pages.mjs';
 import { sleep } from './utils.mjs';
 // @deno-types="npm:@unocss/runtime"
 import 'https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js';
 // @deno-types="npm:@types/bootstrap"
 import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
 import './scroll-animation.mjs';
-
-const pages = [
-	['Home', '/'],
-	['Book', '/book'],
-	['Models', '/models'],
-	['About', '/about'],
-];
 
 const pageStore = reactive({
 	current: location.pathname.replaceAll('/', ''),
@@ -52,6 +46,8 @@ const updatePage = (newPage) => {
 
 	initRouter(document.querySelector('#main') ?? newPage);
 };
+
+import(`../${location.pathname.replaceAll('/', '')}/index.mjs`);
 
 /**
  * @param {Document | Element} scope
@@ -94,6 +90,7 @@ const initRouter = (scope) => {
 				}
 				const path = new URL(el.href).pathname;
 				history.pushState({}, '', el.href);
+				import(`../${location.pathname.replaceAll('/', '')}/index.mjs`);
 				pageStore.updatePage(path);
 			});
 		}
