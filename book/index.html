@@ -9,6 +9,11 @@
 		<link rel="stylesheet" href="/css/main.css" />
 		<link
 			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+		/>
+		<link
+			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 		/>
 		<link rel="stylesheet" href="/css/main.css" />
@@ -29,7 +34,7 @@
 			<div
 				class="flex flex-col space-y-12 md:space-y-none md:flex-row md:space-x-8 justify-center items-center [&_.card]:text-center [&_.card]:p-6"
 			>
-				<div class="card bg-gray-800 rounded-md max-w-xs">
+				<div class="card bg-gray-800 rounded-md max-w-xs !h-md">
 					<div class="card-body">
 						<h2 id="name" class="font-bold text-2xl">Suborbital</h2>
 						<p><i>The glance of our planet</i></p>
@@ -52,7 +57,7 @@
 					</div>
 				</div>
 				<div
-					class="card bg-gradient-to-br scale-110 from-[var(--primary)] to-[#44c] rounded-md max-w-xs"
+					class="card bg-gradient-to-br scale-110 !h-md from-[var(--primary)] to-[#44c] rounded-md max-w-xs"
 				>
 					<div class="card-body">
 						<h2 id="name" class="font-bold text-2xl">Orbital</h2>
@@ -73,7 +78,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="card bg-gray-800 rounded-md max-w-xs">
+				<div class="card !h-md bg-gray-800 rounded-md max-w-xs">
 					<div class="card-body">
 						<h2 id="name" class="font-bold text-2xl">Ultimate</h2>
 						<p><i>The roadway to the moon</i></p>
@@ -90,26 +95,6 @@
 								Purchase
 							</button>
 						</div>
-					</div>
-				</div>
-				<div class="toast-container fixed bottom-0 right-0 p-3">
-					<div
-						id="addToCartToast"
-						class="toast"
-						role="alert"
-						aria-live="assertive"
-						aria-atomic="true"
-					>
-						<div class="toast-header">
-							<h4>Added to cart</h4>
-							<button
-								type="button"
-								class="btn-close"
-								data-bs-dismiss="toast"
-								aria-label="Close"
-							></button>
-						</div>
-						<div class="toast-body">{{ toastMessage }}</div>
 					</div>
 				</div>
 			</div>
