@@ -20,6 +20,12 @@ const app = createApp({
 				target.parentElement?.parentElement?.querySelector('#price')
 					?.textContent
 			}`,
+			style: {
+				background: 'var(--bs-blue)',
+			},
+			position: 'right',
+			gravity: 'bottom',
+			close: true,
 		}).showToast();
 		currentCart.push(
 			target.parentElement?.parentElement?.querySelector('#name')?.textContent

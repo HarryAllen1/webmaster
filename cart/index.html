@@ -26,7 +26,32 @@
 			id="main"
 			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
 			un-cloak
-		></div>
+		>
+			<h1 class="font-bold">Cart</h1>
+			<p v-if="!items.length">
+				No items! Go to our <a href="/book">book</a> page to book a trip!
+			</p>
+			<table class="table" v-else>
+				<thead>
+					<tr>
+						<th scope="col">Items</th>
+						<th scope="col">Count</th>
+						<th scope="col"></th>
+						<th scope="col">
+							<button type="button" @click="clearCart" class="btn btn-danger">
+								Clear Cart
+							</button>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="item in items">
+						<th scope="row">{{ item.name }}</th>
+						<th>{{ item.price }}</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<wm-footer></wm-footer>
 	</body>
 </html>
