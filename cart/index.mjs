@@ -1,3 +1,7 @@
 import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
 
-createApp({}).mount('#main');
+const app = createApp({});
+app.mount('#main');
+document.addEventListener('page-change', () => {
+	app.unmount();
+});

@@ -1,7 +1,7 @@
 import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
 // @deno-types="npm:@types/bootstrap"
 
-createApp({
+const app = createApp({
 	toastMessage: '',
 	/**
 	 * @param {PointerEvent} e
@@ -31,4 +31,8 @@ createApp({
 		});
 		document.dispatchEvent(event);
 	},
-}).mount('#main');
+});
+app.mount('#main');
+document.addEventListener('page-change', () => {
+	app.unmount();
+});

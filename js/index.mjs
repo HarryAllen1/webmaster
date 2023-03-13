@@ -35,6 +35,7 @@ const cachedPages = new Map();
  * @param {Document} newPage
  */
 const updatePage = (newPage) => {
+	document.dispatchEvent(new CustomEvent('page-change', { detail: newPage }));
 	/** @type {HTMLDivElement | null} */
 	const main = document.querySelector('#main');
 	if (main) {

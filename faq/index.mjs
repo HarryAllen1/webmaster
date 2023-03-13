@@ -1,6 +1,6 @@
 import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
 
-createApp({
+const app = createApp({
 	faqs: [
 		[
 			'Is AstroTours currently seeking new positions?',
@@ -28,4 +28,8 @@ createApp({
 			'asdfasdf alksdjfl asdlk',
 		],
 	],
-}).mount('#main');
+});
+app.mount('#main');
+document.addEventListener('page-change', () => {
+	app.unmount();
+});
