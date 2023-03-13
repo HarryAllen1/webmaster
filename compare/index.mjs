@@ -1,7 +1,7 @@
-import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
+import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1';
 
 /** @type {import('./types.d.ts').Product[]} */
-const products = [
+const plans = [
 	{
 		name: 'Suborbital',
 		altitude: '100km',
@@ -44,11 +44,11 @@ const products = [
 ];
 
 /** @type {[import('./types.d.ts').Product, import('./types.d.ts').Product]} */
-const selectedProducts = [products[1], products[2]];
+const selectedPlan = reactive([plans[0], plans[1], plans[2]]);
 
 const app = createApp({
-	products,
-	selectedProducts,
+	plans,
+	selectedPlan,
 });
 app.mount('#main');
 document.addEventListener('page-change', () => {

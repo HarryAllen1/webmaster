@@ -23,9 +23,32 @@
 			un-cloak
 		>
 			<!-- based off of https://store.google.com/magazine/compare_pixel -->
-			<h1 class="font-bold">Which plan is right for you?</h1>
+			<h1 class="font-bold mb-8">Which plan is right for you?</h1>
 			<div class="flex flex-col">
-				<div class="grid grid-cols-2 lg:grid-cols-3"></div>
+				<div class="grid gap-4 grid-cols-2 lg:grid-cols-3">
+					<select
+						@change="console.log"
+						:value="selectedPlan[0]"
+						class="form-select"
+					>
+						<option>Select Plan</option>
+						<option v-for="(plan, i) in plans" :value="i">
+							{{ plan.name }}
+						</option>
+					</select>
+					<select class="form-select">
+						<option>Select Plan</option>
+						<option v-for="(plan, i) in plans" :value="i">
+							{{ plan.name }}
+						</option>
+					</select>
+					<select class="form-select !hidden !lg:block">
+						<option selected>Select Plan</option>
+						<option v-for="(plan, i) in plans" :value="i">
+							{{ plan.name }}
+						</option>
+					</select>
+				</div>
 			</div>
 		</div>
 		<wm-footer></wm-footer>
