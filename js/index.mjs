@@ -47,14 +47,20 @@ const updatePage = (newPage) => {
 	initRouter(document.querySelector('#main') ?? newPage);
 };
 
-import(`../${location.pathname.replaceAll('/', '')}/index.mjs`);
+import(`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`);
 
-document.body.setAttribute(
-	'current-page',
-	location.pathname.replaceAll('/', '')
-);
-globalThis.addEventListener('popstate', () => {
-	location.reload();
+globalThis.addEventListener('popstate', async () => {
+	const path = location.pathname;
+	pageStore.updatePage(path);
+	const newPage =
+		cachedPages.get(location.href) ??
+		new DOMParser().parseFromString(
+			await (await fetch(location.href)).text(),
+			'text/html'
+		);
+	updatePage(newPage);
+	console.log('popstate');
+	import(`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`);
 });
 
 /**
@@ -97,10 +103,10 @@ const initRouter = (scope) => {
 					updatePage(newPage);
 				}
 				const path = new URL(el.href).pathname;
-				console.log('route');
-				document.body.setAttribute('current-page', path.replaceAll('/', ''));
 				history.pushState({}, '', el.href);
-				import(`../${location.pathname.replaceAll('/', '')}/index.mjs`);
+				import(
+					`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
+				);
 				pageStore.updatePage(path);
 			});
 		}
