@@ -19,8 +19,8 @@ const pageStore = reactive({
 	 * @param {string} pathname
 	 */
 	updatePage(pathname) {
-		this.current =
-			pathname.replaceAll('/', '') ?? location.pathname.replaceAll('/', '');
+		this.current = pathname.replaceAll('/', '') ??
+			location.pathname.replaceAll('/', '');
 	},
 });
 
@@ -39,8 +39,7 @@ const updatePage = (newPage) => {
 	/** @type {HTMLDivElement | null} */
 	const main = document.querySelector('#main');
 	if (main) {
-		main.innerHTML =
-			newPage.querySelector('#main')?.innerHTML ??
+		main.innerHTML = newPage.querySelector('#main')?.innerHTML ??
 			'No page found! Try refreshing the page.';
 	}
 	document.title = newPage.title;
@@ -53,11 +52,10 @@ import(`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`);
 globalThis.addEventListener('popstate', async () => {
 	const path = location.pathname;
 	pageStore.updatePage(path);
-	const newPage =
-		cachedPages.get(location.href) ??
+	const newPage = cachedPages.get(location.href) ??
 		new DOMParser().parseFromString(
 			await (await fetch(location.href)).text(),
-			'text/html'
+			'text/html',
 		);
 	updatePage(newPage);
 	console.log('popstate');
@@ -85,7 +83,7 @@ const initRouter = (scope) => {
 				e.preventDefault();
 				if (
 					new URL(el.href).pathname.replaceAll('/', '') ===
-					new URL(location.href).pathname.replaceAll('/', '')
+						new URL(location.href).pathname.replaceAll('/', '')
 				) {
 					return;
 				}
@@ -93,7 +91,7 @@ const initRouter = (scope) => {
 				if (cachedPages.has(el.href)) {
 					updatePage(
 						// @ts-ignore: we checked it exists
-						cachedPages.get(el.href)
+						cachedPages.get(el.href),
 					);
 				} else {
 					const res = await fetch(el.href);
@@ -149,7 +147,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	}
+	},
 );
 
 customElements.define(
@@ -169,7 +167,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	}
+	},
 );
 
 globalThis.addEventListener('load', async () => {

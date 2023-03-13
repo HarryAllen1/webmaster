@@ -1,4 +1,4 @@
-/** @type {import('./types').Product[]} */
+/** @type {import('./types.d.ts').Product[]} */
 export const plans = [
 	{
 		name: 'Suborbital',

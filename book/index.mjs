@@ -1,5 +1,5 @@
 import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
-import Toastify from 'https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify-es.min.js';
+import Toastify from 'https://esm.sh/toastify-js@1.12.0';
 
 const app = createApp({
 	toastMessage: '',
@@ -14,12 +14,11 @@ const app = createApp({
 		// @ts-ignore: we know what it is
 		const target = e.target;
 		Toastify({
-			text: `Added 1 ${
-				target.parentElement?.parentElement?.querySelector('#name')?.textContent
-			} flight to cart for ${
-				target.parentElement?.parentElement?.querySelector('#price')
-					?.textContent
-			}`,
+			text: `Added 1 ${target.parentElement?.parentElement?.querySelector(
+				'#name',
+			)?.textContent} flight to cart for ${target.parentElement?.parentElement
+				?.querySelector('#price')
+				?.textContent}`,
 			style: {
 				background: 'var(--bs-blue)',
 			},
@@ -28,7 +27,7 @@ const app = createApp({
 			close: true,
 		}).showToast();
 		currentCart.push(
-			target.parentElement?.parentElement?.querySelector('#name')?.textContent
+			target.parentElement?.parentElement?.querySelector('#name')?.textContent,
 		);
 		localStorage.setItem('cart', JSON.stringify(currentCart));
 		// emit add-to-cart event

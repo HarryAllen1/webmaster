@@ -8,7 +8,7 @@ const observer = new IntersectionObserver((entries) => {
 			if (animations) {
 				target.classList.add(
 					...animations.replaceAll(/\s{2,}/g, ' ').split(' '),
-					'animating'
+					'animating',
 				);
 			}
 		} else {

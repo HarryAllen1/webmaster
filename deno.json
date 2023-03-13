@@ -10,5 +10,12 @@
 		"rules": {
 			"include": ["camelcase", "eqeqeq", "no-const-assign"]
 		}
+	},
+	"fmt": {
+		"options": {
+			"singleQuote": true,
+			"semiColons": true,
+			"useTabs": true
+		}
 	}
 }

@@ -1,4 +1,8 @@
 {
-  "deno.enable": true,
-  "deno.unstable": true
+	"deno.enable": true,
+	"deno.unstable": true,
+	"editor.defaultFormatter": "denoland.vscode-deno",
+	"[javascript]": {
+		"editor.defaultFormatter": "denoland.vscode-deno"
+	}
 }

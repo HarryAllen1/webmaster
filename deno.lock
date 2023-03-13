@@ -1,6 +1,8 @@
 {
   "version": "2",
   "remote": {
+    "https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js": "1b6fbf0089c3186ed1809025be4625abb0d9c44d459b0492a39904e2391c3376",
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js": "061f0b1ea79e6e2ca24f4603e55d3e909f7471ba0b279cdb6dea40554106c6a2",
     "https://deno.land/std@0.178.0/collections/filter_values.ts": "5b9feaf17b9a6e5ffccdd36cf6f38fa4ffa94cff2602d381c2ad0c2a97929652",
     "https://deno.land/std@0.178.0/collections/without_all.ts": "a89f5da0b5830defed4f59666e188df411d8fece35a5f6ca69be6ca71a95c185",
     "https://deno.land/std@0.178.0/dotenv/load.ts": "0636983549b98f29ab75c9a22a42d9723f0a389ece5498fe971e7bb2556a12e2",
@@ -57,15 +59,36 @@
     "https://deno.land/std@0.179.0/path/posix.ts": "8b7c67ac338714b30c816079303d0285dd24af6b284f7ad63da5b27372a2c94d",
     "https://deno.land/std@0.179.0/path/separator.ts": "0fb679739d0d1d7bf45b68dacfb4ec7563597a902edbaf3c59b50d5bcadd93b1",
     "https://deno.land/std@0.179.0/path/win32.ts": "d186344e5583bcbf8b18af416d13d82b35a317116e6460a5a3953508c3de5bba",
-    "https://deno.land/std@0.179.0/version.ts": "8aa2c2c313dba783942e6274b523f43f92123f8e4a89f06ec98f4cf1d89f21fd"
+    "https://deno.land/std@0.179.0/version.ts": "8aa2c2c313dba783942e6274b523f43f92123f8e4a89f06ec98f4cf1d89f21fd",
+    "https://esm.sh/petite-vue@0.4.1": "1fc7756908bdc5b27a2e38d776c474cc4ac68d4b54093dee9c55a52b3014a36b",
+    "https://esm.sh/v111/@vue/reactivity@3.2.47/dist/reactivity.d.ts": "7182e4749b532490201420845138d3d3d411c04feb14730c03c78aaf39812627",
+    "https://esm.sh/v111/@vue/shared@3.2.47/dist/shared.d.ts": "10bc9999456a9cc0ee0c3a4918db22d27365728b92bf57b900ae6fd8f7359403",
+    "https://esm.sh/v111/petite-vue@0.4.1/deno/petite-vue.js": "2778d9e5373f8861c1d40841789cb972c9fee87b865e8363055306fe762a99ce",
+    "https://esm.sh/v111/petite-vue@0.4.1/dist/types/app.d.ts": "99a2b8b754b221ac623982170c553873afeb58db97d3eaa4543ccd7b40960a37",
+    "https://esm.sh/v111/petite-vue@0.4.1/dist/types/block.d.ts": "9d73d663d9ee7afd3b86f6dbe11d1c196f2b80c8a067f1f89f109cab3eba7431",
+    "https://esm.sh/v111/petite-vue@0.4.1/dist/types/context.d.ts": "515ab2c46aff14c2ed9ebfc405c8198191a7be2a55804714f1953597221f6755",
+    "https://esm.sh/v111/petite-vue@0.4.1/dist/types/directives/index.d.ts": "8e20e79b20573f6512b703c45c5108849a004bd45e8f1be35a6f5ff4253f37ec",
+    "https://esm.sh/v111/petite-vue@0.4.1/dist/types/index.d.ts": "1665d3d7ca0f0339ab60a3188caef1da8b3bcd120b1f248fb069e10aee3437f4",
+    "https://esm.sh/v111/petite-vue@0.4.1/dist/types/scheduler.d.ts": "2f4417588df53ede2b8b76a8bb1f857c61e1a0efeff0fcb54fea8c0afe30bf70"
   },
   "npm": {
     "specifiers": {
+      "@types/bootstrap": "@types/bootstrap@5.2.6",
       "@types/prettier": "@types/prettier@2.7.2",
       "@unocss/runtime": "@unocss/runtime@0.50.3",
       "prettier": "prettier@2.7.1"
     },
     "packages": {
+      "@popperjs/core@2.11.6": {
+        "integrity": "sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==",
+        "dependencies": {}
+      },
+      "@types/bootstrap@5.2.6": {
+        "integrity": "sha512-BlAc3YATdasbHoxMoBWODrSF6qwQO/E9X8wVxCCSa6rWjnaZfpkr2N6pUMCY6jj2+wf0muUtLySbvU9etX6YqA==",
+        "dependencies": {
+          "@popperjs/core": "@popperjs/core@2.11.6"
+        }
+      },
       "@types/prettier@2.7.2": {
         "integrity": "sha512-KufADq8uQqo1pYKVIYzfKbJfBAc0sOeXqGbFaSpv8MRmC/zXgowNZmFcbngndGk922QDmOASEXUZCaY48gs4cg==",
         "dependencies": {}
