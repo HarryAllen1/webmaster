@@ -27,30 +27,91 @@
 			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
 			un-cloak
 		>
-			<h1 class="font-bold">Cart</h1>
-			<p v-if="!items.length">
-				No items! Go to our <a href="/book">book</a> page to book a trip!
-			</p>
-			<table class="table" v-else>
-				<thead>
-					<tr>
-						<th scope="col">Items</th>
-						<th scope="col">Count</th>
-						<th scope="col"></th>
-						<th scope="col">
-							<button type="button" @click="clearCart" class="btn btn-danger">
-								Clear Cart
-							</button>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr v-for="item in items">
-						<th scope="row">{{ item.name }}</th>
-						<th>{{ item.price }}</th>
-					</tr>
-				</tbody>
-			</table>
+			<h1 class="font-bold mb-8">Cart</h1>
+			<template v-if="!items.length">
+				<p>No items! Go to our <a href="/book">book</a> page to book a trip!</p>
+			</template>
+			<template v-else>
+				<div class="flex flex-col md:flex-row gap-4">
+					<div>
+						<div class="card bg-gray-800 rounded-md w-md">
+							<div class="card-body">
+								<template v-for="item in items">
+									<h5 class="card-title">{{ item[0].name }}</h5>
+									<div class="flex flex-row place-content-between">
+										<div class="flex flex-row items-center">
+											Qty:
+											<select
+												@change="changeQuantity(item[0].name, $el.value)"
+												class="ml-2 form-select form-select-sm"
+											>
+												<option
+													v-for="i in item[0].maxPeople"
+													:selected="i === item[1]"
+													:value="i"
+												>
+													{{ i }}
+												</option>
+											</select>
+										</div>
+										<p>${{ item[0].price }}</p>
+									</div>
+									<div class="w-full flex justify-end">
+										<button
+											type="button"
+											class="btn btn-danger btn-small self-end"
+											@click="removeItem(item[0].name)"
+										>
+											Remove
+										</button>
+									</div>
+									<div
+										class="h-[1px] bg-[var(--bs-border-color-translucent)] w-full my-2 last:hidden"
+									></div>
+								</template>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="card bg-gray-800 rounded-md w-md md:w-xs">
+							<div class="card-body">
+								<h5 class="card-title">Order Summary</h5>
+								<div class="w-full">
+									<div class="flex flex-row justify-between">
+										<p>Subtotal</p>
+										<p>
+											{{ numberFormatter.format(items.reduce((acc, val) => acc +
+											val[0].price * val[1], 0)) }}
+										</p>
+									</div>
+									<div class="flex flex-row justify-between">
+										<p>Estimated Tax</p>
+										<p>
+											{{ numberFormatter.format(items.reduce((acc, val) => acc +
+											val[0].price * val[1], 0) * 0.1) }}
+										</p>
+									</div>
+									<div class="flex flex-row justify-between font-bold">
+										<p>Estimated Total</p>
+										<p>
+											{{ numberFormatter.format(items.reduce((acc, val) => acc +
+											val[0].price * val[1], 0) * 1.1) }}
+										</p>
+									</div>
+								</div>
+								<div class="flex justify-end">
+									<button
+										@click="alert('Purchase successful')"
+										class="btn btn-primary animate-wobble"
+									>
+										Purchase
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</template>
 		</div>
 		<wm-footer></wm-footer>
 	</body>

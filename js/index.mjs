@@ -12,6 +12,7 @@ import 'https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js';
 // @deno-types="npm:@types/bootstrap"
 import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
 import './scroll-animation.mjs';
+import { CART_KEY } from './constants.mjs';
 
 const pageStore = reactive({
 	current: location.pathname.replaceAll('/', ''),
@@ -125,8 +126,10 @@ customElements.define(
 			const res = await fetch('/components/navbar.html');
 			const html = await res.text();
 			this.innerHTML = html;
+			/** @type {[string, number][]} */
+			const cart = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
 			const itemsCount = reactive({
-				count: JSON.parse(localStorage.getItem('cart') ?? '[]').length,
+				count: cart.reduce((acc, v) => acc + v[1], 0),
 				/**
 				 * @param {number} count
 				 */
