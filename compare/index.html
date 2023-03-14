@@ -131,10 +131,14 @@
 				</div>
 				<wm-divider label="Training"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
-					<p>{{ selectedPlan[0].training ? 'Required' : 'Not required' }}</p>
-					<p>{{ selectedPlan[1].training ? 'Required' : 'Not required' }}</p>
+					<p>
+						{{ selectedPlan[0].trainingRequired ? 'Required' : 'Not required' }}
+					</p>
+					<p>
+						{{ selectedPlan[1].trainingRequired ? 'Required' : 'Not required' }}
+					</p>
 					<p class="hidden lg:display-unset">
-						{{ selectedPlan[2].training ? 'Required' : 'Not required' }}
+						{{ selectedPlan[2].trainingRequired ? 'Required' : 'Not required' }}
 					</p>
 				</div>
 			</div>
