@@ -48,7 +48,10 @@ const updatePage = (newPage) => {
 	initRouter(document.querySelector('#main') ?? newPage);
 };
 
-import(`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`);
+import(
+	`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
+		.replaceAll('index.html', '').replaceAll('//', '/')
+);
 
 globalThis.addEventListener('popstate', async () => {
 	const path = location.pathname;
@@ -60,7 +63,10 @@ globalThis.addEventListener('popstate', async () => {
 		);
 	updatePage(newPage);
 	console.log('popstate');
-	import(`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`);
+	import(
+		`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
+			.replaceAll('index.html', '').replaceAll('//', '/')
+	);
 });
 
 /**
@@ -106,6 +112,7 @@ const initRouter = (scope) => {
 				history.pushState({}, '', el.href);
 				import(
 					`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
+						.replaceAll('index.html', '').replaceAll('//', '/')
 				);
 				pageStore.updatePage(path);
 			});
