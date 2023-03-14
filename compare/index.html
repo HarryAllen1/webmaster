@@ -35,14 +35,14 @@
 				>
 					<h2>{{ selectedPlan[0].name }}</h2>
 					<h2>{{ selectedPlan[1].name }}</h2>
-					<h2>{{ selectedPlan[2].name }}</h2>
+					<h2 class="hidden lg:display-unset">{{ selectedPlan[2].name }}</h2>
 				</div>
 				<div
 					class="mb-4 [&>i]:text-center grid gap-4 grid-cols-2 lg:grid-cols-3 w-full text-gray"
 				>
 					<i>{{ selectedPlan[0].tagline }}</i>
 					<i>{{ selectedPlan[1].tagline }}</i>
-					<i>{{ selectedPlan[2].tagline }}</i>
+					<i class="hidden lg:display-unset">{{ selectedPlan[2].tagline }}</i>
 				</div>
 				<div class="grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<select
@@ -68,7 +68,7 @@
 					<select
 						@change="selectedPlan[2] = plans.find(p => p.name === $el.value)"
 						:value="selectedPlan[2].name"
-						class="form-select"
+						class="form-select !hidden !lg:display-unset"
 					>
 						<option>Select Plan</option>
 						<option v-for="plan in plans" :value="plan.name">
@@ -81,55 +81,61 @@
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>${{ selectedPlan[0].price }}</p>
 					<p>${{ selectedPlan[1].price }}</p>
-					<p>${{ selectedPlan[2].price }}</p>
+					<p class="hidden lg:display-unset">${{ selectedPlan[2].price }}</p>
 				</div>
 				<wm-divider label="Max People"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].maxPeople }}</p>
 					<p>{{ selectedPlan[1].maxPeople }}</p>
-					<p>{{ selectedPlan[2].maxPeople }}</p>
+					<p class="hidden lg:display-unset">{{ selectedPlan[2].maxPeople }}</p>
 				</div>
 				<wm-divider label="Duration"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].duration }}</p>
 					<p>{{ selectedPlan[1].duration }}</p>
-					<p>{{ selectedPlan[2].duration }}</p>
+					<p class="hidden lg:display-unset">{{ selectedPlan[2].duration }}</p>
 				</div>
 				<wm-divider label="Altitude"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].altitude }}</p>
 					<p>{{ selectedPlan[1].altitude }}</p>
-					<p>{{ selectedPlan[2].altitude }}</p>
+					<p class="hidden lg:display-unset">{{ selectedPlan[2].altitude }}</p>
 				</div>
 				<wm-divider label="Meals"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].meals }}</p>
 					<p>{{ selectedPlan[1].meals }}</p>
-					<p>{{ selectedPlan[2].meals }}</p>
+					<p class="hidden lg:display-unset">{{ selectedPlan[2].meals }}</p>
 				</div>
 				<wm-divider label="Orbit Experience"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].orbitExperience }}</p>
 					<p>{{ selectedPlan[1].orbitExperience }}</p>
-					<p>{{ selectedPlan[2].orbitExperience }}</p>
+					<p class="hidden lg:display-unset">
+						{{ selectedPlan[2].orbitExperience }}
+					</p>
 				</div>
 				<wm-divider label="Moon Experience"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].moonExperience }}</p>
 					<p>{{ selectedPlan[1].moonExperience }}</p>
-					<p>{{ selectedPlan[2].moonExperience }}</p>
+					<p class="hidden lg:display-unset">
+						{{ selectedPlan[2].moonExperience }}
+					</p>
 				</div>
 				<wm-divider label="Rocket"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].rocket }}</p>
 					<p>{{ selectedPlan[1].rocket }}</p>
-					<p>{{ selectedPlan[2].rocket }}</p>
+					<p class="hidden lg:display-unset">{{ selectedPlan[2].rocket }}</p>
 				</div>
 				<wm-divider label="Training"></wm-divider>
 				<div class="mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
 					<p>{{ selectedPlan[0].training ? 'Required' : 'Not required' }}</p>
 					<p>{{ selectedPlan[1].training ? 'Required' : 'Not required' }}</p>
-					<p>{{ selectedPlan[2].training ? 'Required' : 'Not required' }}</p>
+					<p class="hidden lg:display-unset">
+						{{ selectedPlan[2].training ? 'Required' : 'Not required' }}
+					</p>
 				</div>
 			</div>
 		</div>
