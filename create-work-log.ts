@@ -15,10 +15,17 @@ const res = await fetch(
 			Authorization: `Bearer ${ghToken}`,
 			'X-GitHub-Api-Version': '2022-11-28',
 		},
-	}
+	},
 );
 
-const commits: CommitData[] = await res.json();
+const json = await res.json();
+if (!Array.isArray(json)) {
+	console.log(
+		'Response is not of type Array. Likely hit a rate limit; skipping.',
+	);
+	Deno.exit(0);
+}
+const commits: CommitData[] = json;
 
 // loop through all pages of commits, making new requests
 while (res.headers.get('link')?.includes('rel="next"')) {
@@ -36,29 +43,31 @@ while (res.headers.get('link')?.includes('rel="next"')) {
 Deno.writeTextFile(
 	outFile,
 	format(
-		`export default ${JSON.stringify(
-			commits
-				.filter((i) => !i.commit.message.includes('Merge branch'))
-				.map((c) => ({
-					author: c.author.login,
-					message: c.commit.message,
-					link: c.html_url,
-					date: c.commit.author.date,
-					hash: c.sha,
-				}))
-				.map((c) => {
-					if (COMMIT_MAP[c.hash]) {
-						c.message = COMMIT_MAP[c.hash];
-					}
-					if (AUTHOR_MAP[c.author]) {
-						c.author = AUTHOR_MAP[c.author];
-					}
-					return c;
-				})
-		)}`,
+		`export default ${
+			JSON.stringify(
+				commits
+					.filter((i) => !i.commit.message.includes('Merge branch'))
+					.map((c) => ({
+						author: c.author.login,
+						message: c.commit.message,
+						link: c.html_url,
+						date: c.commit.author.date,
+						hash: c.sha,
+					}))
+					.map((c) => {
+						if (COMMIT_MAP[c.hash]) {
+							c.message = COMMIT_MAP[c.hash];
+						}
+						if (AUTHOR_MAP[c.author]) {
+							c.author = AUTHOR_MAP[c.author];
+						}
+						return c;
+					}),
+			)
+		}`,
 		{
 			...JSON.parse(await Deno.readTextFile('./.prettierrc')),
 			parser: 'babel',
-		}
-	)
+		},
+	),
 );
