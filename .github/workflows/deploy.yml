@@ -20,6 +20,8 @@ jobs:
           deno-version: v1.x
 
       - name: build
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: deno task build-log
 
       - name: Deploy to Deno Deploy
