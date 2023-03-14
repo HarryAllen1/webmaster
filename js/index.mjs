@@ -149,6 +149,15 @@ customElements.define(
 			}).mount(this);
 			if (loaded === 1) initRouter(document);
 			else loaded++;
+			this.querySelectorAll('a.nav-link').forEach((el) => {
+				el.addEventListener('click', () => {
+					/** @type {HTMLButtonElement | null} */
+					const toggler = document.querySelector('.navbar-toggler');
+					if (toggler?.ariaExpanded === 'true') {
+						toggler?.click();
+					}
+				});
+			});
 		}
 	},
 );
@@ -184,4 +193,12 @@ globalThis.addEventListener('load', async () => {
 	document.body.style.overflow = 'auto';
 	loader.remove();
 	scrollTo(0, 0);
+});
+
+document.querySelector('#main')?.addEventListener('click', () => {
+	/** @type {HTMLButtonElement | null} */
+	const toggler = document.querySelector('.navbar-toggler');
+	if (toggler?.ariaExpanded === 'true') {
+		toggler?.click();
+	}
 });
