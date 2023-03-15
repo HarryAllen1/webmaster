@@ -50,7 +50,7 @@ import {
   const loader = new GLTFLoader();
   
   loader.load(
-	'../../assets/models/adante.gltf',
+	'../../assets/models/adante/adante.gltf',
 	function (gltf) {
 	  const object = gltf.scene;
 	  //scale down the model a lot
