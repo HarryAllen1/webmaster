@@ -12,7 +12,7 @@ const app = createApp({
 		],
 		[
 			'I want to join the AstroTours family. How do I join?',
-			'Follow our GitHub by clicking on the button in the top right corner!',
+			'Purchase our most expensive plan. The more money you give us, the more benefits you\'ll get, and the more we\'ll make you feel like family.',
 		],
 		[
 			'Who can participate in AstroTours space tourism experiences?',
@@ -20,12 +20,15 @@ const app = createApp({
 		],
 		[
 			'What is the return policy on space expenditures?',
-			'AstroTours follows a policy of a full refund 3 months from the launch, a half-refund 2 months before and a quarter-refund 1 month before launch.',
+			'AstroTours follows a policy of a full refund 3 months from the launch, a half-refund 2 months before. No refund is offered between 2 months and the launch date.',
 		],
-		['What is the waitlist policy?', 'AstroTours will place your submission and will notify you through email whether you entered or did not.'],
+		[
+			'What is the waitlist policy?',
+			'AstroTours will place your submission and will notify you through email whether you are entered or not.',
+		],
 		[
 			'What are the necessary requirements to enter the AstroTours space flights?',
-			'asdfasdf alksdjfl asdlk',
+			'You must be 12 or older for our Suborbital and Orbital flights, and 18 or over for our Ultimate plan.',
 		],
 	],
 });
