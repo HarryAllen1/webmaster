@@ -82,15 +82,6 @@
 					</li>
 				</ul>
 			</div>
-			<h2>Work Log</h2>
-			<ul>
-				<li v-for="commit in commits">
-					<a target="_blank" :href="commit.link">
-						{{ commit.author }} at {{ new Date(commit.date).toLocaleDateString()
-						}}: {{ commit.message }}
-					</a>
-				</li>
-			</ul>
 		</div>
 		<wm-footer></wm-footer>
 	</body>
