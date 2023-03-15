@@ -44,7 +44,7 @@
 					<i>{{ selectedPlan[1].tagline }}</i>
 					<i class="hidden lg:display-unset">{{ selectedPlan[2].tagline }}</i>
 				</div>
-				<div class="grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
+				<div class="grid gap-4 grid-cols-2 lg:hidden lg:grid-cols-3 w-full">
 					<select
 						@change="selectedPlan[0] = plans.find(p => p.name === $el.value)"
 						:value="selectedPlan[0].name"
