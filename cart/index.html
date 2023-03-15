@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Cart - AstroTours</title>
 		<script type="module" defer src="/js/index.mjs"></script>
+		<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
 		<link rel="stylesheet" href="/css/main.css" />
 		<link
 			rel="stylesheet"
@@ -106,17 +107,27 @@
 									</div>
 									<div class="mb-3">
 										<label class="form-label">Insurance Policy Number</label>
-										<input type="text" class="form-control" />
+										<input
+											v-model="policyNumber"
+											required
+											type="text"
+											class="form-control"
+										/>
 									</div>
 									<div class="mb-3">
 										<label class="form-label">Name of Insured</label>
-										<input type="text" class="form-control" />
+										<input
+											v-model="name"
+											required
+											type="text"
+											class="form-control"
+										/>
 									</div>
 									<div class="form-check">
 										<input
 											class="form-check-input"
 											type="checkbox"
-											value=""
+											v-model="agree"
 											id="flexCheckDefault"
 										/>
 										<label class="form-check-label" for="flexCheckDefault">
@@ -129,7 +140,7 @@
 								</div>
 								<div class="flex justify-end">
 									<button
-										@click="alert('Purchase successful. We will email you with more information regarding scheduling.')"
+										@click="alert(policyNumber && name && agree ? 'Purchase successful. We will email you with more information regarding scheduling.' : 'Please fill out all fields.')"
 										class="btn btn-primary animate-wobble"
 									>
 										Purchase

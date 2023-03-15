@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Compare - AstroTours</title>
 		<script type="module" defer src="/js/index.mjs"></script>
+		<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
 		<link rel="stylesheet" href="/css/main.css" />
 		<link
 			rel="stylesheet"
@@ -44,7 +45,7 @@
 					<i>{{ selectedPlan[1].tagline }}</i>
 					<i class="hidden lg:display-unset">{{ selectedPlan[2].tagline }}</i>
 				</div>
-				<div class="grid gap-4 grid-cols-2 lg:grid-cols-3 w-full">
+				<div class="grid gap-4 grid-cols-2 lg:hidden lg:grid-cols-3 w-full">
 					<select
 						@change="selectedPlan[0] = plans.find(p => p.name === $el.value)"
 						:value="selectedPlan[0].name"
