@@ -29,8 +29,10 @@
 			un-cloak
 		>
 			<!-- based off of https://store.google.com/magazine/compare_pixel -->
-			<h1 class="font-bold mb-8">Which plan is right for you?</h1>
-			<div class="flex flex-col w-md lg:w-xl text-white [&_*]:text-center">
+			<h1 class="font-bold mb-8 text-center">Which plan is right for you?</h1>
+			<div
+				class="flex flex-col w-sm md:w-md lg:w-xl text-white [&_*]:text-center"
+			>
 				<div
 					class="[&>h2]:text-center mb-4 grid gap-4 grid-cols-2 lg:grid-cols-3 w-full"
 				>
@@ -45,11 +47,11 @@
 					<i>{{ selectedPlan[1].tagline }}</i>
 					<i class="hidden lg:display-unset">{{ selectedPlan[2].tagline }}</i>
 				</div>
-				<div class="grid gap-4 grid-cols-2 lg:hidden lg:grid-cols-3 w-full">
+				<div class="grid gap-4 grid-cols-2 lg:hidden lg:grid-cols-3">
 					<select
 						@change="selectedPlan[0] = plans.find(p => p.name === $el.value)"
 						:value="selectedPlan[0].name"
-						class="form-select"
+						class="form-select !w-36 mx-auto"
 					>
 						<option>Select Plan</option>
 						<option v-for="plan in plans" :value="plan.name">
@@ -59,7 +61,7 @@
 					<select
 						@change="selectedPlan[1] = plans.find(p => p.name === $el.value)"
 						:value="selectedPlan[1].name"
-						class="form-select"
+						class="form-select !w-36 mx-auto"
 					>
 						<option>Select Plan</option>
 						<option v-for="plan in plans" :value="plan.name">
@@ -69,7 +71,7 @@
 					<select
 						@change="selectedPlan[2] = plans.find(p => p.name === $el.value)"
 						:value="selectedPlan[2].name"
-						class="form-select !hidden !lg:display-unset"
+						class="form-select !hidden !lg:display-unset !w-36 mx-auto"
 					>
 						<option>Select Plan</option>
 						<option v-for="plan in plans" :value="plan.name">
