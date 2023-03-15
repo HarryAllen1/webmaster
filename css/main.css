@@ -1,12 +1,10 @@
+@import url('https://esm.sh/aos@next/dist/aos.css');
+
 :root {
 	--primary: #1f1f4c;
 	--bs-primary: var(--primary);
 	--bs-primary-rgb: 31, 31, 76;
 	--bs-body-font-family: Inter var, Roboto, Calibri, sans-serif;
-}
-
-[data-aos]:not(.animating) {
-	opacity: 0;
 }
 
 @font-face {
