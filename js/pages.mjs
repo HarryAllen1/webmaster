@@ -2,8 +2,9 @@ export const pages = [
 	['Home', '/'],
 	['Book', '/book'],
 	['Compare', '/compare'],
+	['Models', '/models'],
+	['Trip', '/launchinfo'],
 	['Vehicles', '/vehicles'],
-	['Launch Info', '/launchinfo'],
 	['About', '/about'],
 	['FAQs', '/faq'],
 ];
