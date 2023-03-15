@@ -4,6 +4,7 @@ export const pages = [
 	['Compare', '/compare'],
 	['Models', '/models'],
 	['Launch Info', '/launchinfo'],
+	['Company', '/company'],
 	['About', '/about'],
 	['FAQs', '/faq'],
 ];
