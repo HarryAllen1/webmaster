@@ -1,20 +1,12 @@
-// @deno-types="npm:@types/three"
 import {
 	AmbientLight,
-	BoxGeometry,
 	DirectionalLight,
-	Mesh,
-	MeshLambertMaterial,
 	PerspectiveCamera,
 	Scene,
 	WebGLRenderer,
-} from 'https://esm.sh/three@0.150.1/build/three.module.js';
-
-import{
-	GLTFLoader,
-} from 'https://esm.sh/three/examples/jsm/loaders/GLTFLoader.js';
-
-import { OrbitControls } from 'https://esm.sh/three/examples/jsm/controls/OrbitControls.js';
+} from 'https://esm.sh/three@0.150.1';
+import { OrbitControls } from 'https://esm.sh/three@0.150.1/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://esm.sh/three@0.150.1/examples/jsm/loaders/GLTFLoader.js';
 
 const scene = new Scene();
 
@@ -46,12 +38,10 @@ camera.lookAt(0, 0, 0);
 
 camera.updateProjectionMatrix();
 
-
 // Renderer
 const renderer = new WebGLRenderer({ antialias: true });
 //renderer.setClearColor( 0xffffff, 0);
 renderer.setSize(window.innerWidth * 0.5, window.innerHeight);
-
 
 // Set up controls
 const controls = new OrbitControls(camera, renderer.domElement);
