@@ -7,10 +7,10 @@ window.__unocss = {
 import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1';
 import { pages } from './pages.mjs';
 import { sleep } from './utils.mjs';
+import Toastify from 'https://esm.sh/toastify-js@1.12.0';
 // @deno-types="npm:@unocss/runtime"
 import 'https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js';
-// @deno-types="npm:@types/bootstrap"
-import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
+import 'https://esm.sh/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
 import './scroll-animation.mjs';
 import { CART_KEY } from './constants.mjs';
 
@@ -62,7 +62,6 @@ globalThis.addEventListener('popstate', async () => {
 			'text/html',
 		);
 	updatePage(newPage);
-	console.log('popstate');
 	import(
 		`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
 			.replaceAll('index.html', '').replaceAll('//', '/')
@@ -101,7 +100,16 @@ const initRouter = (scope) => {
 						cachedPages.get(el.href),
 					);
 				} else {
-					const res = await fetch(el.href);
+					const res = await fetch(el.href).catch((e) => {
+						Toastify({
+							text:
+								'An error occurred when fetching that page. Falling back to reload-based navigation.',
+							gravity: 'bottom',
+							position: 'center',
+						}).showToast();
+						location.href = el.href;
+						throw new Error(`Couldn't fetch ${el.href}`, { cause: e });
+					});
 					const html = await res.text();
 					const parser = new DOMParser();
 					const newPage = parser.parseFromString(html, 'text/html');
