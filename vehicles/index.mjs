@@ -49,7 +49,7 @@ const loader = new GLTFLoader();
 
 loader.load(
 	'../../assets/models/adante/adante.gltf',
-	function (gltf) {
+	(gltf) => {
 		const object = gltf.scene;
 		//scale down the model a lot
 		object.scale.set(0.001, 0.001, 0.001);
@@ -64,19 +64,19 @@ loader.load(
 		//add the model to the scene
 		scene.add(object);
 	},
-	function (xhr) {
+	(xhr) => {
 		console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 	},
-	function (error) {
+	(error) => {
 		console.log('An error happened', error);
 	},
 );
 
 // render the scene
-function render() {
+const render = () => {
 	requestAnimationFrame(render);
 	renderer.render(scene, camera);
-}
+};
 render();
 
 //make the backround transparent
