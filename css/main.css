@@ -79,7 +79,7 @@ body {
 	height: 100%;
 	background-repeat: no-repeat;
 	background-size: 100% 650px;
-	background-image: url('/images/stars.svg');
+	background-image: url('/assets/stars.svg');
 	z-index: 0;
 	pointer-events: none;
 }
