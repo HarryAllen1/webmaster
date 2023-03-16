@@ -83,5 +83,5 @@ render();
 renderer.setClearColor(0x000000, 0);
 
 // add the renderer to the DOM
-renderer.domElement.classList.add('max-w-6xl', 'z-10');
+renderer.domElement.classList.add('max-w-lg', 'z-10');
 document.querySelector('#main')?.appendChild(renderer.domElement);
