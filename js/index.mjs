@@ -118,6 +118,7 @@ const initRouter = (scope) => {
 				}
 				const path = new URL(el.href).pathname;
 				history.pushState({}, '', el.href);
+				window.scrollTo(0, 0);
 				import(
 					`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
 						.replaceAll('index.html', '').replaceAll('//', '/')
