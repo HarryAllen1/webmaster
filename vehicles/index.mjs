@@ -30,6 +30,8 @@ const camera = new PerspectiveCamera(
 // create the controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
+controls.zoomEnabled = false;
+
 //start the camera a bit further away
 camera.position.z = 5;
 

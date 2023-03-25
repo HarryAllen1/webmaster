@@ -34,10 +34,10 @@
 			</template>
 			<template v-else>
 				<div
-					class="flex flex-col lg:justify-center lg:items-start items-center w-lg md:w-xl lg:flex-row gap-4"
+					class="flex flex-col lg:justify-center max-w-full !lg:w-full !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
-					<div class="flex justify-center items-center">
-						<div class="card bg-gray-800 rounded-md w-md">
+					<div class="flex justify-center items-center max-w-full">
+						<div class="card bg-gray-800 rounded-md w-md lg:w-full">
 							<div class="card-body">
 								<template v-for="item in items">
 									<h5 class="card-title">{{ item[0].name }}</h5>
@@ -60,7 +60,7 @@
 										<p>${{ item[0].price }}</p>
 									</div>
 									<div class="w-full flex justify-between">
-										<div class="flex flex-row gap-1">
+										<div class="flex flex-col md:flex-row gap-1">
 											<input type="date" class="form-control !w-36" />
 											<input type="date" class="form-control !w-36" />
 										</div>
@@ -79,8 +79,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="w-md">
-						<div class="card bg-gray-800 w-md rounded-md w-md md:w-xs">
+					<div class="max-w-full">
+						<div class="card bg-gray-800 rounded-md">
 							<div class="card-body">
 								<h5 class="card-title">Order Summary</h5>
 								<div class="w-full">
