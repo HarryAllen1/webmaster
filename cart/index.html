@@ -29,10 +29,8 @@
 			un-cloak
 		>
 			<h1 class="font-bold mb-8">Cart</h1>
-			<template v-if="!items.length">
-				<p>No items! Go to our <a href="/book">book</a> page to book a trip!</p>
-			</template>
-			<template v-else>
+
+			<template v-if="items.length">
 				<div
 					class="flex flex-col lg:justify-center max-w-full !lg:w-full !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
@@ -150,6 +148,13 @@
 						</div>
 					</div>
 				</div>
+			</template>
+			<template v-else>
+				<p>
+					No items! Go to our
+					<a href="/book" @vue:mounted="routerLink($el)">book</a> page to book a
+					trip!
+				</p>
 			</template>
 		</div>
 		<wm-footer></wm-footer>

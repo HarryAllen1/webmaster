@@ -1,6 +1,7 @@
 import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
+import { routerLink } from '../js/router.mjs';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -84,6 +85,7 @@ const app = createApp({
 		});
 		document.dispatchEvent(event);
 	},
+	routerLink,
 });
 app.mount('#main');
 document.addEventListener('page-change', () => {
