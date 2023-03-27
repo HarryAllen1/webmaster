@@ -32,7 +32,7 @@
 
 			<template v-if="items.length">
 				<div
-					class="flex flex-col lg:justify-center max-w-full !lg:w-full !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
+					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
 						<div class="card bg-gray-800 rounded-md w-md lg:w-full">
@@ -138,7 +138,7 @@
 								</div>
 								<div class="flex justify-end">
 									<button
-										@click="alert(policyNumber && name && agree ? 'Purchase successful. We will email you with more information regarding scheduling. Please consult the trip page for more info on what happens next.' : 'Please fill out all fields.')"
+										@click="checkout"
 										class="btn btn-primary animate-wobble"
 									>
 										Purchase
