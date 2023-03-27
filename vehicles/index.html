@@ -27,6 +27,12 @@
 			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
 			un-cloak
 		>
+			<style>
+				body {
+					overflow-x: hidden !important;
+				}
+			</style>
+
 			<div class="max-w-lg flex flex-col items-center">
 				<h1 class="font-bold mb-8">Vehicles</h1>
 				<p>
@@ -34,6 +40,13 @@
 					environmentally friendly metallic titanium.
 				</p>
 				<h2>Andante and Tempo</h2>
+				<wm-andante-model>
+					<div class="d-flex justify-content-center">
+						<div class="spinner-border" role="status">
+							<span class="visually-hidden">Loading...</span>
+						</div>
+					</div>
+				</wm-andante-model>
 				<p>
 					The Adante rocket is a semi-lightweight launch vehicle that provides
 					the foundation for space tourism. It can send a maximum of 6
