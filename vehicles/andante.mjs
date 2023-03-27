@@ -92,7 +92,7 @@ customElements.define(
 			// add the renderer to the DOM
 			renderer.domElement.classList.add('max-w-lg', 'z-10');
 			this.attachShadow({ mode: 'open' });
-			this.shadowRoot.appendChild(renderer.domElement);
+			this.shadowRoot?.appendChild(renderer.domElement);
 		}
 	}
 );
