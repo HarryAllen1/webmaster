@@ -13,7 +13,7 @@ const app = createApp({
 	agree: false,
 	items: items.map(
 		/** @return {[import('../js/types.d.ts').Product, number]} */
-		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]],
+		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]]
 	),
 	numberFormatter: new Intl.NumberFormat('en-US', {
 		style: 'currency',
@@ -32,16 +32,21 @@ const app = createApp({
 		const count = parseInt(c);
 		this.items.find(
 			/** @param {[import('../js/types.d.ts').Product, number]} v */
-			(v) => v[0].name === name,
+			(v) => v[0].name === name
 		)[1] = count;
 
 		localStorage.setItem(
 			CART_KEY,
-			JSON.stringify(this.items.map(
-				/** @param {[import('../js/types.d.ts').Product, number]} v */
-				(v) => [v[0].name, v[1]],
-			)),
+			JSON.stringify(
+				this.items.map(
+					/** @param {[import('../js/types.d.ts').Product, number]} v */
+					(v) => [v[0].name, v[1]]
+				)
+			)
 		);
+		/**
+		 * @type {CustomEvent<{ count: number }>}
+		 */
 		const event = new CustomEvent('add-to-cart', {
 			detail: {
 				count: this.items.reduce(
@@ -50,7 +55,7 @@ const app = createApp({
 					 * @param {[string, number]} v
 					 */
 					(acc, v) => acc + v[1],
-					0,
+					0
 				),
 			},
 		});
@@ -62,15 +67,17 @@ const app = createApp({
 	removeItem(name) {
 		this.items = this.items.filter(
 			/** @param {[import('../js/types.d.ts').Product, number]} v */
-			(v) => v[0].name !== name,
+			(v) => v[0].name !== name
 		);
 
 		localStorage.setItem(
 			CART_KEY,
-			JSON.stringify(this.items.map(
-				/** @param {[import('../js/types.d.ts').Product, number]} v */
-				(v) => [v[0].name, v[1]],
-			)),
+			JSON.stringify(
+				this.items.map(
+					/** @param {[import('../js/types.d.ts').Product, number]} v */
+					(v) => [v[0].name, v[1]]
+				)
+			)
 		);
 		const event = new CustomEvent('add-to-cart', {
 			detail: {
@@ -80,7 +87,7 @@ const app = createApp({
 					 * @param {[string, number]} v
 					 */
 					(acc, v) => acc + v[1],
-					0,
+					0
 				),
 			},
 		});
@@ -89,7 +96,7 @@ const app = createApp({
 	checkout() {
 		if (this.policyNumber && this.name && this.agree) {
 			alert(
-				'Purchase successful. We will email you with more information regarding scheduling. Please consult the trip page for more info on what happens next.',
+				'Purchase successful. We will email you with more information regarding scheduling. Please consult the trip page for more info on what happens next.'
 			);
 			const jsConfetti = new JSConfetti();
 			jsConfetti.addConfetti();
