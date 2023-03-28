@@ -15,6 +15,7 @@ import { CART_KEY } from './constants.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 
 import(
+	// hack to allow pages to be visited more than once
 	`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
 		.replaceAll('index.html', '')
 		.replaceAll('//', '/')
