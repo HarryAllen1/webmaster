@@ -15,22 +15,26 @@ import { CART_KEY } from './constants.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 
 import(
+	// hack to allow pages to be visited more than once
 	`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
-		.replaceAll('index.html', '').replaceAll('//', '/')
+		.replaceAll('index.html', '')
+		.replaceAll('//', '/')
 );
 
 globalThis.addEventListener('popstate', async () => {
 	const path = location.pathname;
 	pageStore.updatePage(path);
-	const newPage = cachedPages.get(location.href) ??
+	const newPage =
+		cachedPages.get(location.href) ??
 		new DOMParser().parseFromString(
 			await (await fetch(location.href)).text(),
-			'text/html',
+			'text/html'
 		);
 	updatePage(newPage);
 	import(
 		`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
-			.replaceAll('index.html', '').replaceAll('//', '/')
+			.replaceAll('index.html', '')
+			.replaceAll('//', '/')
 	);
 });
 
@@ -58,11 +62,15 @@ customElements.define(
 					this.count = count;
 				},
 			});
-			document.addEventListener('add-to-cart', (e) => {
-				/** @type {any} */
-				const event = e;
-				itemsCount.setCount(event.detail.count);
-			});
+			document.addEventListener(
+				'add-to-cart',
+				/** @param {any} e */
+				(e) => {
+					/** @type {CustomEvent<{ count: number }>} */
+					const event = e;
+					itemsCount.setCount(event.detail.count);
+				}
+			);
 			createApp({
 				pages,
 				pageStore,
@@ -80,7 +88,7 @@ customElements.define(
 				});
 			});
 		}
-	},
+	}
 );
 
 customElements.define(
@@ -100,7 +108,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	},
+	}
 );
 
 globalThis.addEventListener('load', async () => {
