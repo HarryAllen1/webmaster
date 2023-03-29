@@ -29,7 +29,7 @@ customElements.define(
 				75,
 				window.innerWidth / window.innerHeight,
 				0.1,
-				1000
+				1000,
 			);
 
 			// create the controls
@@ -78,7 +78,7 @@ customElements.define(
 				},
 				(error) => {
 					console.log('An error happened', error);
-				}
+				},
 			);
 
 			// render the scene
@@ -96,5 +96,5 @@ customElements.define(
 			this.attachShadow({ mode: 'open' });
 			this.shadowRoot?.appendChild(renderer.domElement);
 		}
-	}
+	},
 );

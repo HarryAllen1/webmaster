@@ -24,11 +24,10 @@ import(
 globalThis.addEventListener('popstate', async () => {
 	const path = location.pathname;
 	pageStore.updatePage(path);
-	const newPage =
-		cachedPages.get(location.href) ??
+	const newPage = cachedPages.get(location.href) ??
 		new DOMParser().parseFromString(
 			await (await fetch(location.href)).text(),
-			'text/html'
+			'text/html',
 		);
 	updatePage(newPage);
 	import(
@@ -69,7 +68,7 @@ customElements.define(
 					/** @type {CustomEvent<{ count: number }>} */
 					const event = e;
 					itemsCount.setCount(event.detail.count);
-				}
+				},
 			);
 			createApp({
 				pages,
@@ -88,7 +87,7 @@ customElements.define(
 				});
 			});
 		}
-	}
+	},
 );
 
 customElements.define(
@@ -108,7 +107,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	}
+	},
 );
 
 globalThis.addEventListener('load', async () => {
