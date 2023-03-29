@@ -62,6 +62,8 @@ customElements.define(
 					object.scale.set(0.001, 0.001, 0.001);
 					//center the model
 					const box = new Box3().setFromObject(object);
+
+					// deno-lint-ignore no-unused-vars
 					const boxSize = box.getSize(new Vector3()).length();
 					const boxCenter = box.getCenter(new Vector3());
 					object.position.x = -boxCenter.x;
