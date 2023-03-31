@@ -1,10 +1,13 @@
 @import url('https://esm.sh/aos@next/dist/aos.css');
 
-:root {
+:root,
+html[data-bs-theme='dark'] {
 	--primary: #1f1f4c;
 	--bs-primary: var(--primary);
 	--bs-primary-rgb: 31, 31, 76;
 	--bs-body-font-family: Inter var, Roboto, Calibri, sans-serif;
+	--bs-body-color: rgb(208, 214, 224);
+	--bs-heading-color: #fff;
 }
 
 @font-face {
@@ -35,6 +38,7 @@
 	inset: 0;
 	z-index: 101;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
@@ -62,6 +66,13 @@
 	font-weight: 700;
 	animation: mild-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	color: transparent;
+}
+
+#loader::after {
+	z-index: 102;
+	content: 'Loading insane amounts (2.5 MB) of JavaScript...';
+	height: 3rem;
+	margin-top: 8px;
 }
 
 body {

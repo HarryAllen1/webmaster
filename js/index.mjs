@@ -1,18 +1,23 @@
-window.__unocss = {
-	theme: {
-		primary: 'var(--primary)',
-	},
-};
-
 import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1';
 import { pages } from './pages.mjs';
 import { sleep } from './utils.mjs';
-// @deno-types="npm:@unocss/runtime"
-import 'https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js';
-import 'https://esm.sh/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js';
+import initUnoCSS from 'https://esm.sh/@unocss/runtime@0.50.6';
+import presetUno from 'https://esm.sh/@unocss/preset-uno@0.50.6';
+import 'https://esm.sh/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js';
 import './scroll-animation.mjs';
 import { CART_KEY } from './constants.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
+
+initUnoCSS({
+	defaults: {
+		presets: [presetUno()],
+		theme: {
+			colors: {
+				primary: 'var(--primary)',
+			},
+		},
+	},
+});
 
 import(
 	// hack to allow pages to be visited more than once
@@ -24,10 +29,11 @@ import(
 globalThis.addEventListener('popstate', async () => {
 	const path = location.pathname;
 	pageStore.updatePage(path);
-	const newPage = cachedPages.get(location.href) ??
+	const newPage =
+		cachedPages.get(location.href) ??
 		new DOMParser().parseFromString(
 			await (await fetch(location.href)).text(),
-			'text/html',
+			'text/html'
 		);
 	updatePage(newPage);
 	import(
@@ -68,7 +74,7 @@ customElements.define(
 					/** @type {CustomEvent<{ count: number }>} */
 					const event = e;
 					itemsCount.setCount(event.detail.count);
-				},
+				}
 			);
 			createApp({
 				pages,
@@ -87,7 +93,7 @@ customElements.define(
 				});
 			});
 		}
-	},
+	}
 );
 
 customElements.define(
@@ -107,7 +113,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	},
+	}
 );
 
 globalThis.addEventListener('load', async () => {

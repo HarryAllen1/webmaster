@@ -1,14 +1,15 @@
 {
   "version": "2",
   "remote": {
-    "https://cdn.jsdelivr.net/npm/@unocss/runtime/uno.global.js": "1b6fbf0089c3186ed1809025be4625abb0d9c44d459b0492a39904e2391c3376",
-    "https://esm.sh/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js": "6a97b3b54e39565f5a154cfd12752057d09002bfab74d747f5ad34c6c4376139",
+    "https://esm.sh/@unocss/preset-uno@0.50.6": "5a73be8bc9e441457e2210358d22b087b1ec1c2dd1f08d383333c1f02126ba4c",
+    "https://esm.sh/@unocss/runtime@0.50.6": "369650abf831993268c012748a0b171fb89c87a0863d6aaf9dedd357779ba7fd",
+    "https://esm.sh/aos@3.0.0-beta.6": "685747c64ac9663e6a6b86f183f0d95b63a3dbad35fdef67304532e8bad454e3",
+    "https://esm.sh/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js": "ea88a62350f38a149e7c6b88cdbfecd5bdeb0dc74d33a90d43e63ca83a6bd1a7",
     "https://esm.sh/petite-vue@0.4.1": "1fc7756908bdc5b27a2e38d776c474cc4ac68d4b54093dee9c55a52b3014a36b",
     "https://esm.sh/toastify-js@1.12.0": "e2dba4d0e8a1e4211aea0040c6451900740ed80039c4e05dd873bb3b2212ff36",
     "https://esm.sh/v111/@types/toastify-js@1.11.1/index.d.ts": "d0c96969825fa3452a5100be43f4bdcf30a84f268b093150390e550aef26a61f",
     "https://esm.sh/v111/@vue/reactivity@3.2.47/dist/reactivity.d.ts": "7182e4749b532490201420845138d3d3d411c04feb14730c03c78aaf39812627",
     "https://esm.sh/v111/@vue/shared@3.2.47/dist/shared.d.ts": "10bc9999456a9cc0ee0c3a4918db22d27365728b92bf57b900ae6fd8f7359403",
-    "https://esm.sh/v111/bootstrap@5.3.0-alpha1/deno/dist/js/bootstrap.bundle.min.js": "1de0c895cd958eab4631fc65f87ef91c6b1024f6dba863c105e828525c4dfdc0",
     "https://esm.sh/v111/petite-vue@0.4.1/deno/petite-vue.js": "2778d9e5373f8861c1d40841789cb972c9fee87b865e8363055306fe762a99ce",
     "https://esm.sh/v111/petite-vue@0.4.1/dist/types/app.d.ts": "99a2b8b754b221ac623982170c553873afeb58db97d3eaa4543ccd7b40960a37",
     "https://esm.sh/v111/petite-vue@0.4.1/dist/types/block.d.ts": "9d73d663d9ee7afd3b86f6dbe11d1c196f2b80c8a067f1f89f109cab3eba7431",
@@ -16,52 +17,32 @@
     "https://esm.sh/v111/petite-vue@0.4.1/dist/types/directives/index.d.ts": "8e20e79b20573f6512b703c45c5108849a004bd45e8f1be35a6f5ff4253f37ec",
     "https://esm.sh/v111/petite-vue@0.4.1/dist/types/index.d.ts": "1665d3d7ca0f0339ab60a3188caef1da8b3bcd120b1f248fb069e10aee3437f4",
     "https://esm.sh/v111/petite-vue@0.4.1/dist/types/scheduler.d.ts": "2f4417588df53ede2b8b76a8bb1f857c61e1a0efeff0fcb54fea8c0afe30bf70",
-    "https://esm.sh/v111/toastify-js@1.12.0/deno/toastify-js.js": "58ccecc3e560d21016aa074f644e63e6d72a49c43697ec1295c84c832507a50e"
-  },
-  "npm": {
-    "specifiers": {
-      "@unocss/runtime": "@unocss/runtime@0.50.3"
-    },
-    "packages": {
-      "@unocss/core@0.50.3": {
-        "integrity": "sha512-bS9FpI7+kQ2LijNucTze7grA+HPk556ctGNUNYt/CMDkFt/+7beV0j4QQMp2g/JEZOgPtFHusHJfSNcAhkDL4Q==",
-        "dependencies": {}
-      },
-      "@unocss/preset-attributify@0.50.3": {
-        "integrity": "sha512-Zc0+9QTiW9QEd48+EPfEuPN8aszOHCzluy7NG0MxPErS9Os7ryu/mCKtR4IEHO8cYE/AJgxg2RO0kDCOuY0XJw==",
-        "dependencies": {
-          "@unocss/core": "@unocss/core@0.50.3"
-        }
-      },
-      "@unocss/preset-mini@0.50.3": {
-        "integrity": "sha512-QZDNM0Ivd9rS9UB3u+A2lTl9tIQxVJkdIUhJ9R6uINIqK0o7+B9X2LN+Kn14x1RsWympzVPk1KaRty+OWdSDOw==",
-        "dependencies": {
-          "@unocss/core": "@unocss/core@0.50.3"
-        }
-      },
-      "@unocss/preset-uno@0.50.3": {
-        "integrity": "sha512-IlgC/AJLw0hcRvnH4b7Htd+crkJpMAXo4dHfPec3QaLufqSUITW4ygqZCcEnRLENAgbS5a2RP4j00yztWd6mng==",
-        "dependencies": {
-          "@unocss/core": "@unocss/core@0.50.3",
-          "@unocss/preset-mini": "@unocss/preset-mini@0.50.3",
-          "@unocss/preset-wind": "@unocss/preset-wind@0.50.3"
-        }
-      },
-      "@unocss/preset-wind@0.50.3": {
-        "integrity": "sha512-uSsgIEr8ORBH91FAvF+UfXpu/wrc4TKJOh0Ti6hdbL0cj25HGScN+3i8o43Mr2GkSEPXn87mHoy5krRLIDf37Q==",
-        "dependencies": {
-          "@unocss/core": "@unocss/core@0.50.3",
-          "@unocss/preset-mini": "@unocss/preset-mini@0.50.3"
-        }
-      },
-      "@unocss/runtime@0.50.3": {
-        "integrity": "sha512-SYxKbucZArSdNcgi2ii91d4Rxfd9qTbeM3Q6aXYyJb4Bn4N65WnFfaCGK14Y2E1c56z7fkAt2Y0YcIAr1aGTRg==",
-        "dependencies": {
-          "@unocss/core": "@unocss/core@0.50.3",
-          "@unocss/preset-attributify": "@unocss/preset-attributify@0.50.3",
-          "@unocss/preset-uno": "@unocss/preset-uno@0.50.3"
-        }
-      }
-    }
+    "https://esm.sh/v111/toastify-js@1.12.0/deno/toastify-js.js": "58ccecc3e560d21016aa074f644e63e6d72a49c43697ec1295c84c832507a50e",
+    "https://esm.sh/v113/@antfu/utils@0.5.2/index.d.ts": "b55dd2eb5ced2eec9fbac96be6fe8d5c30cb9fd875fd47f711882c7e3c2a857d",
+    "https://esm.sh/v113/@types/aos@3.0.4/index.d.ts": "e786df5ce838ee0b9ec0090fd47eeb01d391ee43fb7d53459055b1a092a01093",
+    "https://esm.sh/v113/@unocss/core@0.50.6/deno/core.mjs": "8bc02db8da3e1288f686ed4aa84eecdc79a70e84e3e5a9ab56629705ef04ba2a",
+    "https://esm.sh/v113/@unocss/core@0.50.6/dist/index.d.ts": "f0afa1f28508404a02fa916121abc6178aaa20b6b8da7225d11b2d1f24cc5b06",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/deno/preset-mini.mjs": "d59c693d483e1eb2fa920dfcd63f2d45835fad217c2a26dd503ad531965da696",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/deno/rules.js": "90e87baa43b335a9084aa9eae2ee555649a362d29966b74d1c023916ffd5c9a6",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/deno/theme.js": "ba56f4d449026bfc08858dd7f4e1416188902f5205b622100e9ababccc5944d4",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/deno/utils.js": "f7ad393f393ab435981fac7a11eb5dfc7949b98cded1e465c863da49774fdd29",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/deno/variants.js": "d93b271efe1917d6d599ed97fe60d3ab862b77a63bd45a0d10d6e7e25b67e2ae",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/dist/colors-fdadc382.d.ts": "c3841b7da45b02627f0a3c36e77e29a9d854585d09e04686b4c5502c2a6e63a3",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/dist/default-be74c37e.d.ts": "872f06bb486c393347728d23a8d7e1412cab499d097689ee4b1f539a16ec90cd",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/dist/index.d.ts": "bd46623d4dc60f59040b63cd1cddba5695dfc1743e221dafce899bc3e958c81b",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/dist/types-f73ecdfe.d.ts": "cd142ffb1d2c6a8529485180ed222b90b64386a87b0460cb33a0bcfe9a2328fe",
+    "https://esm.sh/v113/@unocss/preset-mini@0.50.6/dist/utilities-a87209ad.d.ts": "978204227357752b69b301becc3c94f3843c706bea61be7dfc1ac6cc545968b1",
+    "https://esm.sh/v113/@unocss/preset-uno@0.50.6/deno/preset-uno.mjs": "ced54690324090df0f1fdbbe5ad336f2287a1cd1103685f2ec85fe27e01775b5",
+    "https://esm.sh/v113/@unocss/preset-uno@0.50.6/dist/index.d.ts": "d5c6a6d775541dc9aebfa20000dcd06f4f73d3a22e096d11a3c1598dec21ea1b",
+    "https://esm.sh/v113/@unocss/preset-wind@0.50.6/deno/preset-wind.mjs": "0154fdd8baefa95f09824b7251c7418e772a9dbc3f5eb880bec21bdd95f4f930",
+    "https://esm.sh/v113/@unocss/runtime@0.50.6/deno/runtime.mjs": "2e346da5abf72a9fe95dd1941444513ea56a379439037a957a1fd94c47840d3f",
+    "https://esm.sh/v113/@unocss/runtime@0.50.6/dist/index.d.ts": "5d37922b3922267e4719ceb3bfc42e1c1d6d38af02d06e6865fa462f22754323",
+    "https://esm.sh/v113/aos@3.0.0-beta.6/deno/aos.mjs": "9392a8f9669e30fd403b4b4f2cbc5513e522201a7e28294336b3b5c5f3ec3db5",
+    "https://esm.sh/v113/bootstrap@5.3.0-alpha2/deno/dist/js/bootstrap.bundle.min.js": "a27d2fa37d62147c945eeb1bab646621605fce3517d2ceff85c47964cc4b6b00",
+    "https://esm.sh/v113/lodash.debounce@4.0.8/deno/lodash.debounce.mjs": "6a8579437ce09abe817dd4df0c1afcfb051797f6e8717f03e1e23945af519556",
+    "https://esm.sh/v113/lodash.throttle@4.1.1/deno/lodash.throttle.mjs": "6a79c62096dd5bea3064bd8856d14d1354862301183e7b664e7fcbc8a18de4e7",
+    "https://esm.sh/v113/magic-string@0.30.0/index.d.ts": "dff50cb5dc6990d26ea2a5a3320132e872d258d283599e744c8fa603ab40f88b",
+    "https://esm.sh/v113/unconfig@0.3.7/dist/index.d.ts": "95b1248cdaed1a2edd552e6332840279c601614807f66655c286b9a528eb4524",
+    "https://esm.sh/v113/unconfig@0.3.7/dist/types-6886c41e.d.ts": "e7435d5bfe667da7d5e42a32ef88453fac1d2191c9c6ac0a4a8e30ae671d1b90"
   }
 }
