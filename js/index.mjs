@@ -7,6 +7,7 @@ import 'https://esm.sh/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js';
 import './scroll-animation.mjs';
 import { CART_KEY } from './constants.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
+import { initBlob } from './blob.mjs';
 
 initUnoCSS({
 	defaults: {
@@ -127,6 +128,7 @@ globalThis.addEventListener('load', async () => {
 	document.body.style.overflow = 'auto';
 	loader.remove();
 	scrollTo(0, 0);
+	initBlob();
 });
 
 document.querySelector('#main')?.addEventListener('click', () => {

@@ -81,6 +81,7 @@ body {
 	background-repeat: no-repeat;
 	background-image: linear-gradient(to bottom, var(--primary), #000);
 	overflow: hidden;
+	overflow-x: hidden !important;
 }
 #stars {
 	position: fixed;
@@ -133,4 +134,51 @@ body {
 	--un-backdrop-blur: blur(12px);
 	-webkit-backdrop-filter: var(--un-backdrop-blur);
 	backdrop-filter: var(--un-backdrop-blur);
+}
+
+.astrotours {
+	--un-gradient-from: rgb(220, 220, 220);
+	--un-gradient-stops: var(--un-gradient-from), var(--un-gradient-to),
+		var(--un-gradient-from);
+	--un-gradient-to: rgba(119, 119, 204, var(--un-to-opacity, 1));
+	background-image: linear-gradient(
+		to right,
+		var(--un-gradient, var(--un-gradient-stops, rgba(255, 255, 255, 0)))
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-weight: 700;
+	animation: background-pan 5s linear infinite;
+	background-size: 200%;
+}
+
+.background-pan {
+	animation: background-pan 5s linear infinite;
+}
+
+@keyframes background-pan {
+	from {
+		background-position: 0% center;
+	}
+
+	to {
+		background-position: -200% center;
+	}
+}
+
+#blob {
+	background-color: white;
+	height: 20vmax;
+	aspect-ratio: 1;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background: linear-gradient(to right, rgb(59, 130, 246), mediumpurple);
+	animation: rotate 20s infinite;
+	opacity: 0.8;
+	pointer-events: none;
+	filter: blur(8vmax);
 }
