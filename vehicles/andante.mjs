@@ -16,10 +16,12 @@ customElements.define(
 		constructor() {
 			super();
 
+			this.classList.add('w-full');
+
 			const renderer = new WebGLRenderer();
 
 			// set the size of the renderer
-			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setSize(this.getBoundingClientRect().width, window.innerHeight);
 
 			// create the scene
 			const scene = new Scene();
@@ -29,7 +31,7 @@ customElements.define(
 				75,
 				window.innerWidth / window.innerHeight,
 				0.1,
-				1000,
+				1000
 			);
 
 			// create the controls
@@ -76,7 +78,7 @@ customElements.define(
 				(xhr) => {
 					console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
 				},
-				console.error,
+				console.error
 			);
 
 			// render the scene
@@ -90,9 +92,9 @@ customElements.define(
 			renderer.setClearColor(0x000000, 0);
 
 			// add the renderer to the DOM
-			renderer.domElement.classList.add('max-w-lg', 'z-10');
-			this.attachShadow({ mode: 'open' });
-			this.shadowRoot?.appendChild(renderer.domElement);
+			renderer.domElement.classList.add('!w-full', 'z-10');
+			this.innerHTML = '';
+			this.append(renderer.domElement);
 		}
-	},
+	}
 );
