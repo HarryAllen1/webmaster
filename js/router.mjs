@@ -7,8 +7,8 @@ export const pageStore = reactive({
 	 * @param {string} pathname
 	 */
 	updatePage(pathname) {
-		this.current = pathname.replaceAll('/', '') ??
-			location.pathname.replaceAll('/', '');
+		this.current =
+			pathname.replaceAll('/', '') ?? location.pathname.replaceAll('/', '');
 	},
 });
 
@@ -23,16 +23,17 @@ export const cachedPages = new Map();
  * @param {Document} newPage
  */
 export const updatePage = (newPage) => {
-	document.dispatchEvent(new CustomEvent('page-change', { detail: newPage }));
 	/** @type {HTMLDivElement | null} */
 	const main = document.querySelector('#main');
 	if (main) {
-		main.innerHTML = newPage.querySelector('#main')?.innerHTML ??
+		main.innerHTML =
+			newPage.querySelector('#main')?.innerHTML ??
 			'No page found! Try refreshing the page.';
 	}
 	document.title = newPage.title;
 
 	initRouter(document.querySelector('#main') ?? newPage);
+	document.dispatchEvent(new CustomEvent('page-change', { detail: newPage }));
 };
 
 /**
@@ -79,7 +80,7 @@ export const goto = async (route) => {
 
 	if (
 		new URL(href).pathname.replaceAll('/', '') ===
-			new URL(location.href).pathname.replaceAll('/', '')
+		new URL(location.href).pathname.replaceAll('/', '')
 	) {
 		return;
 	}
@@ -87,13 +88,12 @@ export const goto = async (route) => {
 	if (cachedPages.has(href)) {
 		updatePage(
 			// @ts-ignore: we checked it exists
-			cachedPages.get(href),
+			cachedPages.get(href)
 		);
 	} else {
 		const res = await fetch(href).catch((e) => {
 			Toastify({
-				text:
-					'An error occurred when fetching that page. Falling back to reload-based navigation.',
+				text: 'An error occurred when fetching that page. Falling back to reload-based navigation.',
 				gravity: 'bottom',
 				position: 'center',
 			}).showToast();
@@ -111,7 +111,8 @@ export const goto = async (route) => {
 	window.scrollTo(0, 0);
 	import(
 		`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
-			.replaceAll('index.html', '').replaceAll('//', '/')
+			.replaceAll('index.html', '')
+			.replaceAll('//', '/')
 	);
 	pageStore.updatePage(path);
 };

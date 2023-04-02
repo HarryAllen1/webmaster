@@ -17,4 +17,58 @@ export const initBlob = () => {
 			}
 		);
 	});
+
+	document.querySelectorAll('button, a').forEach((el) => {
+		addBlobListeners(el);
+	});
+	document.addEventListener('page-change', () => {
+		document.querySelectorAll('#main button, #main a').forEach((el) => {
+			addBlobListeners(el);
+		});
+	});
+	document.addEventListener('vue:mounted', console.log);
+};
+
+/**
+ * @param {Element} el
+ */
+export const addBlobListeners = (el) => {
+	const blob = document.querySelector('#blob');
+
+	el.addEventListener('mouseenter', () => {
+		blob?.animate(
+			[
+				{
+					transform: 'scale(1)',
+					filter: 'brightness(1) blur(8vmax)',
+				},
+				{
+					transform: 'scale(1.2)',
+					filter: 'brightness(1.5) blur(8vmax)',
+				},
+			],
+			{
+				duration: 250,
+				fill: 'forwards',
+			}
+		);
+	});
+	el.addEventListener('mouseleave', () => {
+		blob?.animate(
+			[
+				{
+					transform: 'scale(1.2)',
+					filter: 'brightness(1.5) blur(8vmax)',
+				},
+				{
+					transform: 'scale(1)',
+					filter: 'brightness(1) blur(8vmax)',
+				},
+			],
+			{
+				duration: 250,
+				fill: 'forwards',
+			}
+		);
+	});
 };
