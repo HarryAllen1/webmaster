@@ -1,4 +1,7 @@
 {
+	"tasks": {
+		"fmt": "deno run --allow-read --allow-env --allow-write npm:prettier --write ."
+	},
 	"compilerOptions": {
 		"checkJs": true,
 		"allowJs": true,
