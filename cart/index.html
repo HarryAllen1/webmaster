@@ -91,7 +91,7 @@
 						<div class="card bg-gray-800 rounded-md">
 							<div class="card-body">
 								<h5 class="card-title">Order Summary</h5>
-								<div class="w-full">
+								<form class="w-full" @submit.prevent="checkout">
 									<div class="flex flex-row justify-between">
 										<p>Subtotal</p>
 										<p>
@@ -137,6 +137,7 @@
 											type="checkbox"
 											v-model="agree"
 											id="flexCheckDefault"
+											required
 										/>
 										<label class="form-check-label" for="flexCheckDefault">
 											By checking this box, I understand that AstroTours is not
@@ -145,10 +146,10 @@
 											altered gravity fields.
 										</label>
 									</div>
-								</div>
+								</form>
 								<div class="flex justify-end">
 									<button
-										@click="checkout"
+										type="submit"
 										@vue:mounted="addBlobListeners($el)"
 										class="btn btn-primary animate-wobble"
 									>
