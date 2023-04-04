@@ -8,6 +8,10 @@ import { addBlobListeners } from '../js/blob.mjs';
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
 
+/**
+ * @typedef {[import('../js/types.d.ts').Product, number]} QuantityData
+ */
+
 const app = createApp({
 	name: '',
 	policyNumber: '',
@@ -32,7 +36,7 @@ const app = createApp({
 	changeQuantity(name, c) {
 		const count = parseInt(c);
 		this.items.find(
-			/** @param {[import('../js/types.d.ts').Product, number]} v */
+			/** @param {QuantityData} v */
 			(v) => v[0].name === name
 		)[1] = count;
 
@@ -40,7 +44,7 @@ const app = createApp({
 			CART_KEY,
 			JSON.stringify(
 				this.items.map(
-					/** @param {[import('../js/types.d.ts').Product, number]} v */
+					/** @param {QuantityData} v */
 					(v) => [v[0].name, v[1]]
 				)
 			)
@@ -64,7 +68,7 @@ const app = createApp({
 	 */
 	removeItem(name) {
 		this.items = this.items.filter(
-			/** @param {[import('../js/types.d.ts').Product, number]} v */
+			/** @param {QuantityData} v */
 			(v) => v[0].name !== name
 		);
 
@@ -72,7 +76,7 @@ const app = createApp({
 			CART_KEY,
 			JSON.stringify(
 				this.items.map(
-					/** @param {[import('../js/types.d.ts').Product, number]} v */
+					/** @param {QuantityData} v */
 					(v) => [v[0].name, v[1]]
 				)
 			)
