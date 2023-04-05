@@ -36,6 +36,7 @@ export const addBlobListeners = (el) => {
 	const blob = document.querySelector('#blob');
 
 	el.addEventListener('mouseenter', () => {
+		document.querySelector('#nav-logo')?.classList.add('vibrate');
 		blob?.animate(
 			[
 				{
@@ -54,6 +55,7 @@ export const addBlobListeners = (el) => {
 		);
 	});
 	el.addEventListener('mouseleave', () => {
+		document.querySelector('#nav-logo')?.classList.remove('vibrate');
 		blob?.animate(
 			[
 				{
