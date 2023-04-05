@@ -181,4 +181,17 @@ body {
 	opacity: 0.8;
 	pointer-events: none;
 	filter: blur(8vmax);
+	z-index: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+a {
+	z-index: 1;
 }

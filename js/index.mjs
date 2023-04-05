@@ -93,6 +93,28 @@ customElements.define(
 					}
 				});
 			});
+			/** @type {HTMLDivElement | null} */
+			const logo = document.querySelector('#nav-logo');
+			if (!logo) return;
+			const rect = logo.getBoundingClientRect();
+			const middleX = rect.x + rect.width / 2;
+			const middleY = rect.y + rect.height / 2;
+			document.addEventListener('mousemove', ({ clientX, clientY }) => {
+				const angle = this._angle(middleX, middleY, clientX, clientY);
+				logo.style.transform = `rotate(${angle + 1}rad)`;
+			});
+		}
+
+		/**
+		 * @param {number} cx
+		 * @param {number} cy
+		 * @param {number} ex
+		 * @param {number} ey
+		 */
+		_angle(cx, cy, ex, ey) {
+			const dy = ey - cy;
+			const dx = ex - cx;
+			return Math.atan2(dy, dx);
 		}
 	}
 );
