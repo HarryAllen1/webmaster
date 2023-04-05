@@ -6,9 +6,9 @@ import {
 	Scene,
 	Vector3,
 	WebGLRenderer,
-} from 'https://esm.sh/three@0.150.1';
-import { OrbitControls } from 'https://esm.sh/three@0.150.1/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'https://esm.sh/three@0.150.1/examples/jsm/loaders/GLTFLoader.js';
+} from 'https://esm.sh/three@0.151.3?bundle';
+import { OrbitControls } from 'https://esm.sh/three@0.151.3/examples/jsm/controls/OrbitControls.js?bundle';
+import { GLTFLoader } from 'https://esm.sh/three@0.151.3/examples/jsm/loaders/GLTFLoader.js?bundle';
 
 customElements.define(
 	'wm-andante-model',

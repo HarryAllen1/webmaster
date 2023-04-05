@@ -1,4 +1,4 @@
-import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
+import { createApp } from 'https://esm.sh/petite-vue@0.4.1?bundle';
 import JSConfetti from 'https://esm.sh/js-confetti@0.11.0';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';

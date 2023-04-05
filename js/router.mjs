@@ -1,4 +1,4 @@
-import { reactive } from 'https://esm.sh/petite-vue@0.4.1';
+import { reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
 import Toastify from 'https://esm.sh/toastify-js@1.12.0';
 
 export const pageStore = reactive({

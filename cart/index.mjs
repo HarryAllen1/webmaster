@@ -1,5 +1,5 @@
-import { createApp } from 'https://esm.sh/petite-vue@0.4.1';
-import JSConfetti from 'https://esm.sh/js-confetti@0.11.0';
+import { createApp } from 'https://esm.sh/petite-vue@0.4.1?bundle';
+import JSConfetti from 'https://esm.sh/js-confetti@0.11.0?bundle';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { routerLink } from '../js/router.mjs';

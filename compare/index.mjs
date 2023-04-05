@@ -1,4 +1,4 @@
-import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1';
+import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
 import { plans } from '../js/plans.mjs';
 import { toStartCase } from '../js/utils.mjs';
 
