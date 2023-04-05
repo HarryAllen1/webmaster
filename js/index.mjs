@@ -147,7 +147,6 @@ globalThis.addEventListener('load', async () => {
 	loader.style.animationDuration = '0.2s';
 	loader.classList.add('animate-fade-in', 'animate-reverse');
 	await sleep(200);
-	document.body.style.overflow = 'auto';
 	loader.remove();
 	scrollTo(0, 0);
 	initBlob();

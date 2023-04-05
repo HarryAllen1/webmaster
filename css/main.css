@@ -80,8 +80,7 @@ body {
 	background-size: 100% 650px;
 	background-repeat: no-repeat;
 	background-image: linear-gradient(to bottom, var(--primary), #000);
-	overflow: hidden;
-	overflow-x: hidden !important;
+	/* overflow-x: hidden; */
 }
 #stars {
 	position: fixed;
