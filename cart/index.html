@@ -146,16 +146,16 @@
 											altered gravity fields.
 										</label>
 									</div>
+									<div class="flex justify-end">
+										<button
+											type="submit"
+											@vue:mounted="addBlobListeners($el)"
+											class="btn btn-primary animate-wobble"
+										>
+											Purchase
+										</button>
+									</div>
 								</form>
-								<div class="flex justify-end">
-									<button
-										type="submit"
-										@vue:mounted="addBlobListeners($el)"
-										class="btn btn-primary animate-wobble"
-									>
-										Purchase
-									</button>
-								</div>
 							</div>
 						</div>
 					</div>
