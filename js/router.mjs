@@ -54,9 +54,9 @@ export const routerLink = (el) => {
 			const newPage = parser.parseFromString(html, 'text/html');
 			cachedPages.set(el.href, newPage);
 		});
-		el.addEventListener('click', async (e) => {
+		el.addEventListener('click', (e) => {
 			e.preventDefault();
-			await goto(el.href);
+			goto(el.href);
 		});
 	}
 };
@@ -75,44 +75,75 @@ export const initRouter = (scope) => {
  *
  * @param {string} route
  */
-export const goto = async (route) => {
+export const goto = (route) => {
 	const { href } = new URL(route, location.origin);
+	document
+		.querySelector('#main')
+		?.animate(
+			[
+				{
+					opacity: 1,
+				},
+				{
+					opacity: 0,
+				},
+			],
+			{
+				duration: 350,
+				easing: 'ease-in-out',
+			}
+		)
+		.addEventListener('finish', async () => {
+			if (
+				new URL(href).pathname.replaceAll('/', '') ===
+				new URL(location.href).pathname.replaceAll('/', '')
+			) {
+				return;
+			}
 
-	if (
-		new URL(href).pathname.replaceAll('/', '') ===
-		new URL(location.href).pathname.replaceAll('/', '')
-	) {
-		return;
-	}
-
-	if (cachedPages.has(href)) {
-		updatePage(
-			// @ts-ignore: we checked it exists
-			cachedPages.get(href)
-		);
-	} else {
-		const res = await fetch(href).catch((e) => {
-			Toastify({
-				text: 'An error occurred when fetching that page. Falling back to reload-based navigation.',
-				gravity: 'bottom',
-				position: 'center',
-			}).showToast();
-			location.href = href;
-			throw new Error(`Couldn't fetch ${href}`, { cause: e });
+			if (cachedPages.has(href)) {
+				updatePage(
+					// @ts-ignore: we checked it exists
+					cachedPages.get(href)
+				);
+			} else {
+				const res = await fetch(href).catch((e) => {
+					Toastify({
+						text: 'An error occurred when fetching that page. Falling back to reload-based navigation.',
+						gravity: 'bottom',
+						position: 'center',
+					}).showToast();
+					location.href = href;
+					throw new Error(`Couldn't fetch ${href}`, { cause: e });
+				});
+				const html = await res.text();
+				const parser = new DOMParser();
+				const newPage = parser.parseFromString(html, 'text/html');
+				cachedPages.set(href, newPage);
+				updatePage(newPage);
+			}
+			const path = new URL(href).pathname;
+			history.pushState({}, '', href);
+			window.scrollTo(0, 0);
+			import(
+				`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
+					.replaceAll('index.html', '')
+					.replaceAll('//', '/')
+			);
+			pageStore.updatePage(path);
+			document.querySelector('#main')?.animate(
+				[
+					{
+						opacity: 0,
+					},
+					{
+						opacity: 1,
+					},
+				],
+				{
+					duration: 350,
+					easing: 'ease-in-out',
+				}
+			);
 		});
-		const html = await res.text();
-		const parser = new DOMParser();
-		const newPage = parser.parseFromString(html, 'text/html');
-		cachedPages.set(href, newPage);
-		updatePage(newPage);
-	}
-	const path = new URL(href).pathname;
-	history.pushState({}, '', href);
-	window.scrollTo(0, 0);
-	import(
-		`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
-			.replaceAll('index.html', '')
-			.replaceAll('//', '/')
-	);
-	pageStore.updatePage(path);
 };
