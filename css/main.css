@@ -70,7 +70,7 @@ html[data-bs-theme='dark'] {
 
 #loader::after {
 	z-index: 102;
-	content: 'Loading insane amounts (2.5 MB) of JavaScript...';
+	content: 'Loading insane amounts (2.9 MB) of JavaScript...';
 	height: 3rem;
 	margin-top: 8px;
 }
