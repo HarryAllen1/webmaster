@@ -1,8 +1,7 @@
 import { createApp } from 'https://esm.sh/petite-vue@0.4.1?bundle';
-import JSConfetti from 'https://esm.sh/js-confetti@0.11.0?bundle';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
-import { routerLink } from '../js/router.mjs';
+import { goto, routerLink } from '../js/router.mjs';
 import { addBlobListeners } from '../js/blob.mjs';
 
 /** @type {[string, number][]} */
@@ -95,17 +94,7 @@ const app = createApp({
 		});
 		document.dispatchEvent(event);
 	},
-	checkout() {
-		if (this.policyNumber && this.name && this.agree) {
-			alert(
-				'Purchase successful. We will email you with more information regarding scheduling. Please consult the trip page for more info on what happens next.'
-			);
-			const jsConfetti = new JSConfetti();
-			jsConfetti.addConfetti();
-		} else {
-			alert('Please fill out all fields.');
-		}
-	},
+	goto,
 	routerLink,
 	addBlobListeners,
 });

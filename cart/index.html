@@ -91,71 +91,36 @@
 						<div class="card bg-gray-800 rounded-md">
 							<div class="card-body">
 								<h5 class="card-title">Order Summary</h5>
-								<form class="w-full" @submit.prevent="checkout">
-									<div class="flex flex-row justify-between">
-										<p>Subtotal</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0)) }}
-										</p>
-									</div>
-									<div class="flex flex-row justify-between">
-										<p>Estimated Tax</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0) * 0.1) }}
-										</p>
-									</div>
-									<div class="flex flex-row justify-between font-bold">
-										<p>Estimated Total</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0) * 1.1) }}
-										</p>
-									</div>
-									<div class="mb-3">
-										<label class="form-label">Insurance Policy Number</label>
-										<input
-											v-model="policyNumber"
-											required
-											type="text"
-											class="form-control"
-										/>
-									</div>
-									<div class="mb-3">
-										<label class="form-label">Name of Insured</label>
-										<input
-											v-model="name"
-											required
-											type="text"
-											class="form-control"
-										/>
-									</div>
-									<div class="form-check">
-										<input
-											class="form-check-input"
-											type="checkbox"
-											v-model="agree"
-											id="flexCheckDefault"
-											required
-										/>
-										<label class="form-check-label" for="flexCheckDefault">
-											By checking this box, I understand that AstroTours is not
-											liable for any potential hazards during space flights
-											including sun radiation, hostile space environment and
-											altered gravity fields.
-										</label>
-									</div>
-									<div class="flex justify-end">
-										<button
-											type="submit"
-											@vue:mounted="addBlobListeners($el)"
-											class="btn btn-primary animate-wobble"
-										>
-											Purchase
-										</button>
-									</div>
-								</form>
+								<div class="flex flex-row justify-between">
+									<p>Subtotal</p>
+									<p>
+										{{ numberFormatter.format(items.reduce((acc, val) => acc +
+										val[0].price * val[1], 0)) }}
+									</p>
+								</div>
+								<div class="flex flex-row justify-between">
+									<p>Estimated Tax</p>
+									<p>
+										{{ numberFormatter.format(items.reduce((acc, val) => acc +
+										val[0].price * val[1], 0) * 0.1) }}
+									</p>
+								</div>
+								<div class="flex flex-row justify-between font-bold">
+									<p>Estimated Total</p>
+									<p>
+										{{ numberFormatter.format(items.reduce((acc, val) => acc +
+										val[0].price * val[1], 0) * 1.1) }}
+									</p>
+								</div>
+								<div class="flex justify-end">
+									<button
+										@vue:mounted="addBlobListeners($el)"
+										@click="items.length ? goto('/checkout') : alert('You have no items in your cart!')"
+										class="btn btn-primary animate-wobble"
+									>
+										Checkout
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
