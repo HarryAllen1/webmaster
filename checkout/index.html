@@ -99,7 +99,9 @@
 									<div class="mb-3">
 										<label for="exp" class="form-label">Expiration Date</label>
 										<input
-											type="date"
+											type="text"
+											pattern="\d{2}/\d{2}"
+											placeholder="MM/YY"
 											class="form-control"
 											id="exp"
 											v-model="expiration"
