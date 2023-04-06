@@ -249,12 +249,12 @@ a {
 	40%,
 	60% {
 		transform: translate(40vw, 50vh) rotate(-45deg);
-		height: 32rem;
+		height: 32vh;
 		position: absolute;
 	}
 	100% {
 		transform: translate(100vw, -50vh) rotate(45deg);
-		height: 24rem;
+		height: 24vh;
 		position: absolute;
 	}
 }
