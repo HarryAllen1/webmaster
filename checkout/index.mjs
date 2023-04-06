@@ -15,7 +15,13 @@ const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
  * @return {boolean}
  */
 const isValidCardNumber = (number) => {
-	if (!number || /[^0-9-\s]+/.test(number)) return false;
+	if (
+		!number ||
+		parseInt(number) === 0 ||
+		number.length !== 16 ||
+		/[^0-9-\s]+/.test(number)
+	)
+		return false;
 	let nCheck = 0,
 		nDigit = 0,
 		bEven = false;
