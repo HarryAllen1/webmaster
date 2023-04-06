@@ -22,6 +22,7 @@ const interval = setInterval(() => {
 
 document.addEventListener('page-change', () => {
 	clearInterval(interval);
+	canvasConfetti.reset();
 	confetti.clearCanvas();
 	logo?.classList.remove('rocket-animation');
 });
