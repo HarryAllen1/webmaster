@@ -53,6 +53,7 @@ const app = createApp({
 			position: 'center',
 			gravity: 'bottom',
 			close: true,
+			onClick: () => goto('/cart'),
 		}).showToast();
 		localStorage.setItem(CART_KEY, JSON.stringify(currentCart));
 		const event = new CustomEvent('add-to-cart', {

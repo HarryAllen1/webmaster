@@ -43,49 +43,201 @@
 			<h1 class="font-bold mb-8">Checkout</h1>
 
 			<template v-if="items.length">
-				<div
-					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
+				<form
+					novalidate
+					@submit.prevent="submit"
+					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
 						<div class="card bg-gray-800 rounded-md w-md lg:w-full">
 							<div class="card-body">
-								<template v-for="item in items">
-									<h5 class="card-title">{{ item[0].name }}</h5>
-									<div class="flex flex-row place-content-between">
-										<div class="flex flex-row items-center">
-											Qty:
-											<select
-												@change="changeQuantity(item[0].name, $el.value)"
-												class="ml-2 form-select form-select-sm"
-											>
-												<option
-													v-for="i in item[0].maxPeople"
-													:selected="i === item[1]"
-													:value="i"
-												>
-													{{ i }}
-												</option>
-											</select>
-										</div>
-										<p>${{ item[0].price }}</p>
+								<h5 class="card-title">Billing Information</h5>
+								<div class="grid grid-cols-2 gap-2">
+									<div class="mb-3">
+										<label for="firstName" class="form-label">First Name</label>
+										<input
+											type="text"
+											class="form-control"
+											id="firstName"
+											v-model="firstName"
+											required
+										/>
+										<div class="invalid-feedback">Please enter a name</div>
 									</div>
-									<div class="w-full flex justify-between">
-										<div class="flex flex-col md:flex-row gap-1">
-											<input type="date" class="form-control !w-36" />
-											<input type="date" class="form-control !w-36" />
-										</div>
-										<button
-											type="button"
-											class="btn btn-danger btn-small self-end"
-											@click="removeItem(item[0].name)"
-										>
-											Remove
-										</button>
+									<div class="mb-3">
+										<label for="lastName" class="form-label">Last Name</label>
+										<input
+											type="text"
+											class="form-control"
+											id="lastName"
+											v-model="lastName"
+											required
+										/>
+										<div class="invalid-feedback">Please enter a name</div>
 									</div>
-									<div
-										class="h-[1px] bg-[var(--bs-border-color-translucent)] w-full my-2 last:hidden"
-									></div>
-								</template>
+								</div>
+
+								<div class="mb-3">
+									<label for="card" class="form-label">Card Number</label>
+									<input
+										type="tel"
+										inputmode="numeric"
+										autocomplete="cc-number"
+										maxlength="19"
+										placeholder="xxxx xxxx xxxx xxxx"
+										type="text"
+										class="form-control"
+										id="card"
+										v-model="card"
+										required
+									/>
+									<div class="invalid-feedback">
+										Please enter a valid card number
+									</div>
+								</div>
+								<div class="grid grid-cols-2 gap-2">
+									<div class="mb-3">
+										<label for="exp" class="form-label">Expiration Date</label>
+										<input
+											type="text"
+											pattern="\d{2}/\d{2}"
+											placeholder="MM/YY"
+											class="form-control"
+											id="exp"
+											v-model="expiration"
+											autocomplete="cc-exp"
+											required
+										/>
+										<div class="invalid-feedback">
+											Please enter a valid expiration date
+										</div>
+									</div>
+									<div class="mb-3">
+										<label for="cvv" class="form-label">CVV</label>
+										<input
+											type="text"
+											class="form-control"
+											id="cvv"
+											v-model="cvv"
+											pattern="\d{3}"
+											required
+											autocomplete="cc-csc"
+										/>
+										<div class="invalid-feedback">Please enter a valid CVV</div>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label for="email" class="form-label">Email</label>
+									<input
+										type="email"
+										class="form-control"
+										id="email"
+										v-model="email"
+										required
+									/>
+									<div class="invalid-feedback">Please enter a valid email</div>
+								</div>
+								<div class="mb-3">
+									<label for="phone" class="form-label">Phone</label>
+									<input
+										type="tel"
+										class="form-control"
+										id="phone"
+										v-model="phone"
+										required
+									/>
+									<div class="invalid-feedback">Please enter a valid phone</div>
+								</div>
+								<div class="mb-3">
+									<label for="address" class="form-label">Address</label>
+									<input
+										type="text"
+										class="form-control"
+										id="address"
+										v-model="address"
+										required
+									/>
+									<div class="invalid-feedback">
+										Please enter a valid address
+									</div>
+								</div>
+								<div class="grid grid-cols-4 gap-2">
+									<div class="mb-3">
+										<label for="city" class="form-label">City</label>
+										<input
+											type="text"
+											class="form-control"
+											id="city"
+											v-model="city"
+											required
+										/>
+										<div class="invalid-feedback">
+											Please enter a valid city
+										</div>
+									</div>
+									<div class="mb-3">
+										<label for="state" class="form-label">State</label>
+										<input
+											type="text"
+											class="form-control"
+											id="state"
+											v-model="state"
+											required
+										/>
+										<div class="invalid-feedback">
+											Please enter a valid state
+										</div>
+									</div>
+									<div class="mb-3">
+										<label for="zip" class="form-label">Zip</label>
+										<input
+											type="text"
+											class="form-control"
+											id="zip"
+											v-model="zip"
+											required
+										/>
+										<div class="invalid-feedback">Please enter a valid zip</div>
+									</div>
+									<div class="mb-3">
+										<label for="country" class="form-label">Country</label>
+										<input
+											type="text"
+											class="form-control"
+											id="country"
+											v-model="country"
+											required
+										/>
+										<div class="invalid-feedback">
+											Please enter a valid country
+										</div>
+									</div>
+								</div>
+
+								<div class="form-check">
+									<label class="form-check-label" for="agree">
+										By checking this box, I understand that AstroTours is not
+										liable for any potential hazards during space flights
+										including sun radiation, hostile space environment and
+										altered gravity fields.
+									</label>
+									<input
+										class="form-check-input"
+										type="checkbox"
+										v-model="agree"
+										id="agree"
+										required
+									/>
+									<div class="invalid-feedback">
+										You must agree before submitting.
+									</div>
+								</div>
+								<div class="flex justify-end">
+									<button type="submit" class="btn btn-primary animate-wobble">
+										Purchase
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -115,51 +267,11 @@
 											val[0].price * val[1], 0) * 1.1) }}
 										</p>
 									</div>
-									<div class="mb-3">
-										<label class="form-label">Insurance Policy Number</label>
-										<input
-											v-model="policyNumber"
-											required
-											type="text"
-											class="form-control"
-										/>
-									</div>
-									<div class="mb-3">
-										<label class="form-label">Name of Insured</label>
-										<input
-											v-model="name"
-											required
-											type="text"
-											class="form-control"
-										/>
-									</div>
-									<div class="form-check">
-										<input
-											class="form-check-input"
-											type="checkbox"
-											v-model="agree"
-											id="flexCheckDefault"
-										/>
-										<label class="form-check-label" for="flexCheckDefault">
-											By checking this box, I understand that AstroTours is not
-											liable for any potential hazards during space flights
-											including sun radiation, hostile space environment and
-											altered gravity fields.
-										</label>
-									</div>
-								</div>
-								<div class="flex justify-end">
-									<button
-										@click="checkout"
-										class="btn btn-primary animate-wobble"
-									>
-										Purchase
-									</button>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 			</template>
 			<template v-else>
 				<p>

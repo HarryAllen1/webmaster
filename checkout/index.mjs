@@ -3,13 +3,51 @@ import JSConfetti from 'https://esm.sh/js-confetti@0.11.0';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { routerLink } from '../js/router.mjs';
+import { sleep } from '../js/utils.mjs';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
 
+/**
+ * Implements the Luhn algorithm.
+ *
+ * @param {string} number
+ * @return {boolean}
+ */
+const isValidCardNumber = (number) => {
+	if (!number || /[^0-9-\s]+/.test(number)) return false;
+	let nCheck = 0,
+		nDigit = 0,
+		bEven = false;
+
+	number = number.replace(/\D/g, '');
+
+	for (let n = number.length - 1; n >= 0; n--) {
+		const cDigit = number.charAt(n);
+		nDigit = parseInt(cDigit, 10);
+
+		if (bEven && (nDigit *= 2) > 9) nDigit -= 9;
+
+		nCheck += nDigit;
+		bEven = !bEven;
+	}
+
+	return nCheck % 10 === 0;
+};
+
 const app = createApp({
-	name: '',
-	policyNumber: '',
+	firstName: '',
+	lastName: '',
+	card: '',
+	expiration: '',
+	cvv: '',
+	email: '',
+	phone: '',
+	address: '',
+	city: '',
+	state: '',
+	zip: '',
+	country: '',
 	agree: false,
 	items: items.map(
 		/** @return {[import('../js/types.d.ts').Product, number]} */
@@ -19,90 +57,38 @@ const app = createApp({
 		style: 'currency',
 		currency: 'USD',
 	}),
-	clearCart() {
-		if (!confirm('Are you sure you want to clear your cart?')) return;
-		this.items = [];
-		localStorage.setItem(CART_KEY, '[]');
-	},
-	/**
-	 * @param {string} name
-	 * @param {string} c
-	 */
-	changeQuantity(name, c) {
-		const count = parseInt(c);
-		this.items.find(
-			/** @param {[import('../js/types.d.ts').Product, number]} v */
-			(v) => v[0].name === name
-		)[1] = count;
 
-		localStorage.setItem(
-			CART_KEY,
-			JSON.stringify(
-				this.items.map(
-					/** @param {[import('../js/types.d.ts').Product, number]} v */
-					(v) => [v[0].name, v[1]]
-				)
-			)
-		);
-		/**
-		 * @type {CustomEvent<{ count: number }>}
-		 */
-		const event = new CustomEvent('add-to-cart', {
-			detail: {
-				count: this.items.reduce(
-					/**
-					 * @param {number} acc
-					 * @param {[string, number]} v
-					 */
-					(acc, v) => acc + v[1],
-					0
-				),
-			},
-		});
-		document.dispatchEvent(event);
-	},
-	/**
-	 * @param {string} name
-	 */
-	removeItem(name) {
-		this.items = this.items.filter(
-			/** @param {[import('../js/types.d.ts').Product, number]} v */
-			(v) => v[0].name !== name
-		);
-
-		localStorage.setItem(
-			CART_KEY,
-			JSON.stringify(
-				this.items.map(
-					/** @param {[import('../js/types.d.ts').Product, number]} v */
-					(v) => [v[0].name, v[1]]
-				)
-			)
-		);
-		const event = new CustomEvent('add-to-cart', {
-			detail: {
-				count: this.items.reduce(
-					/**
-					 * @param {number} acc
-					 * @param {[string, number]} v
-					 */
-					(acc, v) => acc + v[1],
-					0
-				),
-			},
-		});
-		document.dispatchEvent(event);
-	},
-	checkout() {
-		if (this.policyNumber && this.name && this.agree) {
-			alert(
-				'Purchase successful. We will email you with more information regarding scheduling. Please consult the trip page for more info on what happens next.'
-			);
-			const jsConfetti = new JSConfetti();
-			jsConfetti.addConfetti();
+	async submit() {
+		const target = document.querySelector('form');
+		if (!isValidCardNumber(this.card)) {
+			document.querySelector('#card')?.classList.add('is-invalid');
 		} else {
-			alert('Please fill out all fields.');
+			document.querySelector('#card')?.classList.remove('is-invalid');
 		}
+		if (this.cvv.length !== 3 || !/^[0-9]+$/.test(this.cvv)) {
+			document.querySelector('#cvv')?.classList.add('is-invalid');
+		} else {
+			document.querySelector('#cvv')?.classList.remove('is-invalid');
+		}
+		target?.classList.add('was-validated');
+		if (!target?.checkValidity()) return;
+		alert(
+			"Thanks for giving a bunch of high-schoolers your credit card information :) (we don't actually have it)"
+		);
+		localStorage.removeItem(CART_KEY);
+		const event = new CustomEvent('add-to-cart', {
+			detail: {
+				count: 0,
+			},
+		});
+
+		document.dispatchEvent(event);
+		const jsConfetti = new JSConfetti();
+		jsConfetti.addConfetti();
+		const logo = document.querySelector('#nav-logo');
+		logo?.classList.add('rocket-animation');
+		await sleep(2000);
+		logo?.classList.remove('rocket-animation');
 	},
 	routerLink,
 });
