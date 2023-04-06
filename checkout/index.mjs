@@ -3,6 +3,7 @@ import JSConfetti from 'https://esm.sh/js-confetti@0.11.0';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { routerLink } from '../js/router.mjs';
+import { sleep } from '../js/utils.mjs';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -57,7 +58,7 @@ const app = createApp({
 		currency: 'USD',
 	}),
 
-	submit() {
+	async submit() {
 		const target = document.querySelector('form');
 		if (!isValidCardNumber(this.card)) {
 			document.querySelector('#card')?.classList.add('is-invalid');
@@ -74,8 +75,20 @@ const app = createApp({
 		alert(
 			"Thanks for giving a bunch of high-schoolers your credit card information :) (we don't actually have it)"
 		);
+		localStorage.removeItem(CART_KEY);
+		const event = new CustomEvent('add-to-cart', {
+			detail: {
+				count: 0,
+			},
+		});
+
+		document.dispatchEvent(event);
 		const jsConfetti = new JSConfetti();
 		jsConfetti.addConfetti();
+		const logo = document.querySelector('#nav-logo');
+		logo?.classList.add('rocket-animation');
+		await sleep(2000);
+		logo?.classList.remove('rocket-animation');
 	},
 	routerLink,
 });
