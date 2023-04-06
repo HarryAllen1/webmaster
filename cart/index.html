@@ -40,7 +40,8 @@
 			<h1 class="font-bold mb-8">Cart</h1>
 
 			<template v-if="items.length">
-				<div
+				<form
+					@submit="$event.preventDefault() || items.length ? goto('/checkout') : alert('You have no items in your cart!')"
 					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
@@ -68,8 +69,8 @@
 									</div>
 									<div class="w-full flex justify-between">
 										<div class="flex flex-col md:flex-row gap-1">
-											<input type="date" class="form-control !w-36" />
-											<input type="date" class="form-control !w-36" />
+											<input type="date" required class="form-control !w-36" />
+											<input type="date" required class="form-control !w-36" />
 										</div>
 										<button
 											type="button"
@@ -115,7 +116,7 @@
 								<div class="flex justify-end">
 									<button
 										@vue:mounted="addBlobListeners($el)"
-										@click="items.length ? goto('/checkout') : alert('You have no items in your cart!')"
+										type="submit"
 										class="btn btn-primary animate-wobble"
 									>
 										Checkout
@@ -124,7 +125,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 			</template>
 			<template v-else>
 				<p>
