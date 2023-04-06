@@ -72,9 +72,7 @@ const app = createApp({
 		}
 		target?.classList.add('was-validated');
 		if (!target?.checkValidity()) return;
-		alert(
-			"Thanks for giving a bunch of high-schoolers your credit card information :) (we don't actually have it)"
-		);
+
 		localStorage.removeItem(CART_KEY);
 		const event = new CustomEvent('add-to-cart', {
 			detail: {
