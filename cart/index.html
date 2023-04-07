@@ -47,25 +47,34 @@
 					<div class="flex justify-center items-center max-w-full">
 						<div class="card bg-gray-800 rounded-md w-md lg:w-full">
 							<div class="card-body">
-								<template v-for="item in items">
+								<template v-for="(item, i) in items">
 									<h5 class="card-title">{{ item[0].name }}</h5>
 									<div class="flex flex-row place-content-between">
 										<div class="flex flex-row items-center">
 											Qty:
-											<select
-												@change="changeQuantity(item[0].name, $el.value)"
-												class="ml-2 form-select form-select-sm"
-											>
-												<option
-													v-for="i in item[0].maxPeople"
-													:selected="i === item[1]"
-													:value="i"
+											<div class="dropdown ml-2">
+												<button
+													class="btn btn-sm btn-secondary dropdown-toggle"
+													type="button"
+													data-bs-toggle="dropdown"
+													aria-expanded="false"
 												>
-													{{ i }}
-												</option>
-											</select>
+													{{ item[1] }}
+												</button>
+												<ul class="dropdown-menu">
+													<li v-for="it in item[0].maxPeople">
+														<button
+															@click="changeQuantity(item[0].name, it)"
+															class="dropdown-item"
+															type="button"
+														>
+															{{ it }}
+														</button>
+													</li>
+												</ul>
+											</div>
 										</div>
-										<p>${{ item[0].price }}</p>
+										<p>{{ numberFormatter.format(item[0].price) }}</p>
 									</div>
 									<div class="w-full flex justify-between">
 										<div class="flex flex-col md:flex-row gap-1">
