@@ -89,6 +89,12 @@ customElements.define(
 				const modelIntersects = raycaster.intersectObject(model, true);
 				if (modelIntersects.length > 0) {
 					intersectPoint.copy(modelIntersects[0].point);
+					//move the point a little bit away from the model, relative to the camera
+					const cameraPos = new Vector3();
+					camera.getWorldPosition(cameraPos);
+					const direction = intersectPoint.clone().sub(cameraPos).normalize();
+					intersectPoint.sub(direction.multiplyScalar(0.5));
+
 				} else {
 					
 					raycaster.ray.intersectPlane(plane, intersectPoint);
