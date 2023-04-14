@@ -86,6 +86,7 @@ customElements.define(
 			function updateIntersectPoint(camera, model) {
 				updatePlane(camera);
 				raycaster.setFromCamera(mouse, camera);
+				raycaster.params.Line.threshold = 0.5;
 				const modelIntersects = raycaster.intersectObject(model, true);
 				if (modelIntersects.length > 0) {
 					intersectPoint.copy(modelIntersects[0].point);
@@ -104,7 +105,10 @@ customElements.define(
 			addEventListener('mousemove', onMouseMove, false);
 			addEventListener('touchmove', onMouseMove, false);
 
-			const pointLight = new PointLight(0x0f00ff, 20, 10);
+			const pointLight = new PointLight(0x0000ff, 100, 1);
+			//make the light brighter when it's closer to the model
+			pointLight.distance = 150;
+			pointLight.decay = 100;
 			
 			function animate() {
 				requestAnimationFrame(animate);
