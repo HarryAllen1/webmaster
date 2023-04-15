@@ -1,8 +1,8 @@
 import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
 import { pages } from './pages.mjs';
 import { sleep } from './utils.mjs';
-import initUnoCSS from 'https://esm.sh/@unocss/runtime@0.50.6?bundle';
-import presetUno from 'https://esm.sh/@unocss/preset-uno@0.50.6';
+import initUnoCSS from 'https://esm.sh/@unocss/runtime@0.51.4?bundle';
+import presetUno from 'https://esm.sh/@unocss/preset-uno@0.51.4';
 import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js';
 import './scroll-animation.mjs';
 import { CART_KEY } from './constants.mjs';
