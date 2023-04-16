@@ -1,20 +1,18 @@
+import { OrbitControls } from 'https://esm.sh/three@0.151.3/examples/jsm/controls/OrbitControls.js?bundle';
+import { GLTFLoader } from 'https://esm.sh/three@0.151.3/examples/jsm/loaders/GLTFLoader.js?bundle';
 import {
 	AmbientLight,
 	Box3,
 	DirectionalLight,
 	PerspectiveCamera,
-	Scene,
-	Vector3,
-	WebGLRenderer,
+	Plane,
 	PointLight,
 	Raycaster,
+	Scene,
 	Vector2,
-	Plane,
-	Color,
-	BackSide,
+	Vector3,
+	WebGLRenderer,
 } from 'https://esm.sh/three@0.151.3?bundle';
-import { OrbitControls } from 'https://esm.sh/three@0.151.3/examples/jsm/controls/OrbitControls.js?bundle';
-import { GLTFLoader } from 'https://esm.sh/three@0.151.3/examples/jsm/loaders/GLTFLoader.js?bundle';
 
 customElements.define(
 	'wm-andante-model',
@@ -90,22 +88,15 @@ customElements.define(
 			}
 
 			/**
-			 * @param {MouseEvent | TouchEvent} event
-			 */
-			function onMouseMove(event) {
-				const rect = renderer.domElement.getBoundingClientRect();
-				mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-				mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-			}
-
-			/**
 			 * @param {PerspectiveCamera} camera
 			 * @param {import('https://esm.sh/three@0.151.3?bundle').Object3D} model
 			 */
 			function updateIntersectPoint(camera, model) {
 				updatePlane(camera);
 				raycaster.setFromCamera(mouse, camera);
-				raycaster.params.Line.threshold = 0.5;
+				if (raycaster.params.Line?.threshold) {
+					raycaster.params.Line.threshold = 0.5;
+				}
 				const modelIntersects = raycaster.intersectObject(model, true);
 				if (modelIntersects.length > 0) {
 					intersectPoint.copy(modelIntersects[0].point);
@@ -118,8 +109,11 @@ customElements.define(
 				}
 			}
 
-			globalThis.addEventListener('mousemove', onMouseMove, false);
-			globalThis.addEventListener('touchmove', onMouseMove, false);
+			globalThis.addEventListener('mousemove', (event) => {
+				const rect = renderer.domElement.getBoundingClientRect();
+				mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+				mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+			});
 
 			const pointLight = new PointLight(0x00ffff, 50, 1);
 			pointLight.distance = 150;
