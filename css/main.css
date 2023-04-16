@@ -8,6 +8,7 @@ html[data-bs-theme='dark'] {
 	--bs-body-font-family: Inter var, Roboto, Calibri, sans-serif;
 	--bs-body-color: rgb(208, 214, 224);
 	--bs-heading-color: #fff;
+	--app-size-message: 'Loading insane amounts (4.2 MB) of JavaScript...';
 }
 
 @font-face {
@@ -70,7 +71,7 @@ html[data-bs-theme='dark'] {
 
 #loader::after {
 	z-index: 102;
-	content: 'Loading insane amounts (2.9 MB) of JavaScript...';
+	content: var(--app-size-message);
 	height: 3rem;
 	margin-top: 8px;
 }
@@ -244,4 +245,13 @@ a {
 		height: 24vh;
 		position: absolute;
 	}
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 700ms;
+}
+
+wm-navbar {
+	view-transition-name: none;
 }

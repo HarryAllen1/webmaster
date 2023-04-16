@@ -59,33 +59,42 @@ customElements.define(
 				},
 				console.error
 			);
-			
+
 			const raycaster = new Raycaster();
 			const mouse = new Vector2();
 			const intersectPoint = new Vector3();
-			
+
 			const plane = new Plane(new Vector3(0, 0, 0), 0);
-			
+
+			/**
+			 * @param {PerspectiveCamera} camera
+			 */
 			function updatePlane(camera) {
-				
 				const forward = new Vector3();
 				camera.getWorldDirection(forward);
-				
+
 				plane.normal.copy(forward);
-				
+
 				const cameraPos = new Vector3();
 				camera.getWorldPosition(cameraPos);
 				plane.constant = cameraPos.dot(forward);
 				//move the plane closer to the camera, so that the light doesn't get too bright when the mouse is far away from the model
 				plane.constant += 5;
 			}
-			
-			function onMouseMove(event) {	
+
+			/**
+			 * @param {MouseEvent | TouchEvent} event
+			 */
+			function onMouseMove(event) {
 				const rect = renderer.domElement.getBoundingClientRect();
 				mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
 				mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 			}
-			
+
+			/**
+			 * @param {PerspectiveCamera} camera
+			 * @param {import('https://esm.sh/three@0.151.3?bundle').Object3D} model
+			 */
 			function updateIntersectPoint(camera, model) {
 				updatePlane(camera);
 				raycaster.setFromCamera(mouse, camera);
@@ -98,20 +107,19 @@ customElements.define(
 					camera.getWorldPosition(cameraPos);
 					const direction = intersectPoint.clone().sub(cameraPos).normalize();
 					intersectPoint.sub(direction.multiplyScalar(0.5));
-
 				} else {
 					raycaster.ray.intersectPlane(plane, intersectPoint);
 				}
 			}
-			
-			addEventListener('mousemove', onMouseMove, false);
-			addEventListener('touchmove', onMouseMove, false);
+
+			globalThis.addEventListener('mousemove', onMouseMove, false);
+			globalThis.addEventListener('touchmove', onMouseMove, false);
 
 			const pointLight = new PointLight(0x0505ff, 50, 1);
 			//make the light brighter when it's closer to the model
 			pointLight.distance = 150;
 			pointLight.decay = 100;
-			
+
 			function animate() {
 				requestAnimationFrame(animate);
 				updateIntersectPoint(camera, scene);
