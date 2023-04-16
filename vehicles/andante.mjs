@@ -10,6 +10,8 @@ import {
 	Raycaster,
 	Vector2,
 	Plane,
+	Color,
+	BackSide,
 } from 'https://esm.sh/three@0.151.3?bundle';
 import { OrbitControls } from 'https://esm.sh/three@0.151.3/examples/jsm/controls/OrbitControls.js?bundle';
 import { GLTFLoader } from 'https://esm.sh/three@0.151.3/examples/jsm/loaders/GLTFLoader.js?bundle';
@@ -21,7 +23,6 @@ customElements.define(
 			super();
 			this.classList.add('w-full');
 			const renderer = new WebGLRenderer();
-			//make the renderer a fixed ratio, not dependent on the window size
 			renderer.setSize(800, 600);
 			const scene = new Scene();
 			const camera = new PerspectiveCamera(
@@ -35,10 +36,10 @@ customElements.define(
 			camera.position.z = 5;
 			const ambientLight = new AmbientLight(0xffffff, 5);
 			scene.add(ambientLight);
-			const directionalLight = new DirectionalLight(0xffffff, 1);
+			const directionalLight = new DirectionalLight(0xfff9ff, 1);
 			directionalLight.position.set(0, 0, 1);
 			scene.add(directionalLight);
-			const directionalLight2 = new DirectionalLight(0xffffff, 1);
+			const directionalLight2 = new DirectionalLight(0xfffff9, 1);
 			directionalLight2.position.set(0, 0, -1);
 			scene.add(directionalLight2);
 			const loader = new GLTFLoader();
@@ -52,6 +53,13 @@ customElements.define(
 					object.position.x = -boxCenter.x;
 					object.position.y = -boxCenter.y;
 					object.position.z = -boxCenter.z;
+					//reduce the shine
+					object.traverse((child) => {
+						if (child.isMesh) {
+							child.material.metalness = 0.9;
+							child.material.roughness = 0.9;
+						}
+					});
 					scene.add(object);
 				},
 				(xhr) => {
@@ -78,7 +86,6 @@ customElements.define(
 				const cameraPos = new Vector3();
 				camera.getWorldPosition(cameraPos);
 				plane.constant = cameraPos.dot(forward);
-				//move the plane closer to the camera, so that the light doesn't get too bright when the mouse is far away from the model
 				plane.constant += 5;
 			}
 
@@ -102,7 +109,6 @@ customElements.define(
 				const modelIntersects = raycaster.intersectObject(model, true);
 				if (modelIntersects.length > 0) {
 					intersectPoint.copy(modelIntersects[0].point);
-					//move the point a little bit away from the model, relative to the camera
 					const cameraPos = new Vector3();
 					camera.getWorldPosition(cameraPos);
 					const direction = intersectPoint.clone().sub(cameraPos).normalize();
@@ -115,8 +121,7 @@ customElements.define(
 			globalThis.addEventListener('mousemove', onMouseMove, false);
 			globalThis.addEventListener('touchmove', onMouseMove, false);
 
-			const pointLight = new PointLight(0x0505ff, 50, 1);
-			//make the light brighter when it's closer to the model
+			const pointLight = new PointLight(0x00ffff, 50, 1);
 			pointLight.distance = 150;
 			pointLight.decay = 100;
 
