@@ -53,11 +53,8 @@ customElements.define(
 					object.position.z = -boxCenter.z;
 					//reduce the shine
 					object.traverse((child) => {
-						// @ts-ignore: ts is being stupid
 						if (child.isMesh) {
-							// @ts-ignore: ts is being stupid
 							child.material.metalness = 0.9;
-							// @ts-ignore: ts is being stupid
 							child.material.roughness = 0.9;
 						}
 					});
