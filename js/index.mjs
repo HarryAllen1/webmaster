@@ -21,7 +21,7 @@ initUnoCSS({
 });
 
 import(
-	// hack to allow pages to be visited more than once
+	//hack to allow pages to be visited more than once
 	`../${location.pathname.replaceAll('/', '')}/index.mjs?${Date.now()}`
 		.replaceAll('index.html', '')
 		.replaceAll('//', '/')

@@ -69,7 +69,7 @@ export const initRouter = (scope) => {
 		routerLink(el);
 	});
 };
-
+ 
 /**
  * Programmatically navigates to a page
  *
