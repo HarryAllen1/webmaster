@@ -2,6 +2,8 @@
 
 Remade from scratch to avoid breaking rules about compiling and HTML-generation
 
+Deno config files for type checking only.
+
 ## URLs
 
 This site is deployed to way too many urls.
