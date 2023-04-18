@@ -81,6 +81,7 @@ customElements.define(
 				pages,
 				pageStore,
 				itemsCount,
+				toggler: document.querySelector('.navbar-toggler'),
 			}).mount(this);
 			if (loaded === 1) initRouter(document);
 			else loaded++;
