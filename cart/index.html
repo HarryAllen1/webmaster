@@ -41,8 +41,9 @@
 
 			<template v-if="items.length">
 				<form
-					@submit="$event.preventDefault() || items.length ? goto('/checkout') : alert('You have no items in your cart!')"
-					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
+					novalidate
+					@submit="gotoCheckout"
+					class="needs-validation flex flex-col lg:justify-center max-w-full !lg:w-[75%] !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
 						<div class="card bg-gray-800 rounded-md w-md lg:w-full">
@@ -78,8 +79,28 @@
 									</div>
 									<div class="w-full flex justify-between">
 										<div class="flex flex-col md:flex-row gap-1">
-											<input type="date" required class="form-control !w-36" />
-											<input type="date" required class="form-control !w-36" />
+											<label class="!w-36">
+												<input
+													type="date"
+													@input="document.querySelector('form').classList.remove('was-validated')"
+													required
+													class="form-control"
+												/>
+												<div class="invalid-feedback">
+													Date is invalid or not provided
+												</div>
+											</label>
+											<label class="!w-36">
+												<input
+													type="date"
+													@input="document.querySelector('form').classList.remove('was-validated')"
+													required
+													class="form-control"
+												/>
+												<div class="invalid-feedback">
+													Date is invalid or not provided
+												</div>
+											</label>
 										</div>
 										<button
 											type="button"

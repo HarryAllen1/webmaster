@@ -94,6 +94,32 @@ const app = createApp({
 		});
 		document.dispatchEvent(event);
 	},
+	/**
+	 * @param {SubmitEvent} event
+	 */
+	gotoCheckout(event) {
+		event.preventDefault();
+
+		/** @type {NodeListOf<HTMLInputElement>} */
+		const inputs = document.querySelectorAll('input[type=date]');
+		let allAreValid = true;
+		inputs.forEach((el) => {
+			if (el.valueAsDate?.getTime() ?? new Date().getTime() < Date.now()) {
+				console.log(el.valueAsDate?.getTime(), Date.now());
+				el.classList.remove('is-valid');
+				el.classList.add('is-invalid');
+				el.setCustomValidity('Invalid date');
+			} else {
+				el.classList.remove('is-invalid');
+				el.classList.add('is-valid');
+			}
+			allAreValid = false;
+		});
+		document.querySelector('form')?.classList.add('was-validated');
+
+		if (items.length && allAreValid) goto('/checkout');
+		else if (!items.length) alert('You have no items in your cart!');
+	},
 	goto,
 	routerLink,
 	addBlobListeners,
