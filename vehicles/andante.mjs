@@ -115,7 +115,7 @@ customElements.define(
 				mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 			});
 
-			const pointLight = new PointLight(0x00ffff, 50, 1);
+			const pointLight = new PointLight(0x00ffff, 5, 1);
 			pointLight.distance = 150;
 			pointLight.decay = 100;
 
@@ -126,7 +126,7 @@ customElements.define(
 				pointLight.position.copy(intersectPoint);
 			}
 			animate();
-			scene.add(pointLight);
+			//scene.add(pointLight);
 
 			const render = () => {
 				requestAnimationFrame(render);
