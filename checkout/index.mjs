@@ -4,6 +4,7 @@ import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { goto, routerLink } from '../js/router.mjs';
 import { sleep } from '../js/utils.mjs';
+import { currencyFormatter } from '../js/number_formatter.js';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -59,10 +60,7 @@ const app = createApp({
 		/** @return {[import('../js/types.d.ts').Product, number]} */
 		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]]
 	),
-	numberFormatter: new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD',
-	}),
+	numberFormatter: currencyFormatter,
 
 	async submit() {
 		const target = document.querySelector('form');

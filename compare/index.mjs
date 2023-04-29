@@ -1,18 +1,14 @@
 import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
+import { currencyFormatter } from '../js/number_formatter.js';
 import { plans } from '../js/plans.mjs';
 import { toStartCase } from '../js/utils.mjs';
-
-const formatter = new Intl.NumberFormat('en-US', {
-	currency: 'USD',
-	style: 'currency',
-});
 
 const selectedPlan = reactive([plans[0], plans[1], plans[2]]);
 
 const app = createApp({
 	plans,
 	selectedPlan,
-	formatter,
+	formatter: currencyFormatter,
 	toStartCase,
 });
 app.mount('#main');

@@ -4,10 +4,9 @@ import { sleep } from './utils.mjs';
 import initUnoCSS from 'https://esm.sh/@unocss/runtime@0.51.4?bundle';
 import presetUno from 'https://esm.sh/@unocss/preset-uno@0.51.4';
 import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js';
-import './scroll-animation.mjs';
+import './scroll_animation.mjs';
 import { CART_KEY } from './constants.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
-import { initBlob } from './blob.mjs';
 
 initUnoCSS({
 	defaults: {
@@ -119,7 +118,6 @@ globalThis.addEventListener('load', async () => {
 	await sleep(200);
 	loader.remove();
 	scrollTo(0, 0);
-	initBlob();
 });
 
 document.querySelector('#main')?.addEventListener('click', () => {
