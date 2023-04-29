@@ -13,10 +13,8 @@
 		}
 	},
 	"fmt": {
-		"options": {
-			"singleQuote": true,
-			"semiColons": true,
-			"useTabs": true
-		}
+		"singleQuote": true,
+		"semiColons": true,
+		"useTabs": true
 	}
 }
