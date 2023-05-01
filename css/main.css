@@ -246,12 +246,3 @@ a {
 		position: absolute;
 	}
 }
-
-::view-transition-old(root),
-::view-transition-new(root) {
-	animation-duration: 700ms;
-}
-
-wm-navbar {
-	view-transition-name: none;
-}
