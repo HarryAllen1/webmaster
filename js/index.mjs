@@ -76,12 +76,27 @@ customElements.define(
 					itemsCount.setCount(event.detail.count);
 				}
 			);
+			const visible = reactive({
+				value: true,
+			});
+
 			createApp({
 				pages,
 				pageStore,
 				itemsCount,
+				visible,
 				toggler: document.querySelector('.navbar-toggler'),
 			}).mount(this);
+
+			let lastScroll = 0;
+			setTimeout(() => {
+				globalThis.addEventListener('scroll', () => {
+					const scroll = window.pageYOffset;
+					visible.value = scroll < 50 || scroll < lastScroll;
+
+					lastScroll = scroll;
+				});
+			}, 250);
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
@@ -115,9 +130,14 @@ globalThis.addEventListener('load', async () => {
 	if (!loader) return;
 	loader.style.animationDuration = '0.2s';
 	loader.classList.add('animate-fade-in', 'animate-reverse');
+	scrollTo({
+		left: 0,
+		top: 0,
+		// @ts-ignore: https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
+		behavior: 'instant',
+	});
 	await sleep(200);
 	loader.remove();
-	scrollTo(0, 0);
 });
 
 document.querySelector('#main')?.addEventListener('click', () => {
