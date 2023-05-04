@@ -1,16 +1,14 @@
-import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
-import { pages } from './pages.mjs';
-import { sleep } from './utils.mjs';
-import initUnoCSS from 'https://esm.sh/@unocss/runtime@0.51.4?bundle';
-import presetUno from 'https://esm.sh/@unocss/preset-uno@0.51.4';
 import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js';
-import './scroll_animation.mjs';
+import { createApp, initUnoCSS, reactive, unoCSSPresetUno } from '../deps.js';
 import { CART_KEY } from './constants.mjs';
+import { pages } from './pages.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
+import './scroll_animation.mjs';
+import { sleep } from './utils.mjs';
 
 initUnoCSS({
 	defaults: {
-		presets: [presetUno()],
+		presets: [unoCSSPresetUno()],
 		theme: {
 			colors: {
 				primary: 'var(--primary)',
@@ -29,11 +27,10 @@ import(
 globalThis.addEventListener('popstate', async () => {
 	const path = location.pathname;
 	pageStore.updatePage(path);
-	const newPage =
-		cachedPages.get(location.href) ??
+	const newPage = cachedPages.get(location.href) ??
 		new DOMParser().parseFromString(
 			await (await fetch(location.href)).text(),
-			'text/html'
+			'text/html',
 		);
 	updatePage(newPage);
 	import(
@@ -74,7 +71,7 @@ customElements.define(
 					/** @type {CustomEvent<{ count: number }>} */
 					const event = e;
 					itemsCount.setCount(event.detail.count);
-				}
+				},
 			);
 			const visible = reactive({
 				value: true,
@@ -100,7 +97,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	}
+	},
 );
 
 customElements.define(
@@ -120,7 +117,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	}
+	},
 );
 
 globalThis.addEventListener('load', async () => {

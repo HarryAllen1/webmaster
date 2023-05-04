@@ -1,5 +1,4 @@
-import JSConfetti from 'https://esm.sh/js-confetti@0.11.0';
-import { createApp } from 'https://esm.sh/petite-vue@0.4.1?bundle';
+import { createApp, JSConfetti } from '../deps.js';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { goto, routerLink } from '../js/router.mjs';
@@ -21,8 +20,9 @@ const isValidCardNumber = (number) => {
 		parseInt(number) === 0 ||
 		number.length !== 16 ||
 		/[^0-9-\s]+/.test(number)
-	)
+	) {
 		return false;
+	}
 	let nCheck = 0,
 		nDigit = 0,
 		bEven = false;
@@ -58,7 +58,7 @@ const app = createApp({
 	agree: false,
 	items: items.map(
 		/** @return {[import('../js/types.d.ts').Product, number]} */
-		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]]
+		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]],
 	),
 	numberFormatter: currencyFormatter,
 

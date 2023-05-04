@@ -1,5 +1,4 @@
-import { reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
-import Toastify from 'https://esm.sh/toastify-js@1.12.0';
+import { reactive, Toastify } from '../deps.js';
 
 export const pageStore = reactive({
 	current: location.pathname.replaceAll('/', ''),
@@ -7,8 +6,8 @@ export const pageStore = reactive({
 	 * @param {string} pathname
 	 */
 	updatePage(pathname) {
-		this.current =
-			pathname.replaceAll('/', '') ?? location.pathname.replaceAll('/', '');
+		this.current = pathname.replaceAll('/', '') ??
+			location.pathname.replaceAll('/', '');
 	},
 });
 
@@ -26,8 +25,7 @@ export const updatePage = (newPage) => {
 	/** @type {HTMLDivElement | null} */
 	const main = document.querySelector('#main');
 	if (main) {
-		main.innerHTML =
-			newPage.querySelector('#main')?.innerHTML ??
+		main.innerHTML = newPage.querySelector('#main')?.innerHTML ??
 			'No page found! Try refreshing the page.';
 	}
 	document.title = newPage.title;
@@ -91,12 +89,12 @@ export const goto = (route) => {
 			{
 				duration: 350,
 				easing: 'ease-in-out',
-			}
+			},
 		)
 		.addEventListener('finish', async () => {
 			if (
 				new URL(href).pathname.replaceAll('/', '') ===
-				new URL(location.href).pathname.replaceAll('/', '')
+					new URL(location.href).pathname.replaceAll('/', '')
 			) {
 				return;
 			}
@@ -104,12 +102,13 @@ export const goto = (route) => {
 			if (cachedPages.has(href)) {
 				updatePage(
 					// @ts-ignore: we checked it exists
-					cachedPages.get(href)
+					cachedPages.get(href),
 				);
 			} else {
 				const res = await fetch(href).catch((e) => {
 					Toastify({
-						text: 'An error occurred when fetching that page. Falling back to reload-based navigation.',
+						text:
+							'An error occurred when fetching that page. Falling back to reload-based navigation.',
 						gravity: 'bottom',
 						position: 'center',
 					}).showToast();
@@ -143,7 +142,7 @@ export const goto = (route) => {
 				{
 					duration: 350,
 					easing: 'ease-in-out',
-				}
+				},
 			);
 		});
 };
