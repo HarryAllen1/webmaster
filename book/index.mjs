@@ -1,5 +1,4 @@
-import { createApp } from 'https://esm.sh/petite-vue@0.4.1?bundle';
-import Toastify from 'https://esm.sh/toastify-js@1.12.0';
+import { createApp, Toastify } from '../deps.js';
 import { CART_KEY } from '../js/constants.mjs';
 import { currencyFormatter } from '../js/number_formatter.js';
 import { plans } from '../js/plans.mjs';
@@ -19,9 +18,8 @@ const app = createApp({
 		 */
 		// @ts-ignore: javascript moment
 		const target = e.target;
-		const name =
-			target.parentElement?.parentElement?.querySelector('#name')
-				?.textContent ?? '';
+		const name = target.parentElement?.parentElement?.querySelector('#name')
+			?.textContent ?? '';
 
 		const productIndex = currentCart.findIndex((v) => v[0] === name);
 		if (productIndex === -1) {
@@ -29,7 +27,7 @@ const app = createApp({
 		} else {
 			if (
 				currentCart[productIndex][1] >=
-				(plans.find((i) => i.name === name)?.maxPeople ?? 0)
+					(plans.find((i) => i.name === name)?.maxPeople ?? 0)
 			) {
 				return Toastify({
 					text: `Max number of ${name} bookings reached.`,
@@ -45,10 +43,9 @@ const app = createApp({
 			currentCart[productIndex][1]++;
 		}
 		Toastify({
-			text: `Added 1 ${name} flight to cart for ${
-				target.parentElement?.parentElement?.querySelector('#price')
-					?.textContent
-			}`,
+			text: `Added 1 ${name} flight to cart for ${target.parentElement
+				?.parentElement?.querySelector('#price')
+				?.textContent}`,
 			style: {
 				background: 'var(--bs-blue)',
 			},

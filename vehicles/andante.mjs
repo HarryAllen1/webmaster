@@ -1,9 +1,11 @@
-import { OrbitControls } from 'https://esm.sh/three@0.151.3/examples/jsm/controls/OrbitControls.js?bundle';
-import { GLTFLoader } from 'https://esm.sh/three@0.151.3/examples/jsm/loaders/GLTFLoader.js?bundle';
-import {
+import { loadThree } from '../deps.js';
+
+const {
 	AmbientLight,
 	Box3,
 	DirectionalLight,
+	GLTFLoader,
+	OrbitControls,
 	PerspectiveCamera,
 	Plane,
 	PointLight,
@@ -12,7 +14,9 @@ import {
 	Vector2,
 	Vector3,
 	WebGLRenderer,
-} from 'https://esm.sh/three@0.151.3?bundle';
+	// deno-lint-ignore no-unused-vars
+	Object3D,
+} = await loadThree();
 
 customElements.define(
 	'wm-andante-model',
@@ -27,7 +31,7 @@ customElements.define(
 				75,
 				renderer.domElement.width / renderer.domElement.height,
 				0.1,
-				1000
+				1000,
 			);
 			const controls = new OrbitControls(camera, renderer.domElement);
 			controls.enableZoom = false;
@@ -52,7 +56,7 @@ customElements.define(
 					object.position.y = -boxCenter.y;
 					object.position.z = -boxCenter.z;
 					//reduce the shine
-					object.traverse((child) => {
+					object.traverse(/** @param {any} child */ (child) => {
 						if (child.isMesh) {
 							child.material.metalness = 0.9;
 							child.material.roughness = 0.9;
@@ -63,7 +67,7 @@ customElements.define(
 				(xhr) => {
 					console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
 				},
-				console.error
+				console.error,
 			);
 
 			const raycaster = new Raycaster();
@@ -73,7 +77,7 @@ customElements.define(
 			const plane = new Plane(new Vector3(0, 0, 0), 0);
 
 			/**
-			 * @param {PerspectiveCamera} camera
+			 * @param {InstanceType<PerspectiveCamera>} camera
 			 */
 			function updatePlane(camera) {
 				const forward = new Vector3();
@@ -88,8 +92,8 @@ customElements.define(
 			}
 
 			/**
-			 * @param {PerspectiveCamera} camera
-			 * @param {import('https://esm.sh/three@0.151.3?bundle').Object3D} model
+			 * @param {InstanceType<PerspectiveCamera>} camera
+			 * @param {InstanceType<Object3D>} model
 			 */
 			function updateIntersectPoint(camera, model) {
 				updatePlane(camera);
@@ -138,5 +142,5 @@ customElements.define(
 			this.innerHTML = '';
 			this.append(renderer.domElement);
 		}
-	}
+	},
 );

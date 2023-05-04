@@ -8,7 +8,7 @@ html[data-bs-theme='dark'] {
 	--bs-body-font-family: Inter var, Roboto, Calibri, sans-serif;
 	--bs-body-color: rgb(208, 214, 224);
 	--bs-heading-color: #fff;
-	--app-size-message: 'Loading insane amounts (4.2 MB) of JavaScript...';
+	--app-size-message: 'Loading insane amounts (5.3 MB) of JavaScript...';
 }
 
 @font-face {

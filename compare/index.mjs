@@ -1,4 +1,4 @@
-import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
+import { createApp, reactive } from '../deps.js';
 import { currencyFormatter } from '../js/number_formatter.js';
 import { plans } from '../js/plans.mjs';
 import { toStartCase } from '../js/utils.mjs';
@@ -27,5 +27,5 @@ customElements.define(
 					<div class="flex-1 h-[1px] bg-gray"></div>
 				</span>`;
 		}
-	}
+	},
 );
