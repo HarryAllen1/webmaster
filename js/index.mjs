@@ -1,4 +1,4 @@
-import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js';
+import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js?no-dts';
 import { createApp, initUnoCSS, reactive, unoCSSPresetUno } from '../deps.js';
 import { CART_KEY } from './constants.mjs';
 import { pages } from './pages.mjs';
@@ -27,10 +27,11 @@ import(
 globalThis.addEventListener('popstate', async () => {
 	const path = location.pathname;
 	pageStore.updatePage(path);
-	const newPage = cachedPages.get(location.href) ??
+	const newPage =
+		cachedPages.get(location.href) ??
 		new DOMParser().parseFromString(
 			await (await fetch(location.href)).text(),
-			'text/html',
+			'text/html'
 		);
 	updatePage(newPage);
 	import(
@@ -71,7 +72,7 @@ customElements.define(
 					/** @type {CustomEvent<{ count: number }>} */
 					const event = e;
 					itemsCount.setCount(event.detail.count);
-				},
+				}
 			);
 			const visible = reactive({
 				value: true,
@@ -97,7 +98,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	},
+	}
 );
 
 customElements.define(
@@ -117,7 +118,7 @@ customElements.define(
 			if (loaded === 1) initRouter(document);
 			else loaded++;
 		}
-	},
+	}
 );
 
 globalThis.addEventListener('load', async () => {
