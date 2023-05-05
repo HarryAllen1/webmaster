@@ -13,7 +13,7 @@ const BUILD_COMMENT = `// This file is bundled with a basic build system (see ht
 // No JS framework was used in this project, and no HTML was transformed, making this within the Webmaster rules.
 // Only JS files were bundled since the number of external imports were severely slowing down the site
 // (see https://github.com/HarryAllen1/webmaster/blob/main/vehicles/andante.mjs for example)
-
+// You can see the original files at https://github.com/HarryAllen1/webmaster
 `;
 
 await Deno.writeTextFile(
@@ -54,9 +54,13 @@ const size =
 	(await Deno.stat('./js/index.bundle.js')).size / 1000000 +
 	(await Deno.stat('./vehicles/index.bundle.js')).size / 1000000;
 
+const formatter = new Intl.NumberFormat('en-US', {
+	maximumSignificantFigures: 2,
+});
+
 await Deno.writeTextFile(
 	'./css/main.css',
 	(
 		await Deno.readTextFile('./css/main.css')
-	).replace('$$APP_SIZE_PLACEHOLDER$$', size.toString())
+	).replace('$$APP_SIZE_PLACEHOLDER$$', formatter.format(size))
 );
