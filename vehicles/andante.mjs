@@ -1,11 +1,10 @@
-import { loadThree } from '../deps.js';
+import { OrbitControls } from 'https://esm.sh/three@0.152.2/examples/jsm/controls/OrbitControls.js?bundle';
+import { GLTFLoader } from 'https://esm.sh/three@0.152.2/examples/jsm/loaders/GLTFLoader.js?bundle';
 
-const {
+import {
 	AmbientLight,
 	Box3,
 	DirectionalLight,
-	GLTFLoader,
-	OrbitControls,
 	PerspectiveCamera,
 	Plane,
 	PointLight,
@@ -14,9 +13,7 @@ const {
 	Vector2,
 	Vector3,
 	WebGLRenderer,
-	// deno-lint-ignore no-unused-vars
-	Object3D,
-} = await loadThree();
+} from 'https://esm.sh/three@0.152.2?bundle&exports=AmbientLight,Box3,DirectionalLight,PerspectiveCamera,Plane,PointLight,Raycaster,Scene,Vector2,Vector3,WebGLRenderer,Object3D';
 
 customElements.define(
 	'wm-andante-model',
@@ -31,7 +28,7 @@ customElements.define(
 				75,
 				renderer.domElement.width / renderer.domElement.height,
 				0.1,
-				1000,
+				1000
 			);
 			const controls = new OrbitControls(camera, renderer.domElement);
 			controls.enableZoom = false;
@@ -56,18 +53,20 @@ customElements.define(
 					object.position.y = -boxCenter.y;
 					object.position.z = -boxCenter.z;
 					//reduce the shine
-					object.traverse(/** @param {any} child */ (child) => {
-						if (child.isMesh) {
-							child.material.metalness = 0.9;
-							child.material.roughness = 0.9;
+					object.traverse(
+						/** @param {any} child */ (child) => {
+							if (child.isMesh) {
+								child.material.metalness = 0.9;
+								child.material.roughness = 0.9;
+							}
 						}
-					});
+					);
 					scene.add(object);
 				},
 				(xhr) => {
 					console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
 				},
-				console.error,
+				console.error
 			);
 
 			const raycaster = new Raycaster();
@@ -77,7 +76,7 @@ customElements.define(
 			const plane = new Plane(new Vector3(0, 0, 0), 0);
 
 			/**
-			 * @param {InstanceType<PerspectiveCamera>} camera
+			 * @param {PerspectiveCamera} camera
 			 */
 			function updatePlane(camera) {
 				const forward = new Vector3();
@@ -92,8 +91,8 @@ customElements.define(
 			}
 
 			/**
-			 * @param {InstanceType<PerspectiveCamera>} camera
-			 * @param {InstanceType<Object3D>} model
+			 * @param {PerspectiveCamera} camera
+			 * @param {import('https://esm.sh/three@0.152.2?bundle&exports=AmbientLight,Box3,DirectionalLight,PerspectiveCamera,Plane,PointLight,Raycaster,Scene,Vector2,Vector3,WebGLRenderer,Object3D').Object3D} model
 			 */
 			function updateIntersectPoint(camera, model) {
 				updatePlane(camera);
@@ -142,5 +141,5 @@ customElements.define(
 			this.innerHTML = '';
 			this.append(renderer.domElement);
 		}
-	},
+	}
 );
