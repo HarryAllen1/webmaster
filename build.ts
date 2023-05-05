@@ -49,3 +49,14 @@ for await (const entry of walk('.', {
 
 	await Deno.writeTextFile(entry.path, newFile);
 }
+
+const size =
+	(await Deno.stat('./js/index.bundle.js')).size / 1000 +
+	(await Deno.stat('./vehicles/index.bundle.js')).size / 1000;
+
+await Deno.writeTextFile(
+	'./css/main.css',
+	(
+		await Deno.readTextFile('./css/main.css')
+	).replace('$$APP_SIZE_PLACEHOLDER$$', size.toString())
+);
