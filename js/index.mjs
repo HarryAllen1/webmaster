@@ -1,16 +1,14 @@
-import { createApp, reactive } from 'https://esm.sh/petite-vue@0.4.1?bundle';
-import { pages } from './pages.mjs';
-import { sleep } from './utils.mjs';
-import initUnoCSS from 'https://esm.sh/@unocss/runtime@0.51.4?bundle';
-import presetUno from 'https://esm.sh/@unocss/preset-uno@0.51.4';
-import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js';
-import './scroll_animation.mjs';
+import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js?no-dts';
+import { createApp, initUnoCSS, reactive, unoCSSPresetUno } from '../deps.js';
 import { CART_KEY } from './constants.mjs';
+import { pages } from './pages.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
+import './scroll_animation.mjs';
+import { sleep } from './utils.mjs';
 
 initUnoCSS({
 	defaults: {
-		presets: [presetUno()],
+		presets: [unoCSSPresetUno()],
 		theme: {
 			colors: {
 				primary: 'var(--primary)',

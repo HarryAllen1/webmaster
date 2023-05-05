@@ -85,7 +85,6 @@
 											type="button"
 											class="btn btn-danger btn-small self-end"
 											@click="removeItem(item[0].name)"
-											@vue:mounted="addBlobListeners($el)"
 										>
 											Remove
 										</button>
@@ -123,11 +122,7 @@
 									</p>
 								</div>
 								<div class="flex justify-end">
-									<button
-										@vue:mounted="addBlobListeners($el)"
-										type="submit"
-										class="btn btn-primary animate-wobble"
-									>
+									<button type="submit" class="btn btn-primary animate-wobble">
 										Checkout
 									</button>
 								</div>

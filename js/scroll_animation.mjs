@@ -1,4 +1,4 @@
-import AOS from 'https://esm.sh/aos@3.0.0-beta.6';
+import { AOS } from '../deps.js';
 
 AOS.init({
 	duration: 700,

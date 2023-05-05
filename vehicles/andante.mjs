@@ -1,5 +1,6 @@
-import { OrbitControls } from 'https://esm.sh/three@0.151.3/examples/jsm/controls/OrbitControls.js?bundle';
-import { GLTFLoader } from 'https://esm.sh/three@0.151.3/examples/jsm/loaders/GLTFLoader.js?bundle';
+import { OrbitControls } from 'https://esm.sh/three@0.152.2/examples/jsm/controls/OrbitControls.js?bundle';
+import { GLTFLoader } from 'https://esm.sh/three@0.152.2/examples/jsm/loaders/GLTFLoader.js?bundle';
+
 import {
 	AmbientLight,
 	Box3,
@@ -12,7 +13,7 @@ import {
 	Vector2,
 	Vector3,
 	WebGLRenderer,
-} from 'https://esm.sh/three@0.151.3?bundle';
+} from 'https://esm.sh/three@0.152.2?bundle&exports=AmbientLight,Box3,DirectionalLight,PerspectiveCamera,Plane,PointLight,Raycaster,Scene,Vector2,Vector3,WebGLRenderer,Object3D';
 
 customElements.define(
 	'wm-andante-model',
@@ -52,12 +53,14 @@ customElements.define(
 					object.position.y = -boxCenter.y;
 					object.position.z = -boxCenter.z;
 					//reduce the shine
-					object.traverse((child) => {
-						if (child.isMesh) {
-							child.material.metalness = 0.9;
-							child.material.roughness = 0.9;
+					object.traverse(
+						/** @param {any} child */ (child) => {
+							if (child.isMesh) {
+								child.material.metalness = 0.9;
+								child.material.roughness = 0.9;
+							}
 						}
-					});
+					);
 					scene.add(object);
 				},
 				(xhr) => {
@@ -89,7 +92,7 @@ customElements.define(
 
 			/**
 			 * @param {PerspectiveCamera} camera
-			 * @param {import('https://esm.sh/three@0.151.3?bundle').Object3D} model
+			 * @param {import('https://esm.sh/three@0.152.2?bundle&exports=AmbientLight,Box3,DirectionalLight,PerspectiveCamera,Plane,PointLight,Raycaster,Scene,Vector2,Vector3,WebGLRenderer,Object3D').Object3D} model
 			 */
 			function updateIntersectPoint(camera, model) {
 				updatePlane(camera);
