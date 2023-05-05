@@ -55,7 +55,7 @@ const size =
 	(await Deno.stat('./vehicles/index.bundle.js')).size / 1000000;
 
 const formatter = new Intl.NumberFormat('en-US', {
-	maximumSignificantFigures: 2,
+	maximumSignificantDigits: 2,
 });
 
 await Deno.writeTextFile(
