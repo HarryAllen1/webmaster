@@ -25,5 +25,5 @@ jobs:
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: webmaster # the name of the project on Deno Deploy
+          project: tsa-webmaster # the name of the project on Deno Deploy
           entrypoint: server.ts # the entrypoint to deploy
