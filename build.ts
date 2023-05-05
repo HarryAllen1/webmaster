@@ -11,8 +11,8 @@ import { pages } from './js/pages.mjs';
 await Deno.writeTextFile(
 	'./js/index.mjs',
 	(
-		await Deno.readTextFile('./js/index.js')
-	).replace('/index.mjs', '/index.bundle.js')
+		await Deno.readTextFile('./js/index.mjs')
+	).replaceAll('/index.mjs', '/index.bundle.js')
 );
 const { code } = await bundle(new URL('./js/index.mjs', import.meta.url));
 
