@@ -51,8 +51,8 @@ for await (const entry of walk('.', {
 }
 
 const size =
-	(await Deno.stat('./js/index.bundle.js')).size / 1000 +
-	(await Deno.stat('./vehicles/index.bundle.js')).size / 1000;
+	(await Deno.stat('./js/index.bundle.js')).size / 1000000 +
+	(await Deno.stat('./vehicles/index.bundle.js')).size / 1000000;
 
 await Deno.writeTextFile(
 	'./css/main.css',
