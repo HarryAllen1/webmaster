@@ -1,3 +1,4 @@
+export const navbar = `
 <header
 	class="sticky top-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-2.5 sm:py-4 backdrop-blur-md border-b border-gray-700"
 >
@@ -124,3 +125,4 @@
 		</div>
 	</nav>
 </header>
+`;
