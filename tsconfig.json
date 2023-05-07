@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
+		"moduleResolution": "nodenext",
 		"esModuleInterop": true,
 		"strict": true,
 		"lib": ["esnext", "DOM", "DOM.Iterable"],

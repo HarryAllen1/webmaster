@@ -1,8 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://esm.sh/aos@next/dist/aos.css');
 
 :root,
 html[data-bs-theme='dark'] {
-	--primary: #1f1f4c;
+	--primary: theme(colors.slate.900);
 	--bs-primary: var(--primary);
 	--bs-primary-rgb: 31, 31, 76;
 	--bs-body-font-family: Inter var, Roboto, Calibri, sans-serif;
@@ -245,4 +249,12 @@ a {
 		height: 24vh;
 		position: absolute;
 	}
+}
+
+.prose {
+	max-width: unset;
+}
+
+.nav-link.active {
+	@apply hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500;
 }

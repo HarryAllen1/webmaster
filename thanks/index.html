@@ -1,7 +1,7 @@
 <!-- template file for new pages -->
 
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="bg-black">
+<html lang="en" class="bg-black dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,27 +17,23 @@
 		/>
 		<meta name="description" content="TSA Webmaster 2023 site" />
 		<script type="module" defer src="/js/index.mjs"></script>
-		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 		<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
 		<link
 			rel="stylesheet"
 			type="text/css"
 			href="https://esm.sh/toastify-js@1.12.0/src/toastify.min.css"
 		/>
-		<link
-			rel="stylesheet"
-			href="https://esm.sh/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-		/>
-		<link rel="stylesheet" href="/css/main.css" />
+
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 	</head>
-	<body class="bg-black min-h-[calc(100vh-4rem)]">
+	<body class="bg-black min-h-[100vh]">
 		<div id="stars"></div>
 		<div id="loader"></div>
 		<wm-navbar></wm-navbar>
 		<div
 			id="main"
-			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
-			un-cloak
+			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
 			<h1 class="font-bold z-20">Thank you for giving us your money!</h1>
 			<h2 class="z-999999 lg:mt-24">

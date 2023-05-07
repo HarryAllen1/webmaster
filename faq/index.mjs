@@ -12,7 +12,7 @@ const app = createApp({
 		],
 		[
 			'I want to join the AstroTours family. How do I join?',
-			'Purchase our most expensive plan. The more money you give us, the more benefits you\'ll get, and the more we\'ll make you feel like family.',
+			"Purchase our most expensive plan. The more money you give us, the more benefits you'll get, and the more we'll make you feel like family.",
 		],
 		[
 			'Who can participate in AstroTours space tourism experiences?',
@@ -24,7 +24,7 @@ const app = createApp({
 		],
 		[
 			'What is the waitlist policy?',
-			'AstroTours will place your submission and will notify you through email whether you are entered or not.',
+			'AstroTours will put you on an imaginary waitlist since you will never actually get the spot because we are just too popular. Just get faster next time.',
 		],
 		[
 			'What are the necessary requirements to enter the AstroTours space flights?',

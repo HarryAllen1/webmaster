@@ -59,8 +59,8 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 await Deno.writeTextFile(
-	'./css/main.css',
+	'./css/main.bundle.css',
 	(
-		await Deno.readTextFile('./css/main.css')
+		await Deno.readTextFile('./css/main.bundle.css')
 	).replace('$$APP_SIZE_PLACEHOLDER$$', formatter.format(size))
 );

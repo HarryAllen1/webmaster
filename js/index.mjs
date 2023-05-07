@@ -1,21 +1,10 @@
-import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js?no-dts';
-import { createApp, initUnoCSS, reactive, unoCSSPresetUno } from '../deps.js';
+import { createApp, reactive } from '../deps.js';
 import { CART_KEY } from './constants.mjs';
 import { pages } from './pages.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 import './scroll_animation.mjs';
 import { sleep } from './utils.mjs';
-
-initUnoCSS({
-	defaults: {
-		presets: [unoCSSPresetUno()],
-		theme: {
-			colors: {
-				primary: 'var(--primary)',
-			},
-		},
-	},
-});
+import 'https://esm.sh/preline@1.8.0';
 
 import(
 	// hack to allow pages to be visited more than once
@@ -83,7 +72,6 @@ customElements.define(
 				pageStore,
 				itemsCount,
 				visible,
-				toggler: document.querySelector('.navbar-toggler'),
 			}).mount(this);
 
 			let lastScroll = 0;
@@ -140,8 +128,8 @@ globalThis.addEventListener('load', async () => {
 
 document.querySelector('#main')?.addEventListener('click', () => {
 	/** @type {HTMLButtonElement | null} */
-	const toggler = document.querySelector('.navbar-toggler');
-	if (toggler?.ariaExpanded === 'true') {
+	const toggler = document.querySelector('#toggler');
+	if (toggler?.classList.contains('open')) {
 		toggler?.click();
 	}
 });
