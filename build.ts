@@ -75,12 +75,12 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 await new Deno.Command('npx', {
-	args: ['pnpm i'.split(' ')],
+	args: 'pnpm i'.split(' '),
 })
 	.spawn()
 	.output();
 await new Deno.Command('npm', {
-	args: ['run tailwind'.split(' ')],
+	args: 'run tailwind'.split(' '),
 })
 	.spawn()
 	.output();
