@@ -74,7 +74,10 @@
 			<div
 				class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5 text-white"
 			>
-				<a href="/cart" class="py-2 px-0 lg:px-2 text-white block">
+				<a
+					href="/cart"
+					class="py-2 px-0 lg:px-2 text-white relative inline-flex"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -91,14 +94,14 @@
 							d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
 						/>
 					</svg>
+					<span
+						v-if="itemsCount.count"
+						class="absolute top-0 right-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-rose-500 text-white"
+					>
+						{{ itemsCount.count }}
+					</span>
 				</a>
 
-				<span
-					v-if="itemsCount.count"
-					class="nav-item bg-danger text-white rounded-pill px-2 h-6 -ml-8 absolute"
-				>
-					{{ itemsCount.count }}
-				</span>
 				<a
 					class="py-2 px-0 lg:px-2 text-white block"
 					href="https://github.com/HarryAllen1/webmaster"
