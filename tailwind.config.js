@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-	content: ['./**/*.{html,js}', 'node_modules/preline/dist/*.js'],
+/** @type {import('npm:tailwindcss').Config} */
+export default {
+	content: ['./**/*.{html,js,mjs}', 'node_modules/preline/dist/*.js'],
 	theme: {
 		extend: {
 			colors: {
