@@ -41,126 +41,128 @@
 					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] !lg-px-48 lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
-						<div class="card bg-gray-800 rounded-md w-md lg:w-full">
-							<div class="card-body">
-								<template v-for="(item, i) in items">
-									<h5 class="card-title">{{ item[0].name }}</h5>
-									<div class="flex flex-row place-content-between">
-										<div class="flex flex-row items-center">
-											Qty:
-											<div class="hs-dropdown relative inline-flex">
+						<div
+							class="flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]"
+						>
+							<template v-for="(item, i) in items">
+								<h5
+									class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+								>
+									{{ item[0].name }}
+								</h5>
+								<div class="flex flex-row place-content-between">
+									<div class="flex flex-row items-center">
+										Qty:
+										<div class="hs-dropdown relative inline-flex">
+											<button
+												type="button"
+												class="hs-dropdown-toggle ml-2 py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+											>
+												{{ item[1] }}
+												<svg
+													class="hs-dropdown-open:rotate-180 w-2.5 h-2.5 text-gray-600"
+													width="16"
+													height="16"
+													viewBox="0 0 16 16"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
+														stroke="currentColor"
+														stroke-width="2"
+														stroke-linecap="round"
+													/>
+												</svg>
+											</button>
+
+											<div
+												class="hs-dropdown-menu ml-4 transition-[opacity,margin] duration-[0.1ms] hs-dropdown-open:opacity-100 opacity-0 w-72 hidden z-10 min-w-[15rem] bg-white shadow-md rounded-lg p-1 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700"
+											>
 												<button
-													type="button"
-													class="hs-dropdown-toggle ml-2 py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+													v-for="it in item[0].maxPeople"
+													@click="changeQuantity(item[0].name, it)"
+													class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+													href="#"
 												>
-													{{ item[1] }}
-													<svg
-														class="hs-dropdown-open:rotate-180 w-2.5 h-2.5 text-gray-600"
-														width="16"
-														height="16"
-														viewBox="0 0 16 16"
-														fill="none"
-														xmlns="http://www.w3.org/2000/svg"
-													>
-														<path
-															d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-															stroke="currentColor"
-															stroke-width="2"
-															stroke-linecap="round"
-														/>
-													</svg>
+													{{ it }}
 												</button>
-
-												<div
-													class="hs-dropdown-menu ml-4 transition-[opacity,margin] duration-[0.1ms] hs-dropdown-open:opacity-100 opacity-0 w-72 hidden z-10 min-w-[15rem] bg-white shadow-md rounded-lg p-1 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700"
-												>
-													<button
-														v-for="it in item[0].maxPeople"
-														@click="changeQuantity(item[0].name, it)"
-														class="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-														href="#"
-													>
-														{{ it }}
-													</button>
-												</div>
 											</div>
 										</div>
-										<p>{{ numberFormatter.format(item[0].price) }}</p>
 									</div>
-									<div class="w-full flex justify-between">
-										<div
-											@vue:mounted="initDatepickers()"
-											date-rangepicker
-											class="flex items-center"
-										>
-											<div class="relative">
-												<div
-													class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-												>
-													<svg
-														aria-hidden="true"
-														class="w-5 h-5 text-gray-500 dark:text-gray-400"
-														fill="currentColor"
-														viewBox="0 0 20 20"
-														xmlns="http://www.w3.org/2000/svg"
-													>
-														<path
-															fill-rule="evenodd"
-															d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-															clip-rule="evenodd"
-														></path>
-													</svg>
-												</div>
-												<input
-													required
-													name="start"
-													type="text"
-													class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-													placeholder="Select date start"
-												/>
-											</div>
-											<span class="mx-4 text-gray-500">to</span>
-											<div class="relative">
-												<div
-													class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-												>
-													<svg
-														aria-hidden="true"
-														class="w-5 h-5 text-gray-500 dark:text-gray-400"
-														fill="currentColor"
-														viewBox="0 0 20 20"
-														xmlns="http://www.w3.org/2000/svg"
-													>
-														<path
-															fill-rule="evenodd"
-															d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-															clip-rule="evenodd"
-														></path>
-													</svg>
-												</div>
-												<input
-													required
-													name="end"
-													type="text"
-													class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-													placeholder="Select date end"
-												/>
-											</div>
-										</div>
-
-										<button
-											type="button"
-											class="btn btn-danger btn-small self-end"
-											@click="removeItem(item[0].name)"
-										>
-											Remove
-										</button>
-									</div>
+									<p>{{ numberFormatter.format(item[0].price) }}</p>
+								</div>
+								<div class="w-full flex justify-between">
 									<div
-										class="h-[1px] bg-[var(--bs-border-color-translucent)] w-full my-2 last:hidden"
-									></div>
-								</template>
-							</div>
+										@vue:mounted="initDatepickers()"
+										date-rangepicker
+										class="flex items-center"
+									>
+										<div class="relative">
+											<div
+												class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+											>
+												<svg
+													aria-hidden="true"
+													class="w-5 h-5 text-gray-500 dark:text-gray-400"
+													fill="currentColor"
+													viewBox="0 0 20 20"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														fill-rule="evenodd"
+														d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+														clip-rule="evenodd"
+													></path>
+												</svg>
+											</div>
+											<input
+												required
+												name="start"
+												type="text"
+												class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+												placeholder="Select date start"
+											/>
+										</div>
+										<span class="mx-4 text-gray-500">to</span>
+										<div class="relative">
+											<div
+												class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+											>
+												<svg
+													aria-hidden="true"
+													class="w-5 h-5 text-gray-500 dark:text-gray-400"
+													fill="currentColor"
+													viewBox="0 0 20 20"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														fill-rule="evenodd"
+														d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+														clip-rule="evenodd"
+													></path>
+												</svg>
+											</div>
+											<input
+												required
+												name="end"
+												type="text"
+												class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+												placeholder="Select date end"
+											/>
+										</div>
+									</div>
+
+									<button
+										type="button"
+										class="btn btn-danger btn-small self-end"
+										@click="removeItem(item[0].name)"
+									>
+										Remove
+									</button>
+								</div>
+								<div class="h-[1px] bg-gray-500 w-full my-2 last:hidden"></div>
+							</template>
 						</div>
 					</div>
 					<div class="max-w-full">
