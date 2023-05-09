@@ -1,6 +1,5 @@
 import { createApp, reactive } from '../deps.js';
 import { CART_KEY } from './constants.mjs';
-import { navbar } from './navbar.mjs';
 import { pages } from './pages.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 import './scroll_animation.mjs';
@@ -44,8 +43,10 @@ customElements.define(
 			super();
 			this._render();
 		}
-		_render() {
-			this.innerHTML = navbar;
+		async _render() {
+			const res = await fetch('/components/navbar.html');
+			const html = await res.text();
+			this.innerHTML = html;
 			/** @type {[string, number][]} */
 			const cart = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
 			const itemsCount = reactive({
