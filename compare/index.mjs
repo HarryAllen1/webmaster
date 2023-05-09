@@ -1,5 +1,5 @@
 import { createApp, reactive } from '../deps.js';
-import { currencyFormatter } from '../js/number_formatter.js';
+import { currencyFormatter } from '../js/number_formatter.mjs';
 import { plans } from '../js/plans.mjs';
 import { toStartCase } from '../js/utils.mjs';
 
@@ -27,5 +27,5 @@ customElements.define(
 					<div class="flex-1 h-[1px] bg-gray"></div>
 				</span>`;
 		}
-	},
+	}
 );
