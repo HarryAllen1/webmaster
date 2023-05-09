@@ -58,17 +58,9 @@ html[data-bs-theme='dark'] {
 	content: 'Astro Tours';
 	margin-bottom: 0.5rem;
 	margin-top: 2rem;
-	--un-gradient-from: rgba(255, 255, 255, var(--un-from-opacity, 1));
-	--un-gradient-stops: var(--un-gradient-from), var(--un-gradient-to);
-	--un-gradient-to: rgba(119, 119, 204, var(--un-to-opacity, 1));
-	background-image: radial-gradient(
-		var(--un-gradient, var(--un-gradient-stops, rgba(255, 255, 255, 0)))
-	);
-	-webkit-background-clip: text;
-	background-clip: text;
+	@apply bg-clip-text text-transparent font-bold bg-gradient-to-r from-gray-200 via-slate-500 to-gray-200;
 	font-size: 3.75rem;
 	line-height: 1;
-	font-weight: 700;
 	animation: mild-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	color: transparent;
 }
@@ -141,18 +133,7 @@ body {
 }
 
 .astrotours {
-	--un-gradient-from: rgb(220, 220, 220);
-	--un-gradient-stops: var(--un-gradient-from), var(--un-gradient-to),
-		var(--un-gradient-from);
-	--un-gradient-to: rgba(119, 119, 204, var(--un-to-opacity, 1));
-	background-image: linear-gradient(
-		to right,
-		var(--un-gradient, var(--un-gradient-stops, rgba(255, 255, 255, 0)))
-	);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	font-weight: 700;
+	@apply bg-clip-text text-transparent font-bold bg-gradient-to-r from-gray-200 via-slate-500 to-gray-200;
 	animation: background-pan 5s linear infinite;
 	background-size: 200%;
 }

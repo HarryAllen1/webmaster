@@ -113,14 +113,13 @@ globalThis.addEventListener('load', async () => {
 	/** @type {HTMLDivElement | null} */
 	const loader = document.querySelector('#loader');
 	if (!loader) return;
-	loader.style.animationDuration = '0.2s';
-	loader.classList.add('animate-fade-in', 'animate-reverse');
 	scrollTo({
 		left: 0,
 		top: 0,
 		// @ts-ignore: https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
 		behavior: 'instant',
 	});
+	loader.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200 });
 	await sleep(200);
 	loader.remove();
 });
