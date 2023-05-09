@@ -74,7 +74,11 @@ const formatter = new Intl.NumberFormat('en-US', {
 	maximumSignificantDigits: 2,
 });
 
-await new Deno.Command('npx pnpm i && npm run tailwind').spawn().output();
+await new Deno.Command(Deno.execPath(), {
+	args: ['npx pnpm i && npm run tailwind'.split(' ')],
+})
+	.spawn()
+	.output();
 
 await Deno.writeTextFile(
 	'./css/main.bundle.css',
