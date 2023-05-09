@@ -44,7 +44,7 @@ customElements.define(
 			this._render();
 		}
 		async _render() {
-			const res = await fetch('/components/navbar.html');
+			const res = await fetch('/components/navbar.wm-component');
 			const html = await res.text();
 			this.innerHTML = html;
 			/** @type {[string, number][]} */
@@ -101,7 +101,7 @@ customElements.define(
 			this._render();
 		}
 		async _render() {
-			const res = await fetch('/components/footer.html');
+			const res = await fetch('/components/footer.wm-component');
 			const html = await res.text();
 			this.innerHTML = html;
 			createApp({

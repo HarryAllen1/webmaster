@@ -1,8 +1,10 @@
 # [webmaster](https://tsa-webmaster.deno.dev/)
 
-Remade from scratch to avoid breaking rules about compiling and HTML-generation
+Remade from scratch to avoid breaking rules about ~~compiling~~\* and HTML-generation
 
 Deno config files for type checking only.
+
+\* JS and CSS are now bundled
 
 ## URLs
 
