@@ -50,10 +50,14 @@
 								<h5 class="card-title">Billing Information</h5>
 								<div class="grid grid-cols-2 gap-2">
 									<div class="mb-3">
-										<label for="firstName" class="form-label">First Name</label>
+										<label
+											for="firstName"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>First Name</label
+										>
 										<input
 											type="text"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="firstName"
 											v-model="firstName"
 											required
@@ -61,10 +65,14 @@
 										<div class="invalid-feedback">Please enter a name</div>
 									</div>
 									<div class="mb-3">
-										<label for="lastName" class="form-label">Last Name</label>
+										<label
+											for="lastName"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>Last Name</label
+										>
 										<input
 											type="text"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="lastName"
 											v-model="lastName"
 											required
@@ -74,7 +82,11 @@
 								</div>
 
 								<div class="mb-3">
-									<label for="card" class="form-label">Card Number</label>
+									<label
+										for="card"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Card Number</label
+									>
 									<input
 										type="tel"
 										inputmode="numeric"
@@ -82,7 +94,7 @@
 										maxlength="19"
 										placeholder="xxxx xxxx xxxx xxxx"
 										type="text"
-										class="form-control"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 										id="card"
 										v-model="card"
 										required
@@ -93,12 +105,16 @@
 								</div>
 								<div class="grid grid-cols-2 gap-2">
 									<div class="mb-3">
-										<label for="exp" class="form-label">Expiration Date</label>
+										<label
+											for="exp"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>Expiration Date</label
+										>
 										<input
 											type="text"
 											pattern="\d{2}/\d{2}"
 											placeholder="MM/YY"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="exp"
 											v-model="expiration"
 											autocomplete="cc-exp"
@@ -109,10 +125,14 @@
 										</div>
 									</div>
 									<div class="mb-3">
-										<label for="cvv" class="form-label">CVV</label>
+										<label
+											for="cvv"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>CVV</label
+										>
 										<input
 											type="text"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="cvv"
 											v-model="cvv"
 											pattern="\d{3}"
@@ -124,10 +144,14 @@
 								</div>
 
 								<div class="mb-3">
-									<label for="email" class="form-label">Email</label>
+									<label
+										for="email"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Email</label
+									>
 									<input
 										type="email"
-										class="form-control"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 										id="email"
 										v-model="email"
 										required
@@ -135,10 +159,14 @@
 									<div class="invalid-feedback">Please enter a valid email</div>
 								</div>
 								<div class="mb-3">
-									<label for="phone" class="form-label">Phone</label>
+									<label
+										for="phone"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Phone</label
+									>
 									<input
 										type="tel"
-										class="form-control"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 										id="phone"
 										v-model="phone"
 										required
@@ -146,10 +174,14 @@
 									<div class="invalid-feedback">Please enter a valid phone</div>
 								</div>
 								<div class="mb-3">
-									<label for="address" class="form-label">Address</label>
+									<label
+										for="address"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Address</label
+									>
 									<input
 										type="text"
-										class="form-control"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 										id="address"
 										v-model="address"
 										required
@@ -160,10 +192,14 @@
 								</div>
 								<div class="grid grid-cols-4 gap-2">
 									<div class="mb-3">
-										<label for="city" class="form-label">City</label>
+										<label
+											for="city"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>City</label
+										>
 										<input
 											type="text"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="city"
 											v-model="city"
 											required
@@ -173,10 +209,14 @@
 										</div>
 									</div>
 									<div class="mb-3">
-										<label for="state" class="form-label">State</label>
+										<label
+											for="state"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>State</label
+										>
 										<input
 											type="text"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="state"
 											v-model="state"
 											required
@@ -186,10 +226,14 @@
 										</div>
 									</div>
 									<div class="mb-3">
-										<label for="zip" class="form-label">Zip</label>
+										<label
+											for="zip"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>Zip</label
+										>
 										<input
 											type="text"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="zip"
 											v-model="zip"
 											required
@@ -197,10 +241,14 @@
 										<div class="invalid-feedback">Please enter a valid zip</div>
 									</div>
 									<div class="mb-3">
-										<label for="country" class="form-label">Country</label>
+										<label
+											for="country"
+											class="block text-sm font-medium mb-2 dark:text-white"
+											>Country</label
+										>
 										<input
 											type="text"
-											class="form-control"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 											id="country"
 											v-model="country"
 											required
