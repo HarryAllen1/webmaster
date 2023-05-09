@@ -7,7 +7,9 @@
 import { bundle } from 'https://deno.land/x/emit@0.22.0/mod.ts';
 import { walk } from 'https://deno.land/std@0.186.0/fs/mod.ts';
 import { minify } from 'npm:terser';
-import { pages } from './js/pages.mjs';
+import { pages as navbarPages } from './js/pages.mjs';
+
+const pages = [...navbarPages, ['Cart', '/cart'], ['Thanks', '/thanks']];
 
 const JS_BUILD_COMMENT = `// This file is bundled with a basic build system (see https://github.com/HarryAllen1/webmaster/blob/main/build.ts)
 // No JS framework was used in this project, and no HTML was transformed, making this within the Webmaster rules.
