@@ -2,6 +2,7 @@ import { createApp } from '../deps.js';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { goto, routerLink } from '../js/router.mjs';
+import { initDatepickers } from './datepicker.mjs';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -14,9 +15,10 @@ const app = createApp({
 	name: '',
 	policyNumber: '',
 	agree: false,
+	initDatepickers,
 	items: items.map(
 		/** @return {[import('../js/types.d.ts').Product, number]} */
-		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]],
+		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]]
 	),
 	numberFormatter: new Intl.NumberFormat('en-US', {
 		style: 'currency',
@@ -35,7 +37,7 @@ const app = createApp({
 		const count = parseInt(c);
 		this.items.find(
 			/** @param {QuantityData} v */
-			(v) => v[0].name === name,
+			(v) => v[0].name === name
 		)[1] = count;
 
 		localStorage.setItem(
@@ -43,9 +45,9 @@ const app = createApp({
 			JSON.stringify(
 				this.items.map(
 					/** @param {QuantityData} v */
-					(v) => [v[0].name, v[1]],
-				),
-			),
+					(v) => [v[0].name, v[1]]
+				)
+			)
 		);
 		const event = new CustomEvent('add-to-cart', {
 			detail: {
@@ -55,7 +57,7 @@ const app = createApp({
 					 * @param {[string, number]} v
 					 */
 					(acc, v) => acc + v[1],
-					0,
+					0
 				),
 			},
 		});
@@ -67,7 +69,7 @@ const app = createApp({
 	removeItem(name) {
 		this.items = this.items.filter(
 			/** @param {QuantityData} v */
-			(v) => v[0].name !== name,
+			(v) => v[0].name !== name
 		);
 
 		localStorage.setItem(
@@ -75,9 +77,9 @@ const app = createApp({
 			JSON.stringify(
 				this.items.map(
 					/** @param {QuantityData} v */
-					(v) => [v[0].name, v[1]],
-				),
-			),
+					(v) => [v[0].name, v[1]]
+				)
+			)
 		);
 		const event = new CustomEvent('add-to-cart', {
 			detail: {
@@ -87,7 +89,7 @@ const app = createApp({
 					 * @param {[string, number]} v
 					 */
 					(acc, v) => acc + v[1],
-					0,
+					0
 				),
 			},
 		});

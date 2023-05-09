@@ -22,6 +22,12 @@ await Deno.writeTextFile(
 		await Deno.readTextFile('./js/index.mjs')
 	).replaceAll('/index.mjs', '/index.bundle.js')
 );
+await Deno.writeTextFile(
+	'./js/router.mjs',
+	(
+		await Deno.readTextFile('./js/router.mjs')
+	).replaceAll('/index.mjs', '/index.bundle.js')
+);
 const { code } = await bundle(new URL('./js/index.mjs', import.meta.url));
 const minified = await minify(code, { ecma: 2020 });
 
