@@ -74,8 +74,13 @@ const formatter = new Intl.NumberFormat('en-US', {
 	maximumSignificantDigits: 2,
 });
 
-await new Deno.Command(Deno.execPath(), {
-	args: ['npx pnpm i && npm run tailwind'.split(' ')],
+await new Deno.Command('npx', {
+	args: ['pnpm i'.split(' ')],
+})
+	.spawn()
+	.output();
+await new Deno.Command('npm', {
+	args: ['run tailwind'.split(' ')],
 })
 	.spawn()
 	.output();
