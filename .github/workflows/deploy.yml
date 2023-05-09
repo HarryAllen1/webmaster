@@ -22,9 +22,6 @@ jobs:
       - name: Build
         run: deno run -A ./build.ts
 
-      - name: Nuke node_modules
-        run: rm -rf node_modules
-
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:

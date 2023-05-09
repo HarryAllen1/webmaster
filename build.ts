@@ -92,3 +92,5 @@ await Deno.writeTextFile(
 			await Deno.readTextFile('./css/main.bundle.css')
 		).replace('$$APP_SIZE_PLACEHOLDER$$', formatter.format(size))
 );
+
+await Deno.remove('./node_modules', { recursive: true });
