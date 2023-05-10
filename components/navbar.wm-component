@@ -70,7 +70,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="basis-full grow sm:block">
+		<div class="grow sm:block">
 			<div
 				class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5 text-white"
 			>
