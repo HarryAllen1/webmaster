@@ -132,6 +132,10 @@ body {
 	z-index: 1;
 }
 
+#main * {
+	z-index: 1;
+}
+
 .collapsing {
 	--un-backdrop-blur: blur(12px);
 	-webkit-backdrop-filter: var(--un-backdrop-blur);

@@ -4530,6 +4530,10 @@ body {
   z-index: 1;
 }
 
+#main * {
+  z-index: 1;
+}
+
 .collapsing {
   --un-backdrop-blur: blur(12px);
   -webkit-backdrop-filter: var(--un-backdrop-blur);
@@ -6831,8 +6835,16 @@ a {
     height: fit-content;
   }
 
-  .lg\:w-full {
-    width: 100%;
+  .lg\:w-\[50\%\] {
+    width: 50%;
+  }
+
+  .lg\:w-\[60\%\] {
+    width: 60%;
+  }
+
+  .lg\:w-\[80\%\] {
+    width: 80%;
   }
 
   .lg\:grid-cols-2 {
@@ -6872,8 +6884,33 @@ a {
     padding-right: 0.5rem;
   }
 
+  .lg\:px-48 {
+    padding-left: 12rem;
+    padding-right: 12rem;
+  }
+
   :is(.dark .dark\:lg\:hover\:\[paint-order\:markers\]:hover) {
     paint-order: markers;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:w-\[60\%\] {
+    width: 60%;
+  }
+}
+
+.\[\&\>div\]\:flex>div {
+  display: flex;
+}
+
+.\[\&\>div\]\:flex-col>div {
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .lg\:\[\&\>div\]\:grid>div {
+    display: grid;
   }
 }
 

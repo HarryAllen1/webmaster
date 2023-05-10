@@ -40,15 +40,14 @@
 
 			<template v-if="items.length">
 				<form
-					novalidate
 					@submit.prevent="submit"
-					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
+					class="flex flex-col lg:justify-center max-w-full lg:w-[80%] xl:w-[60%] lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
 						<div
-							class="flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] w-md lg:w-full not-prose"
+							class="flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] [&>div]:flex [&>div]:flex-col lg:[&>div]:grid not-prose"
 						>
-							<h3 class="text-xl font-bold text-gray-800 dark:text-white">
+							<h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
 								Billing Information
 							</h3>
 							<div class="grid grid-cols-2 gap-2">
@@ -56,8 +55,9 @@
 									<label
 										for="firstName"
 										class="block text-sm font-medium mb-2 dark:text-white"
-										>First Name</label
 									>
+										First Name
+									</label>
 									<input
 										placeholder="Sam"
 										type="text"
@@ -292,37 +292,42 @@
 										altered gravity fields.
 									</label>
 								</div>
-								<button type="submit" class="animate-wobble">Purchase</button>
+								<button
+									type="submit"
+									class="py-2 px-4 mt-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 animate-wobble"
+								>
+									Purchase
+								</button>
 							</div>
 						</div>
 					</div>
 					<div class="max-w-full">
-						<div class="card bg-gray-800 rounded-md">
-							<div class="card-body">
-								<h5 class="card-title">Order Summary</h5>
-								<div class="w-full">
-									<div class="flex flex-row justify-between">
-										<p>Subtotal</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0)) }}
-										</p>
-									</div>
-									<div class="flex flex-row justify-between">
-										<p>Estimated Tax</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0) * 0.1) }}
-										</p>
-									</div>
-									<div class="flex flex-row justify-between font-bold">
-										<p>Estimated Total</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0) * 1.1) }}
-										</p>
-									</div>
-								</div>
+						<div
+							class="flex space-y-2 flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] not-prose"
+						>
+							<h3 class="text-lg mb-4 font-bold text-gray-800 dark:text-white">
+								Order Summary
+							</h3>
+							<div class="flex flex-row justify-between">
+								<p>Subtotal</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0)) }}
+								</p>
+							</div>
+							<div class="flex flex-row justify-between">
+								<p>Estimated Tax</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0) * 0.1) }}
+								</p>
+							</div>
+							<div class="flex flex-row justify-between font-bold">
+								<p>Estimated Total</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0) * 1.1) }}
+								</p>
 							</div>
 						</div>
 					</div>
