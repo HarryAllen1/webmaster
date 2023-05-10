@@ -1,4 +1,4 @@
-import { createApp } from '../deps.js';
+import { createApp } from '../deps.mjs';
 
 const app = createApp({});
 app.mount('#main');

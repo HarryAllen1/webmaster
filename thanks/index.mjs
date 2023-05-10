@@ -1,4 +1,4 @@
-import { canvasConfetti, JSConfetti } from '../deps.js';
+import { canvasConfetti, JSConfetti } from '../deps.mjs';
 
 const logo = document.querySelector('#nav-logo');
 logo?.classList.add('rocket-animation');

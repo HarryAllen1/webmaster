@@ -1,4 +1,4 @@
-import { createApp, Toastify } from '../deps.js';
+import { createApp, Toastify } from '../deps.mjs';
 import { CART_KEY } from '../js/constants.mjs';
 import { currencyFormatter } from '../js/number_formatter.mjs';
 import { plans } from '../js/plans.mjs';

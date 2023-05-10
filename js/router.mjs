@@ -1,4 +1,4 @@
-import { reactive, Toastify } from '../deps.js';
+import { reactive, Toastify } from '../deps.mjs';
 import { initFlowbite } from 'https://esm.sh/flowbite@1.6.5?bundle';
 
 export const pageStore = reactive({

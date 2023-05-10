@@ -1,4 +1,4 @@
-import { createApp, reactive } from '../deps.js';
+import { createApp, reactive } from '../deps.mjs';
 import { CART_KEY } from './constants.mjs';
 import { pages } from './pages.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';

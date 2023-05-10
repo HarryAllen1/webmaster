@@ -179,35 +179,40 @@
 						</div>
 					</div>
 					<div class="max-w-full">
-						<div class="card bg-gray-800 rounded-md">
-							<div class="card-body">
-								<h5 class="card-title">Order Summary</h5>
-								<div class="flex flex-row justify-between">
-									<p>Subtotal</p>
-									<p>
-										{{ numberFormatter.format(items.reduce((acc, val) => acc +
-										val[0].price * val[1], 0)) }}
-									</p>
-								</div>
-								<div class="flex flex-row justify-between">
-									<p>Estimated Tax</p>
-									<p>
-										{{ numberFormatter.format(items.reduce((acc, val) => acc +
-										val[0].price * val[1], 0) * 0.1) }}
-									</p>
-								</div>
-								<div class="flex flex-row justify-between font-bold">
-									<p>Estimated Total</p>
-									<p>
-										{{ numberFormatter.format(items.reduce((acc, val) => acc +
-										val[0].price * val[1], 0) * 1.1) }}
-									</p>
-								</div>
-								<div class="flex justify-end">
-									<button type="submit" class="btn btn-primary animate-wobble">
-										Checkout
-									</button>
-								</div>
+						<div
+							class="flex space-y-2 flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] not-prose"
+						>
+							<h3 class="text-lg mb-4 font-bold text-gray-800 dark:text-white">
+								Order Summary
+							</h3>
+							<div class="flex flex-row justify-between">
+								<p>Subtotal</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0)) }}
+								</p>
+							</div>
+							<div class="flex flex-row justify-between">
+								<p>Estimated Tax</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0) * 0.1) }}
+								</p>
+							</div>
+							<div class="flex flex-row justify-between font-bold">
+								<p>Estimated Total</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0) * 1.1) }}
+								</p>
+							</div>
+							<div class="flex justify-end">
+								<button
+									type="submit"
+									class="py-2 px-4 mt-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 animate-wobble"
+								>
+									Checkout
+								</button>
 							</div>
 						</div>
 					</div>

@@ -1,4 +1,4 @@
-import { createApp, reactive } from '../deps.js';
+import { createApp, reactive } from '../deps.mjs';
 import { currencyFormatter } from '../js/number_formatter.mjs';
 import { plans } from '../js/plans.mjs';
 import { toStartCase } from '../js/utils.mjs';

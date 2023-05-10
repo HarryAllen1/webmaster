@@ -1,4 +1,4 @@
-import { createApp } from '../deps.js';
+import { createApp } from '../deps.mjs';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { goto, routerLink } from '../js/router.mjs';
