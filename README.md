@@ -48,3 +48,11 @@ This site is deployed to way too many urls.
 ### Netlify
 
 - https://webmaster-tsa.netlify.app/
+
+### Firebase
+
+- https://tsa--webmaster.web.app/
+
+## Azure Static Web Apps
+
+- https://gray-beach-054584010.3.azurestaticapps.net
