@@ -7,7 +7,7 @@
 		<div class="flex items-center justify-between">
 			<a
 				href="/"
-				class="astrotours text-transparent inline-flex w-[13.5rem] items-center gap-x-2 text-xl font-semibold"
+				class="text-transparent inline-flex items-center gap-x-2 text-xl font-semibold"
 			>
 				<img
 					src="/assets/logo.png"
@@ -15,7 +15,7 @@
 					id="nav-logo"
 					alt="AstroTours logo"
 				/>
-				AstroTours
+				<h3 class="astrotours">AstroTours</h3>
 			</a>
 			<div class="sm:hidden">
 				<button
@@ -58,7 +58,7 @@
 			id="navbar-collapse"
 		>
 			<div
-				class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-start sm:mt-0 sm:pl-5"
+				class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-start sm:mt-0 sm:pl-16"
 			>
 				<a
 					v-for="link in pages"
@@ -72,7 +72,7 @@
 		</div>
 		<div class="grow sm:block">
 			<div
-				class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5 text-white"
+				class="flex flex-row gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5 text-white"
 			>
 				<a
 					href="/cart"

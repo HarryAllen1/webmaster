@@ -972,6 +972,10 @@ input:checked + .toggle-bg {
   .container {
     max-width: 640px;
   }
+
+  .sm\:pl-16 {
+    padding-left: 4rem;
+  }
 }
 
 @media (min-width: 768px) {
