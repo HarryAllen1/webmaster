@@ -50,3 +50,7 @@ This site is deployed to way too many urls.
 ### Firebase
 
 - https://tsa--webmaster.web.app/
+
+## Azure Static Web Apps
+
+- https://gray-beach-054584010.3.azurestaticapps.net
