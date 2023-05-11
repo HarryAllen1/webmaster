@@ -4,6 +4,8 @@ Remade from scratch to avoid breaking rules about ~~compiling~~\* and HTML-gener
 
 Deno config files for type checking only.
 
+\* JS and CSS are now bundled
+
 ## Development
 
 Most of the site works just fine without a build step. If you need to bundle the JS files for whatever reason, run:
@@ -11,6 +13,8 @@ Most of the site works just fine without a build step. If you need to bundle the
 ```sh
 deno run -A ./build.ts
 ```
+
+(you will need [Deno](https://deno.land))
 
 **DO NOT COMMIT ANY OF THE CHANGES FROM THIS COMMAND!**
 
@@ -21,7 +25,7 @@ npx pnpm i
 npm run tailwind:watch
 ```
 
-\* JS and CSS are now bundled
+(you will need [Node JS](https://nodejs.org))
 
 ## URLs
 
