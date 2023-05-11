@@ -10,6 +10,9 @@ Most of the site works just fine without a build step. If you need to bundle the
 ```sh
 deno run -A ./build.ts
 ```
+
+(you will need [Deno](https://deno.land))
+
 **DO NOT COMMIT ANY OF THE CHANGES FROM THIS COMMAND!**
 
 To start a tailwind server, run:
@@ -17,6 +20,8 @@ To start a tailwind server, run:
 npx pnpm i
 npm run tailwind:watch
 ```
+
+(you will need [Node JS](https://nodejs.org))
 
 ## URLs
 
