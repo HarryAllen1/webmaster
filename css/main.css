@@ -132,7 +132,7 @@ body {
 	z-index: 1;
 }
 
-#main * {
+:where(#main *) {
 	z-index: 1;
 }
 

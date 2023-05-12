@@ -31,15 +31,30 @@
 			id="main"
 			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
+			<!-- yes, this is bad practice, whatever, i don't care. -->
+			<link rel="stylesheet" href="index.css" />
 			<h1 class="astrotours text-6xl mt-8">AstroTours</h1>
-			<h3 class="font-bold mb-12 text-center">
-				Space for the people and the world
-			</h3>
+			<h3 class="font-bold text-center">Space for the people and the world</h3>
 			<a
-				class="mb-8 no-underline h-12 bg-gradient-to-r p-4 hover:scale-105 transition-transform from-purple-700 via-blue-700 to-purple-700 background-pan [background-size:200%] items-center inline-flex text-white disabled:opacity-60 disabled:saturate-0 justify-center rounded-md border border-transparent focus-visible:ring-0 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+				class="relative my-8 no-underline p-0 border-none outline-none rounded-md bg-transparent transition-shadow duration-200 hover:transition-all hover:duration-100 hover:bg-transparent hover:text-black"
 				href="/book"
 			>
-				Book a Flight
+				<div class="absolute inset-0 grid grid-cols-1 -z-[1]">
+					<div
+						class="row-start-1 col-start-1 animate-[hero-btn-1_8s_infinite] transition-all duration-200 rounded-md bg-blue-500 before:absolute before:top-[0.7rem] before:left-[0.6rem] before:bottom-[0.7rem] before:right-[0.6rem] before:bg-blue-500 before:blur-[35px]"
+					></div>
+					<div
+						class="row-start-1 col-start-1 animate-[hero-btn-2_8s_infinite] transition-all duration-200 bg-slate-500 rounded-md before:absolute before:top-[0.7rem] before:left-[0.6rem] before:bottom-[0.7rem] before:right-[0.6rem] before:bg-slate-500 before:blur-[35px]"
+					></div>
+					<div
+						class="row-start-1 col-start-1 animate-[hero-btn-3_8s_infinite] transition-all duration-200 rounded-md bg-purple-500 before:absolute before:top-[0.7rem] before:left-[0.6rem] before:bottom-[0.7rem] before:right-[0.6rem] before:bg-purple-500 before:blur-[35px]"
+					></div>
+				</div>
+				<div
+					class="z-[5] flex justify-center items-center text-white bg-black m-[1px] rounded-md px-12 py-3 [font-size:1rem] transition-all duration-300 hover:transition-all hover:duration-300 hover:bg-transparent hover:text-black"
+				>
+					Book a Flight
+				</div>
 			</a>
 			<p class="max-w-lg text-center">
 				We are the world’s #1 rated space tourism company for anyone who wants
