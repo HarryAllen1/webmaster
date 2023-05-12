@@ -22,7 +22,9 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
-
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
       - name: Build
         run: deno run -A ./build.ts
       - name: Build And Deploy
