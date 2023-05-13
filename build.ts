@@ -24,7 +24,8 @@ const JS_BUILD_COMMENT = `// This file is bundled with a basic build system (see
 `;
 
 const CSS_BUILD_COMMENT = `/*
-	This file was bundled with Tailwind CSS, which generates CSS based on class names used in HTML.
+	This file was bundled with Post CSS (with a minifier, autoprefixer and TailwindCSS), which generates CSS based on class names used in HTML (and minifies the css).
+	It also inlines all imports to reduce requests and file size.
 	You can view the original file here: https://github.com/HarryAllen1/webmaster/blob/main/css/main.css
 	This is within the rules as the rules only prohibit HTML transformation/generation, and this only generates CSS.
 */
