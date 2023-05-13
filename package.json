@@ -2,7 +2,7 @@
 	"name": "webmaster",
 	"scripts": {
 		"tailwind": "postcss ./css/main.css -o ./css/main.bundle.css -m --env production",
-		"tailwind:watch": "npm run tailwind -- --watch --env development"
+		"tailwind:watch": "npm run tailwind -- --w --env development"
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.9",

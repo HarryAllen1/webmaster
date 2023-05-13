@@ -3660,12 +3660,6 @@ body {
 	z-index: 1;
 }
 
-.collapsing {
-	--un-backdrop-blur: blur(12px);
-	-webkit-backdrop-filter: var(--un-backdrop-blur);
-	backdrop-filter: var(--un-backdrop-blur);
-}
-
 .astrotours{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
   --tw-gradient-from: #E5E7EB var(--tw-gradient-from-position);

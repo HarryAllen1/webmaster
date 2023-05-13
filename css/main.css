@@ -41,12 +41,6 @@ body {
 	z-index: 1;
 }
 
-.collapsing {
-	--un-backdrop-blur: blur(12px);
-	-webkit-backdrop-filter: var(--un-backdrop-blur);
-	backdrop-filter: var(--un-backdrop-blur);
-}
-
 .astrotours {
 	@apply bg-clip-text text-transparent font-bold bg-gradient-to-r from-gray-200 via-slate-500 to-gray-200;
 	animation: background-pan 5s linear infinite;
