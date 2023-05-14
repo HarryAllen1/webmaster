@@ -3642,16 +3642,9 @@ input:checked + .toggle-bg{
 .ease-out{
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
-.content-\[\'this-is-also-valid\]-weirdly-enough\'\]{
-  --tw-content: 'this-is-also-valid]-weirdly-enough';
-  content: var(--tw-content);
-}
 .content-none{
   --tw-content: none;
   content: var(--tw-content);
-}
-.\[a-zA-Z-\:\#\]{
-  a-z-a--z-: #;
 }
 .\[font-size\:1rem\]{
   font-size: 1rem;
