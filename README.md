@@ -8,7 +8,8 @@ Deno config files for type checking only.
 
 ## Development
 
-Most of the site works just fine without a build step. If you need to bundle the JS files for whatever reason, run:
+Most of the site works just fine without a build step. If you need to bundle the
+JS files for whatever reason, run:
 
 ```sh
 deno run -A ./build.ts

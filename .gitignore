@@ -1,5 +1,5 @@
 .env
 index.bundle.js
 index.bundle.js.map
-node_modules/
-
+node_modules
+*.map
