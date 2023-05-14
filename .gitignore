@@ -2,3 +2,4 @@
 index.bundle.js
 index.bundle.js.map
 node_modules
+*.map

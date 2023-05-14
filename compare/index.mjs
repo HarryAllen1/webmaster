@@ -27,5 +27,5 @@ customElements.define(
 					<div class="flex-1 h-[1px] bg-gray"></div>
 				</span>`;
 		}
-	},
+	}
 );

@@ -58,7 +58,7 @@ const app = createApp({
 	agree: false,
 	items: items.map(
 		/** @return {[import('../js/types.d.ts').Product, number]} */
-		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]],
+		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]]
 	),
 	numberFormatter: currencyFormatter,
 

@@ -12,7 +12,7 @@ const app = createApp({
 		],
 		[
 			'I want to join the AstroTours family. How do I join?',
-			'Purchase our most expensive plan. The more money you give us, the more benefits you\'ll get, and the more we\'ll make you feel like family.',
+			"Purchase our most expensive plan. The more money you give us, the more benefits you'll get, and the more we'll make you feel like family.",
 		],
 		[
 			'Who can participate in AstroTours space tourism experiences?',
