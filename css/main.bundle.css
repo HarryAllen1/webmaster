@@ -1596,11 +1596,23 @@ input:checked + .toggle-bg{
 .bottom-\[60px\]{
   bottom: 60px;
 }
+.end-1{
+  inset-inline-end: 0.25rem;
+}
+.end-2{
+  inset-inline-end: 0.5rem;
+}
+.end-7{
+  inset-inline-end: 1.75rem;
+}
 .left-0{
   left: 0px;
 }
 .right-0{
   right: 0px;
+}
+.start-1{
+  inset-inline-start: 0.25rem;
 }
 .top-0{
   top: 0px;
@@ -1671,6 +1683,9 @@ input:checked + .toggle-bg{
 .clear-none{
   clear: none;
 }
+.m-1{
+  margin: 0.25rem;
+}
 .m-\[1px\]{
   margin: 1px;
 }
@@ -1718,6 +1733,10 @@ input:checked + .toggle-bg{
 }
 .mb-8{
   margin-bottom: 2rem;
+}
+.me-3{
+  -webkit-margin-end: 0.75rem;
+          margin-inline-end: 0.75rem;
 }
 .ml-2{
   margin-left: 0.5rem;
@@ -1818,6 +1837,9 @@ input:checked + .toggle-bg{
 .hidden{
   display: none;
 }
+.h-1{
+  height: 0.25rem;
+}
 .h-2{
   height: 0.5rem;
 }
@@ -1853,6 +1875,9 @@ input:checked + .toggle-bg{
 }
 .\!w-full{
   width: 100% !important;
+}
+.w-1{
+  width: 0.25rem;
 }
 .w-1\/2{
   width: 50%;
@@ -3076,6 +3101,10 @@ input:checked + .toggle-bg{
 .pb-4{
   padding-bottom: 1rem;
 }
+.pe-1{
+  -webkit-padding-end: 0.25rem;
+          padding-inline-end: 0.25rem;
+}
 .pl-10{
   padding-left: 2.5rem;
 }
@@ -3620,6 +3649,9 @@ input:checked + .toggle-bg{
 .content-none{
   --tw-content: none;
   content: var(--tw-content);
+}
+.\[a-zA-Z-\:\#\]{
+  a-z-a--z-: #;
 }
 .\[font-size\:1rem\]{
   font-size: 1rem;
