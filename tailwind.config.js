@@ -17,5 +17,5 @@ export default {
 		require('preline/plugin'),
 		require('flowbite/plugin'),
 	],
-	blocklist: ['[a-zA-Z-:#]', 'content-[\'this-is-also-valid]-weirdly-enough\']']
+	blocklist: ['[a-zA-Z-:#]', "content-['this-is-also-valid]-weirdly-enough']"],
 };

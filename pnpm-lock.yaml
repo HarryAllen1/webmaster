@@ -31,6 +31,9 @@ devDependencies:
   preline:
     specifier: ^1.8.0
     version: 1.8.0
+  prettier:
+    specifier: ^2.8.8
+    version: 2.8.8
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.2
@@ -1256,6 +1259,12 @@ packages:
     resolution: {integrity: sha512-guttn86Fc/+AbvN9oKcr2z3zU7DL3Q5dl7nhcR4nTi5F02LXQc7WIYwgIXMR97kymCs52feiju6glXO3dUIpvA==}
     dependencies:
       '@popperjs/core': 2.11.7
+    dev: true
+
+  /prettier@2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /pretty-hrtime@1.0.3:
