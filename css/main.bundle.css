@@ -3616,6 +3616,10 @@ body {
     height: 24rem;
   }
 
+  .md\:w-96{
+    width: 24rem;
+  }
+
   .md\:max-w-lg{
     max-width: 32rem;
   }
