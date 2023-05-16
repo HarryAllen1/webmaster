@@ -1,11 +1,10 @@
+import 'https://esm.sh/flowbite@1.6.5?bundle';
+import 'https://esm.sh/preline@1.8.0?bundle';
 import { createApp, reactive } from '../deps.mjs';
 import { CART_KEY } from './constants.mjs';
 import { pages } from './pages.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 import './scroll_animation.mjs';
-import { sleep } from './utils.mjs';
-import 'https://esm.sh/preline@1.8.0?bundle';
-import 'https://esm.sh/flowbite@1.6.5?bundle';
 
 import(
 	// hack to allow pages to be visited more than once
