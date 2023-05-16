@@ -33,88 +33,92 @@
 			<p class="mb-10">
 				Already picked what you want? View your <a href="/cart">cart</a>
 			</p>
-			<div
-				class="flex flex-col gap-12 lg:gap-8 lg:flex-row justify-center items-center [&_.card]:text-center [&_.card]:p-6"
-			>
-				<div class="card bg-gray-800 rounded-md !max-w-xs !h-md">
-					<div class="card-body">
-						<h2 id="name" class="font-bold text-2xl">Suborbital</h2>
-						<p><i>The glance of our planet</i></p>
-
-						<p class="text-white">Experience zero gravity and see the world</p>
-
-						<div class="flex flex-col items-start text-white my-8">
-							<p>Max people: 6</p>
-							<p>Altitude: 100km</p>
-							<p>Duration: 20 minutes</p>
-							<p>Rocket: Andante</p>
-						</div>
-
-						<div class="flex flex-row items-center justify-center gap-4">
-							<h2 id="price" class="font-bold text-2xl my-0">
-								{{ currencyFormatter.format(500) }}
-							</h2>
-							<button
-								class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-								@click="addToCart"
-							>
-								Purchase
-							</button>
-						</div>
-					</div>
-				</div>
+			<template v-if="true">
 				<div
-					class="card bg-gradient-to-br scale-110 !h-md from-[var(--primary)] to-[#44c] rounded-md !max-w-xs"
+					class="flex flex-col gap-12 lg:gap-8 lg:flex-row justify-center items-center [&_.card]:text-center [&_.card]:p-6"
 				>
-					<div class="card-body">
-						<h2 id="name" class="font-bold text-2xl">Orbital</h2>
-						<p><i>The window to space</i></p>
-						<p class="text-white">Admire the galactic stars</p>
-						<div class="flex flex-col items-start text-white my-8">
-							<p>Max people: 10</p>
-							<p>Altitude: 200km</p>
-							<p>Duration: 2 hours</p>
-							<p>Rocket: Tempo</p>
-						</div>
+					<div class="card bg-gray-800 rounded-md !max-w-xs !h-md">
+						<div class="card-body">
+							<h2 id="name" class="font-bold text-2xl">Suborbital</h2>
+							<p><i>The glance of our planet</i></p>
 
-						<div class="flex flex-row items-center justify-center gap-4">
-							<h2 id="price" class="font-bold text-2xl my-0">
-								{{ currencyFormatter.format(1000) }}
-							</h2>
-							<button
-								class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-								@click="addToCart"
-							>
-								Purchase
-							</button>
+							<p class="text-white">
+								Experience zero gravity and see the world
+							</p>
+
+							<div class="flex flex-col items-start text-white my-8">
+								<p>Max people: 6</p>
+								<p>Altitude: 100km</p>
+								<p>Duration: 20 minutes</p>
+								<p>Rocket: Andante</p>
+							</div>
+
+							<div class="flex flex-row items-center justify-center gap-4">
+								<h2 id="price" class="font-bold text-2xl my-0">
+									{{ currencyFormatter.format(500) }}
+								</h2>
+								<button
+									class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+									@click="addToCart"
+								>
+									Purchase
+								</button>
+							</div>
+						</div>
+					</div>
+					<div
+						class="card bg-gradient-to-br scale-110 !h-md from-[var(--primary)] to-[#44c] rounded-md !max-w-xs"
+					>
+						<div class="card-body">
+							<h2 id="name" class="font-bold text-2xl">Orbital</h2>
+							<p><i>The window to space</i></p>
+							<p class="text-white">Admire the galactic stars</p>
+							<div class="flex flex-col items-start text-white my-8">
+								<p>Max people: 10</p>
+								<p>Altitude: 200km</p>
+								<p>Duration: 2 hours</p>
+								<p>Rocket: Tempo</p>
+							</div>
+
+							<div class="flex flex-row items-center justify-center gap-4">
+								<h2 id="price" class="font-bold text-2xl my-0">
+									{{ currencyFormatter.format(1000) }}
+								</h2>
+								<button
+									class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+									@click="addToCart"
+								>
+									Purchase
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="card !h-md bg-gray-800 rounded-md !max-w-xs">
+						<div class="card-body">
+							<h2 id="name" class="font-bold text-2xl">Ultimate</h2>
+							<p><i>The roadway to the moon</i></p>
+							<p class="text-white">Eat food in space. amazing.</p>
+							<div class="flex flex-col items-start text-white my-8">
+								<p>Max people: 15</p>
+								<p>Altitude: 238,900km</p>
+								<p>Duration: 5 days</p>
+								<p>Rocket: Allegro</p>
+							</div>
+							<div class="flex flex-row items-center justify-center gap-4">
+								<h2 id="price" class="font-bold text-2xl my-0">
+									{{ currencyFormatter.format(10000) }}
+								</h2>
+								<button
+									class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+									@click="addToCart"
+								>
+									Purchase
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="card !h-md bg-gray-800 rounded-md !max-w-xs">
-					<div class="card-body">
-						<h2 id="name" class="font-bold text-2xl">Ultimate</h2>
-						<p><i>The roadway to the moon</i></p>
-						<p class="text-white">Eat food in space. amazing.</p>
-						<div class="flex flex-col items-start text-white my-8">
-							<p>Max people: 15</p>
-							<p>Altitude: 238,900km</p>
-							<p>Duration: 5 days</p>
-							<p>Rocket: Allegro</p>
-						</div>
-						<div class="flex flex-row items-center justify-center gap-4">
-							<h2 id="price" class="font-bold text-2xl my-0">
-								{{ currencyFormatter.format(10000) }}
-							</h2>
-							<button
-								class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-								@click="addToCart"
-							>
-								Purchase
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			</template>
 		</div>
 		<wm-footer></wm-footer>
 	</body>
