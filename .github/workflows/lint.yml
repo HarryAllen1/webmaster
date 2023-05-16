@@ -11,11 +11,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: node
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
       - name: Check formatting
-        run: deno task fmt --check
+        run: npx prettier --check .
       - name: Lint
         run: deno lint
