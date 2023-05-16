@@ -76,7 +76,7 @@ export const initRouter = (scope) => {
  * @param {string} route
  */
 export const goto = (route) => {
-	const toggler = document.querySelector('#toggler')
+	const toggler = document.querySelector('#toggler');
 	if (toggler?.classList.contains('open') && toggler instanceof HTMLElement)
 		toggler.click();
 	const { href } = new URL(route, location.origin);
@@ -150,8 +150,8 @@ export const goto = (route) => {
 				}
 			);
 		});
-	
+
 	setTimeout(() => {
-		if (!location.href.includes(route)) location.href = route
-	}, 600)
+		if (!location.href.includes(route)) location.href = route;
+	}, 600);
 };
