@@ -110,22 +110,6 @@ customElements.define(
 	}
 );
 
-globalThis.addEventListener('load', async () => {
-	await sleep(50);
-	/** @type {HTMLDivElement | null} */
-	const loader = document.querySelector('#loader');
-	if (!loader) return;
-	scrollTo({
-		left: 0,
-		top: 0,
-		// @ts-ignore: https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
-		behavior: 'instant',
-	});
-	loader.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200 });
-	await sleep(200);
-	loader.remove();
-});
-
 document.querySelector('#main')?.addEventListener('click', () => {
 	/** @type {HTMLButtonElement | null} */
 	const toggler = document.querySelector('#toggler');
