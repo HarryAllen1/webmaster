@@ -3792,6 +3792,11 @@ body {
   }
 }
 
+.\[\&\>p\]\:my-0>p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .\[\&_\*\]\:w-full *{
   width: 100%;
 }
