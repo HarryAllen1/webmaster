@@ -6,8 +6,6 @@ import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 import './scroll_animation.mjs';
 import { sleep } from './utils.mjs';
 
-var a = 'b';
-
 initUnoCSS({
 	defaults: {
 		presets: [unoCSSPresetUno()],
