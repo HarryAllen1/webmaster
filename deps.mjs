@@ -1,5 +1,3 @@
-export { default as unoCSSPresetUno } from 'https://esm.sh/@unocss/preset-uno@0.51.8?bundle&exports=default';
-export { default as initUnoCSS } from 'https://esm.sh/@unocss/runtime@0.51.8?bundle&exports=default';
 export {
 	createApp,
 	reactive,

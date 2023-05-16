@@ -1,4 +1,4 @@
-import { createApp } from '../deps.js';
+import { createApp } from '../deps.mjs';
 
 const app = createApp({
 	faqs: [
@@ -24,7 +24,7 @@ const app = createApp({
 		],
 		[
 			'What is the waitlist policy?',
-			'AstroTours will place your submission and will notify you through email whether you are entered or not.',
+			'AstroTours will put you on an imaginary waitlist since you will never actually get the spot because we are just too popular. Just get faster next time.',
 		],
 		[
 			'What are the necessary requirements to enter the AstroTours space flights?',

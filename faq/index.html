@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="bg-black">
+<html lang="en" class="bg-black dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,50 +15,78 @@
 		/>
 		<meta name="description" content="TSA Webmaster 2023 site" />
 		<script type="module" defer src="/js/index.mjs"></script>
-		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 		<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://esm.sh/toastify-js@1.12.0/src/toastify.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://esm.sh/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-		/>
-		<link rel="stylesheet" href="/css/main.css" />
+
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 	</head>
-	<body class="bg-black min-h-[calc(100vh-4rem)]">
+	<body class="bg-black min-h-[100vh]">
 		<div id="stars"></div>
 		<div id="loader"></div>
 		<wm-navbar></wm-navbar>
 		<div
 			id="main"
-			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
-			un-cloak
+			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
 			<h1 class="font-bold mb-8">FAQs</h1>
-			<div class="accordion max-w-xl" id="accordionExample">
+			<div class="hs-accordion-group max-w-xl not-prose">
 				<template v-for="(faq, i) in faqs">
-					<div class="accordion-item">
-						<h2 class="accordion-header" :id="'heading' + i">
-							<button
-								class="accordion-button collapsed"
-								type="button"
-								data-bs-toggle="collapse"
-								:data-bs-target="'#collapse' + i"
-								aria-expanded="false"
-								:aria-controls="'collapse' + i"
-							>
-								{{ faq[0] }}
-							</button>
-						</h2>
-						<div
-							:id="'collapse' + i"
-							class="accordion-collapse collapse"
-							data-bs-parent="#accordionExample"
+					<div
+						class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-2 dark:hs-accordion-active:bg-white/[.05]"
+						:id="'hs-basic-heading-' + i"
+					>
+						<button
+							class="hs-accordion-toggle hs-accordion-active:text-blue-600 group py-3 px-6 inline-flex items-center gap-x-3 w-full font-semibold text-sm text-left text-gray-800 transition hover:text-gray-500 dark:hs-accordion-active:text-blue-600 dark:text-gray-200 dark:hover:text-gray-400"
+							:aria-controls="'hs-basic-collapse-' + i"
 						>
-							<div class="accordion-body">{{ faq[1] }}</div>
+							<svg
+								class="hs-accordion-active:hidden hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 block w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400"
+								width="16"
+								height="16"
+								viewBox="0 0 16 16"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M2.62421 7.86L13.6242 7.85999"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+								/>
+								<path
+									d="M8.12421 13.36V2.35999"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+								/>
+							</svg>
+							<svg
+								class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400"
+								width="16"
+								height="16"
+								viewBox="0 0 16 16"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M2.62421 7.86L13.6242 7.85999"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+								/>
+							</svg>
+							{{ faq[0] }}
+						</button>
+						<div
+							:id="'hs-basic-collapse-' + i"
+							:aria-labelledby="'hs-basic-heading-' + i"
+							class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+						>
+							<div class="pb-4 px-6">
+								<p class="text-sm text-gray-600 dark:text-gray-200">
+									{{ faq[1] }}
+								</p>
+							</div>
 						</div>
 					</div>
 				</template>

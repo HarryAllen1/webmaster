@@ -2,3 +2,4 @@
 *.js.map
 *.bundle.css
 *.css.map
+pnpm-lock.yaml

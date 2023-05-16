@@ -1,21 +1,10 @@
-import 'https://esm.sh/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js?no-dts';
-import { createApp, initUnoCSS, reactive, unoCSSPresetUno } from '../deps.js';
+import 'https://esm.sh/flowbite@1.6.5?bundle';
+import 'https://esm.sh/preline@1.8.0?bundle';
+import { createApp, reactive } from '../deps.mjs';
 import { CART_KEY } from './constants.mjs';
 import { pages } from './pages.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 import './scroll_animation.mjs';
-import { sleep } from './utils.mjs';
-
-initUnoCSS({
-	defaults: {
-		presets: [unoCSSPresetUno()],
-		theme: {
-			colors: {
-				primary: 'var(--primary)',
-			},
-		},
-	},
-});
 
 import(
 	// hack to allow pages to be visited more than once
@@ -51,7 +40,7 @@ customElements.define(
 			this._render();
 		}
 		async _render() {
-			const res = await fetch('/components/navbar.html');
+			const res = await fetch('/components/navbar.wm-component');
 			const html = await res.text();
 			this.innerHTML = html;
 			/** @type {[string, number][]} */
@@ -83,7 +72,6 @@ customElements.define(
 				pageStore,
 				itemsCount,
 				visible,
-				toggler: document.querySelector('.navbar-toggler'),
 			}).mount(this);
 
 			let lastScroll = 0;
@@ -109,7 +97,7 @@ customElements.define(
 			this._render();
 		}
 		async _render() {
-			const res = await fetch('/components/footer.html');
+			const res = await fetch('/components/footer.wm-component');
 			const html = await res.text();
 			this.innerHTML = html;
 			createApp({
@@ -121,27 +109,10 @@ customElements.define(
 	}
 );
 
-globalThis.addEventListener('load', async () => {
-	await sleep(50);
-	/** @type {HTMLDivElement | null} */
-	const loader = document.querySelector('#loader');
-	if (!loader) return;
-	loader.style.animationDuration = '0.2s';
-	loader.classList.add('animate-fade-in', 'animate-reverse');
-	scrollTo({
-		left: 0,
-		top: 0,
-		// @ts-ignore: https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
-		behavior: 'instant',
-	});
-	await sleep(200);
-	loader.remove();
-});
-
 document.querySelector('#main')?.addEventListener('click', () => {
 	/** @type {HTMLButtonElement | null} */
-	const toggler = document.querySelector('.navbar-toggler');
-	if (toggler?.ariaExpanded === 'true') {
+	const toggler = document.querySelector('#toggler');
+	if (toggler?.classList.contains('open')) {
 		toggler?.click();
 	}
 });

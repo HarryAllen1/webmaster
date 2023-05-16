@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="bg-black">
+<html lang="en" class="bg-black dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,255 +19,325 @@
 		<meta name="description" content="TSA Webmaster 2023 site" />
 		<script type="module" defer src="/js/index.mjs"></script>
 		<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
-		<link rel="stylesheet" href="/css/main.css" />
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://esm.sh/toastify-js@1.12.0/src/toastify.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://esm.sh/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-		/>
-		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/main.bundle.css" />
+
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 	</head>
-	<body class="bg-black min-h-[calc(100vh-4rem)]">
+	<body class="bg-black min-h-[100vh]">
 		<div id="stars"></div>
 		<div id="loader"></div>
 		<wm-navbar></wm-navbar>
 		<div
 			id="main"
-			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
-			un-cloak
+			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
 			<h1 class="font-bold mb-8">Checkout</h1>
 
 			<template v-if="items.length">
 				<form
-					novalidate
 					@submit.prevent="submit"
-					class="flex flex-col lg:justify-center max-w-full !lg:w-[75%] lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
+					class="flex flex-col lg:justify-center max-w-full lg:w-[80%] xl:w-[60%] lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
-						<div class="card bg-gray-800 rounded-md w-md lg:w-full">
-							<div class="card-body">
-								<h5 class="card-title">Billing Information</h5>
-								<div class="grid grid-cols-2 gap-2">
-									<div class="mb-3">
-										<label for="firstName" class="form-label">First Name</label>
-										<input
-											type="text"
-											class="form-control"
-											id="firstName"
-											v-model="firstName"
-											required
-										/>
-										<div class="invalid-feedback">Please enter a name</div>
-									</div>
-									<div class="mb-3">
-										<label for="lastName" class="form-label">Last Name</label>
-										<input
-											type="text"
-											class="form-control"
-											id="lastName"
-											v-model="lastName"
-											required
-										/>
-										<div class="invalid-feedback">Please enter a name</div>
-									</div>
-								</div>
-
+						<div
+							class="flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] [&>div]:flex [&>div]:flex-col lg:[&>div]:grid not-prose"
+						>
+							<h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
+								Billing Information
+							</h3>
+							<div class="grid grid-cols-2 gap-2">
 								<div class="mb-3">
-									<label for="card" class="form-label">Card Number</label>
+									<label
+										for="firstName"
+										class="block text-sm font-medium mb-2 dark:text-white"
+									>
+										First Name
+									</label>
 									<input
-										type="tel"
-										inputmode="numeric"
-										autocomplete="cc-number"
-										maxlength="19"
-										placeholder="xxxx xxxx xxxx xxxx"
+										placeholder="Sam"
 										type="text"
-										class="form-control"
-										id="card"
-										v-model="card"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="firstName"
+										v-model="firstName"
 										required
 									/>
-									<div class="invalid-feedback">
-										Please enter a valid card number
-									</div>
 								</div>
-								<div class="grid grid-cols-2 gap-2">
-									<div class="mb-3">
-										<label for="exp" class="form-label">Expiration Date</label>
+								<div class="mb-3">
+									<label
+										for="lastName"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Last Name</label
+									>
+									<input
+										placeholder="Liyanage"
+										type="text"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="lastName"
+										v-model="lastName"
+										required
+									/>
+								</div>
+							</div>
+
+							<div class="grid gap-2 grid-cols-[2fr_1fr_1fr]">
+								<div class="mb-3">
+									<label
+										for="card"
+										class="block text-sm font-medium mb-2 dark:text-white"
+									>
+										Card Number
+									</label>
+									<div class="relative">
 										<input
+											type="tel"
+											inputmode="numeric"
+											autocomplete="cc-number"
+											maxlength="19"
+											placeholder="xxxx xxxx xxxx xxxx"
 											type="text"
-											pattern="\d{2}/\d{2}"
-											placeholder="MM/YY"
-											class="form-control"
-											id="exp"
-											v-model="expiration"
-											autocomplete="cc-exp"
+											class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+											id="card"
+											v-model="card"
 											required
 										/>
-										<div class="invalid-feedback">
-											Please enter a valid expiration date
+										<div
+											class="absolute inset-y-0 right-0 flex items-center pointer-events-none z-20 pr-4"
+										>
+											<svg
+												class="h-4 w-4 text-gray-400"
+												xmlns="http://www.w3.org/2000/svg"
+												width="16"
+												height="16"
+												fill="currentColor"
+												viewBox="0 0 16 16"
+											>
+												<path
+													d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z"
+												/>
+												<path
+													d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z"
+												/>
+											</svg>
 										</div>
 									</div>
-									<div class="mb-3">
-										<label for="cvv" class="form-label">CVV</label>
-										<input
-											type="text"
-											class="form-control"
-											id="cvv"
-											v-model="cvv"
-											pattern="\d{3}"
-											required
-											autocomplete="cc-csc"
-										/>
-										<div class="invalid-feedback">Please enter a valid CVV</div>
-									</div>
 								</div>
-
 								<div class="mb-3">
-									<label for="email" class="form-label">Email</label>
+									<label
+										for="exp"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Expiration Date</label
+									>
+									<input
+										type="text"
+										pattern="\d{2}/\d{2}"
+										placeholder="MM/YY"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="exp"
+										v-model="expiration"
+										autocomplete="cc-exp"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label
+										for="cvv"
+										class="block text-sm font-medium mb-2 dark:text-white"
+									>
+										CVV
+									</label>
+									<input
+										placeholder="125"
+										type="text"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="cvv"
+										v-model="cvv"
+										pattern="\d{3}"
+										required
+										autocomplete="cc-csc"
+									/>
+								</div>
+							</div>
+
+							<div class="grid grid-cols-2 gap-2">
+								<div class="mb-3">
+									<label
+										for="email"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Email</label
+									>
 									<input
 										type="email"
-										class="form-control"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 										id="email"
+										placeholder="mesenuka125@yahoo.com"
 										v-model="email"
 										required
 									/>
-									<div class="invalid-feedback">Please enter a valid email</div>
 								</div>
 								<div class="mb-3">
-									<label for="phone" class="form-label">Phone</label>
+									<label
+										for="phone"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Phone</label
+									>
 									<input
+										placeholder="206 351 9028"
 										type="tel"
-										class="form-control"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
 										id="phone"
 										v-model="phone"
 										required
 									/>
-									<div class="invalid-feedback">Please enter a valid phone</div>
 								</div>
+							</div>
+
+							<div class="mb-3">
+								<label
+									for="address"
+									class="block text-sm font-medium mb-2 dark:text-white"
+									>Address</label
+								>
+								<input
+									placeholder="101 101st St"
+									type="text"
+									class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+									id="address"
+									v-model="address"
+									required
+								/>
+							</div>
+							<div class="grid grid-cols-4 gap-2">
 								<div class="mb-3">
-									<label for="address" class="form-label">Address</label>
+									<label
+										for="city"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>City</label
+									>
 									<input
+										placeholder="Seattle"
 										type="text"
-										class="form-control"
-										id="address"
-										v-model="address"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="city"
+										v-model="city"
 										required
 									/>
-									<div class="invalid-feedback">
-										Please enter a valid address
-									</div>
 								</div>
-								<div class="grid grid-cols-4 gap-2">
-									<div class="mb-3">
-										<label for="city" class="form-label">City</label>
-										<input
-											type="text"
-											class="form-control"
-											id="city"
-											v-model="city"
-											required
-										/>
-										<div class="invalid-feedback">
-											Please enter a valid city
-										</div>
-									</div>
-									<div class="mb-3">
-										<label for="state" class="form-label">State</label>
-										<input
-											type="text"
-											class="form-control"
-											id="state"
-											v-model="state"
-											required
-										/>
-										<div class="invalid-feedback">
-											Please enter a valid state
-										</div>
-									</div>
-									<div class="mb-3">
-										<label for="zip" class="form-label">Zip</label>
-										<input
-											type="text"
-											class="form-control"
-											id="zip"
-											v-model="zip"
-											required
-										/>
-										<div class="invalid-feedback">Please enter a valid zip</div>
-									</div>
-									<div class="mb-3">
-										<label for="country" class="form-label">Country</label>
-										<input
-											type="text"
-											class="form-control"
-											id="country"
-											v-model="country"
-											required
-										/>
-										<div class="invalid-feedback">
-											Please enter a valid country
-										</div>
-									</div>
-								</div>
-
-								<div class="form-check">
-									<label class="form-check-label" for="agree">
-										By checking this box, I understand that AstroTours is not
-										liable for any potential hazards during space flights
-										including sun radiation, hostile space environment and
-										altered gravity fields.
-									</label>
+								<div class="mb-3">
+									<label
+										for="state"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>State</label
+									>
 									<input
-										class="form-check-input"
+										placeholder="Wisconson"
+										type="text"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="state"
+										v-model="state"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label
+										for="zip"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Zip</label
+									>
+									<input
+										type="text"
+										placeholder="98034"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="zip"
+										v-model="zip"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label
+										for="country"
+										class="block text-sm font-medium mb-2 dark:text-white"
+										>Country</label
+									>
+									<input
+										placeholder="Georgia"
+										type="text"
+										class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+										id="country"
+										v-model="country"
+										required
+									/>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label
+									class="block text-sm font-medium mb-2 dark:text-white"
+									for="policyNumber"
+								>
+									Insurance Policy Number
+								</label>
+								<input
+									placeholder="123456789"
+									id="policyNumber"
+									type="text"
+									class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+								/>
+							</div>
+
+							<div class="flex justify-between w-full mb-4">
+								<div>
+									<input
+										class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
 										type="checkbox"
 										v-model="agree"
 										id="agree"
 										required
 									/>
-									<div class="invalid-feedback">
-										You must agree before submitting.
-									</div>
+									<label
+										class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+										for="agree"
+									>
+										By checking this box, I understand that AstroTours is not
+										liable for any potential hazards during space flights
+										including sun radiation, hostile space environment and
+										altered gravity fields.
+									</label>
 								</div>
-								<div class="flex justify-end">
-									<button type="submit" class="btn btn-primary animate-wobble">
-										Purchase
-									</button>
-								</div>
+								<button
+									type="submit"
+									class="py-2 px-4 mt-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 animate-wobble"
+								>
+									Purchase
+								</button>
 							</div>
 						</div>
 					</div>
 					<div class="max-w-full">
-						<div class="card bg-gray-800 rounded-md">
-							<div class="card-body">
-								<h5 class="card-title">Order Summary</h5>
-								<div class="w-full">
-									<div class="flex flex-row justify-between">
-										<p>Subtotal</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0)) }}
-										</p>
-									</div>
-									<div class="flex flex-row justify-between">
-										<p>Estimated Tax</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0) * 0.1) }}
-										</p>
-									</div>
-									<div class="flex flex-row justify-between font-bold">
-										<p>Estimated Total</p>
-										<p>
-											{{ numberFormatter.format(items.reduce((acc, val) => acc +
-											val[0].price * val[1], 0) * 1.1) }}
-										</p>
-									</div>
-								</div>
+						<div
+							class="flex space-y-2 flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] not-prose"
+						>
+							<h3 class="text-lg mb-4 font-bold text-gray-800 dark:text-white">
+								Order Summary
+							</h3>
+							<div class="flex flex-row justify-between">
+								<p>Subtotal</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0)) }}
+								</p>
+							</div>
+							<div class="flex flex-row justify-between">
+								<p>Estimated Tax</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0) * 0.1) }}
+								</p>
+							</div>
+							<div class="flex flex-row justify-between font-bold">
+								<p>Estimated Total</p>
+								<p>
+									{{ numberFormatter.format(items.reduce((acc, val) => acc +
+									val[0].price * val[1], 0) * 1.1) }}
+								</p>
 							</div>
 						</div>
 					</div>

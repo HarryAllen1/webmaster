@@ -1,7 +1,8 @@
-import { createApp } from '../deps.js';
+import { createApp } from '../deps.mjs';
 import { CART_KEY } from '../js/constants.mjs';
 import { plans } from '../js/plans.mjs';
 import { goto, routerLink } from '../js/router.mjs';
+import { initDatepickers } from './datepicker.mjs';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -14,6 +15,7 @@ const app = createApp({
 	name: '',
 	policyNumber: '',
 	agree: false,
+	initDatepickers,
 	items: items.map(
 		/** @return {[import('../js/types.d.ts').Product, number]} */
 		(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]]

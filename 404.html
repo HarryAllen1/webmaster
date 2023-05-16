@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="bg-black">
+<html lang="en" class="bg-black dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Page Not Found! - AstroTours</title>
 		<script type="module" defer src="/js/index.mjs"></script>
-		<link rel="stylesheet" href="/css/main.css" />
-		<link
-			rel="stylesheet"
-			href="https://esm.sh/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-		/>
-		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/main.bundle.css" />
+
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 	</head>
-	<body class="bg-black min-h-[calc(100vh-4rem)]">
+	<body class="bg-black min-h-[100vh]">
 		<div id="stars"></div>
 		<div id="loader"></div>
 		<wm-navbar></wm-navbar>
 		<div
 			id="main"
-			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
-			un-cloak
+			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
 			<h1>Page not found!</h1>
 			<a href="/">Go Home</a>

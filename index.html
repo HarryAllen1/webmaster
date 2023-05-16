@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="bg-black">
+<html lang="en" class="bg-black dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,16 +16,7 @@
 		<meta name="description" content="TSA Webmaster 2023 site" />
 		<script type="module" defer src="/js/index.mjs"></script>
 		<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
-		<link rel="stylesheet" href="/css/main.css" />
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://esm.sh/toastify-js@1.12.0/src/toastify.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://esm.sh/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-		/>
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 	</head>
 	<body class="bg-black dark min-h-[calc(100vh-4rem)]">
 		<div id="stars"></div>
@@ -33,18 +24,32 @@
 		<wm-navbar></wm-navbar>
 		<div
 			id="main"
-			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
-			un-cloak
+			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
+			<!-- yes, this is bad practice, whatever, i don't care. -->
+			<link rel="stylesheet" href="index.css" />
 			<h1 class="astrotours text-6xl mt-8">AstroTours</h1>
-			<h3 class="font-bold mb-12 text-center">
-				Space for the people and the world
-			</h3>
+			<h3 class="font-bold text-center">Space for the people and the world</h3>
 			<a
-				class="mb-8 no-underline h-12 bg-gradient-to-r p-4 hover:scale-105 transition-transform from-blue-500 via-purple-600 !to-blue-500 background-pan [background-size:200%] items-center inline-flex text-white disabled:opacity-60 disabled:saturate-0 justify-center rounded-md border border-transparent focus-visible:ring-0 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+				class="relative my-8 no-underline p-0 border-none outline-none rounded-md bg-transparent transition-shadow duration-200 hover:transition-all hover:duration-100 hover:bg-transparent hover:text-black"
 				href="/book"
 			>
-				Book a Flight
+				<div class="absolute inset-0 grid grid-cols-1 -z-[1]">
+					<div
+						class="row-start-1 col-start-1 animate-[hero-btn-1_8s_infinite] transition-all duration-200 rounded-md bg-blue-700 before:absolute before:top-[0.7rem] before:left-[0.6rem] before:bottom-[0.7rem] before:right-[0.6rem] before:bg-blue-700 before:blur-[35px]"
+					></div>
+					<div
+						class="row-start-1 col-start-1 animate-[hero-btn-2_8s_infinite] transition-all duration-200 bg-slate-700 rounded-md before:absolute before:top-[0.7rem] before:left-[0.6rem] before:bottom-[0.7rem] before:right-[0.6rem] before:bg-slate-700 before:blur-[35px]"
+					></div>
+					<div
+						class="row-start-1 col-start-1 animate-[hero-btn-3_8s_infinite] transition-all duration-200 rounded-md bg-purple-700 before:absolute before:top-[0.7rem] before:left-[0.6rem] before:bottom-[0.7rem] before:right-[0.6rem] before:bg-purple-700 before:blur-[35px]"
+					></div>
+				</div>
+				<div
+					class="z-[5] flex justify-center items-center text-white bg-black m-[1px] rounded-md px-12 py-3 [font-size:1rem] transition-all duration-300 hover:transition-all hover:duration-300 hover:bg-transparent hover:text-black"
+				>
+					Book a Flight
+				</div>
 			</a>
 			<p class="max-w-lg text-center">
 				We are the world’s #1 rated space tourism company for anyone who wants
@@ -67,48 +72,50 @@
 				src="https://images.pexels.com/photos/355925/pexels-photo-355925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 				alt="Rocket taking off"
 			/>
-			<div class="border border-white">
-				<img
-					class="invert"
-					src="https://thenounproject.com/api/private/icons/1149723/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABkWv4M-Cq34v2IJtXmcfeMA4xm7nHtcdogtUbu33Foia0h7QS3KHcW6dfZILeFCDmbpq9L_JIN6wrAyqHf-ssclSYSBQ%3D%3D"
-					alt=""
-				/>
-				Mario M: I stepped forward to AstroTours initiative with suspicion. I
-				was not very knowledgeable about the aerospace tourism industry-I work
-				as a city plumber- and other companies have failed my expectations. Yet,
-				my experience was one like none other. By 4 months of weekly preparatory
-				sessions, we were fully prepared for any emergencies on flight. The
-				space mission had me shaken in awe. The capsule crystal-clear windows,
-				reclining seats and pleasant dining on the Adante sparked my enjoyment
-				as I took sight of the bright, bright stars that surround our planet.
-			</div>
-			<div class="border border-white">
-				<img
-					class="invert"
-					src="https://thenounproject.com/api/private/icons/1149723/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABkWv4M-Cq34v2IJtXmcfeMA4xm7nHtcdogtUbu33Foia0h7QS3KHcW6dfZILeFCDmbpq9L_JIN6wrAyqHf-ssclSYSBQ%3D%3D"
-					alt=""
-				/>
-				Mr. Jean: 0 stars. AstroTours has a terrible starship facility. My
-				spirits were very high as I came in Star Site One, and I immediately
-				smelled the nauseatingly toxic rat smell everywhere in the hangar. A
-				middle-sized man apparently named Mr. John with a CEO label noticed that
-				I had a ticket on board Allegro. He grumbled at me as he said "Ah, Mr.
-				Jean, you are good to go!" "Alright then. Would I stay here for
-				training, Mr. John?" He shouted at me while he absconded me "No
-				preparation necessary at AstroTours, we just wing everything, and it
-				works! Just come back on flight day!" I was immediately shaken as I
-				looked at my receipt. My flight would depart in 4 months. After some
-				time, I drove back to the same place right before the launch, and a
-				security guard came, blocked my car and knocked on the driver's window.
-				"Officer, I need to gain access to the hangar because I have a ticket I
-				booked for today on the Allegro to the lunar surface." "And your name
-				is-" "Mr. Jean!" The officer looked at his phone for a few seconds and
-				gave me a puzzled look "Hmm, my database says that your ticket has been
-				cancelled due to: 'Missed Weekly Precautionary Sessions prior to
-				flight'." I would leave the facility hating Mr. John for the rest of my
-				life.
+
+			<div class="relative w-96" id="home-review-carousel">
+				<div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+					<div
+						v-for="(review, i) in reviews"
+						class="hidden duration-700 ease-in-out home-review-carousel-item"
+					>
+						<div
+							class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]"
+						>
+							<div class="flex flex-row">
+								<svg
+									v-for="i in 5"
+									:class="[
+										'w-5 h-5',
+										(i <= review[1] ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300')
+									]"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+									/>
+								</svg>
+							</div>
+
+							<h3 class="text-lg font-bold text-gray-800 dark:text-white">
+								{{ review[0] }}
+							</h3>
+
+							<p class="mt-2 text-gray-800 dark:text-gray-400">
+								{{ review[2] }}
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+
 		<wm-footer></wm-footer>
 	</body>
 </html>

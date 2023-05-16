@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="bg-black">
+<html lang="en" class="bg-black dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,105 +16,124 @@
 		<meta name="description" content="TSA Webmaster 2023 site" />
 		<script type="module" defer src="/js/index.mjs"></script>
 		<link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon" />
-		<link rel="stylesheet" href="/css/main.css" />
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://esm.sh/toastify-js@1.12.0/src/toastify.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://esm.sh/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-		/>
-		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/main.bundle.css" />
+
+		<link rel="stylesheet" href="/css/main.bundle.css" />
 	</head>
-	<body class="bg-black min-h-[calc(100vh-4rem)]">
+	<body class="bg-black min-h-[100vh]">
 		<div id="stars"></div>
 		<div id="loader"></div>
 		<wm-navbar></wm-navbar>
 		<div
 			id="main"
-			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center"
-			un-cloak
+			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
 			<h1 class="font-bold mb-10">Book a Flight</h1>
-			<p>Unsure of which plan to pick? <a href="/compare">Compare plans</a></p>
 			<p class="mb-10">
 				Already picked what you want? View your <a href="/cart">cart</a>
 			</p>
-			<div
-				class="flex flex-col gap-12 lg:gap-8 lg:flex-row justify-center items-center [&_.card]:text-center [&_.card]:p-6"
-			>
-				<div class="card bg-gray-800 rounded-md !max-w-xs !h-md">
-					<div class="card-body">
-						<h2 id="name" class="font-bold text-2xl">Suborbital</h2>
-						<p><i>The glance of our planet</i></p>
+			<template v-if="true">
+				<div
+					class="flex flex-col gap-12 lg:gap-8 lg:flex-row justify-center items-center [&_.card]:text-center [&_.card]:p-6 my-8"
+				>
+					<div
+						class="flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] max-w-xs"
+					>
+						<h2 id="name" class="font-bold text-2xl text-center">Suborbital</h2>
+						<p class="text-center"><i>The glance of our planet</i></p>
 
-						<p class="text-white">Experience zero gravity and see the world</p>
+						<p class="text-white text-center">
+							Experience zero gravity and see the world
+						</p>
 
-						<div class="flex flex-col items-start text-white my-8">
+						<div class="flex flex-col items-start text-white my-8 [&>p]:my-0">
 							<p>Max people: 6</p>
 							<p>Altitude: 100km</p>
 							<p>Duration: 20 minutes</p>
 							<p>Rocket: Andante</p>
+							<p>Meals: None</p>
+							<p>Orbit experience: None</p>
+							<p>Moon experience: None</p>
+							<p>Training: None required</p>
 						</div>
 
 						<div class="flex flex-row items-center justify-center gap-4">
-							<h2 id="price" class="font-bold text-2xl">
+							<h2 id="price" class="font-bold text-2xl my-0">
 								{{ currencyFormatter.format(500) }}
 							</h2>
-							<button class="btn btn-primary" @click="addToCart">
+							<button
+								class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+								@click="addToCart"
+							>
 								Purchase
 							</button>
 						</div>
 					</div>
-				</div>
-				<div
-					class="card bg-gradient-to-br scale-110 !h-md from-[var(--primary)] to-[#44c] rounded-md !max-w-xs"
-				>
-					<div class="card-body">
-						<h2 id="name" class="font-bold text-2xl">Orbital</h2>
-						<p><i>The window to space</i></p>
-						<p class="text-white">Admire the galactic stars</p>
-						<div class="flex flex-col items-start text-white my-8">
-							<p>Max people: 10</p>
-							<p>Altitude: 200km</p>
-							<p>Duration: 2 hours</p>
-							<p>Rocket: Tempo</p>
-						</div>
+					<div
+						class="p-1 relative max-w-xs h-md rounded-md scale-110 bg-gradient-to-br from-purple-700 to-blue-500"
+					>
+						<div class="card rounded-md bg-primary">
+							<div class="card-body">
+								<h2 id="name" class="font-bold text-2xl">Orbital</h2>
+								<p><i>The window to space</i></p>
+								<p class="text-white">Admire the galactic stars</p>
+								<div
+									class="flex flex-col items-start text-white my-8 [&>p]:my-0"
+								>
+									<p>Max people: 10</p>
+									<p>Altitude: 200km</p>
+									<p>Duration: 2 hours</p>
+									<p>Rocket: Tempo</p>
+									<p>Meals: 1 included</p>
+									<p>Orbit experience: Yes</p>
+									<p>Moon experience: None</p>
+									<p>Training: None required</p>
+								</div>
 
-						<div class="flex flex-row items-center justify-center gap-4">
-							<h2 id="price" class="font-bold text-2xl">
-								{{ currencyFormatter.format(1000) }}
-							</h2>
-							<button class="btn btn-primary" @click="addToCart">
-								Purchase
-							</button>
+								<div class="flex flex-row items-center justify-center gap-4">
+									<h2 id="price" class="font-bold text-2xl my-0">
+										{{ currencyFormatter.format(1000) }}
+									</h2>
+									<button
+										class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+										@click="addToCart"
+									>
+										Purchase
+									</button>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="card !h-md bg-gray-800 rounded-md !max-w-xs">
-					<div class="card-body">
-						<h2 id="name" class="font-bold text-2xl">Ultimate</h2>
-						<p><i>The roadway to the moon</i></p>
-						<p class="text-white">Eat food in space. amazing.</p>
-						<div class="flex flex-col items-start text-white my-8">
+					<div
+						class="flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] max-w-xs"
+					>
+						<h2 id="name" class="font-bold text-2xl text-center">Ultimate</h2>
+						<p class="text-center"><i>The roadway to the moon</i></p>
+						<p class="text-white text-center">Eat food in space. amazing.</p>
+						<div class="flex flex-col items-start text-white my-8 [&>p]:my-0">
 							<p>Max people: 15</p>
 							<p>Altitude: 238,900km</p>
 							<p>Duration: 5 days</p>
 							<p>Rocket: Allegro</p>
+							<p>Meals: Infinite</p>
+							<p>Orbit experience: Yes</p>
+							<p>Moon experience: Stay at the moon, ride a buggy</p>
+							<p>Training: 1 week extensive training</p>
 						</div>
 						<div class="flex flex-row items-center justify-center gap-4">
-							<h2 id="price" class="font-bold text-2xl">
+							<h2 id="price" class="font-bold text-2xl my-0">
 								{{ currencyFormatter.format(10000) }}
 							</h2>
-							<button class="btn btn-primary" @click="addToCart">
+							<button
+								class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+								@click="addToCart"
+							>
 								Purchase
 							</button>
 						</div>
 					</div>
 				</div>
-			</div>
+			</template>
 		</div>
 		<wm-footer></wm-footer>
 	</body>

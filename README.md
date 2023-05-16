@@ -1,8 +1,10 @@
 # [TSA Webmaster](https://tsa-webmaster.deno.dev/)
 
-Remade from scratch to avoid breaking rules about compiling and HTML-generation
+Remade from scratch to avoid breaking rules about ~~compiling~~\* and HTML-generation
 
 Deno config files for type checking only.
+
+\* JS and CSS are now bundled
 
 ## Development
 
@@ -25,6 +27,14 @@ npm run tailwind:watch
 ```
 
 (you will need [Node JS](https://nodejs.org))
+
+## Previewing/Deploying
+
+You can preview the live site with the following:
+
+```sh
+deno run --allow-net --allow-read ./server.ts
+```
 
 ## URLs
 

@@ -1,4 +1,4 @@
-import { AOS } from '../deps.js';
+import { AOS } from '../deps.mjs';
 
 AOS.init({
 	duration: 700,

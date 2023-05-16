@@ -1,4 +1,5 @@
-import { reactive, Toastify } from '../deps.js';
+import { reactive, Toastify } from '../deps.mjs';
+import { initFlowbite } from 'https://esm.sh/flowbite@1.6.5?bundle';
 
 export const pageStore = reactive({
 	current: location.pathname.replaceAll('/', ''),
@@ -129,6 +130,7 @@ export const goto = (route) => {
 					.replaceAll('index.html', '')
 					.replaceAll('//', '/')
 			);
+			initFlowbite();
 			pageStore.updatePage(path);
 			document.querySelector('#main')?.animate(
 				[
