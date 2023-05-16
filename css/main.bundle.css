@@ -4696,6 +4696,10 @@ body {
     height: 24rem;
   }
 
+  .md\:max-w-lg{
+    max-width: 32rem;
+  }
+
   .md\:flex-row{
     flex-direction: row;
   }
@@ -4782,6 +4786,22 @@ body {
     width: 80%;
   }
 
+  .lg\:max-w-xl{
+    max-width: 36rem;
+  }
+
+  .lg\:max-w-2xl{
+    max-width: 42rem;
+  }
+
+  .lg\:max-w-3xl{
+    max-width: 48rem;
+  }
+
+  .lg\:max-w-4xl{
+    max-width: 56rem;
+  }
+
   .lg\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -4846,6 +4866,16 @@ body {
 
 .\[\&\>i\]\:text-center>i{
   text-align: center;
+}
+
+.\[\&\>img\]\:max-w-lg>img{
+  max-width: 32rem;
+}
+
+@media (min-width: 1024px){
+  .lg\:\[\&\>img\]\:max-w-xl>img{
+    max-width: 36rem;
+  }
 }
 
 .\[\&_\*\]\:w-full *{
