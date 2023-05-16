@@ -73,16 +73,11 @@
 				alt="Rocket taking off"
 			/>
 
-			<div
-				class="relative w-96"
-				data-carousel="slide"
-				data-carousel-interval="6000"
-			>
+			<div class="relative w-96" id="home-review-carousel">
 				<div class="relative h-56 overflow-hidden rounded-lg md:h-96">
 					<div
-						v-for="review in reviews"
-						class="hidden duration-700 ease-in-out"
-						data-carousel-item
+						v-for="(review, i) in reviews"
+						class="hidden duration-700 ease-in-out home-review-carousel-item"
 					>
 						<div
 							class="absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]"
