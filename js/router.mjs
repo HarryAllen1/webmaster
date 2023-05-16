@@ -147,4 +147,8 @@ export const goto = (route) => {
 				}
 			);
 		});
+	
+	setTimeout(() => {
+		if (!location.href.includes(route)) location.href = route
+	}, 600)
 };
