@@ -33,7 +33,7 @@ const app = createApp({
 				return Toastify({
 					text: `Max number of ${name} bookings reached.`,
 					style: {
-						background: 'var(--bs-danger)',
+						background: 'rgb(239 68 68) /* bg-red-500 */',
 					},
 					position: 'center',
 					gravity: 'bottom',
@@ -49,7 +49,7 @@ const app = createApp({
 					?.textContent
 			}`,
 			style: {
-				background: 'var(--bs-blue)',
+				background: 'rgb(59 130 246) /* bg-blue-500 */',
 			},
 			position: 'center',
 			gravity: 'bottom',

@@ -2094,6 +2094,11 @@ input:checked + .toggle-bg{
   margin-bottom: 2rem;
 }
 
+.my-0{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .mb-0{
   margin-bottom: 0px;
 }
@@ -2132,6 +2137,14 @@ input:checked + .toggle-bg{
 
 .mr-0{
   margin-right: 0px;
+}
+
+.mr-2{
+  margin-right: 0.5rem;
+}
+
+.mt-0{
+  margin-top: 0px;
 }
 
 .mt-2{
@@ -3248,6 +3261,11 @@ input:checked + .toggle-bg{
 .bg-purple-700{
   --tw-bg-opacity: 1;
   background-color: rgb(108 43 217 / var(--tw-bg-opacity));
+}
+
+.bg-red-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 82 82 / var(--tw-bg-opacity));
 }
 
 .bg-rose-500{
@@ -4634,6 +4652,11 @@ body {
   --tw-ring-color: rgb(28 100 242 / var(--tw-ring-opacity));
 }
 
+:is(.dark .dark\:focus\:ring-blue-800:focus){
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(30 66 159 / var(--tw-ring-opacity));
+}
+
 :is(.dark .dark\:focus\:ring-red-800:focus){
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(155 28 28 / var(--tw-ring-opacity));
@@ -4786,20 +4809,12 @@ body {
     width: 80%;
   }
 
-  .lg\:max-w-xl{
-    max-width: 36rem;
-  }
-
-  .lg\:max-w-2xl{
-    max-width: 42rem;
-  }
-
-  .lg\:max-w-3xl{
-    max-width: 48rem;
-  }
-
   .lg\:max-w-4xl{
     max-width: 56rem;
+  }
+
+  .lg\:max-w-xl{
+    max-width: 36rem;
   }
 
   .lg\:grid-cols-2{
