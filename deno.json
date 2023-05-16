@@ -10,6 +10,9 @@
 	"lint": {
 		"rules": {
 			"include": ["camelcase", "eqeqeq", "no-const-assign"]
+		},
+		"files": {
+			"exclude": ["**/*.bundle.js"]
 		}
 	},
 	"fmt": {
