@@ -8,7 +8,7 @@ Deno config files for type checking only.
 
 ## Development
 
-Most of the site works just fine without a build step. If you need to bundle the
+Most of the site works just fine without a build step. You should be able to edit exclusively content without any actual environment. If you need to bundle the
 JS files for whatever reason, run:
 
 ```sh
