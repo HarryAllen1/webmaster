@@ -28,6 +28,14 @@ npm run tailwind:watch
 
 (you will need [Node JS](https://nodejs.org))
 
+## Previewing/Deploying
+
+You can preview the live site with the following:
+
+```sh
+deno run --allow-net --allow-read ./server.ts
+```
+
 ## URLs
 
 This site is deployed to way too many urls.

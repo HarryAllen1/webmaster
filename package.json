@@ -2,10 +2,11 @@
 	"name": "webmaster",
 	"scripts": {
 		"tailwind": "postcss ./css/main.css -o ./css/main.bundle.css -m --env production",
-		"tailwind:watch": "npm run tailwind -- --w --env development",
+		"tailwind:watch": "npx tailwindcss -i ./css/main.css -o ./css/main.bundle.css --watch",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
 		"autoprefixer": "^10.4.14",
 		"cssnano": "^6.0.1",

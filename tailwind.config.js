@@ -2,6 +2,8 @@
 export default {
 	content: [
 		'./**/*.{html,js,mjs,wm-component}',
+		'!./node_modules/**/*',
+		'./index.html',
 		'node_modules/preline/dist/*.js',
 		'node_modules/flowbite/**/*.js',
 	],
@@ -14,6 +16,7 @@ export default {
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
+		require('@tailwindcss/forms'),
 		require('preline/plugin'),
 		require('flowbite/plugin'),
 	],
