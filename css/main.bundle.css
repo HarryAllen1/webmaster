@@ -2131,6 +2131,10 @@ input:checked + .toggle-bg{
   margin-top: 1.5rem;
 }
 
+.mb-0{
+  margin-bottom: 0px;
+}
+
 .box-border{
   box-sizing: border-box;
 }
