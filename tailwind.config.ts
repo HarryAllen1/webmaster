@@ -25,7 +25,7 @@ const config: Config = {
 		forms,
 		preline,
 		flowbite,
-		plugin(function ({ addComponents }) {
+		plugin(function ({ addComponents, addUtilities }) {
 			addComponents({
 				'.astrotours': {
 					animation: 'background-pan 5s linear infinite',
@@ -33,6 +33,9 @@ const config: Config = {
 					'@apply bg-clip-text text-transparent font-bold bg-gradient-to-r from-gray-200 via-slate-500 to-gray-200':
 						{},
 				},
+			});
+			addUtilities({
+				'.parallax': {},
 			});
 		}),
 	],
