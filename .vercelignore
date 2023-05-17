@@ -5,3 +5,7 @@ LICENSE
 README.md
 unocss.config.ts
 node_modules
+renovate.json
+template.html
+firebase.json
+.devcontainer
