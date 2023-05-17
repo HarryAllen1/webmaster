@@ -19,5 +19,13 @@
 		"singleQuote": true,
 		"semiColons": true,
 		"useTabs": true
+	},
+	"imports": {
+		"tailwindcss": "npm:tailwindcss",
+		"tailwindcss/plugin": "npm:tailwindcss/plugin",
+		"@tailwindcss/typography": "npm:@tailwindcss/typography",
+		"@tailwindcss/forms": "npm:@tailwindcss/forms",
+		"preline/plugin": "npm:preline/plugin",
+		"flowbite/plugin": "npm:flowbite/plugin"
 	}
 }

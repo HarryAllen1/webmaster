@@ -10,9 +10,12 @@
 @tailwind utilities;
 
 :root,
-html[data-bs-theme='dark'] {
+html.dark {
 	--primary: theme(colors.slate.900);
-	--app-size-message: 'Loading insane amounts ($$APP_SIZE_PLACEHOLDER$$ MB) of JavaScript...';
+}
+
+html {
+	background-color: theme('colors.slate.900');
 }
 
 body {
@@ -23,14 +26,7 @@ body {
 	/* overflow-x: hidden; */
 }
 #stars {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-size: 100% 650px;
-	background-image: url('/assets/stars.svg');
-	z-index: 0;
-	pointer-events: none;
+	@apply fixed w-full h-full bg-no-repeat [background-size:100%_650px] [background-image:url('/assets/stars.svg')] z-0 pointer-events-none;
 }
 
 #main {
@@ -39,12 +35,6 @@ body {
 
 :where(#main *) {
 	z-index: 1;
-}
-
-.astrotours {
-	@apply bg-clip-text text-transparent font-bold bg-gradient-to-r from-gray-200 via-slate-500 to-gray-200;
-	animation: background-pan 5s linear infinite;
-	background-size: 200%;
 }
 
 .prose {

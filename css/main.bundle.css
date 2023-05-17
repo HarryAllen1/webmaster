@@ -1837,6 +1837,22 @@ input:checked + .toggle-bg{
   --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
 }
 
+.astrotours{
+  animation: background-pan 5s linear infinite;
+  background-size: 200%;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #E5E7EB var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(229 231 235 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: rgb(100 116 139 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #64748b var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #E5E7EB var(--tw-gradient-to-position);
+  -webkit-background-clip: text;
+          background-clip: text;
+  font-weight: 700;
+  color: transparent;
+}
+
 .sr-only{
   position: absolute;
   width: 1px;
@@ -2109,10 +2125,6 @@ input:checked + .toggle-bg{
 
 .mt-5{
   margin-top: 1.25rem;
-}
-
-.mt-8{
-  margin-top: 2rem;
 }
 
 .mt-6{
@@ -4058,9 +4070,12 @@ input:checked + .toggle-bg{
 }
 
 :root,
-html[data-bs-theme='dark'] {
+html.dark {
   --primary: #0f172a;
-  --app-size-message: 'Loading insane amounts ($$APP_SIZE_PLACEHOLDER$$ MB) of JavaScript...';
+}
+
+html {
+  background-color: #0f172a;
 }
 
 body {
@@ -4071,15 +4086,15 @@ body {
   /* overflow-x: hidden; */
 }
 
-#stars {
+#stars{
+  pointer-events: none;
   position: fixed;
-  width: 100%;
+  z-index: 0;
   height: 100%;
+  width: 100%;
   background-repeat: no-repeat;
   background-size: 100% 650px;
   background-image: url('/assets/stars.svg');
-  z-index: 0;
-  pointer-events: none;
 }
 
 #main {
@@ -4088,22 +4103,6 @@ body {
 
 :where(#main *) {
   z-index: 1;
-}
-
-.astrotours{
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  --tw-gradient-from: #E5E7EB var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(229 231 235 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: rgb(100 116 139 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #64748b var(--tw-gradient-via-position), var(--tw-gradient-to);
-  --tw-gradient-to: #E5E7EB var(--tw-gradient-to-position);
-  -webkit-background-clip: text;
-          background-clip: text;
-  font-weight: 700;
-  color: transparent;
-  animation: background-pan 5s linear infinite;
-  background-size: 200%;
 }
 
 .prose {
