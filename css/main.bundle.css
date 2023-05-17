@@ -2490,6 +2490,16 @@ input:checked + .toggle-bg{
   animation: none;
 }
 
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin{
+  animation: spin 1s linear infinite;
+}
+
 .cursor-default{
   cursor: default;
 }
@@ -3138,6 +3148,10 @@ input:checked + .toggle-bg{
   border-width: 0px;
 }
 
+.border-\[3px\]{
+  border-width: 3px;
+}
+
 .border-b{
   border-bottom-width: 1px;
 }
@@ -3182,6 +3196,14 @@ input:checked + .toggle-bg{
 
 .border-transparent{
   border-color: transparent;
+}
+
+.border-current{
+  border-color: currentColor;
+}
+
+.border-t-transparent{
+  border-top-color: transparent;
 }
 
 .bg-black{
