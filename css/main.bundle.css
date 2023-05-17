@@ -2271,6 +2271,10 @@ input:checked + .toggle-bg{
   height: 100%;
 }
 
+.h-96{
+  height: 24rem;
+}
+
 .min-h-\[100vh\]{
   min-height: 100vh;
 }
@@ -4803,6 +4807,10 @@ body {
 
   .md\:w-96{
     width: 24rem;
+  }
+
+  .md\:w-\[calc\(24rem\+8rem\)\]{
+    width: calc(24rem + 8rem);
   }
 
   .md\:max-w-lg{

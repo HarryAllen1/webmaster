@@ -74,11 +74,11 @@
 				alt="Rocket taking off"
 			/>
 
-			<div class="flex flex-row w-[calc(24rem+8rem)] items-center">
+			<div class="flex flex-row w-full md:w-[calc(24rem+8rem)] items-center">
 				<button
 					@click="retreatCarousel()"
 					type="button"
-					class="flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+					class="hidden md:flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
 				>
 					<span
 						class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-gray-700/30 group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-gray-800/70 group-focus:outline-none"
@@ -102,12 +102,12 @@
 					</span>
 				</button>
 				<div
-					class="relative w-64 md:w-96"
+					class="relative w-full md:w-96"
 					id="home-review-carousel"
 					@mouseover="pauseCarousel()"
 					@mouseleave="playCarousel()"
 				>
-					<div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+					<div class="relative overflow-hidden rounded-lg h-96">
 						<div
 							v-for="(review, i) in reviews"
 							class="hidden duration-700 ease-in-out home-review-carousel-item"
@@ -150,7 +150,7 @@
 				<button
 					@click="advanceCarousel()"
 					type="button"
-					class="flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+					class="hidden md:flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
 				>
 					<span
 						class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-700/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
