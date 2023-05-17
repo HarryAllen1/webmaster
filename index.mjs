@@ -10,6 +10,18 @@ const app = createApp({
 		],
 		['Jean Rousseau', 5, 'Best experience ever.'],
 	],
+	retreatCarousel() {
+		carousel.prev();
+	},
+	advanceCarousel() {
+		carousel.next();
+	},
+	pauseCarousel() {
+		carousel.pause();
+	},
+	playCarousel() {
+		carousel.cycle();
+	},
 });
 app.mount('#main');
 /** @type {HTMLElement[]} */
