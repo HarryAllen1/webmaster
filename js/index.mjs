@@ -3,7 +3,7 @@ import 'https://esm.sh/preline@1.8.0?bundle';
 import { createApp, reactive } from '../deps.mjs';
 import { CART_KEY } from './constants.mjs';
 import { pages } from './pages.mjs';
-import { parallax, throttle } from './parallax.mjs';
+import { parallax } from './parallax.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 import './scroll_animation.mjs';
 
@@ -118,4 +118,4 @@ document.querySelector('#main')?.addEventListener('click', () => {
 	}
 });
 
-globalThis.addEventListener('scroll', throttle(parallax, 14));
+globalThis.addEventListener('scroll', parallax());

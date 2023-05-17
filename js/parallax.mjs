@@ -1,26 +1,15 @@
 // https://codepen.io/Prachl/pen/jjKzEy
 // modified for ES6 and added types
+// omitted throttle function since idgaf about performance
 
-/**
- * @template {(...args: unknown[]) => unknown} T
- * @param {T} fn
- * @param {number} wait
- * @param {Parameters<T>} args
- */
-export const throttle = (fn, wait, ...args) => {
-	let time = Date.now();
+/** @param {number} intensity */
+export const parallax = (intensity = -0.4) => {
 	return () => {
-		if (time + wait - Date.now() < 0) {
-			fn(args);
-			time = Date.now();
-		}
+		const scrolled = window.pageYOffset;
+		const coords = scrolled * intensity + 'px';
+		/** @type {NodeListOf<HTMLElement>} */
+		const elements = document.querySelectorAll('.parallax');
+		for (const el of elements)
+			el.style.transform = 'translateY(' + coords + ')';
 	};
-};
-
-export const parallax = () => {
-	const scrolled = window.pageYOffset;
-	const coords = scrolled * 0.4 + 'px';
-	/** @type {NodeListOf<HTMLElement>} */
-	const elements = document.querySelectorAll('.parallax');
-	for (const el of elements) el.style.transform = 'translateY(' + coords + ')';
 };
