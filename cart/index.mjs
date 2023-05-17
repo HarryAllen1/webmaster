@@ -99,6 +99,4 @@ const app = createApp({
 	routerLink,
 });
 app.mount('#main');
-document.addEventListener('page-change', () => {
-	app.unmount();
-});
+document.addEventListener('page-change', app.unmount);
