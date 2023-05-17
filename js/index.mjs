@@ -118,4 +118,4 @@ document.querySelector('#main')?.addEventListener('click', () => {
 	}
 });
 
-globalThis.addEventListener('scroll', parallax());
+globalThis.addEventListener('scroll', parallax(-0.2));
