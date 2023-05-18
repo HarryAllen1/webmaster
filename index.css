@@ -39,5 +39,5 @@
 }
 
 #hero-text {
-	background-image: linear-gradient(var(--angle), #64748b, #e5e7eb, #64748b);
+	background-image: linear-gradient(var(--angle, 0), #64748b, #e5e7eb, #64748b);
 }
