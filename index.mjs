@@ -1,5 +1,20 @@
 import { createApp } from './deps.mjs';
 import { Carousel } from 'https://esm.sh/flowbite@1.6.5?bundle';
+import { angle } from './js/maths.mjs';
+
+const heroText = document.querySelector('#hero-text');
+if (!heroText || !(heroText instanceof HTMLElement))
+	throw new Error('hero text not found');
+const rekt = heroText.getBoundingClientRect();
+const aX = rekt.left + rekt.width / 2;
+const aY = rekt.top + rekt.height / 2;
+globalThis.addEventListener('mousemove', (e) => {
+	const mouseX = e.clientX;
+	const mouseY = e.clientY;
+
+	const an = angle(mouseX, mouseY, aX, aY);
+	heroText.style.setProperty('--angle', `${an}rad`);
+});
 
 const app = createApp({
 	reviews: [

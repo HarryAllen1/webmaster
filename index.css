@@ -37,3 +37,12 @@
 		opacity: 1;
 	}
 }
+
+#hero-text {
+	background-image: linear-gradient(
+		var(--angle),
+		'#64748b',
+		'#E5E7EB',
+		'#64748b'
+	);
+}

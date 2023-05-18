@@ -2331,6 +2331,10 @@ input:checked + .toggle-bg{
   animation: hero-btn-3 8s infinite;
 }
 
+.animate-none{
+  animation: none;
+}
+
 @keyframes spin{
   to{
     transform: rotate(360deg);
@@ -2671,8 +2675,48 @@ input:checked + .toggle-bg{
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-slate-500{
+  --tw-gradient-from: #64748b var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(100 116 139 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.\!from-slate-500{
+  --tw-gradient-from: #64748b var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(100 116 139 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.\!from-slate-600{
+  --tw-gradient-from: #475569 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(71 85 105 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.via-gray-200{
+  --tw-gradient-to: rgb(229 231 235 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #E5E7EB var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.\!via-gray-200{
+  --tw-gradient-to: rgb(229 231 235 / 0)  var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), #E5E7EB var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
 .to-blue-500{
   --tw-gradient-to: #3F83F8 var(--tw-gradient-to-position);
+}
+
+.to-slate-500{
+  --tw-gradient-to: #64748b var(--tw-gradient-to-position);
+}
+
+.\!to-slate-500{
+  --tw-gradient-to: #64748b var(--tw-gradient-to-position) !important;
+}
+
+.\!to-slate-600{
+  --tw-gradient-to: #475569 var(--tw-gradient-to-position) !important;
 }
 
 .fill-yellow-500{
@@ -3073,6 +3117,10 @@ input:checked + .toggle-bg{
 }
 
 .parallax{
+}
+
+.\[background-image\:linear-gradient\(var\(--angle\)\2c var\(--tw-gradient-stops\)\)\]{
+  background-image: linear-gradient(var(--angle),var(--tw-gradient-stops));
 }
 
 .\[font-size\:1rem\]{
@@ -3839,10 +3887,6 @@ body {
 
   .lg\:max-w-xl{
     max-width: 36rem;
-  }
-
-  .lg\:max-w-2xl{
-    max-width: 42rem;
   }
 
   .lg\:grid-cols-2{
