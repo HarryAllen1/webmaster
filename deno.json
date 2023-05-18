@@ -11,9 +11,7 @@
 		"rules": {
 			"include": ["camelcase", "eqeqeq", "no-const-assign"]
 		},
-		"files": {
-			"exclude": ["**/*.bundle.js"]
-		}
+		"exclude": ["**/*.bundle.js"]
 	},
 	"fmt": {
 		"singleQuote": true,

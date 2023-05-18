@@ -1,3 +1,5 @@
+// @ts-nocheck - google libraries suck
+
 import { plans } from '../js/plans.mjs';
 
 /**
@@ -210,7 +212,7 @@ function getGoogleTransactionInfo() {
  *
  * @see {@link https://developers.google.com/pay/api/web/reference/client#prefetchPaymentData|prefetchPaymentData()}
  */
-function prefetchGooglePaymentData() {
+export function prefetchGooglePaymentData() {
 	const paymentDataRequest = getGooglePaymentDataRequest();
 	// transactionInfo must be set but does not affect cache
 	paymentDataRequest.transactionInfo = {
@@ -231,14 +233,8 @@ function onGooglePaymentButtonClicked() {
 	const paymentsClient = getGooglePaymentsClient();
 	paymentsClient
 		.loadPaymentData(paymentDataRequest)
-		.then(function (paymentData) {
-			// handle the response
-			processPayment(paymentData);
-		})
-		.catch(function (err) {
-			// show error in developer console for debugging
-			console.error(err);
-		});
+		.then(processPayment)
+		.catch(console.error);
 }
 
 /**
