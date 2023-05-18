@@ -8,7 +8,7 @@ const app = createApp({
 		],
 		[
 			'What is AstroTours commitment to sustainability?',
-			'AstroTours heavily commits to multiple initiatives to achieve sustainability in the rocket industry. AstroTours has revolutionized the development of rocket engine fuel with the ABE-2 and carried initiatives to reuse rockets to reduce rocket costs. In addition, each vehicle is made of environmentally friendly metallic titanium.',
+			'AstroTours commits to achieve sustainability in the rocket industry by implementing environmental-friendly titanium bioengine fuel to the rocket. Both are very long-lasting and serves beneficial to the environment. We also plan to reuse rockets to reduce unneccessary created debt from space junk.',
 		],
 		[
 			'I want to join the AstroTours family. How do I join?',
@@ -16,7 +16,7 @@ const app = createApp({
 		],
 		[
 			'Who can participate in AstroTours space tourism experiences?',
-			'Anyone! If they can participate in our training programs without problematic issues, they are free to go on board!',
+			'Anyone can participate in our training programs as long as they do not have any impaired disabilities. We hope to prioritize safety to all customers, even it means cancelling the rocket launch.',
 		],
 		[
 			'What is the return policy on space expenditures?',
