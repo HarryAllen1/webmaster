@@ -1,7 +1,5 @@
 // @ts-nocheck - google libraries suck
 
-import { plans } from '../js/plans.mjs';
-
 /**
  * Define the version of the Google Pay API referenced when creating your
  * configuration
@@ -169,7 +167,7 @@ function addGooglePayButton() {
 	const button = paymentsClient.createButton({
 		onClick: onGooglePaymentButtonClicked,
 	});
-	document.getElementById('container')?.appendChild(button);
+	document.getElementById('container').appendChild(button);
 }
 
 /**
@@ -179,31 +177,12 @@ function addGooglePayButton() {
  * @returns {object} transaction info, suitable for use as transactionInfo property of PaymentDataRequest
  */
 function getGoogleTransactionInfo() {
-	const cart = JSON.parse(localStorage.getItem('new-new-cart') ?? '[]');
-	const total = cart
-		.map(
-			/** @return {[import('../js/types.d.ts').Product, number]} */
-			(i) => [plans.find((p) => p.name === i[0]) ?? plans[0], i[1]]
-		)
-		.reduce((acc, val) => acc + val[0].price * val[1], 0);
 	return {
 		countryCode: 'US',
 		currencyCode: 'USD',
 		totalPriceStatus: 'FINAL',
-		totalPriceLabel: 'Total',
-		totalPrice: total * 1.1,
-		displayItems: [
-			{
-				label: 'Subtotal',
-				type: 'SUBTOTAL',
-				price: total,
-			},
-			{
-				label: 'Tax',
-				type: 'TAX',
-				price: total * 0.1,
-			},
-		],
+		// set to cart total
+		totalPrice: '1.00',
 	};
 }
 
@@ -233,8 +212,14 @@ function onGooglePaymentButtonClicked() {
 	const paymentsClient = getGooglePaymentsClient();
 	paymentsClient
 		.loadPaymentData(paymentDataRequest)
-		.then(processPayment)
-		.catch(console.error);
+		.then(function (paymentData) {
+			// handle the response
+			processPayment(paymentData);
+		})
+		.catch(function (err) {
+			// show error in developer console for debugging
+			console.error(err);
+		});
 }
 
 /**

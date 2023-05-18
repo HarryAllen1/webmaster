@@ -44,7 +44,14 @@ const isValidCardNumber = (number) => {
 };
 
 const app = createApp({
-	onGooglePayLoaded,
+	onGooglePayLoaded() {
+		const el = document.createElement('script');
+		el.type = 'text/javascript';
+		el.async = true;
+		el.src = 'https://pay.google.com/gp/p/js/pay.js';
+		document.body.appendChild(el);
+		onGooglePayLoaded();
+	},
 	firstName: '',
 	lastName: '',
 	card: '',
