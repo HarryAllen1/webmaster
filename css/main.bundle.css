@@ -4910,6 +4910,14 @@ body {
     width: calc(24rem + 8rem);
   }
 
+  .md\:w-\[calc\(28rem\+8rem\)\]{
+    width: calc(28rem + 8rem);
+  }
+
+  .md\:w-\[calc\(30rem\+8rem\)\]{
+    width: calc(30rem + 8rem);
+  }
+
   .md\:max-w-lg{
     max-width: 32rem;
   }

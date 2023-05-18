@@ -53,7 +53,7 @@
 					Book a Flight
 				</div>
 			</a>
-			<p class="max-w-lg text-center">
+			<p class="max-w-lg md:max-w-xl text-center">
 				We are rated as <b>the world’s #1 space tourism company</b> for anyone
 				who wants to experience the thrill of space travel. We believe that
 				people can connect and communicate with others around the world through
@@ -61,7 +61,7 @@
 				astronautical travel accessible to anyone and to boost scientific
 				knowledge about the universe.
 			</p>
-			<dir class="flex flex-col max-w-lg">
+			<dir class="flex flex-col max-w-lg md:max-w-xl">
 				<blockquote>
 					Exploration is our nature. We began as wanderers still. We have
 					lingered long enough on the shores of the cosmic ocean. We are ready
@@ -71,12 +71,12 @@
 			</dir>
 
 			<img
-				class="shadow-2xl max-w-sm rounded-[36px_36px_4px_4px] mb-4 shadow-black animate-fade-in-up animate-duration-400 hover:scale-103 transition-transform transform-gpu"
+				class="shadow-2xl max-w-lg rounded-lg md:max-w-xl mb-4 shadow-black animate-fade-in-up animate-duration-400 hover:scale-103 transition-transform transform-gpu"
 				src="https://images.pexels.com/photos/355925/pexels-photo-355925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 				alt="Rocket taking off"
 			/>
 
-			<div class="flex flex-row w-full md:w-[calc(24rem+8rem)] items-center">
+			<div class="flex flex-row w-full md:w-[calc(30rem+8rem)] items-center">
 				<button
 					@click="retreatCarousel()"
 					type="button"
@@ -104,7 +104,7 @@
 					</span>
 				</button>
 				<div
-					class="relative w-full md:w-96"
+					class="relative w-full"
 					id="home-review-carousel"
 					@mouseover="pauseCarousel()"
 					@mouseleave="playCarousel()"
