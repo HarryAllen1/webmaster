@@ -7,7 +7,7 @@
 		<div class="flex items-center justify-between">
 			<a
 				href="/"
-				class="text-transparent inline-flex items-center gap-x-2 text-xl font-semibold"
+				class="text-transparent inline-flex items-center gap-x-2 text-[1.35rem] font-semibold"
 			>
 				<img
 					src="/assets/logo.png"
