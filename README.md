@@ -2,8 +2,6 @@
 
 Remade from scratch to avoid breaking rules about ~~compiling~~\* and HTML-generation
 
-
-
 \* JS and CSS are now bundled
 
 ## Development
