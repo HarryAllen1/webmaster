@@ -4918,6 +4918,10 @@ body {
     max-width: 42rem;
   }
 
+  .md\:max-w-xl{
+    max-width: 36rem;
+  }
+
   .md\:flex-row{
     flex-direction: row;
   }
@@ -5079,6 +5083,10 @@ body {
 
   .lg\:\[\&\>img\]\:max-w-3xl>img{
     max-width: 48rem;
+  }
+
+  .lg\:\[\&\>img\]\:max-w-4xl>img{
+    max-width: 56rem;
   }
 }
 
