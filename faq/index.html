@@ -22,17 +22,19 @@
 	</head>
 	<body class="bg-black min-h-[100vh]">
 		<div id="stars" class="parallax"></div>
-		<div id="loader"></div>
+
 		<wm-navbar></wm-navbar>
 		<div
 			id="main"
 			class="flex flex-col my-8 mx-8 md:mx-16 lg:mx-32 items-center prose prose-invert"
 		>
 			<h1 class="font-bold mb-8">FAQs</h1>
-			<div class="hs-accordion-group max-w-xl not-prose">
+			<div
+				class="hs-accordion-group max-w-xl not-prose border rounded-xl shadow-sm py-6 dark:bg-gray-800 dark:border-gray-700"
+			>
 				<template v-for="(faq, i) in faqs">
 					<div
-						class="hs-accordion hs-accordion-active:bg-gray-100 rounded-xl p-2 dark:hs-accordion-active:bg-white/[.05]"
+						class="hs-accordion rounded-xl p-2"
 						:id="'hs-basic-heading-' + i"
 					>
 						<button
@@ -80,7 +82,7 @@
 						<div
 							:id="'hs-basic-collapse-' + i"
 							:aria-labelledby="'hs-basic-heading-' + i"
-							class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+							class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300 z-10"
 						>
 							<div class="pb-4 px-6">
 								<p class="text-sm text-gray-600 dark:text-gray-200">

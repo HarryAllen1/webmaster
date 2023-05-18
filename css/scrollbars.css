@@ -3,7 +3,7 @@
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--primary);
+	background: theme('colors.slate.900');
 }
 
 ::-webkit-scrollbar-thumb {

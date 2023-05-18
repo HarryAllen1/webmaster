@@ -11,7 +11,7 @@
 
 :root,
 html.dark {
-	--primary: theme(colors.slate.900);
+	--primary: theme('colors.slate.900');
 }
 
 html {
@@ -23,18 +23,17 @@ body {
 	background-size: 100% 650px;
 	background-repeat: no-repeat;
 	background-image: linear-gradient(to bottom, var(--primary), #000);
-	/* overflow-x: hidden; */
 }
 #stars {
 	@apply fixed w-full h-full bg-no-repeat [background-size:100%_650px] [background-image:url('/assets/stars.svg')] z-0 pointer-events-none;
 }
 
 #main {
-	z-index: 1;
+	@apply z-10;
 }
 
 :where(#main *) {
-	z-index: 1;
+	@apply z-10;
 }
 
 .prose {
