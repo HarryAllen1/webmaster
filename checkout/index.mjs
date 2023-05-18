@@ -1,9 +1,10 @@
-import { createApp, canvasConfetti } from '../deps.mjs';
+import { canvasConfetti, createApp } from '../deps.mjs';
 import { CART_KEY } from '../js/constants.mjs';
+import { currencyFormatter } from '../js/number_formatter.mjs';
 import { plans } from '../js/plans.mjs';
 import { goto, routerLink } from '../js/router.mjs';
 import { sleep } from '../js/utils.mjs';
-import { currencyFormatter } from '../js/number_formatter.mjs';
+import { onGooglePayLoaded } from './gpay.js';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -43,6 +44,7 @@ const isValidCardNumber = (number) => {
 };
 
 const app = createApp({
+	onGooglePayLoaded,
 	firstName: '',
 	lastName: '',
 	card: '',
