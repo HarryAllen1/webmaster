@@ -1,5 +1,4 @@
-import { createApp } from './deps.mjs';
-import { Carousel } from 'https://esm.sh/flowbite@1.6.5?bundle';
+import { Carousel, createApp } from './deps.mjs';
 import { angle } from './js/maths.mjs';
 
 const heroText = document.querySelector('#hero-text');
