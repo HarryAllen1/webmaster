@@ -87,7 +87,7 @@
 									</div>
 									<p>{{ numberFormatter.format(item[0].price) }}</p>
 								</div>
-								<div class="w-full flex justify-between">
+								<div class="w-full flex justify-between z-[1]">
 									<div
 										@vue:mounted="initDatepickers()"
 										date-rangepicker
@@ -198,7 +198,7 @@
 									val[0].price * val[1], 0) * 0.1) }}
 								</p>
 							</div>
-							<div class="flex flex-row justify-between font-bold">
+							<div class="flex flex-row justify-between font-bold gap-4">
 								<p>Estimated Total</p>
 								<p>
 									{{ numberFormatter.format(items.reduce((acc, val) => acc +

@@ -1970,6 +1970,10 @@ input:checked + .toggle-bg{
   z-index: 5;
 }
 
+.z-\[1\]{
+  z-index: 1;
+}
+
 .col-start-1{
   grid-column-start: 1;
 }
@@ -2699,10 +2703,6 @@ input:checked + .toggle-bg{
   padding: 1rem;
 }
 
-.p-6{
-  padding: 1.5rem;
-}
-
 .px-0{
   padding-left: 0px;
   padding-right: 0px;
@@ -3146,6 +3146,10 @@ body {
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
+.toastify br {
+  display: none;
+}
+
 .before\:absolute::before{
   content: var(--tw-content);
   position: absolute;
@@ -3401,11 +3405,6 @@ body {
   display: none;
 }
 
-.hs-accordion.active.hs-accordion-active\:bg-gray-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
 .hs-accordion.active.hs-accordion-active\:text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
@@ -3424,11 +3423,6 @@ body {
   display: none;
 }
 
-.hs-accordion.active > .hs-accordion-toggle .hs-accordion-active\:bg-gray-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
 .hs-accordion.active > .hs-accordion-toggle .hs-accordion-active\:text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
@@ -3445,11 +3439,6 @@ body {
 
 .hs-accordion.active > .hs-accordion-toggle.hs-accordion-active\:hidden{
   display: none;
-}
-
-.hs-accordion.active > .hs-accordion-toggle.hs-accordion-active\:bg-gray-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .hs-accordion.active > .hs-accordion-toggle.hs-accordion-active\:text-blue-600{
@@ -3680,26 +3669,14 @@ body {
   --tw-ring-color: rgb(31 41 55 / 0.7);
 }
 
-:is(.dark .hs-accordion.active.dark\:hs-accordion-active\:bg-white\/\[\.05\]){
-  background-color: rgb(255 255 255 / .05);
-}
-
 :is(.dark .hs-accordion.active.dark\:hs-accordion-active\:text-blue-600){
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
 }
 
-:is(.dark .hs-accordion.active > .hs-accordion-toggle .dark\:hs-accordion-active\:bg-white\/\[\.05\]){
-  background-color: rgb(255 255 255 / .05);
-}
-
 :is(.dark .hs-accordion.active > .hs-accordion-toggle .dark\:hs-accordion-active\:text-blue-600){
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
-}
-
-:is(.dark .hs-accordion.active > .hs-accordion-toggle.dark\:hs-accordion-active\:bg-white\/\[\.05\]){
-  background-color: rgb(255 255 255 / .05);
 }
 
 :is(.dark .hs-accordion.active > .hs-accordion-toggle.dark\:hs-accordion-active\:text-blue-600){

@@ -19,8 +19,9 @@ const app = createApp({
 		// @ts-ignore: javascript moment
 		const target = e.target;
 		const name =
-			target.parentElement?.parentElement?.querySelector('#name')
-				?.textContent ?? '';
+			target.parentElement?.parentElement
+				?.querySelector('#name')
+				?.textContent?.trim() ?? '';
 
 		const productIndex = currentCart.findIndex((v) => v[0] === name);
 		if (productIndex === -1) {
@@ -36,6 +37,7 @@ const app = createApp({
 						background: 'rgb(239 68 68) /* bg-red-500 */',
 					},
 					position: 'center',
+
 					gravity: 'bottom',
 					close: true,
 					onClick: () => goto('/cart'),
