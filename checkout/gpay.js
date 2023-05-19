@@ -34,10 +34,7 @@ export const initGPay = () => {
 		},
 	};
 
-	button.addEventListener(
-		'loadpaymentdata',
-		/** @param {any} event */ (event) => {
-			console.log('load payment data', event.detail);
-		}
-	);
+	button.addEventListener('loadpaymentdata', () => {
+		location.href = '/thanks';
+	});
 };
