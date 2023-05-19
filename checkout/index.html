@@ -22,7 +22,6 @@
 		<link rel="stylesheet" href="/css/main.bundle.css" />
 
 		<link rel="stylesheet" href="/css/main.bundle.css" />
-		<script async src="https://pay.google.com/gp/p/js/pay.js"></script>
 	</head>
 	<body class="bg-black min-h-[100vh]">
 		<div id="stars" class="parallax"></div>
@@ -37,7 +36,7 @@
 			<template v-if="items.length">
 				<form
 					@submit.prevent="submit"
-					@vue:mounted="onGooglePayLoaded()"
+					@vue:mounted="initGPay()"
 					class="flex flex-col lg:justify-center max-w-full lg:w-[80%] xl:w-[60%] lg:items-start items-center md:w-xl lg:grid lg:grid-cols-[2fr_1fr] gap-4"
 				>
 					<div class="flex justify-center items-center max-w-full">
@@ -320,7 +319,7 @@
 							<h3 class="text-lg mb-4 font-bold text-gray-800 dark:text-white">
 								Order Summary
 							</h3>
-							<div id="container"></div>
+							<google-pay-button environment="TEST"></google-pay-button>
 							<div class="flex flex-row justify-between">
 								<p>Subtotal</p>
 								<p>

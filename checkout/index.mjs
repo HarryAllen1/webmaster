@@ -4,7 +4,7 @@ import { currencyFormatter } from '../js/number_formatter.mjs';
 import { plans } from '../js/plans.mjs';
 import { goto, routerLink } from '../js/router.mjs';
 import { sleep } from '../js/utils.mjs';
-import { onGooglePayLoaded } from './gpay.js';
+import { initGPay } from './gpay.js';
 
 /** @type {[string, number][]} */
 const items = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -44,7 +44,7 @@ const isValidCardNumber = (number) => {
 };
 
 const app = createApp({
-	onGooglePayLoaded,
+	initGPay,
 	firstName: '',
 	lastName: '',
 	card: '',
