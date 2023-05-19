@@ -4,11 +4,11 @@ const app = createApp({
 	faqs: [
 		[
 			'Is AstroTours currently seeking new positions?',
-			'Yes, AstroTours invites anyone willing to take the next step into joining our team and helping our cause and interest in space.',
+			'Yes. AstroTours invites anyone willing to take the next step into joining our team and helping our cause and interest in space.',
 		],
 		[
 			'What is AstroTours commitment to sustainability?',
-			'AstroTours commits to achieve sustainability in the rocket industry by implementing environmental-friendly titanium bioengine fuel to the rocket. Both are very long-lasting and serves beneficial to the environment. We also plan to reuse rockets to reduce unneccessary created debt from space junk.',
+			'AstroTours commits to achieve sustainability in the rocket industry by implementing environmental-friendly titanium bioengine fuel to the rocket. We also plan to reuse rockets to reduce excess material.',
 		],
 		[
 			'I want to join the AstroTours family. How do I join?',
