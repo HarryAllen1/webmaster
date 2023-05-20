@@ -1,3 +1,4 @@
+import 'https://esm.sh/@google-pay/button-element@3.0.9?bundle';
 import 'https://esm.sh/flowbite@1.6.5?bundle';
 import 'https://esm.sh/preline@1.8.0?bundle';
 import { createApp, reactive } from '../deps.mjs';
@@ -6,7 +7,6 @@ import { pages } from './pages.mjs';
 import { parallax } from './parallax.mjs';
 import { cachedPages, initRouter, pageStore, updatePage } from './router.mjs';
 import './scroll_animation.mjs';
-import 'https://esm.sh/@google-pay/button-element@3.0.9?bundle';
 
 import(
 	// hack to allow pages to be visited more than once

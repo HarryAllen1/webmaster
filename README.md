@@ -59,6 +59,7 @@ This site is deployed to way too many urls.
 ### Firebase
 
 - https://tsa--webmaster.web.app/
+- https://tsa--webmaster.firebaseapp.com/
 
 ### Azure Static Web Apps
 

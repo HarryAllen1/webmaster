@@ -24,11 +24,7 @@ const app = createApp({
 		style: 'currency',
 		currency: 'USD',
 	}),
-	clearCart() {
-		if (!confirm('Are you sure you want to clear your cart?')) return;
-		this.items = [];
-		localStorage.setItem(CART_KEY, '[]');
-	},
+
 	/**
 	 * @param {string} name
 	 * @param {string} c
