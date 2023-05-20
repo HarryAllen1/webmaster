@@ -2275,6 +2275,10 @@ input:checked + .toggle-bg{
   height: 100%;
 }
 
+.h-7{
+  height: 1.75rem;
+}
+
 .min-h-\[100vh\]{
   min-height: 100vh;
 }
@@ -3608,6 +3612,27 @@ input:checked + .toggle-bg{
   line-height: 1rem;
 }
 
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-\[0\.8rem\]{
+  font-size: 0.8rem;
+}
+
+.text-\[0\.9rem\]{
+  font-size: 0.9rem;
+}
+
+.text-\[0\.95rem\]{
+  font-size: 0.95rem;
+}
+
+.text-\[0\.92rem\]{
+  font-size: 0.92rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -4121,6 +4146,10 @@ input:checked + .toggle-bg{
 
 .\[overflow-wrap\:anywhere\]{
   overflow-wrap: anywhere;
+}
+
+.\[r\:\FFFD\FFFD\526 1\FFFDX\]{
+  r: ��Ԧ1�X;
 }
 
 :root,

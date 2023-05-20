@@ -121,7 +121,7 @@
 					v-for="link in pages"
 					:class="{ active: pageStore.current.replaceAll('index.html', '') !== link[1].replaceAll('/', '') }"
 					:href="link[1]"
-					class="font-medium text-blue-500 nav-link"
+					class="text-blue-500 font-medium text-[0.92rem] nav-link"
 				>
 					{{ link[0] }}
 				</a>
