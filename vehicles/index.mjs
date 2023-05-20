@@ -98,8 +98,8 @@ customElements.define(
 			function updateObjRotation(obj){
 				if (obj){
 					console.log(mouse);
-					obj.rotation.x = mouse.y*0.3;
-					obj.rotation.y = -mouse.x*0.3;
+					obj.rotation.x = -mouse.y*0.3;
+					obj.rotation.y = mouse.x*0.3;
 				}
 			}
 
