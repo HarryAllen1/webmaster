@@ -2053,6 +2053,10 @@ input:checked + .toggle-bg{
   margin: 1px;
 }
 
+.m-8{
+  margin: 2rem;
+}
+
 .mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
@@ -4129,6 +4133,14 @@ input:checked + .toggle-bg{
 
 .\[overflow-wrap\:anywhere\]{
   overflow-wrap: anywhere;
+}
+
+.\[l\:\\\FFFD 5i\FFFD\FFFD\2\FFFD 0\FFFD\FFFDX\FFFD\FFFD\FFFD\16\FFFD\FFFD\FFFDM\FFFD\FFFDW\FFFD\]{
+  l: \�5i���0��X������M��W�;
+}
+
+.\[x\:a\]{
+  x: a;
 }
 
 :root,

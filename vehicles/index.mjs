@@ -91,15 +91,15 @@ customElements.define(
 				mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 			});
 
-			function updateDirectionalLight(){
-				directionalLight.position.set(mouse.x*4, mouse.y*4, 1);
+			function updateDirectionalLight() {
+				directionalLight.position.set(mouse.x * 4, mouse.y * 4, 1);
 			}
 
-			function updateObjRotation(obj){
-				if (obj){
+			function updateObjRotation(obj) {
+				if (obj) {
 					console.log(mouse);
-					obj.rotation.x = -mouse.y*0.3;
-					obj.rotation.y = mouse.x*0.3;
+					obj.rotation.x = -mouse.y * 0.3;
+					obj.rotation.y = mouse.x * 0.3;
 				}
 			}
 
