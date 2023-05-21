@@ -23,8 +23,8 @@ const app = createApp({
 			'I ate before the flight because nowhere did it tell me not to. I ended up vomiting all over my crush. 4/5 view was nice.',
 		],
 		['Jean Rousseau', 5, 'Best experience ever.'],
-		['Anne Pluto', 5, 'What more to say? It&339s the greatest space tour you&#39ll ever have. 100% absolutely recommend.'],
-		['Luke Rene', 5, 'I&#39m a simple man. I like to look up at the stars. This allowed me to look up at the stars. So 5/5.'],
+		['Anne Pluto', 5, 'What more to say? It&#39;s the greatest space tour you&#39;ll ever have. 100% absolutely recommend.'],
+		['Luke Rene', 5, 'I&#39;m a simple man. I like to look up at the stars. This allowed me to look up at the stars. So 5/5.'],
 		['Nickel Herbert', 4, 'I would give it a 5/5, but Luke Rene already did.']
 	],
 	retreatCarousel() {
