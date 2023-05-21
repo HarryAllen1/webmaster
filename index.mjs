@@ -18,6 +18,16 @@ globalThis.addEventListener('mousemove', (e) => {
 const app = createApp({
 	reviews: [
 		[
+			'The Pulitzer Times',
+			5,
+			'Of all the space tourism companies out there, none provides as wonderful, as enthralling, as fulfilling an experience as AstroTours. If I had to recommend a space tourism company to a friend, AstroTours would surely be the first.',
+		],
+		[
+			'Addeus Plane, President of the Space Racers hobby group',
+			5,
+			"As someone who avidly pursues space tourism as a hobby, after my experience with AstroTours, I don't think I will ever go back to another company.",
+		],
+		[
 			'Sam Liyanage',
 			4,
 			'I ate before the flight because nowhere did it tell me not to. I ended up vomiting all over my crush. 4/5 view was nice.',
