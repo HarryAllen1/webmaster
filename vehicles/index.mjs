@@ -10,7 +10,12 @@ import {
 	Vector3,
 	WebGLRenderer,
 } from 'https://esm.sh/three@0.152.2?bundle';
+import { OrbitControls } from 'https://esm.sh/three/examples/jsm/controls/OrbitControls.js?bundle';
+import { Raycaster } from 'https://esm.sh/three/src/core/Raycaster.js?bundle';
+import { PointLight } from 'https://esm.sh/three/src/lights/PointLight.js?bundle';
 
+
+// if not mobile based on pointer coarse
 if (!globalThis.matchMedia('(pointer: coarse)').matches) {
 	customElements.define(
 		'wm-vehicle-model',
