@@ -2142,6 +2142,10 @@ input:checked + .toggle-bg{
   margin-top: 1.5rem;
 }
 
+.mb-6{
+  margin-bottom: 1.5rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -2340,6 +2344,14 @@ input:checked + .toggle-bg{
 
 .w-full{
   width: 100%;
+}
+
+.w-\[400px\]{
+  width: 400px;
+}
+
+.\!w-\[400px\]{
+  width: 400px !important;
 }
 
 .min-w-\[15rem\]{
