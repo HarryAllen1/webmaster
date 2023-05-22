@@ -2078,6 +2078,11 @@ input:checked + .toggle-bg{
   margin-bottom: 2rem;
 }
 
+.mx-4{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .mb-0{
   margin-bottom: 0px;
 }
@@ -4154,6 +4159,18 @@ input:checked + .toggle-bg{
   l_r-h: ǎ�Z��Wb����N�g��=;
 }
 
+.\[b\:9\FFFD\FFFD\]{
+  b: 9��;
+}
+
+.\[k\:\FFFD\FFFD\^\1C\FFFD\15H\FFFD\`\FFFDqt\FFFD\10\FFFDt\8 C\]{
+  k: ��^�H�`�qt��tC;
+}
+
+.\[r\:\FFFD\FFFD\526 1\FFFDX\]{
+  r: ��Ԧ1�X;
+}
+
 :root,
 html.dark {
   --primary: #0f172a;
@@ -4922,10 +4939,30 @@ body {
   margin-bottom: 0px;
 }
 
+.\[\&\>p\]\:px-4>p{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .\[\&_\.card\]\:p-6 .card{
   padding: 1.5rem;
 }
 
 .\[\&_\.card\]\:text-center .card{
   text-align: center;
+}
+
+.\[\&_i\]\:mx-4 i{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.\[\&_p\]\:mx-4 p{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.\[\&_p\]\:px-4 p{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
