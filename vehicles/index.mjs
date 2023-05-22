@@ -90,11 +90,15 @@ customElements.define(
 				directionalLight.position.set(mouse.x * 4, mouse.y * 4, 1);
 			}
 
+			function clamp(num, min, max) {
+				return num <= min ? min : num >= max ? max : num;
+			}
+
 			/** @param {import('https://esm.sh/three@0.152.2?bundle').Group | undefined} obj */
 			function updateObjRotation(obj) {
 				if (obj) {
-					obj.rotation.x = -mouse.y * 0.3;
-					obj.rotation.y = mouse.x * 0.3;
+					obj.rotation.x = clamp(-mouse.y * 0.3, -0.3, 0.3);
+					obj.rotation.y = clamp(mouse.x * 0.3, -0.3, 0.3);
 				}
 			}
 
