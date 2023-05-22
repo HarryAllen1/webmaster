@@ -20,7 +20,7 @@ customElements.define(
 		? class extends HTMLElement {
 				constructor() {
 					super();
-					this.classList.add('w-full');
+					this.classList.add('w-[400px]');
 					const renderer = new WebGLRenderer();
 					renderer.setSize(800, 600);
 					const scene = new Scene();
@@ -140,7 +140,7 @@ customElements.define(
 					};
 					render();
 					renderer.setClearColor(0x000000, 0);
-					renderer.domElement.classList.add('!w-full', 'z-10');
+					renderer.domElement.classList.add('!w-[400px]', 'z-10');
 					this.innerHTML = '';
 					this.append(renderer.domElement);
 				}
@@ -148,7 +148,7 @@ customElements.define(
 		: class extends HTMLElement {
 				constructor() {
 					super();
-					this.classList.add('w-full');
+					this.classList.add('w-[400px]');
 					const renderer = new WebGLRenderer();
 					renderer.setSize(800, 600);
 					const scene = new Scene();
@@ -253,7 +253,7 @@ customElements.define(
 					};
 					render();
 					renderer.setClearColor(0x000000, 0);
-					renderer.domElement.classList.add('!w-full', 'z-10');
+					renderer.domElement.classList.add('!w-[400px]', 'z-10');
 					this.innerHTML = '';
 					this.append(renderer.domElement);
 				}
