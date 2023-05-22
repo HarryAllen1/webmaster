@@ -31,7 +31,7 @@ customElements.define(
 				1000
 			);
 			camera.position.z = 5;
-			const ambientLight = new AmbientLight(0xffffff, 0.01);
+			const ambientLight = new AmbientLight(0xffffff, 0.3);
 			scene.add(ambientLight);
 			const directionalLight = new DirectionalLight(0xfff9ff, 0.3);
 			directionalLight.position.set(1, 0, 0);
@@ -97,9 +97,8 @@ customElements.define(
 
 			function updateObjRotation(obj){
 				if (obj){
-					console.log(mouse);
-					obj.rotation.x = -mouse.y*0.3;
-					obj.rotation.y = mouse.x*0.3;
+					obj.rotation.x = -mouse.y*0.1;
+					obj.rotation.y = mouse.x*0.1;
 				}
 			}
 
