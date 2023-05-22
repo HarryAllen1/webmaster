@@ -3478,6 +3478,10 @@ input:checked + .toggle-bg{
   padding: 1rem;
 }
 
+.p-6{
+  padding: 1.5rem;
+}
+
 .px-0{
   padding-left: 0px;
   padding-right: 0px;
@@ -4140,6 +4144,14 @@ input:checked + .toggle-bg{
 
 .\[overflow-wrap\:anywhere\]{
   overflow-wrap: anywhere;
+}
+
+.\[bT\:\FFFD\FFFD\^\FFFDtJ\.1Q\FFFDn\FFFD-i\<\FFFD\FFFD\FFFDiE0\FFFDZX\E 5\$\FFFD\FFFD\FFFD ex\FFFD\FFFD\FFFD\FFFD\]{
+  b-t: ��^�tJ.1Q�n�-i<���iE0�ZX5$���ex����;
+}
+
+.\[l_rH\:\1CE\FFFDZ\FFFD\FFFDWb\FFFD\FFFD\FFFD\FFFDN\FFFDg\FFFD\FFFD\=\]{
+  l_r-h: ǎ�Z��Wb����N�g��=;
 }
 
 :root,
