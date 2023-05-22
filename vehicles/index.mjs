@@ -1,4 +1,3 @@
-import { OrbitControls } from 'https://esm.sh/three@0.152.2/examples/jsm/controls/OrbitControls.js?bundle';
 import { GLTFLoader } from 'https://esm.sh/three@0.152.2/examples/jsm/loaders/GLTFLoader.js?bundle';
 import {
 	AmbientLight,
@@ -14,51 +13,50 @@ import {
 	WebGLRenderer,
 } from 'https://esm.sh/three@0.152.2?bundle';
 
-customElements.define(
-	'wm-vehicle-model',
-	globalThis.matchMedia('(pointer: coarse)').matches
-		? class extends HTMLElement {
-				constructor() {
-					super();
-					this.classList.add('w-full');
-					const renderer = new WebGLRenderer();
-					renderer.setSize(800, 600);
-					const scene = new Scene();
-					const camera = new PerspectiveCamera(
-						75,
-						renderer.domElement.width / renderer.domElement.height,
-						0.1,
-						1000
-					);
-					const controls = new OrbitControls(camera, renderer.domElement);
-					controls.enableZoom = false;
-					camera.position.z = 5;
-					const ambientLight = new AmbientLight(0xffffff, 5);
-					scene.add(ambientLight);
-					const directionalLight = new DirectionalLight(0xfff9ff, 1);
-					directionalLight.position.set(0, 0, 1);
-					scene.add(directionalLight);
-					const directionalLight2 = new DirectionalLight(0xfffff9, 1);
-					directionalLight2.position.set(0, 0, -1);
-					scene.add(directionalLight2);
-					const loader = new GLTFLoader();
-					loader.load(
-						this.dataset.filepath ?? '',
-						(gltf) => {
-							const object = gltf.scene;
-							object.scale.set(0.001, 0.001, 0.001);
-							const box = new Box3().setFromObject(object);
-							const boxCenter = box.getCenter(new Vector3());
-							object.position.x = -boxCenter.x;
-							object.position.y = -boxCenter.y;
-							object.position.z = -boxCenter.z;
-							//reduce the shine
-							object.traverse(
-								/** @param {any} child */ (child) => {
-									if (child.isMesh) {
-										child.material.metalness = 0.9;
-										child.material.roughness = 0.9;
-									}
+
+
+// if not mobile based on pointer coarse
+if (!globalThis.matchMedia('(pointer: coarse)').matches) {
+	customElements.define(
+		'wm-vehicle-model',
+		class extends HTMLElement {
+			constructor() {
+				super();
+				this.classList.add('w-full');
+				const renderer = new WebGLRenderer();
+				renderer.setSize(800, 600);
+				const scene = new Scene();
+				const camera = new PerspectiveCamera(
+					75,
+					renderer.domElement.width / renderer.domElement.height,
+					0.1,
+					1000
+				);
+				camera.position.z = 5;
+				const ambientLight = new AmbientLight(0xffffff, 0.3);
+				scene.add(ambientLight);
+				const directionalLight = new DirectionalLight(0xfff9ff, 0.3);
+				directionalLight.position.set(1, 0, 0);
+				scene.add(directionalLight);
+				const loader = new GLTFLoader();
+				/** @type {import('https://esm.sh/three@0.152.2?bundle').Group} */
+				let object;
+				loader.load(
+					this.dataset.filepath ?? '',
+					(gltf) => {
+						object = gltf.scene;
+						object.scale.set(0.001, 0.001, 0.001);
+						const box = new Box3().setFromObject(object);
+						const boxCenter = box.getCenter(new Vector3());
+						object.position.x = -boxCenter.x;
+						object.position.y = -boxCenter.y;
+						object.position.z = -boxCenter.z;
+						//reduce the shine
+						object.traverse(
+							/** @param {any} child */ (child) => {
+								if (child.isMesh) {
+									child.material.metalness = 0.9;
+									child.material.roughness = 0.9;
 								}
 							);
 							scene.add(object);
