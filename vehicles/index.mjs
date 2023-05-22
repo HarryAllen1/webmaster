@@ -1,3 +1,4 @@
+import { OrbitControls } from 'https://esm.sh/three@0.152.2/examples/jsm/controls/OrbitControls.js?bundle';
 import { GLTFLoader } from 'https://esm.sh/three@0.152.2/examples/jsm/loaders/GLTFLoader.js?bundle';
 import {
 	AmbientLight,
@@ -5,6 +6,8 @@ import {
 	DirectionalLight,
 	PerspectiveCamera,
 	Plane,
+	PointLight,
+	Raycaster,
 	Scene,
 	Vector2,
 	Vector3,
