@@ -31,6 +31,7 @@
 			<h1 id="hero-text" class="astrotours text-6xl mt-6 animate-none">
 				AstroTours
 			</h1>
+
 			<h3 class="font-bold text-center">Space for the people and the world</h3>
 			<a
 				class="relative my-8 no-underline p-0 border-none outline-none rounded-md bg-transparent transition-shadow duration-200 hover:transition-all hover:duration-100 hover:bg-transparent hover:text-black"
@@ -53,13 +54,12 @@
 					Book a Flight
 				</div>
 			</a>
-			<p class="max-w-lg md:max-w-xl text-center">
-				We are rated as <b>the world’s #1 space tourism company</b> for anyone
-				who wants to experience the thrill of space travel. We believe that
-				people can connect and communicate with others around the world through
-				space tourism. AstroTours is founded with a commitment to make
-				astronautical travel accessible to anyone and to boost scientific
-				knowledge about the universe.
+			<p class="max-w-lg text-center">
+				We are rated as <b>the world’s #1 space tourism company</b>, providing
+				an incredible opportunity for anyone seeking the thrill of space travel.
+				Our goal at AstroTours is to give everyone a chance to experience
+				astronautical travel and to contribute scientific knowledge about the
+				universe.
 			</p>
 			<dir class="flex flex-col max-w-lg md:max-w-xl">
 				<blockquote>
@@ -75,6 +75,10 @@
 				src="https://images.pexels.com/photos/355925/pexels-photo-355925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 				alt="Rocket taking off"
 			/>
+
+			<h3 class="font-bold text-center">
+				Thousands of Glowing Reviews From Customers
+			</h3>
 
 			<div class="flex flex-row w-full md:w-[calc(30rem+8rem)] items-center">
 				<button
@@ -109,7 +113,7 @@
 					@mouseover="pauseCarousel()"
 					@mouseleave="playCarousel()"
 				>
-					<div class="relative overflow-hidden rounded-lg h-96">
+					<div class="relative overflow-hidden rounded-lg h-72">
 						<div
 							v-for="(review, i) in reviews"
 							class="hidden duration-700 ease-in-out home-review-carousel-item"

@@ -1,19 +1,15 @@
-import { OrbitControls } from 'https://esm.sh/three@0.152.2/examples/jsm/controls/OrbitControls.js?bundle';
 import { GLTFLoader } from 'https://esm.sh/three@0.152.2/examples/jsm/loaders/GLTFLoader.js?bundle';
-
 import {
 	AmbientLight,
 	Box3,
 	DirectionalLight,
 	PerspectiveCamera,
 	Plane,
-	PointLight,
-	Raycaster,
 	Scene,
 	Vector2,
 	Vector3,
 	WebGLRenderer,
-} from 'https://esm.sh/three@0.152.2?bundle&exports=AmbientLight,Box3,DirectionalLight,PerspectiveCamera,Plane,PointLight,Raycaster,Scene,Vector2,Vector3,WebGLRenderer,Object3D';
+} from 'https://esm.sh/three@0.152.2?bundle';
 
 customElements.define(
 	'wm-vehicle-model',
@@ -37,8 +33,8 @@ customElements.define(
 			directionalLight.position.set(1, 0, 0);
 			scene.add(directionalLight);
 			const loader = new GLTFLoader();
-			var standardRotation;
-			var object;
+			/** @type {import('https://esm.sh/three@0.152.2?bundle').Group} */
+			let object;
 			loader.load(
 				this.dataset.filepath ?? '',
 				(gltf) => {
@@ -49,7 +45,6 @@ customElements.define(
 					object.position.x = -boxCenter.x;
 					object.position.y = -boxCenter.y;
 					object.position.z = -boxCenter.z;
-					standardRotation = object.rotation;
 					//reduce the shine
 					object.traverse(
 						/** @param {any} child */ (child) => {
@@ -91,14 +86,15 @@ customElements.define(
 				mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 			});
 
-			function updateDirectionalLight(){
-				directionalLight.position.set(mouse.x*4, mouse.y*4, 1);
+			function updateDirectionalLight() {
+				directionalLight.position.set(mouse.x * 4, mouse.y * 4, 1);
 			}
 
-			function updateObjRotation(obj){
-				if (obj){
-					obj.rotation.x = -mouse.y*0.1;
-					obj.rotation.y = mouse.x*0.1;
+			/** @param {import('https://esm.sh/three@0.152.2?bundle').Group | undefined} obj */
+			function updateObjRotation(obj) {
+				if (obj) {
+					obj.rotation.x = -mouse.y * 0.3;
+					obj.rotation.y = mouse.x * 0.3;
 				}
 			}
 

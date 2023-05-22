@@ -1,3 +1,5 @@
+import { CART_KEY } from '../js/constants.mjs';
+
 export const initGPay = () => {
 	/** @type {any} */
 	const button = document.querySelector('google-pay-button');
@@ -35,6 +37,7 @@ export const initGPay = () => {
 	};
 
 	button.addEventListener('loadpaymentdata', () => {
+		localStorage.removeItem(CART_KEY);
 		location.href = '/thanks';
 	});
 };

@@ -3,3 +3,4 @@
 *.bundle.css
 *.css.map
 pnpm-lock.yaml
+*.gltf
