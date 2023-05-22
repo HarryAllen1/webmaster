@@ -92,7 +92,7 @@ customElements.define(
 
 					/**
 					 * @param {PerspectiveCamera} camera
-					 * @param {import('https://esm.sh/three@0.152.2?bundle&exports=AmbientLight,Box3,DirectionalLight,PerspectiveCamera,Plane,PointLight,Raycaster,Scene,Vector2,Vector3,WebGLRenderer,Object3D').Object3D} model
+					 * @param {import('https://esm.sh/three@0.152.2?bundle').Object3D} model
 					 */
 					function updateIntersectPoint(camera, model) {
 						updatePlane(camera);
